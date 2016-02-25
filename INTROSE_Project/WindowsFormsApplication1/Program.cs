@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Purchase_Order_Maintenance_Application
+namespace introse_project
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace Purchase_Order_Maintenance_Application
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new main());
         }
     }
 }

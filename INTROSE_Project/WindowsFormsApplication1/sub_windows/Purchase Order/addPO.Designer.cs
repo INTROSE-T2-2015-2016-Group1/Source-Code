@@ -1,6 +1,6 @@
-﻿namespace Purchase_Order_Maintenance_Application
+﻿namespace introse_project.sub_windows.Purchase_Order
 {
-    partial class Form2
+    partial class addPO
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form2
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "Form2";
-            this.Text = "Main Menu";
-            this.ResumeLayout(false);
-
+            this.Text = "addPO";
         }
 
         #endregion

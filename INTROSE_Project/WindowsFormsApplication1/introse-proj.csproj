@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB1C3A33-D374-48FB-8650-D845779D3500}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>introse_project</RootNamespace>
+    <AssemblyName>INTROSE_project</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sub_windows\Delivery Monitoring Sheet\addDMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Monitoring Sheet\addDMS.Designer.cs">
+      <DependentUpon>addDMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Monitoring Sheet\updateDMS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Monitoring Sheet\updateDMS.Designer.cs">
+      <DependentUpon>updateDMS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\addDR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\addDR.Designer.cs">
+      <DependentUpon>addDR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\updateDR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\updateDR.Designer.cs">
+      <DependentUpon>updateDR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery\addDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery\addDelivery.Designer.cs">
+      <DependentUpon>addDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sub_windows\Purchase Order\addPO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\addPO.Designer.cs">
+      <DependentUpon>addPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\updatePO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\updatePO.Designer.cs">
+      <DependentUpon>updatePO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Quotation Form\addQF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Quotation Form\addQF.Designer.cs">
+      <DependentUpon>addQF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery\updateDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery\updateDelivery.Designer.cs">
+      <DependentUpon>updateDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Quotation Form\updateQF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Quotation Form\updateQF.Designer.cs">
+      <DependentUpon>updateQF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\addSI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\addSI.Designer.cs">
+      <DependentUpon>addSI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\updateSI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\updateSI.Designer.cs">
+      <DependentUpon>updateSI.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="sub_windows\Delivery\addDelivery.resx">
+      <DependentUpon>addDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

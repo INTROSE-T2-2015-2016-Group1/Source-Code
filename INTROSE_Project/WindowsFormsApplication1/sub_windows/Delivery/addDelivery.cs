@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Purchase_Order_Maintenance_Application
+namespace introse_project
 {
-    public partial class Form2 : Form
+    public partial class addDelivery : Form
     {
-        public Form2()
+        public addDelivery()
         {
             InitializeComponent();
         }
