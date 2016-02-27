@@ -46,7 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Libs\CustomerOrderItemsManagercs.cs" />
+    <Compile Include="Libs\CustomerPOManager.cs" />
+    <Compile Include="Libs\CustomerManager.cs" />
+    <Compile Include="Libs\DeliveryReceiptsManager.cs" />
+    <Compile Include="Libs\InvoicesManager.cs" />
     <Compile Include="Libs\ItemManager.cs" />
+    <Compile Include="Libs\SupplierOrderItemsManager.cs" />
+    <Compile Include="Libs\SupplierPOManager.cs" />
     <Compile Include="main_final.cs">
       <SubType>Form</SubType>
     </Compile>

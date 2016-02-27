@@ -10,12 +10,11 @@ using System.Data;
 
 namespace introse_project.Libs
 {
-    class ItemManager
+    class InvoicesManager
     {
-
         public void viewAll(DataGridView dataGridView)
         {
-            string query = "select * from customerpo";
+            string query = "select * from invoices";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -42,8 +41,7 @@ namespace introse_project.Libs
             {
                 MessageBox.Show(ex.Message);
             }
-
-
+        
         }
 
     }

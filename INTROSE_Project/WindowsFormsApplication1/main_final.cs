@@ -149,16 +149,23 @@ namespace introse_project
 
         }
 
-        private void button10_Click_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            ItemManager itemManager = new ItemManager();
-
-            itemManager.viewAll(dataGridView3);
+            CustomerPOManager customerPOManager = new CustomerPOManager();
+            customerPOManager.viewAll(dataGridView1);
+            dataGridView1.AutoResizeColumns();
         }
 
         private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button10_Click_2(object sender, EventArgs e)
+        {
+            ItemManager itemManager = new ItemManager();
+            itemManager.viewAll(dataGridView3);
+            dataGridView3.AutoResizeColumns();
         }
 
         
