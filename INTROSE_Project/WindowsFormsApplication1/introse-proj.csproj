@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="main_final.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main_final.Designer.cs">
+      <DependentUpon>main_final.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Delivery Monitoring Sheet\addDMS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,12 +79,6 @@
     </Compile>
     <Compile Include="sub_windows\Delivery\addDelivery.Designer.cs">
       <DependentUpon>addDelivery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="main.Designer.cs">
-      <DependentUpon>main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,11 +124,11 @@
     <Compile Include="sub_windows\Sales Invoice\updateSI.Designer.cs">
       <DependentUpon>updateSI.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="main_final.resx">
+      <DependentUpon>main_final.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Delivery\addDelivery.resx">
       <DependentUpon>addDelivery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="main.resx">
-      <DependentUpon>main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
