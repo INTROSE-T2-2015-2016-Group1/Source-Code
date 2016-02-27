@@ -13,6 +13,7 @@ using introse_project.sub_windows.Delivery_Receipt;
 using introse_project.sub_windows.Purchase_Order;
 using introse_project.sub_windows.Quotation_Form;
 using introse_project.sub_windows.Sales_Invoice;
+using introse_project.Libs;
 
 namespace introse_project
 {
@@ -144,6 +145,18 @@ namespace introse_project
         }
 
         private void mainTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            ItemManager itemManager = new ItemManager();
+
+            itemManager.viewAll(dataGridView3);
+        }
+
+        private void dataGridView3_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
