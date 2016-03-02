@@ -110,5 +110,17 @@ namespace introse_project
         {
 
         }
+        //Search
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+
     }
 }

@@ -548,6 +548,7 @@
             this.searchBtn.TabIndex = 7;
             this.searchBtn.Text = "Seach";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // editBtn
             // 
@@ -557,6 +558,7 @@
             this.editBtn.TabIndex = 13;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // searchFormGridView
             // 
