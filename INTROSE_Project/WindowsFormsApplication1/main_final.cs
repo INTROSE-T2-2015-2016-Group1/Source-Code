@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using introse_project.sub_windows.delivery;
-using introse_project.sub_windows.Delivery_Monitoring_Sheet;
+
 using introse_project.sub_windows.Delivery_Receipt;
 using introse_project.sub_windows.Purchase_Order;
-using introse_project.sub_windows.Quotation_Form;
+
 using introse_project.sub_windows.Sales_Invoice;
 
 namespace introse_project
@@ -27,128 +26,89 @@ namespace introse_project
         {
 
         }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            addDelivery add = new addDelivery();
-            add.ShowDialog(); 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            updateDelivery update = new updateDelivery();
-            update.ShowDialog();
-        }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-            addDelivery add = new addDelivery();
-            add.ShowDialog(); 
-        }
-        private void button15_Click(object sender, EventArgs e)
-        {
-            addQF add = new addQF();
-            add.ShowDialog();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            updateQF update = new updateQF();
-            update.ShowDialog();
-        }
-        private void button13_Click(object sender, EventArgs e)
-        {
-            addPO add = new addPO();
-            add.ShowDialog();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            updatePO update = new updatePO();
-            update.ShowDialog();
-        }
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            addPO add = new addPO();
-            add.ShowDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            updatePO update = new updatePO();
-            update.ShowDialog();
-        }
-        private void button16_Click(object sender, EventArgs e)
-        {
-            addDMS add = new addDMS();
-            add.ShowDialog();
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            updateDMS update = new updateDMS();
-            update.ShowDialog();
-
-        }
-        private void button17_Click(object sender, EventArgs e)
-        {
-            addSI add = new addSI();
-            add.ShowDialog();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            updateSI update = new updateSI();
-            update.ShowDialog();
-        }
-        private void button18_Click_1(object sender, EventArgs e)
-        {
-            addDR add = new addDR();
-            add.ShowDialog();
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            updateDR update = new updateDR();
-            update.ShowDialog();
-        }
-
-        private void tabPage14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mainTab_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        
-        
+        //Item Management
+        private void imViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void imUpdateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Company List
+        private void clViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Supplier List
+        private void slViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void slAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }  
+        //Customer PO
+        private void cPOViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cPOUpdateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cPOAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Supplier PO
+        private void sPOViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sPOUpdateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sPOAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Sales Invoice
+        private void siViewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siUpdateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void siAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

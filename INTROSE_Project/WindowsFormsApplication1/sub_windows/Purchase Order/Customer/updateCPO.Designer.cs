@@ -1,6 +1,6 @@
-﻿namespace introse_project.sub_windows.delivery
+﻿namespace introse_project.sub_windows.Purchase_Order
 {
-    partial class updateDelivery
+    partial class updateCPO
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "updateDelivery";
+            this.Text = "updatePO";
         }
 
         #endregion

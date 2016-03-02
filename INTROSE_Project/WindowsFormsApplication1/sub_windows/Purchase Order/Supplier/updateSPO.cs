@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace introse_project
+namespace introse_project.sub_windows.Purchase_Order.Supplier
 {
-    public partial class addDelivery : Form
+    public partial class updateSPO : Form
     {
-        public addDelivery()
+        public updateSPO()
         {
             InitializeComponent();
         }

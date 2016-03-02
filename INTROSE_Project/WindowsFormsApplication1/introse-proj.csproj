@@ -50,18 +50,6 @@
     <Compile Include="main_final.Designer.cs">
       <DependentUpon>main_final.cs</DependentUpon>
     </Compile>
-    <Compile Include="sub_windows\Delivery Monitoring Sheet\addDMS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sub_windows\Delivery Monitoring Sheet\addDMS.Designer.cs">
-      <DependentUpon>addDMS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sub_windows\Delivery Monitoring Sheet\updateDMS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sub_windows\Delivery Monitoring Sheet\updateDMS.Designer.cs">
-      <DependentUpon>updateDMS.cs</DependentUpon>
-    </Compile>
     <Compile Include="sub_windows\Delivery Receipt\addDR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,43 +62,31 @@
     <Compile Include="sub_windows\Delivery Receipt\updateDR.Designer.cs">
       <DependentUpon>updateDR.cs</DependentUpon>
     </Compile>
-    <Compile Include="sub_windows\Delivery\addDelivery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sub_windows\Delivery\addDelivery.Designer.cs">
-      <DependentUpon>addDelivery.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sub_windows\Purchase Order\addPO.cs">
+    <Compile Include="sub_windows\Purchase Order\Customer\addCPO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sub_windows\Purchase Order\addPO.Designer.cs">
-      <DependentUpon>addPO.cs</DependentUpon>
+    <Compile Include="sub_windows\Purchase Order\Customer\addCPO.Designer.cs">
+      <DependentUpon>addCPO.cs</DependentUpon>
     </Compile>
-    <Compile Include="sub_windows\Purchase Order\updatePO.cs">
+    <Compile Include="sub_windows\Purchase Order\Customer\updateCPO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sub_windows\Purchase Order\updatePO.Designer.cs">
-      <DependentUpon>updatePO.cs</DependentUpon>
+    <Compile Include="sub_windows\Purchase Order\Customer\updateCPO.Designer.cs">
+      <DependentUpon>updateCPO.cs</DependentUpon>
     </Compile>
-    <Compile Include="sub_windows\Quotation Form\addQF.cs">
+    <Compile Include="sub_windows\Purchase Order\Supplier\addSPO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sub_windows\Quotation Form\addQF.Designer.cs">
-      <DependentUpon>addQF.cs</DependentUpon>
+    <Compile Include="sub_windows\Purchase Order\Supplier\addSPO.Designer.cs">
+      <DependentUpon>addSPO.cs</DependentUpon>
     </Compile>
-    <Compile Include="sub_windows\Delivery\updateDelivery.cs">
+    <Compile Include="sub_windows\Purchase Order\Supplier\updateSPO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sub_windows\Delivery\updateDelivery.Designer.cs">
-      <DependentUpon>updateDelivery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sub_windows\Quotation Form\updateQF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sub_windows\Quotation Form\updateQF.Designer.cs">
-      <DependentUpon>updateQF.cs</DependentUpon>
+    <Compile Include="sub_windows\Purchase Order\Supplier\updateSPO.Designer.cs">
+      <DependentUpon>updateSPO.cs</DependentUpon>
     </Compile>
     <Compile Include="sub_windows\Sales Invoice\addSI.cs">
       <SubType>Form</SubType>
@@ -124,11 +100,10 @@
     <Compile Include="sub_windows\Sales Invoice\updateSI.Designer.cs">
       <DependentUpon>updateSI.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateSCPO.cs" />
+    <Compile Include="updateSPO.cs" />
     <EmbeddedResource Include="main_final.resx">
       <DependentUpon>main_final.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sub_windows\Delivery\addDelivery.resx">
-      <DependentUpon>addDelivery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

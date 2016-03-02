@@ -1,6 +1,6 @@
-﻿namespace introse_project.sub_windows.Delivery_Monitoring_Sheet
+﻿namespace introse_project.sub_windows.Purchase_Order.Supplier
 {
-    partial class updateDMS
+    partial class addSPO
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "updateDMS";
+            this.Text = "addSPO";
         }
 
         #endregion

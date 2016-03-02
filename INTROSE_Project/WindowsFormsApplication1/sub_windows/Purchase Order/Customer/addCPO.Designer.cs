@@ -1,6 +1,6 @@
 ﻿namespace introse_project.sub_windows.Purchase_Order
 {
-    partial class addPO
+    partial class addCPO
     {
         /// <summary>
         /// Required designer variable.

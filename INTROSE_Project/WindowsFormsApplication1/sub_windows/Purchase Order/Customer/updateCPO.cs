@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace introse_project.sub_windows.Purchase_Order
 {
-    public partial class updatePO : Form
+    public partial class updateCPO : Form
     {
-        public updatePO()
+        public updateCPO()
         {
             InitializeComponent();
         }

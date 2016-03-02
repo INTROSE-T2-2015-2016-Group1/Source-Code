@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace introse_project.sub_windows.delivery
+namespace introse_project.sub_windows.Purchase_Order
 {
-    public partial class addQF : Form
+    public partial class addCPO : Form
     {
-        public addQF()
+        public addCPO()
         {
             InitializeComponent();
         }
