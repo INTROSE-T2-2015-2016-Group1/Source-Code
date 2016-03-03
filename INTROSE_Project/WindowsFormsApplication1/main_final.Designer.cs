@@ -63,16 +63,16 @@
             this.drUpdate = new System.Windows.Forms.Button();
             this.drAddBtn = new System.Windows.Forms.Button();
             this.searchTab = new System.Windows.Forms.TabPage();
-            this.searchGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.formTypeCBox = new System.Windows.Forms.ComboBox();
-            this.keywordTypeCBox = new System.Windows.Forms.ComboBox();
-            this.keywordTxtBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.keywordTxtBox = new System.Windows.Forms.TextBox();
+            this.keywordTypeCBox = new System.Windows.Forms.ComboBox();
+            this.formTypeCBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.searchGridView = new System.Windows.Forms.DataGridView();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -89,12 +89,15 @@
             this.drTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drGridView)).BeginInit();
             this.searchTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchGridView)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTab
             // 
+            this.mainTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTab.Controls.Add(this.imTab);
             this.mainTab.Controls.Add(this.clTab);
             this.mainTab.Controls.Add(this.slTab);
@@ -126,6 +129,7 @@
             // 
             // imAddBtn
             // 
+            this.imAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.imAddBtn.Location = new System.Drawing.Point(168, 378);
             this.imAddBtn.Name = "imAddBtn";
             this.imAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -136,6 +140,7 @@
             // 
             // imUpdateBtn
             // 
+            this.imUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.imUpdateBtn.Location = new System.Drawing.Point(87, 378);
             this.imUpdateBtn.Name = "imUpdateBtn";
             this.imUpdateBtn.Size = new System.Drawing.Size(75, 23);
@@ -146,6 +151,9 @@
             // 
             // imGridView
             // 
+            this.imGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.imGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.imGridView.Location = new System.Drawing.Point(6, 6);
             this.imGridView.Name = "imGridView";
@@ -154,6 +162,7 @@
             // 
             // imViewBtn
             // 
+            this.imViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.imViewBtn.Location = new System.Drawing.Point(6, 378);
             this.imViewBtn.Name = "imViewBtn";
             this.imViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -177,6 +186,7 @@
             // 
             // clAddBtn
             // 
+            this.clAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.clAddBtn.Location = new System.Drawing.Point(87, 378);
             this.clAddBtn.Name = "clAddBtn";
             this.clAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -187,6 +197,9 @@
             // 
             // clGridView
             // 
+            this.clGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.clGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clGridView.Location = new System.Drawing.Point(6, 6);
             this.clGridView.Name = "clGridView";
@@ -195,6 +208,7 @@
             // 
             // clViewBtn
             // 
+            this.clViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.clViewBtn.Location = new System.Drawing.Point(6, 378);
             this.clViewBtn.Name = "clViewBtn";
             this.clViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -218,6 +232,7 @@
             // 
             // slAddBtn
             // 
+            this.slAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.slAddBtn.Location = new System.Drawing.Point(87, 378);
             this.slAddBtn.Name = "slAddBtn";
             this.slAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -228,6 +243,9 @@
             // 
             // slGridView
             // 
+            this.slGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.slGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.slGridView.Location = new System.Drawing.Point(6, 6);
             this.slGridView.Name = "slGridView";
@@ -236,6 +254,7 @@
             // 
             // slViewBtn
             // 
+            this.slViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.slViewBtn.Location = new System.Drawing.Point(6, 378);
             this.slViewBtn.Name = "slViewBtn";
             this.slViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -260,6 +279,7 @@
             // 
             // cPOViewBtn
             // 
+            this.cPOViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cPOViewBtn.Location = new System.Drawing.Point(6, 378);
             this.cPOViewBtn.Name = "cPOViewBtn";
             this.cPOViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -270,6 +290,7 @@
             // 
             // cPOUpdateBtn
             // 
+            this.cPOUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cPOUpdateBtn.Location = new System.Drawing.Point(87, 378);
             this.cPOUpdateBtn.Name = "cPOUpdateBtn";
             this.cPOUpdateBtn.Size = new System.Drawing.Size(75, 23);
@@ -280,6 +301,7 @@
             // 
             // cPOAddBtn
             // 
+            this.cPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cPOAddBtn.Location = new System.Drawing.Point(168, 378);
             this.cPOAddBtn.Name = "cPOAddBtn";
             this.cPOAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -290,6 +312,9 @@
             // 
             // cPOGridView
             // 
+            this.cPOGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cPOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cPOGridView.Location = new System.Drawing.Point(6, 6);
             this.cPOGridView.Name = "cPOGridView";
@@ -311,6 +336,9 @@
             // 
             // sPOGridView
             // 
+            this.sPOGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sPOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sPOGridView.Location = new System.Drawing.Point(6, 6);
             this.sPOGridView.Name = "sPOGridView";
@@ -319,6 +347,7 @@
             // 
             // sPOViewBtn
             // 
+            this.sPOViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.sPOViewBtn.Location = new System.Drawing.Point(6, 378);
             this.sPOViewBtn.Name = "sPOViewBtn";
             this.sPOViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -329,6 +358,7 @@
             // 
             // sPOUpdateBtn
             // 
+            this.sPOUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.sPOUpdateBtn.Location = new System.Drawing.Point(87, 378);
             this.sPOUpdateBtn.Name = "sPOUpdateBtn";
             this.sPOUpdateBtn.Size = new System.Drawing.Size(75, 23);
@@ -339,6 +369,7 @@
             // 
             // sPOAddBtn
             // 
+            this.sPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.sPOAddBtn.Location = new System.Drawing.Point(168, 378);
             this.sPOAddBtn.Name = "sPOAddBtn";
             this.sPOAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -363,6 +394,9 @@
             // 
             // siGridView
             // 
+            this.siGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.siGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.siGridView.Location = new System.Drawing.Point(6, 6);
             this.siGridView.Name = "siGridView";
@@ -371,6 +405,7 @@
             // 
             // siViewBtn
             // 
+            this.siViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siViewBtn.Location = new System.Drawing.Point(6, 378);
             this.siViewBtn.Name = "siViewBtn";
             this.siViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -381,6 +416,7 @@
             // 
             // siUpdateBtn
             // 
+            this.siUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siUpdateBtn.Location = new System.Drawing.Point(87, 378);
             this.siUpdateBtn.Name = "siUpdateBtn";
             this.siUpdateBtn.Size = new System.Drawing.Size(75, 23);
@@ -391,6 +427,7 @@
             // 
             // siAddBtn
             // 
+            this.siAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siAddBtn.Location = new System.Drawing.Point(168, 378);
             this.siAddBtn.Name = "siAddBtn";
             this.siAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -415,6 +452,9 @@
             // 
             // drGridView
             // 
+            this.drGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.drGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.drGridView.Location = new System.Drawing.Point(6, 6);
             this.drGridView.Name = "drGridView";
@@ -423,6 +463,7 @@
             // 
             // drViewBtn
             // 
+            this.drViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.drViewBtn.Location = new System.Drawing.Point(6, 378);
             this.drViewBtn.Name = "drViewBtn";
             this.drViewBtn.Size = new System.Drawing.Size(75, 23);
@@ -432,6 +473,7 @@
             // 
             // drUpdate
             // 
+            this.drUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.drUpdate.Location = new System.Drawing.Point(87, 378);
             this.drUpdate.Name = "drUpdate";
             this.drUpdate.Size = new System.Drawing.Size(75, 23);
@@ -441,6 +483,7 @@
             // 
             // drAddBtn
             // 
+            this.drAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.drAddBtn.Location = new System.Drawing.Point(168, 378);
             this.drAddBtn.Name = "drAddBtn";
             this.drAddBtn.Size = new System.Drawing.Size(75, 23);
@@ -460,14 +503,6 @@
             this.searchTab.Text = "Search";
             this.searchTab.UseVisualStyleBackColor = true;
             // 
-            // searchGridView
-            // 
-            this.searchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchGridView.Location = new System.Drawing.Point(266, 6);
-            this.searchGridView.Name = "searchGridView";
-            this.searchGridView.Size = new System.Drawing.Size(609, 404);
-            this.searchGridView.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.editBtn);
@@ -483,68 +518,9 @@
             this.panel1.Size = new System.Drawing.Size(254, 160);
             this.panel1.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Form Type";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Keyword Type";
-            // 
-            // formTypeCBox
-            // 
-            this.formTypeCBox.FormattingEnabled = true;
-            this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
-            this.formTypeCBox.Name = "formTypeCBox";
-            this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
-            this.formTypeCBox.TabIndex = 2;
-            // 
-            // keywordTypeCBox
-            // 
-            this.keywordTypeCBox.FormattingEnabled = true;
-            this.keywordTypeCBox.Location = new System.Drawing.Point(84, 49);
-            this.keywordTypeCBox.Name = "keywordTypeCBox";
-            this.keywordTypeCBox.Size = new System.Drawing.Size(163, 21);
-            this.keywordTypeCBox.TabIndex = 3;
-            // 
-            // keywordTxtBox
-            // 
-            this.keywordTxtBox.Location = new System.Drawing.Point(84, 76);
-            this.keywordTxtBox.Name = "keywordTxtBox";
-            this.keywordTxtBox.Size = new System.Drawing.Size(163, 20);
-            this.keywordTxtBox.TabIndex = 4;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Keyword";
-            // 
-            // searchBtn
-            // 
-            this.searchBtn.Location = new System.Drawing.Point(172, 102);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(75, 23);
-            this.searchBtn.TabIndex = 6;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.UseVisualStyleBackColor = true;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
-            // 
             // editBtn
             // 
+            this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editBtn.Location = new System.Drawing.Point(172, 132);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(75, 23);
@@ -553,12 +529,91 @@
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
+            // searchBtn
+            // 
+            this.searchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.searchBtn.Location = new System.Drawing.Point(172, 102);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchBtn.TabIndex = 6;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Keyword";
+            // 
+            // keywordTxtBox
+            // 
+            this.keywordTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.keywordTxtBox.Location = new System.Drawing.Point(84, 76);
+            this.keywordTxtBox.Name = "keywordTxtBox";
+            this.keywordTxtBox.Size = new System.Drawing.Size(163, 20);
+            this.keywordTxtBox.TabIndex = 4;
+            // 
+            // keywordTypeCBox
+            // 
+            this.keywordTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.keywordTypeCBox.FormattingEnabled = true;
+            this.keywordTypeCBox.Location = new System.Drawing.Point(84, 49);
+            this.keywordTypeCBox.Name = "keywordTypeCBox";
+            this.keywordTypeCBox.Size = new System.Drawing.Size(163, 21);
+            this.keywordTypeCBox.TabIndex = 3;
+            // 
+            // formTypeCBox
+            // 
+            this.formTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.formTypeCBox.FormattingEnabled = true;
+            this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
+            this.formTypeCBox.Name = "formTypeCBox";
+            this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
+            this.formTypeCBox.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Keyword Type";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Form Type";
+            // 
+            // searchGridView
+            // 
+            this.searchGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchGridView.Location = new System.Drawing.Point(266, 6);
+            this.searchGridView.Name = "searchGridView";
+            this.searchGridView.Size = new System.Drawing.Size(609, 404);
+            this.searchGridView.TabIndex = 0;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(913, 516);
             this.Controls.Add(this.mainTab);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "main";
             this.Text = "Monitoring System";
             this.Load += new System.EventHandler(this.main_Load);
@@ -578,9 +633,9 @@
             this.drTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.drGridView)).EndInit();
             this.searchTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.searchGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
