@@ -35,7 +35,9 @@ namespace introse_project
         //Item Management
         private void imViewBtn_Click(object sender, EventArgs e)
         {
+            ItemManager imManager = new ItemManager();
 
+            imManager.viewAll(imGridView);
         }
         private void imUpdateBtn_Click(object sender, EventArgs e)
         {
@@ -49,7 +51,9 @@ namespace introse_project
         //Company List
         private void clViewBtn_Click(object sender, EventArgs e)
         {
+            CustomerManager clManager = new CustomerManager();
 
+            clManager.viewAll(clGridView);
         }
 
         private void clAddBtn_Click(object sender, EventArgs e)
@@ -59,7 +63,9 @@ namespace introse_project
         //Supplier List
         private void slViewBtn_Click(object sender, EventArgs e)
         {
+            SupplierManager slManager = new SupplierManager();
 
+            slManager.viewAll(slGridView);
         }
 
         private void slAddBtn_Click(object sender, EventArgs e)
@@ -69,7 +75,9 @@ namespace introse_project
         //Customer PO
         private void cPOViewBtn_Click(object sender, EventArgs e)
         {
+            CustomerPOManager cPOManager = new CustomerPOManager();
 
+            cPOManager.viewAll(cPOGridView);
         }
 
         private void cPOUpdateBtn_Click(object sender, EventArgs e)
@@ -84,7 +92,9 @@ namespace introse_project
         //Supplier PO
         private void sPOViewBtn_Click(object sender, EventArgs e)
         {
+            SupplierPOManager sPOManager = new SupplierPOManager();
 
+            sPOManager.viewAll(sPOGridView);
         }
 
         private void sPOUpdateBtn_Click(object sender, EventArgs e)
@@ -99,7 +109,9 @@ namespace introse_project
         //Sales Invoice
         private void siViewBtn_Click(object sender, EventArgs e)
         {
+            InvoicesManager siPOManager = new InvoicesManager();
 
+            siPOManager.viewAll(siGridView);
         }
 
         private void siUpdateBtn_Click(object sender, EventArgs e)
@@ -108,6 +120,23 @@ namespace introse_project
         }
 
         private void siAddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+        //Delivery Receipts
+        private void drViewBtn_Click(object sender, EventArgs e)
+        {
+            DeliveryReceiptsManager drManager = new DeliveryReceiptsManager();
+
+            drManager.viewAll(drGridView);
+        }
+
+        private void drUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drAddBtn_Click(object sender, EventArgs e)
         {
 
         }
@@ -120,8 +149,7 @@ namespace introse_project
         private void editBtn_Click(object sender, EventArgs e)
         {
 
-        }
-        
+        }      
 
     }
 }

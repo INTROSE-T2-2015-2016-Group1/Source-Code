@@ -15,7 +15,7 @@ namespace introse_project.Libs
         public void viewAll(DataGridView dataGridView)
         {
 
-            string query = "select * from customerorderitems";
+            string query = "select * from customer_order_items";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 

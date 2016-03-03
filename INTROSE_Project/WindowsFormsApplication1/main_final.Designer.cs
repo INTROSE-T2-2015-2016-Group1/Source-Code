@@ -470,6 +470,7 @@
             this.drViewBtn.TabIndex = 23;
             this.drViewBtn.Text = "View";
             this.drViewBtn.UseVisualStyleBackColor = true;
+            this.drViewBtn.Click += new System.EventHandler(this.drViewBtn_Click);
             // 
             // drUpdate
             // 
@@ -480,6 +481,7 @@
             this.drUpdate.TabIndex = 22;
             this.drUpdate.Text = "Update";
             this.drUpdate.UseVisualStyleBackColor = true;
+            this.drUpdate.Click += new System.EventHandler(this.drUpdate_Click);
             // 
             // drAddBtn
             // 
@@ -490,6 +492,7 @@
             this.drAddBtn.TabIndex = 21;
             this.drAddBtn.Text = "Add";
             this.drAddBtn.UseVisualStyleBackColor = true;
+            this.drAddBtn.Click += new System.EventHandler(this.drAddBtn_Click);
             // 
             // searchTab
             // 
