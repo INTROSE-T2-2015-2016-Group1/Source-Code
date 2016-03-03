@@ -21,7 +21,7 @@ CREATE TABLE customer_po (
 );
 
 CREATE TABLE customer_order_items (
-  customerOrderID varchar(40) NOT NULL,
+  customerOrderID int NOT NULL AUTO_INCREMENT,
   customerPONumber varchar(40) NOT NULL,
   itemNumber varchar(40) NOT NULL,
   quantity int NOT NULL,
@@ -103,7 +103,7 @@ CREATE TABLE invoices (
 CREATE TABLE invoice_items (
   invoiceItemID int NOT NULL AUTO_INCREMENT,
   invoiceNumber varchar(40) NOT NULL,
-  customerOrderID varchar(40) NOT NULL,
+  customerOrderID int NOT NULL,
   deliveredQuantity int NOT NULL,
   PRIMARY KEY (invoiceItemID),
   FOREIGN KEY (invoiceNumber) REFERENCES invoices(invoiceNumber),
