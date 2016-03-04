@@ -95,6 +95,7 @@ CREATE TABLE invoices (
   deliveryReceiptNumber varchar(40) NOT NULL,
   customerPONumber varchar(40) NOT NULL,
   dateReceived varchar(10) NOT NULL,
+  invoiceTotalPrice float NOT NULL,
   PRIMARY KEY (invoiceNumber),
   FOREIGN KEY (deliveryReceiptNumber) REFERENCES delivery_receipts(deliveryReceiptNumber),
   FOREIGN KEY (customerPONumber) REFERENCES customer_po(customerPONumber)
@@ -102,10 +103,12 @@ CREATE TABLE invoices (
 
 CREATE TABLE invoice_items (
   invoiceItemID int NOT NULL AUTO_INCREMENT,
+  deliveryItemID int NOT NULL,
   invoiceNumber varchar(40) NOT NULL,
   customerOrderID int NOT NULL,
   deliveredQuantity int NOT NULL,
   PRIMARY KEY (invoiceItemID),
+  FOREIGN KEY (deliveryItemID) REFERENCES delivered_items(deliveryItemID),
   FOREIGN KEY (invoiceNumber) REFERENCES invoices(invoiceNumber),
   FOREIGN KEY (customerOrderID) REFERENCES customer_order_items(customerOrderID)
 );
