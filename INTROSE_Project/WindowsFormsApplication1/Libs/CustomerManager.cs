@@ -13,10 +13,10 @@ namespace introse_project.Libs
 {
     class CustomerManager
     {
-        public void viewAll(DataGridView dataGridView)
+        public void viewAll(DataGridView dataGridView)      //Displays all listed customers
         {
 
-            string query = "select * from customers";
+            string query = "select customerName AS 'Customer Name' from customers";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -39,9 +39,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
 
         }

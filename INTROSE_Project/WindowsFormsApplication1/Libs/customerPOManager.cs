@@ -12,7 +12,7 @@ namespace introse_project.Libs
 {
     class CustomerPOManager
     {
-        public void viewAll(DataGridView dataGridView)          //Creates a table for all customer purchase orders and related customer orders and items
+        public void viewAll(DataGridView dataGridView)          //Displays all customer purchase orders and the PO's ordered items
         {
 
             string query = "SELECT	 A.customerPONumber		    AS 'Customer PO Number'," +
@@ -55,9 +55,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
 
         }

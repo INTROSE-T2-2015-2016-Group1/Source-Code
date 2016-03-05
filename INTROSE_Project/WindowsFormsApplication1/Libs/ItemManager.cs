@@ -13,9 +13,9 @@ namespace introse_project.Libs
     class ItemManager
     {
 
-        public void viewAll(DataGridView dataGridView)
+        public void viewAll(DataGridView dataGridView)      //Displays all the items listed and their respective manufacturer (suppliers)
         {
-            string query = "select * from items";
+            string query = "select itemNumber AS 'Item Number', supplierName AS 'Supplier Name', description AS 'Description' from items";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -38,9 +38,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
 
 

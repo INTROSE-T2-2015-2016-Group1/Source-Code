@@ -12,7 +12,7 @@ namespace introse_project.Libs
 {
     class CustomerOrderItemsManagercs
     {
-        public void viewAll(DataGridView dataGridView)
+        public void viewAll(DataGridView dataGridView)  //Displays all ordered items for all the customer PO's
         {
 
             string query = "select * from customer_order_items";
@@ -38,11 +38,10 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
-
         }
 
     }

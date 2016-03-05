@@ -12,7 +12,7 @@ namespace introse_project.Libs
 {
     class SupplierOrderItemsManager
     {
-        public void viewAll(DataGridView dataGridView)
+        public void viewAll(DataGridView dataGridView)       //Displays all ordered items for all the supplier PO's
         {
             string query = "select * from supplier_order_items";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
@@ -37,9 +37,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
         
         }

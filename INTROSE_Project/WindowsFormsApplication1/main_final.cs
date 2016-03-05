@@ -48,6 +48,7 @@ namespace introse_project
         {
 
         }
+
         //Company List
         private void clViewBtn_Click(object sender, EventArgs e)
         {
@@ -60,6 +61,7 @@ namespace introse_project
         {
 
         }
+
         //Supplier List
         private void slViewBtn_Click(object sender, EventArgs e)
         {
@@ -72,6 +74,7 @@ namespace introse_project
         {
 
         }  
+
         //Customer PO
         private void cPOViewBtn_Click(object sender, EventArgs e)
         {
@@ -89,6 +92,7 @@ namespace introse_project
         {
 
         }
+
         //Supplier PO
         private void sPOViewBtn_Click(object sender, EventArgs e)
         {
@@ -106,6 +110,7 @@ namespace introse_project
         {
 
         }
+
         //Sales Invoice
         private void siViewBtn_Click(object sender, EventArgs e)
         {
@@ -123,6 +128,7 @@ namespace introse_project
         {
 
         }
+
         //Delivery Receipts
         private void drViewBtn_Click(object sender, EventArgs e)
         {
@@ -140,6 +146,7 @@ namespace introse_project
         {
 
         }
+
         //Search
         private void searchBtn_Click(object sender, EventArgs e)
         {

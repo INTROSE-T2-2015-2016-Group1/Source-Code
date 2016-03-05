@@ -12,7 +12,7 @@ namespace introse_project.Libs
 {
     class DeliveryReceiptsManager
     {
-        public void viewAll(DataGridView dataGridView)
+        public void viewAll(DataGridView dataGridView)      //Displays all delivery receipts, the DR's related supplier PO and the delivered items
         {
             string query = "SELECT	A.deliveryReceiptNumber		AS 'Delivery Receipt Number'," +
                                     "D.supplierPONumber			AS 'Supplier PO Number'," +
@@ -55,9 +55,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
 
         }

@@ -167,7 +167,7 @@
             this.imViewBtn.Name = "imViewBtn";
             this.imViewBtn.Size = new System.Drawing.Size(75, 23);
             this.imViewBtn.TabIndex = 14;
-            this.imViewBtn.Text = "View";
+            this.imViewBtn.Text = "View All";
             this.imViewBtn.UseVisualStyleBackColor = true;
             this.imViewBtn.Click += new System.EventHandler(this.imViewBtn_Click);
             // 
@@ -213,7 +213,7 @@
             this.clViewBtn.Name = "clViewBtn";
             this.clViewBtn.Size = new System.Drawing.Size(75, 23);
             this.clViewBtn.TabIndex = 18;
-            this.clViewBtn.Text = "View";
+            this.clViewBtn.Text = "View All";
             this.clViewBtn.UseVisualStyleBackColor = true;
             this.clViewBtn.Click += new System.EventHandler(this.clViewBtn_Click);
             // 
@@ -259,7 +259,7 @@
             this.slViewBtn.Name = "slViewBtn";
             this.slViewBtn.Size = new System.Drawing.Size(75, 23);
             this.slViewBtn.TabIndex = 23;
-            this.slViewBtn.Text = "View";
+            this.slViewBtn.Text = "View All";
             this.slViewBtn.UseVisualStyleBackColor = true;
             this.slViewBtn.Click += new System.EventHandler(this.slViewBtn_Click);
             // 
@@ -284,7 +284,7 @@
             this.cPOViewBtn.Name = "cPOViewBtn";
             this.cPOViewBtn.Size = new System.Drawing.Size(75, 23);
             this.cPOViewBtn.TabIndex = 19;
-            this.cPOViewBtn.Text = "View";
+            this.cPOViewBtn.Text = "View All";
             this.cPOViewBtn.UseVisualStyleBackColor = true;
             this.cPOViewBtn.Click += new System.EventHandler(this.cPOViewBtn_Click);
             // 
@@ -352,7 +352,7 @@
             this.sPOViewBtn.Name = "sPOViewBtn";
             this.sPOViewBtn.Size = new System.Drawing.Size(75, 23);
             this.sPOViewBtn.TabIndex = 16;
-            this.sPOViewBtn.Text = "View";
+            this.sPOViewBtn.Text = "View All";
             this.sPOViewBtn.UseVisualStyleBackColor = true;
             this.sPOViewBtn.Click += new System.EventHandler(this.sPOViewBtn_Click);
             // 
@@ -410,7 +410,7 @@
             this.siViewBtn.Name = "siViewBtn";
             this.siViewBtn.Size = new System.Drawing.Size(75, 23);
             this.siViewBtn.TabIndex = 19;
-            this.siViewBtn.Text = "View";
+            this.siViewBtn.Text = "View All";
             this.siViewBtn.UseVisualStyleBackColor = true;
             this.siViewBtn.Click += new System.EventHandler(this.siViewBtn_Click);
             // 
@@ -468,7 +468,7 @@
             this.drViewBtn.Name = "drViewBtn";
             this.drViewBtn.Size = new System.Drawing.Size(75, 23);
             this.drViewBtn.TabIndex = 23;
-            this.drViewBtn.Text = "View";
+            this.drViewBtn.Text = "View All";
             this.drViewBtn.UseVisualStyleBackColor = true;
             this.drViewBtn.Click += new System.EventHandler(this.drViewBtn_Click);
             // 

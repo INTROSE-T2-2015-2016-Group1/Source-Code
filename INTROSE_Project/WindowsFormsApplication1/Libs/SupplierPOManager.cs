@@ -13,7 +13,7 @@ namespace introse_project.Libs
 {
     class SupplierPOManager
     {
-        public void viewAll(DataGridView dataGridView)          //Creates a table for all supplier purchase orders and customer purchase order, supplier orders and items
+        public void viewAll(DataGridView dataGridView)      //Displays all supplier purchase orders, its related customer purchase order and the PO's ordered items
         {
             string query = "SELECT	 A.supplierPONumber		    AS 'Supplier PO Number'," +
 		                            "D.customerPONumber		    AS 'Customer PO Number'," +
@@ -58,9 +58,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
 
 

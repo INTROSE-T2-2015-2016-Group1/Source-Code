@@ -12,9 +12,9 @@ namespace introse_project.Libs
 {
     class SupplierManager
     {
-        public void viewAll(DataGridView dataGridView)
+        public void viewAll(DataGridView dataGridView)      //Displays all the listed suppliers
         {
-            string query = "select * from suppliers";
+            string query = "select supplierName AS 'Supplier Name' from suppliers";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -37,9 +37,9 @@ namespace introse_project.Libs
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
         
         }
