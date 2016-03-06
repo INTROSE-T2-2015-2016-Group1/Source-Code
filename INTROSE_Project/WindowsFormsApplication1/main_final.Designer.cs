@@ -157,6 +157,7 @@
             this.imGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.imGridView.Location = new System.Drawing.Point(6, 6);
             this.imGridView.Name = "imGridView";
+            this.imGridView.ReadOnly = true;
             this.imGridView.Size = new System.Drawing.Size(869, 366);
             this.imGridView.TabIndex = 15;
             // 
@@ -203,6 +204,7 @@
             this.clGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clGridView.Location = new System.Drawing.Point(6, 6);
             this.clGridView.Name = "clGridView";
+            this.clGridView.ReadOnly = true;
             this.clGridView.Size = new System.Drawing.Size(869, 366);
             this.clGridView.TabIndex = 19;
             // 
@@ -249,6 +251,7 @@
             this.slGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.slGridView.Location = new System.Drawing.Point(6, 6);
             this.slGridView.Name = "slGridView";
+            this.slGridView.ReadOnly = true;
             this.slGridView.Size = new System.Drawing.Size(869, 366);
             this.slGridView.TabIndex = 24;
             // 
@@ -318,6 +321,7 @@
             this.cPOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cPOGridView.Location = new System.Drawing.Point(6, 6);
             this.cPOGridView.Name = "cPOGridView";
+            this.cPOGridView.ReadOnly = true;
             this.cPOGridView.Size = new System.Drawing.Size(869, 366);
             this.cPOGridView.TabIndex = 10;
             // 
@@ -342,6 +346,7 @@
             this.sPOGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sPOGridView.Location = new System.Drawing.Point(6, 6);
             this.sPOGridView.Name = "sPOGridView";
+            this.sPOGridView.ReadOnly = true;
             this.sPOGridView.Size = new System.Drawing.Size(869, 366);
             this.sPOGridView.TabIndex = 17;
             // 
@@ -400,6 +405,7 @@
             this.siGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.siGridView.Location = new System.Drawing.Point(6, 6);
             this.siGridView.Name = "siGridView";
+            this.siGridView.ReadOnly = true;
             this.siGridView.Size = new System.Drawing.Size(869, 366);
             this.siGridView.TabIndex = 20;
             // 
@@ -458,6 +464,7 @@
             this.drGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.drGridView.Location = new System.Drawing.Point(6, 6);
             this.drGridView.Name = "drGridView";
+            this.drGridView.ReadOnly = true;
             this.drGridView.Size = new System.Drawing.Size(869, 366);
             this.drGridView.TabIndex = 24;
             // 
@@ -607,6 +614,7 @@
             this.searchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchGridView.Location = new System.Drawing.Point(266, 6);
             this.searchGridView.Name = "searchGridView";
+            this.searchGridView.ReadOnly = true;
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
             // 
