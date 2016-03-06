@@ -14,7 +14,9 @@ namespace introse_project.Libs
     {
         public void viewAll(DataGridView dataGridView)      //Displays all the listed suppliers
         {
-            string query = "select supplierName AS 'Supplier Name' from suppliers";
+            string query =  "SELECT supplierName AS 'Supplier Name' " +
+                            "FROM  suppliers " + 
+                            "ORDER BY supplierName DESC;";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 

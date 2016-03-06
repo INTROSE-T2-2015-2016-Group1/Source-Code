@@ -16,7 +16,9 @@ namespace introse_project.Libs
         public void viewAll(DataGridView dataGridView)      //Displays all listed customers
         {
 
-            string query = "select customerName AS 'Customer Name' from customers";
+            string query = "SELECT customerName AS 'Customer Name' " +
+                            "FROM  customers " +
+                            "ORDER BY customerName DESC;";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 

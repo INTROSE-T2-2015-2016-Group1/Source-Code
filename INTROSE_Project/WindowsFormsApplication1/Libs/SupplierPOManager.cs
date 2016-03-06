@@ -26,7 +26,8 @@ namespace introse_project.Libs
                                     "B.currency 				AS 'Currency'," +
                                     "B.pricePerUnit			    AS 'Price Per Unit'," +
                                     "B.totalPrice			    AS 'Total Price'," +
-                                    "B.isFinished			    AS 'Status' " +
+                                    "B.isFinished			    AS 'Item Status'," +
+                                    "A.isFinished               AS 'Supplier PO Status' " +
                             "FROM 	supplier_po A " +
 			                    "JOIN supplier_order_items B " +
 				                    "ON B.supplierPONumber = A.supplierPONumber " +

@@ -15,7 +15,11 @@ namespace introse_project.Libs
 
         public void viewAll(DataGridView dataGridView)      //Displays all the items listed and their respective manufacturer (suppliers)
         {
-            string query = "select itemNumber AS 'Item Number', supplierName AS 'Supplier Name', description AS 'Description' from items";
+            string query = "SELECT  itemNumber      AS 'Item Number'," +
+                                    "supplierName   AS 'Supplier Name'," +
+                                    "description    AS 'Description' " +
+                                    "FROM items " +
+                                    "ORDER BY itemNumber ASC;";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
