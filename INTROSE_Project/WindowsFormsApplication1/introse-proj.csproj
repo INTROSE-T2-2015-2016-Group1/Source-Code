@@ -138,6 +138,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\addDR.resx">
+      <DependentUpon>addDR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\updateDR.resx">
+      <DependentUpon>updateDR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Item Management\addIM.resx">
       <DependentUpon>addIM.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +152,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Purchase Order\Customer\addCPO.resx">
       <DependentUpon>addCPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Customer\updateCPO.resx">
+      <DependentUpon>updateCPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\addSPO.resx">
+      <DependentUpon>addSPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\updateSPO.resx">
+      <DependentUpon>updateSPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Sales Invoice\addSI.resx">
+      <DependentUpon>addSI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Sales Invoice\updateSI.resx">
+      <DependentUpon>updateSI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
