@@ -17,7 +17,6 @@ namespace introse_project.Libs
             string query = "select * from supplier_order_items";
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
-
             try
             {
                 MySqlDataAdapter data = new MySqlDataAdapter();
@@ -35,15 +34,11 @@ namespace introse_project.Libs
                 data.Update(table);
 
                 connection.Close();
-
             }
             catch
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
-        
         }
-    
     }
-
 }

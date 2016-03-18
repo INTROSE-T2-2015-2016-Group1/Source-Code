@@ -699,7 +699,5 @@
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Button editBtn;
 
-
     }
 }
-

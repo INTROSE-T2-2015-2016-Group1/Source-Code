@@ -22,7 +22,6 @@ namespace introse_project
         {
             InitializeComponent();
         }
-
         private void main_Load(object sender, EventArgs e)
         {
 
@@ -31,7 +30,6 @@ namespace introse_project
         {
 
         }
-
         //Item Management
         private void imViewBtn_Click(object sender, EventArgs e)
         {
@@ -43,25 +41,20 @@ namespace introse_project
         {
 
         }
-
         private void imAddBtn_Click(object sender, EventArgs e)
         {
 
         }
-
         //Company List
         private void clViewBtn_Click(object sender, EventArgs e)
         {
             CustomerManager clManager = new CustomerManager();
-
             clManager.viewAll(clGridView);
         }
-
         private void clAddBtn_Click(object sender, EventArgs e)
         {
 
         }
-
         //Supplier List
         private void slViewBtn_Click(object sender, EventArgs e)
         {
