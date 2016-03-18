@@ -13,6 +13,10 @@ namespace introse_project.Libs
 {
     class SupplierPOManager
     {
+        private static SupplierPOManager theInstance = new SupplierPOManager();
+
+        private SupplierPOManager(){}
+
         public void viewAll(DataGridView dataGridView)      //Displays all supplier purchase orders, its related customer purchase order and the PO's ordered items
         {
             string query = "SELECT	 A.supplierPONumber		    AS 'Supplier PO Number'," +
@@ -63,8 +67,18 @@ namespace introse_project.Libs
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
+            finally
+            {
+                connection.Close();
+            }
 
 
         }
+
+        public static SupplierPOManager instance
+        {
+            get { return theInstance; }
+        }
+
     }
 }

@@ -12,6 +12,9 @@ namespace introse_project.Libs
 {
     class ItemManager
     {
+        private static ItemManager theInstance = new ItemManager();
+
+        private ItemManager() {}
 
         public void viewAll(DataGridView dataGridView)      //Displays all the items listed and their respective manufacturer (suppliers)
         {
@@ -46,9 +49,20 @@ namespace introse_project.Libs
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
+        //public void addData()
 
+        public static ItemManager instance
+        {
+        get { return theInstance; }
         }
 
     }
+
 }
+

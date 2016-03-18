@@ -19,65 +19,64 @@ namespace introse_project
 {
     public partial class main : Form
     {
+        #region Intializing Functions
         public main()
         {
             InitializeComponent();
         }
+
         private void main_Load(object sender, EventArgs e)
         {
-
+            ItemManager.instance.viewAll(imGridView);
         }
+        #endregion
+
+        #region Event Handlers
         private void mainTab_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (mainTab.SelectedTab.Text)
+            {
+                case "Item Management":         ItemManager.instance.viewAll(imGridView);               break;
+                case "Company List":            CustomerManager.instance.viewAll(clGridView);           break;
+                case "Supplier List":           SupplierManager.instance.viewAll(slGridView);           break;
+                case "Customer Purchase Order": CustomerPOManager.instance.viewAll(cPOGridView);        break;
+                case "Supplier Purchase Order": SupplierPOManager.instance.viewAll(sPOGridView);        break;
+                case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
+                case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
+            }
         }
-        //Item Management
-        private void imViewBtn_Click(object sender, EventArgs e)
-        {
-            ItemManager imManager = new ItemManager();
+        #endregion
 
-            imManager.viewAll(imGridView);
-        }
+        #region Item List
         private void imUpdateBtn_Click(object sender, EventArgs e)
         {
 
         }
+
         private void imAddBtn_Click(object sender, EventArgs e)
         {
             addIM formAdd = new addIM();
             formAdd.ShowDialog();
         }
-        //Company List
-        private void clViewBtn_Click(object sender, EventArgs e)
-        {
-            CustomerManager clManager = new CustomerManager();
-            clManager.viewAll(clGridView);
-        }
+        #endregion
+
+        #region Company List
         private void clAddBtn_Click(object sender, EventArgs e)
         {
-
+            CustomerManager.instance.addData(clTxtBox.Text);
+            CustomerManager.instance.viewAll(clGridView);
         }
-        //Supplier List
-        private void slViewBtn_Click(object sender, EventArgs e)
-        {
-            SupplierManager slManager = new SupplierManager();
+        #endregion
 
-            slManager.viewAll(slGridView);
-        }
-
+        #region Supplier List
         private void slAddBtn_Click(object sender, EventArgs e)
         {
-
-        }  
-
-        //Customer PO
-        private void cPOViewBtn_Click(object sender, EventArgs e)
-        {
-            CustomerPOManager cPOManager = new CustomerPOManager();
-
-            cPOManager.viewAll(cPOGridView);
+            SupplierManager.instance.addData(slTxtBox.Text);
+            SupplierManager.instance.viewAll(slGridView);
         }
+        #endregion
 
+        #region Customer PO
         private void cPOUpdateBtn_Click(object sender, EventArgs e)
         {
 
@@ -87,15 +86,9 @@ namespace introse_project
         {
 
         }
+        #endregion
 
-        //Supplier PO
-        private void sPOViewBtn_Click(object sender, EventArgs e)
-        {
-            SupplierPOManager sPOManager = new SupplierPOManager();
-
-            sPOManager.viewAll(sPOGridView);
-        }
-
+        #region Supplier PO
         private void sPOUpdateBtn_Click(object sender, EventArgs e)
         {
 
@@ -105,15 +98,9 @@ namespace introse_project
         {
 
         }
+        #endregion
 
-        //Sales Invoice
-        private void siViewBtn_Click(object sender, EventArgs e)
-        {
-            InvoicesManager siPOManager = new InvoicesManager();
-
-            siPOManager.viewAll(siGridView);
-        }
-
+        #region Sales Invoice
         private void siUpdateBtn_Click(object sender, EventArgs e)
         {
 
@@ -123,15 +110,9 @@ namespace introse_project
         {
 
         }
+        #endregion
 
-        //Delivery Receipts
-        private void drViewBtn_Click(object sender, EventArgs e)
-        {
-            DeliveryReceiptsManager drManager = new DeliveryReceiptsManager();
-
-            drManager.viewAll(drGridView);
-        }
-
+        #region Delivery Receipt
         private void drUpdate_Click(object sender, EventArgs e)
         {
 
@@ -141,8 +122,9 @@ namespace introse_project
         {
 
         }
+        #endregion
 
-        //Search
+        #region Search
         private void searchBtn_Click(object sender, EventArgs e)
         {
 
@@ -151,7 +133,8 @@ namespace introse_project
         private void editBtn_Click(object sender, EventArgs e)
         {
 
-        }      
+        }
+        #endregion
 
     }
 }

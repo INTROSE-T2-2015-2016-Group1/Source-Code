@@ -12,6 +12,10 @@ namespace introse_project.Libs
 {
     class CustomerPOManager
     {
+        private static CustomerPOManager theInstance = new CustomerPOManager();
+
+        private CustomerPOManager(){}
+
         public void viewAll(DataGridView dataGridView)          //Displays all customer purchase orders and the PO's ordered items
         {
 
@@ -60,7 +64,16 @@ namespace introse_project.Libs
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
+            finally
+            {
+                connection.Close();
+            }
 
+        }
+
+        public static CustomerPOManager instance
+        {
+            get { return theInstance; }
         }
 
     }

@@ -33,33 +33,30 @@
             this.imAddBtn = new System.Windows.Forms.Button();
             this.imUpdateBtn = new System.Windows.Forms.Button();
             this.imGridView = new System.Windows.Forms.DataGridView();
-            this.imViewBtn = new System.Windows.Forms.Button();
             this.clTab = new System.Windows.Forms.TabPage();
+            this.clTxtBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.clAddBtn = new System.Windows.Forms.Button();
             this.clGridView = new System.Windows.Forms.DataGridView();
-            this.clViewBtn = new System.Windows.Forms.Button();
             this.slTab = new System.Windows.Forms.TabPage();
+            this.slTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.slAddBtn = new System.Windows.Forms.Button();
             this.slGridView = new System.Windows.Forms.DataGridView();
-            this.slViewBtn = new System.Windows.Forms.Button();
             this.cPOTab = new System.Windows.Forms.TabPage();
-            this.cPOViewBtn = new System.Windows.Forms.Button();
             this.cPOUpdateBtn = new System.Windows.Forms.Button();
             this.cPOAddBtn = new System.Windows.Forms.Button();
             this.cPOGridView = new System.Windows.Forms.DataGridView();
             this.sPOTab = new System.Windows.Forms.TabPage();
             this.sPOGridView = new System.Windows.Forms.DataGridView();
-            this.sPOViewBtn = new System.Windows.Forms.Button();
             this.sPOUpdateBtn = new System.Windows.Forms.Button();
             this.sPOAddBtn = new System.Windows.Forms.Button();
             this.siTab = new System.Windows.Forms.TabPage();
             this.siGridView = new System.Windows.Forms.DataGridView();
-            this.siViewBtn = new System.Windows.Forms.Button();
             this.siUpdateBtn = new System.Windows.Forms.Button();
             this.siAddBtn = new System.Windows.Forms.Button();
             this.drTab = new System.Windows.Forms.TabPage();
             this.drGridView = new System.Windows.Forms.DataGridView();
-            this.drViewBtn = new System.Windows.Forms.Button();
             this.drUpdate = new System.Windows.Forms.Button();
             this.drAddBtn = new System.Windows.Forms.Button();
             this.searchTab = new System.Windows.Forms.TabPage();
@@ -73,10 +70,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.clTxtBox = new System.Windows.Forms.TextBox();
-            this.slTxtBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -122,7 +115,6 @@
             this.imTab.Controls.Add(this.imAddBtn);
             this.imTab.Controls.Add(this.imUpdateBtn);
             this.imTab.Controls.Add(this.imGridView);
-            this.imTab.Controls.Add(this.imViewBtn);
             this.imTab.Location = new System.Drawing.Point(4, 22);
             this.imTab.Name = "imTab";
             this.imTab.Padding = new System.Windows.Forms.Padding(3);
@@ -134,7 +126,7 @@
             // imAddBtn
             // 
             this.imAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.imAddBtn.Location = new System.Drawing.Point(168, 378);
+            this.imAddBtn.Location = new System.Drawing.Point(87, 378);
             this.imAddBtn.Name = "imAddBtn";
             this.imAddBtn.Size = new System.Drawing.Size(75, 23);
             this.imAddBtn.TabIndex = 17;
@@ -145,7 +137,7 @@
             // imUpdateBtn
             // 
             this.imUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.imUpdateBtn.Location = new System.Drawing.Point(87, 378);
+            this.imUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.imUpdateBtn.Name = "imUpdateBtn";
             this.imUpdateBtn.Size = new System.Drawing.Size(75, 23);
             this.imUpdateBtn.TabIndex = 16;
@@ -165,24 +157,12 @@
             this.imGridView.Size = new System.Drawing.Size(869, 366);
             this.imGridView.TabIndex = 15;
             // 
-            // imViewBtn
-            // 
-            this.imViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.imViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.imViewBtn.Name = "imViewBtn";
-            this.imViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.imViewBtn.TabIndex = 14;
-            this.imViewBtn.Text = "View All";
-            this.imViewBtn.UseVisualStyleBackColor = true;
-            this.imViewBtn.Click += new System.EventHandler(this.imViewBtn_Click);
-            // 
             // clTab
             // 
             this.clTab.Controls.Add(this.clTxtBox);
             this.clTab.Controls.Add(this.label4);
             this.clTab.Controls.Add(this.clAddBtn);
             this.clTab.Controls.Add(this.clGridView);
-            this.clTab.Controls.Add(this.clViewBtn);
             this.clTab.Location = new System.Drawing.Point(4, 22);
             this.clTab.Name = "clTab";
             this.clTab.Padding = new System.Windows.Forms.Padding(3);
@@ -190,6 +170,24 @@
             this.clTab.TabIndex = 11;
             this.clTab.Text = "Company List";
             this.clTab.UseVisualStyleBackColor = true;
+            // 
+            // clTxtBox
+            // 
+            this.clTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clTxtBox.Location = new System.Drawing.Point(742, 52);
+            this.clTxtBox.Name = "clTxtBox";
+            this.clTxtBox.Size = new System.Drawing.Size(133, 20);
+            this.clTxtBox.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(739, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Add a Company";
             // 
             // clAddBtn
             // 
@@ -214,24 +212,12 @@
             this.clGridView.Size = new System.Drawing.Size(727, 366);
             this.clGridView.TabIndex = 19;
             // 
-            // clViewBtn
-            // 
-            this.clViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.clViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.clViewBtn.Name = "clViewBtn";
-            this.clViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.clViewBtn.TabIndex = 18;
-            this.clViewBtn.Text = "View All";
-            this.clViewBtn.UseVisualStyleBackColor = true;
-            this.clViewBtn.Click += new System.EventHandler(this.clViewBtn_Click);
-            // 
             // slTab
             // 
             this.slTab.Controls.Add(this.slTxtBox);
             this.slTab.Controls.Add(this.label5);
             this.slTab.Controls.Add(this.slAddBtn);
             this.slTab.Controls.Add(this.slGridView);
-            this.slTab.Controls.Add(this.slViewBtn);
             this.slTab.Location = new System.Drawing.Point(4, 22);
             this.slTab.Name = "slTab";
             this.slTab.Padding = new System.Windows.Forms.Padding(3);
@@ -239,6 +225,25 @@
             this.slTab.TabIndex = 12;
             this.slTab.Text = "Supplier List";
             this.slTab.UseVisualStyleBackColor = true;
+            // 
+            // slTxtBox
+            // 
+            this.slTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.slTxtBox.Location = new System.Drawing.Point(742, 52);
+            this.slTxtBox.MaxLength = 40;
+            this.slTxtBox.Name = "slTxtBox";
+            this.slTxtBox.Size = new System.Drawing.Size(133, 20);
+            this.slTxtBox.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(739, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Add a Supplier";
             // 
             // slAddBtn
             // 
@@ -263,20 +268,8 @@
             this.slGridView.Size = new System.Drawing.Size(727, 366);
             this.slGridView.TabIndex = 24;
             // 
-            // slViewBtn
-            // 
-            this.slViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.slViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.slViewBtn.Name = "slViewBtn";
-            this.slViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.slViewBtn.TabIndex = 23;
-            this.slViewBtn.Text = "View All";
-            this.slViewBtn.UseVisualStyleBackColor = true;
-            this.slViewBtn.Click += new System.EventHandler(this.slViewBtn_Click);
-            // 
             // cPOTab
             // 
-            this.cPOTab.Controls.Add(this.cPOViewBtn);
             this.cPOTab.Controls.Add(this.cPOUpdateBtn);
             this.cPOTab.Controls.Add(this.cPOAddBtn);
             this.cPOTab.Controls.Add(this.cPOGridView);
@@ -288,21 +281,10 @@
             this.cPOTab.Text = "Customer Purchase Order";
             this.cPOTab.UseVisualStyleBackColor = true;
             // 
-            // cPOViewBtn
-            // 
-            this.cPOViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cPOViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.cPOViewBtn.Name = "cPOViewBtn";
-            this.cPOViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.cPOViewBtn.TabIndex = 19;
-            this.cPOViewBtn.Text = "View All";
-            this.cPOViewBtn.UseVisualStyleBackColor = true;
-            this.cPOViewBtn.Click += new System.EventHandler(this.cPOViewBtn_Click);
-            // 
             // cPOUpdateBtn
             // 
             this.cPOUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cPOUpdateBtn.Location = new System.Drawing.Point(87, 378);
+            this.cPOUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.cPOUpdateBtn.Name = "cPOUpdateBtn";
             this.cPOUpdateBtn.Size = new System.Drawing.Size(75, 23);
             this.cPOUpdateBtn.TabIndex = 18;
@@ -313,7 +295,7 @@
             // cPOAddBtn
             // 
             this.cPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cPOAddBtn.Location = new System.Drawing.Point(168, 378);
+            this.cPOAddBtn.Location = new System.Drawing.Point(87, 378);
             this.cPOAddBtn.Name = "cPOAddBtn";
             this.cPOAddBtn.Size = new System.Drawing.Size(75, 23);
             this.cPOAddBtn.TabIndex = 17;
@@ -336,7 +318,6 @@
             // sPOTab
             // 
             this.sPOTab.Controls.Add(this.sPOGridView);
-            this.sPOTab.Controls.Add(this.sPOViewBtn);
             this.sPOTab.Controls.Add(this.sPOUpdateBtn);
             this.sPOTab.Controls.Add(this.sPOAddBtn);
             this.sPOTab.Location = new System.Drawing.Point(4, 22);
@@ -358,21 +339,10 @@
             this.sPOGridView.Size = new System.Drawing.Size(869, 366);
             this.sPOGridView.TabIndex = 17;
             // 
-            // sPOViewBtn
-            // 
-            this.sPOViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sPOViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.sPOViewBtn.Name = "sPOViewBtn";
-            this.sPOViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.sPOViewBtn.TabIndex = 16;
-            this.sPOViewBtn.Text = "View All";
-            this.sPOViewBtn.UseVisualStyleBackColor = true;
-            this.sPOViewBtn.Click += new System.EventHandler(this.sPOViewBtn_Click);
-            // 
             // sPOUpdateBtn
             // 
             this.sPOUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sPOUpdateBtn.Location = new System.Drawing.Point(87, 378);
+            this.sPOUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.sPOUpdateBtn.Name = "sPOUpdateBtn";
             this.sPOUpdateBtn.Size = new System.Drawing.Size(75, 23);
             this.sPOUpdateBtn.TabIndex = 15;
@@ -383,7 +353,7 @@
             // sPOAddBtn
             // 
             this.sPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sPOAddBtn.Location = new System.Drawing.Point(168, 378);
+            this.sPOAddBtn.Location = new System.Drawing.Point(87, 378);
             this.sPOAddBtn.Name = "sPOAddBtn";
             this.sPOAddBtn.Size = new System.Drawing.Size(75, 23);
             this.sPOAddBtn.TabIndex = 14;
@@ -394,7 +364,6 @@
             // siTab
             // 
             this.siTab.Controls.Add(this.siGridView);
-            this.siTab.Controls.Add(this.siViewBtn);
             this.siTab.Controls.Add(this.siUpdateBtn);
             this.siTab.Controls.Add(this.siAddBtn);
             this.siTab.Location = new System.Drawing.Point(4, 22);
@@ -417,21 +386,10 @@
             this.siGridView.Size = new System.Drawing.Size(869, 366);
             this.siGridView.TabIndex = 20;
             // 
-            // siViewBtn
-            // 
-            this.siViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.siViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.siViewBtn.Name = "siViewBtn";
-            this.siViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.siViewBtn.TabIndex = 19;
-            this.siViewBtn.Text = "View All";
-            this.siViewBtn.UseVisualStyleBackColor = true;
-            this.siViewBtn.Click += new System.EventHandler(this.siViewBtn_Click);
-            // 
             // siUpdateBtn
             // 
             this.siUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.siUpdateBtn.Location = new System.Drawing.Point(87, 378);
+            this.siUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.siUpdateBtn.Name = "siUpdateBtn";
             this.siUpdateBtn.Size = new System.Drawing.Size(75, 23);
             this.siUpdateBtn.TabIndex = 18;
@@ -442,7 +400,7 @@
             // siAddBtn
             // 
             this.siAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.siAddBtn.Location = new System.Drawing.Point(168, 378);
+            this.siAddBtn.Location = new System.Drawing.Point(87, 378);
             this.siAddBtn.Name = "siAddBtn";
             this.siAddBtn.Size = new System.Drawing.Size(75, 23);
             this.siAddBtn.TabIndex = 17;
@@ -453,7 +411,6 @@
             // drTab
             // 
             this.drTab.Controls.Add(this.drGridView);
-            this.drTab.Controls.Add(this.drViewBtn);
             this.drTab.Controls.Add(this.drUpdate);
             this.drTab.Controls.Add(this.drAddBtn);
             this.drTab.Location = new System.Drawing.Point(4, 22);
@@ -476,21 +433,10 @@
             this.drGridView.Size = new System.Drawing.Size(869, 366);
             this.drGridView.TabIndex = 24;
             // 
-            // drViewBtn
-            // 
-            this.drViewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.drViewBtn.Location = new System.Drawing.Point(6, 378);
-            this.drViewBtn.Name = "drViewBtn";
-            this.drViewBtn.Size = new System.Drawing.Size(75, 23);
-            this.drViewBtn.TabIndex = 23;
-            this.drViewBtn.Text = "View All";
-            this.drViewBtn.UseVisualStyleBackColor = true;
-            this.drViewBtn.Click += new System.EventHandler(this.drViewBtn_Click);
-            // 
             // drUpdate
             // 
             this.drUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.drUpdate.Location = new System.Drawing.Point(87, 378);
+            this.drUpdate.Location = new System.Drawing.Point(6, 378);
             this.drUpdate.Name = "drUpdate";
             this.drUpdate.Size = new System.Drawing.Size(75, 23);
             this.drUpdate.TabIndex = 22;
@@ -501,7 +447,7 @@
             // drAddBtn
             // 
             this.drAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.drAddBtn.Location = new System.Drawing.Point(168, 378);
+            this.drAddBtn.Location = new System.Drawing.Point(87, 378);
             this.drAddBtn.Name = "drAddBtn";
             this.drAddBtn.Size = new System.Drawing.Size(75, 23);
             this.drAddBtn.TabIndex = 21;
@@ -626,42 +572,6 @@
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
             // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(739, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 13);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Add a Company";
-            // 
-            // clTxtBox
-            // 
-            this.clTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.clTxtBox.Location = new System.Drawing.Point(742, 52);
-            this.clTxtBox.Name = "clTxtBox";
-            this.clTxtBox.Size = new System.Drawing.Size(133, 20);
-            this.clTxtBox.TabIndex = 24;
-            // 
-            // slTxtBox
-            // 
-            this.slTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.slTxtBox.Location = new System.Drawing.Point(742, 52);
-            this.slTxtBox.Name = "slTxtBox";
-            this.slTxtBox.Size = new System.Drawing.Size(133, 20);
-            this.slTxtBox.TabIndex = 29;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(739, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Add a Supplier";
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -706,30 +616,23 @@
         private System.Windows.Forms.TabPage clTab;
         private System.Windows.Forms.Button sPOAddBtn;
         private System.Windows.Forms.Button sPOUpdateBtn;
-        private System.Windows.Forms.Button sPOViewBtn;
         private System.Windows.Forms.DataGridView clGridView;
-        private System.Windows.Forms.Button clViewBtn;
         private System.Windows.Forms.Button clAddBtn;
         private System.Windows.Forms.DataGridView sPOGridView;
-        private System.Windows.Forms.Button siViewBtn;
         private System.Windows.Forms.Button siUpdateBtn;
         private System.Windows.Forms.Button siAddBtn;
         private System.Windows.Forms.DataGridView siGridView;
         private System.Windows.Forms.DataGridView drGridView;
-        private System.Windows.Forms.Button drViewBtn;
         private System.Windows.Forms.Button drUpdate;
         private System.Windows.Forms.Button drAddBtn;
         private System.Windows.Forms.TabPage imTab;
         private System.Windows.Forms.Button imAddBtn;
         private System.Windows.Forms.Button imUpdateBtn;
         private System.Windows.Forms.DataGridView imGridView;
-        private System.Windows.Forms.Button imViewBtn;
         private System.Windows.Forms.TabPage slTab;
         private System.Windows.Forms.Button slAddBtn;
         private System.Windows.Forms.DataGridView slGridView;
-        private System.Windows.Forms.Button slViewBtn;
         private System.Windows.Forms.TabPage cPOTab;
-        private System.Windows.Forms.Button cPOViewBtn;
         private System.Windows.Forms.Button cPOUpdateBtn;
         private System.Windows.Forms.Button cPOAddBtn;
         private System.Windows.Forms.DataGridView cPOGridView;

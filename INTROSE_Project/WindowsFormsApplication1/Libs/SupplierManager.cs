@@ -12,6 +12,9 @@ namespace introse_project.Libs
 {
     class SupplierManager
     {
+        private static SupplierManager theInstance = new SupplierManager();
+        private SupplierManager(){}
+
         public void viewAll(DataGridView dataGridView)      //Displays all the listed suppliers
         {
             string query =  "SELECT supplierName AS 'Supplier Name' " +
@@ -43,7 +46,42 @@ namespace introse_project.Libs
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
+            finally
+            {
+                connection.Close();
+            }
         
+        }
+
+        public void addData(string supplierName)
+        {
+            string query = "INSERT INTO suppliers (supplierName) values (@supplierName)";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@supplierName", supplierName);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static SupplierManager instance
+        {
+            get { return theInstance; }
         }
 
     }

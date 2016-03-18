@@ -12,6 +12,10 @@ namespace introse_project.Libs
 {
     class DeliveryReceiptsManager
     {
+        private static DeliveryReceiptsManager theInstance = new DeliveryReceiptsManager();
+
+        private DeliveryReceiptsManager(){}
+
         public void viewAll(DataGridView dataGridView)      //Displays all delivery receipts, the DR's related supplier PO and the delivered items
         {
             string query = "SELECT	A.deliveryReceiptNumber		AS 'Delivery Receipt Number'," +
@@ -59,8 +63,15 @@ namespace introse_project.Libs
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
+            finally
+            {
+                connection.Close();
+            }
 
         }
-
+        public static DeliveryReceiptsManager instance
+        {
+            get { return theInstance; }
+        }
     }
 }

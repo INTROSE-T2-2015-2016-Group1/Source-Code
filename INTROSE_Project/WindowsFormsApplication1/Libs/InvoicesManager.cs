@@ -12,6 +12,10 @@ namespace introse_project.Libs
 {
     class InvoicesManager
     {
+        private static InvoicesManager theInstance = new InvoicesManager();
+
+        private InvoicesManager(){}
+        
         public void viewAll(DataGridView dataGridView)      //Displays all invoices, the delivered items within the invoice and the customer's QA inspection results
         {
             string query = "SELECT	A.invoiceNumber						AS 'Invoice Number'," +
@@ -64,7 +68,15 @@ namespace introse_project.Libs
             {
                 MessageBox.Show("Error: Unable to show table due to connection problems");
             }
+            finally
+            {
+                connection.Close();
+            }
         
+        }
+        public static InvoicesManager instance
+        {
+            get { return theInstance; }
         }
 
     }
