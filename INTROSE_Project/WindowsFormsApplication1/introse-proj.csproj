@@ -75,6 +75,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sub_windows\Item Management\addIM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Item Management\addIM.Designer.cs">
+      <DependentUpon>addIM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Item Management\updateIM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Item Management\updateIM.Designer.cs">
+      <DependentUpon>updateIM.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Purchase Order\Customer\addCPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="sub_windows\Item Management\addIM.resx">
+      <DependentUpon>addIM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Item Management\updateIM.resx">
+      <DependentUpon>updateIM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Customer\addCPO.resx">
+      <DependentUpon>addCPO.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,7 +160,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="sub_windows\Lists\Company\" />
+    <Folder Include="sub_windows\Lists\Supplier\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

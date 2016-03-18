@@ -73,6 +73,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.clTxtBox = new System.Windows.Forms.TextBox();
+            this.slTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -174,6 +178,8 @@
             // 
             // clTab
             // 
+            this.clTab.Controls.Add(this.clTxtBox);
+            this.clTab.Controls.Add(this.label4);
             this.clTab.Controls.Add(this.clAddBtn);
             this.clTab.Controls.Add(this.clGridView);
             this.clTab.Controls.Add(this.clViewBtn);
@@ -187,12 +193,12 @@
             // 
             // clAddBtn
             // 
-            this.clAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.clAddBtn.Location = new System.Drawing.Point(87, 378);
+            this.clAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clAddBtn.Location = new System.Drawing.Point(742, 78);
             this.clAddBtn.Name = "clAddBtn";
-            this.clAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.clAddBtn.Size = new System.Drawing.Size(106, 23);
             this.clAddBtn.TabIndex = 22;
-            this.clAddBtn.Text = "Add";
+            this.clAddBtn.Text = "Add Company";
             this.clAddBtn.UseVisualStyleBackColor = true;
             this.clAddBtn.Click += new System.EventHandler(this.clAddBtn_Click);
             // 
@@ -205,7 +211,7 @@
             this.clGridView.Location = new System.Drawing.Point(6, 6);
             this.clGridView.Name = "clGridView";
             this.clGridView.ReadOnly = true;
-            this.clGridView.Size = new System.Drawing.Size(869, 366);
+            this.clGridView.Size = new System.Drawing.Size(727, 366);
             this.clGridView.TabIndex = 19;
             // 
             // clViewBtn
@@ -221,6 +227,8 @@
             // 
             // slTab
             // 
+            this.slTab.Controls.Add(this.slTxtBox);
+            this.slTab.Controls.Add(this.label5);
             this.slTab.Controls.Add(this.slAddBtn);
             this.slTab.Controls.Add(this.slGridView);
             this.slTab.Controls.Add(this.slViewBtn);
@@ -234,12 +242,12 @@
             // 
             // slAddBtn
             // 
-            this.slAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.slAddBtn.Location = new System.Drawing.Point(87, 378);
+            this.slAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.slAddBtn.Location = new System.Drawing.Point(742, 78);
             this.slAddBtn.Name = "slAddBtn";
-            this.slAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.slAddBtn.Size = new System.Drawing.Size(106, 23);
             this.slAddBtn.TabIndex = 26;
-            this.slAddBtn.Text = "Add";
+            this.slAddBtn.Text = "Add Supplier";
             this.slAddBtn.UseVisualStyleBackColor = true;
             this.slAddBtn.Click += new System.EventHandler(this.slAddBtn_Click);
             // 
@@ -252,7 +260,7 @@
             this.slGridView.Location = new System.Drawing.Point(6, 6);
             this.slGridView.Name = "slGridView";
             this.slGridView.ReadOnly = true;
-            this.slGridView.Size = new System.Drawing.Size(869, 366);
+            this.slGridView.Size = new System.Drawing.Size(727, 366);
             this.slGridView.TabIndex = 24;
             // 
             // slViewBtn
@@ -618,6 +626,42 @@
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(739, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Add a Company";
+            // 
+            // clTxtBox
+            // 
+            this.clTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clTxtBox.Location = new System.Drawing.Point(742, 52);
+            this.clTxtBox.Name = "clTxtBox";
+            this.clTxtBox.Size = new System.Drawing.Size(133, 20);
+            this.clTxtBox.TabIndex = 24;
+            // 
+            // slTxtBox
+            // 
+            this.slTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.slTxtBox.Location = new System.Drawing.Point(742, 52);
+            this.slTxtBox.Name = "slTxtBox";
+            this.slTxtBox.Size = new System.Drawing.Size(133, 20);
+            this.slTxtBox.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(739, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Add a Supplier";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,8 +676,10 @@
             this.imTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).EndInit();
             this.clTab.ResumeLayout(false);
+            this.clTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clGridView)).EndInit();
             this.slTab.ResumeLayout(false);
+            this.slTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.slGridView)).EndInit();
             this.cPOTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cPOGridView)).EndInit();
@@ -698,6 +744,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.TextBox clTxtBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox slTxtBox;
+        private System.Windows.Forms.Label label5;
 
 
     }

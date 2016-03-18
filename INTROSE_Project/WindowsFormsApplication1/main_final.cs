@@ -13,6 +13,7 @@ using introse_project.sub_windows.Purchase_Order;
 
 using introse_project.sub_windows.Sales_Invoice;
 using introse_project.Libs;
+using introse_project.sub_windows.Item_Management;
 
 namespace introse_project
 {
@@ -46,7 +47,8 @@ namespace introse_project
 
         private void imAddBtn_Click(object sender, EventArgs e)
         {
-
+            addIM formAdd = new addIM();
+            formAdd.ShowDialog();
         }
 
         //Company List
