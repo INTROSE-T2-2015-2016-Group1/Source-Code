@@ -30,33 +30,28 @@
         {
             this.itemAddBtn = new System.Windows.Forms.Button();
             this.descTxtBox = new System.Windows.Forms.TextBox();
-            this.supplierTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.supplierComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // itemAddBtn
             // 
-            this.itemAddBtn.Location = new System.Drawing.Point(318, 69);
+            this.itemAddBtn.Location = new System.Drawing.Point(313, 68);
             this.itemAddBtn.Name = "itemAddBtn";
             this.itemAddBtn.Size = new System.Drawing.Size(75, 23);
             this.itemAddBtn.TabIndex = 9;
             this.itemAddBtn.Text = "Add Item";
             this.itemAddBtn.UseVisualStyleBackColor = true;
+            this.itemAddBtn.Click += new System.EventHandler(this.itemAddBtn_Click);
             // 
             // descTxtBox
             // 
             this.descTxtBox.Location = new System.Drawing.Point(94, 71);
+            this.descTxtBox.MaxLength = 40;
             this.descTxtBox.Name = "descTxtBox";
-            this.descTxtBox.Size = new System.Drawing.Size(151, 20);
+            this.descTxtBox.Size = new System.Drawing.Size(213, 20);
             this.descTxtBox.TabIndex = 8;
-            // 
-            // supplierTxtBox
-            // 
-            this.supplierTxtBox.Location = new System.Drawing.Point(94, 28);
-            this.supplierTxtBox.Name = "supplierTxtBox";
-            this.supplierTxtBox.Size = new System.Drawing.Size(151, 20);
-            this.supplierTxtBox.TabIndex = 7;
             // 
             // label2
             // 
@@ -76,14 +71,22 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Supplier Name";
             // 
+            // supplierComboBox
+            // 
+            this.supplierComboBox.FormattingEnabled = true;
+            this.supplierComboBox.Location = new System.Drawing.Point(94, 28);
+            this.supplierComboBox.Name = "supplierComboBox";
+            this.supplierComboBox.Size = new System.Drawing.Size(213, 21);
+            this.supplierComboBox.TabIndex = 10;
+            // 
             // addIM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 139);
+            this.Controls.Add(this.supplierComboBox);
             this.Controls.Add(this.itemAddBtn);
             this.Controls.Add(this.descTxtBox);
-            this.Controls.Add(this.supplierTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -98,9 +101,9 @@
 
         private System.Windows.Forms.Button itemAddBtn;
         private System.Windows.Forms.TextBox descTxtBox;
-        private System.Windows.Forms.TextBox supplierTxtBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox supplierComboBox;
 
 
 

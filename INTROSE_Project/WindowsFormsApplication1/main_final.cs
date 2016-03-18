@@ -55,8 +55,15 @@ namespace introse_project
 
         private void imAddBtn_Click(object sender, EventArgs e)
         {
-            addIM formAdd = new addIM();
-            formAdd.ShowDialog();
+            if (SupplierManager.instance.getCount() > 0)
+            {
+                addIM formAdd = new addIM();
+                formAdd.ShowDialog();
+                ItemManager.instance.viewAll(imGridView);
+            }
+            else
+                MessageBox.Show("No supplier's available for input");
+            
         }
         #endregion
 

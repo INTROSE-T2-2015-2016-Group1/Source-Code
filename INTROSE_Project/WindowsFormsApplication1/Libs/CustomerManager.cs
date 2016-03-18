@@ -72,6 +72,7 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
+                MessageBox.Show("Customer Added");
             }
             catch
             {

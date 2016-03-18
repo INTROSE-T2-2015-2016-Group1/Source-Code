@@ -68,6 +68,7 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
+                MessageBox.Show("Supplier Added");
             }
             catch
             {
@@ -77,6 +78,35 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
+        }
+
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM suppliers";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
         }
 
         public static SupplierManager instance

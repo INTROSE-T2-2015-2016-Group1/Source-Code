@@ -55,7 +55,33 @@ namespace introse_project.Libs
             }
         }
 
-        //public void addData()
+        public void addData(string supplierName, string description)
+        {
+            string query = "INSERT INTO items (supplierName, description) values (@supplierName, @description)";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@supplierName", supplierName);
+                command.Parameters.AddWithValue("@description", description);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+                MessageBox.Show("Item Added");
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         public static ItemManager instance
         {

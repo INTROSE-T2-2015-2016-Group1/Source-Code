@@ -1,5 +1,5 @@
 CREATE TABLE items (
-  itemNumber varchar(40) NOT NULL,
+  itemNumber int NOT NULL AUTO_INCREMENT,
   supplierName varchar(40) NOT NULL,
   description varchar(40) NOT NULL,
   PRIMARY KEY (itemNumber)
@@ -23,7 +23,7 @@ CREATE TABLE customer_po (
 CREATE TABLE customer_order_items (
   customerOrderID int NOT NULL AUTO_INCREMENT,
   customerPONumber varchar(40) NOT NULL,
-  itemNumber varchar(40) NOT NULL,
+  itemNumber int NOT NULL,
   quantity int NOT NULL,
   currency varchar(5) NOT NULL,
   pricePerUnit float NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE supplier_po (
 CREATE TABLE supplier_order_items (
   supplierOrderID int NOT NULL AUTO_INCREMENT,
   supplierPONumber varchar(40) NOT NULL,
-  itemNumber varchar(40) NOT NULL,
+  itemNumber int NOT NULL,
   quantity int NOT NULL,
   currency varchar(5) NOT NULL,
   pricePerunit float NOT NULL,
