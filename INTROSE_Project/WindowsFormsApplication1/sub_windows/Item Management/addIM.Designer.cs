@@ -92,6 +92,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "addIM";
             this.Text = "Add Item";
+            this.Load += new System.EventHandler(this.addIM_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

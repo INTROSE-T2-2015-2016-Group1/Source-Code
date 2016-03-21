@@ -44,6 +44,7 @@
             this.slAddBtn = new System.Windows.Forms.Button();
             this.slGridView = new System.Windows.Forms.DataGridView();
             this.cPOTab = new System.Windows.Forms.TabPage();
+            this.cPOViewItemsBtn = new System.Windows.Forms.Button();
             this.cPOUpdateBtn = new System.Windows.Forms.Button();
             this.cPOAddBtn = new System.Windows.Forms.Button();
             this.cPOGridView = new System.Windows.Forms.DataGridView();
@@ -270,6 +271,7 @@
             // 
             // cPOTab
             // 
+            this.cPOTab.Controls.Add(this.cPOViewItemsBtn);
             this.cPOTab.Controls.Add(this.cPOUpdateBtn);
             this.cPOTab.Controls.Add(this.cPOAddBtn);
             this.cPOTab.Controls.Add(this.cPOGridView);
@@ -280,6 +282,16 @@
             this.cPOTab.TabIndex = 5;
             this.cPOTab.Text = "Customer Purchase Order";
             this.cPOTab.UseVisualStyleBackColor = true;
+            // 
+            // cPOViewItemsBtn
+            // 
+            this.cPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
+            this.cPOViewItemsBtn.Name = "cPOViewItemsBtn";
+            this.cPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
+            this.cPOViewItemsBtn.TabIndex = 19;
+            this.cPOViewItemsBtn.Text = "View Items";
+            this.cPOViewItemsBtn.UseVisualStyleBackColor = true;
+            this.cPOViewItemsBtn.Click += new System.EventHandler(this.cPOViewItemsBtn_Click);
             // 
             // cPOUpdateBtn
             // 
@@ -297,9 +309,9 @@
             this.cPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cPOAddBtn.Location = new System.Drawing.Point(87, 378);
             this.cPOAddBtn.Name = "cPOAddBtn";
-            this.cPOAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.cPOAddBtn.Size = new System.Drawing.Size(117, 23);
             this.cPOAddBtn.TabIndex = 17;
-            this.cPOAddBtn.Text = "Add";
+            this.cPOAddBtn.Text = "Add Purchase Order";
             this.cPOAddBtn.UseVisualStyleBackColor = true;
             this.cPOAddBtn.Click += new System.EventHandler(this.cPOAddBtn_Click);
             // 
@@ -651,6 +663,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox slTxtBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button cPOViewItemsBtn;
 
     }
 }

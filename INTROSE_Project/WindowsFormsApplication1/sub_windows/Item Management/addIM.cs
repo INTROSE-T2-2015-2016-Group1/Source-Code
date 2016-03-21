@@ -15,41 +15,18 @@ namespace introse_project.sub_windows.Item_Management
 {
     public partial class addIM : Form
     {
-        public addIM()
+
+        private static addIM theInstance = new addIM();
+
+        private addIM()
         {
             InitializeComponent();
-            fillComboBox();
-            supplierComboBox.SelectedIndex = 0;
         }
 
-        private void fillComboBox()     //fills up the combo box with values within the database
+        private void addIM_Load(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM suppliers";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataReader reader;
-
-            try
-            {
-                connection.Open();
-
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                    supplierComboBox.Items.Add(reader.GetString("supplierName"));
-                
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Unable to read supplier database");
-            }
-            finally
-            {
-                connection.Close();
-            }
+            SupplierManager.instance.fillComboBox(supplierComboBox);
+            supplierComboBox.SelectedIndex = 0;
         }
 
         private void itemAddBtn_Click(object sender, EventArgs e)
@@ -57,5 +34,11 @@ namespace introse_project.sub_windows.Item_Management
             ItemManager.instance.addData(supplierComboBox.SelectedItem.ToString(), descTxtBox.Text);
             this.Close();
         }
+
+        public static addIM instance
+        {
+            get { return theInstance; }
+        }
+        
     }
 }

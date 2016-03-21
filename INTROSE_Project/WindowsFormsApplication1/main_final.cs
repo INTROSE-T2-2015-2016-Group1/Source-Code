@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using introse_project.sub_windows.Delivery_Receipt;
-using introse_project.sub_windows.Purchase_Order;
-
-using introse_project.sub_windows.Sales_Invoice;
 using introse_project.Libs;
+
 using introse_project.sub_windows.Item_Management;
+using introse_project.sub_windows.Purchase_Order.Customer;
+using introse_project.sub_windows.Purchase_Order.Supplier;
+using introse_project.sub_windows.Delivery_Receipt;
+using introse_project.sub_windows.Sales_Invoice;
 
 namespace introse_project
 {
@@ -57,13 +57,11 @@ namespace introse_project
         {
             if (SupplierManager.instance.getCount() > 0)
             {
-                addIM formAdd = new addIM();
-                formAdd.ShowDialog();
+                addIM.instance.ShowDialog();
                 ItemManager.instance.viewAll(imGridView);
             }
             else
-                MessageBox.Show("No supplier's available for input");
-            
+                MessageBox.Show("No supplier's available for input");           
         }
         #endregion
 
@@ -91,7 +89,13 @@ namespace introse_project
 
         private void cPOAddBtn_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void cPOViewItemsBtn_Click(object sender, EventArgs e)
+        {
+            viewCPOItems.instance.setPONUmber(cPOGridView.Rows[cPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());           
+            viewCPOItems.instance.ShowDialog();
         }
         #endregion
 
@@ -141,7 +145,7 @@ namespace introse_project
         {
 
         }
-        #endregion
+        #endregion     
 
     }
 }

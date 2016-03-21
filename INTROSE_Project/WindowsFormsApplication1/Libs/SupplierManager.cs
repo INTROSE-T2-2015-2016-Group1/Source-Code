@@ -109,6 +109,38 @@ namespace introse_project.Libs
             return value;
         }
 
+        public void fillComboBox(ComboBox supplierComboBox)     //fills up the combo box with values within the database
+        {
+            supplierComboBox.Items.Clear();
+            
+            string query = "SELECT * FROM suppliers";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    supplierComboBox.Items.Add(reader.GetString("supplierName"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read supplier database");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public static SupplierManager instance
         {
             get { return theInstance; }

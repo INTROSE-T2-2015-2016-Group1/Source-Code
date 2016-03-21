@@ -96,6 +96,18 @@
     <Compile Include="sub_windows\Purchase Order\Customer\addCPO.Designer.cs">
       <DependentUpon>addCPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="sub_windows\Purchase Order\Customer\addCPOItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Customer\addCPOItem.Designer.cs">
+      <DependentUpon>addCPOItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Customer\viewCPOItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Customer\viewCPOItems.Designer.cs">
+      <DependentUpon>viewCPOItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Purchase Order\Customer\updateCPO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,8 +168,14 @@
     <EmbeddedResource Include="sub_windows\Purchase Order\Customer\addCPO.resx">
       <DependentUpon>addCPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Customer\addCPOItem.resx">
+      <DependentUpon>addCPOItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Purchase Order\Customer\updateCPO.resx">
       <DependentUpon>updateCPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Customer\viewCPOItems.resx">
+      <DependentUpon>viewCPOItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\addSPO.resx">
       <DependentUpon>addSPO.cs</DependentUpon>

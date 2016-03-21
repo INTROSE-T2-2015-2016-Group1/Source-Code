@@ -83,9 +83,105 @@ namespace introse_project.Libs
             }
         }
 
+        public void fillComboBox(ComboBox itemComboBox)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT DISTINCT(description) FROM items";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("description"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read items database");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void fillRelatedSuppliers(ComboBox supplierComboBox, String description)     //fills up the combo box with the suppliers that match the description
+        {
+            supplierComboBox.Items.Clear();
+
+            string query = "SELECT * FROM items A WHERE A.description = '"+ description +"'";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    supplierComboBox.Items.Add(reader.GetString("supplierName"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read items database");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public int getItemNumber(String description, String supplierName)
+        {
+            string query = "SELECT  itemNumber FROM items A " +
+                           "WHERE A.description = '"+ description +"' AND A.supplierName = '"+ supplierName +"' ";
+
+            int value = 0;
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Data passed was invalid");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+        }
+
         public static ItemManager instance
         {
-        get { return theInstance; }
+            get { return theInstance; }
         }
 
     }
