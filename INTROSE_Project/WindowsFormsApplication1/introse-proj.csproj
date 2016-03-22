@@ -102,6 +102,12 @@
     <Compile Include="sub_windows\Purchase Order\Customer\addCPOItem.Designer.cs">
       <DependentUpon>addCPOItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="sub_windows\Purchase Order\Customer\updateCPOItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Customer\updateCPOItems.Designer.cs">
+      <DependentUpon>updateCPOItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Purchase Order\Customer\viewCPOItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,11 +126,29 @@
     <Compile Include="sub_windows\Purchase Order\Supplier\addSPO.Designer.cs">
       <DependentUpon>addSPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="sub_windows\Purchase Order\Supplier\addSPOItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Supplier\addSPOItems.Designer.cs">
+      <DependentUpon>addSPOItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Purchase Order\Supplier\updateSPO.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="sub_windows\Purchase Order\Supplier\updateSPO.Designer.cs">
       <DependentUpon>updateSPO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Supplier\updateSPOItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Supplier\updateSPOItems.Designer.cs">
+      <DependentUpon>updateSPOItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Supplier\viewSPOItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Purchase Order\Supplier\viewSPOItems.Designer.cs">
+      <DependentUpon>viewSPOItems.cs</DependentUpon>
     </Compile>
     <Compile Include="sub_windows\Sales Invoice\addSI.cs">
       <SubType>Form</SubType>
@@ -174,14 +198,26 @@
     <EmbeddedResource Include="sub_windows\Purchase Order\Customer\updateCPO.resx">
       <DependentUpon>updateCPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Customer\updateCPOItems.resx">
+      <DependentUpon>updateCPOItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Purchase Order\Customer\viewCPOItems.resx">
       <DependentUpon>viewCPOItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\addSPO.resx">
       <DependentUpon>addSPO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\addSPOItems.resx">
+      <DependentUpon>addSPOItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\updateSPO.resx">
       <DependentUpon>updateSPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\updateSPOItems.resx">
+      <DependentUpon>updateSPOItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Purchase Order\Supplier\viewSPOItems.resx">
+      <DependentUpon>viewSPOItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Sales Invoice\addSI.resx">
       <DependentUpon>addSI.cs</DependentUpon>
