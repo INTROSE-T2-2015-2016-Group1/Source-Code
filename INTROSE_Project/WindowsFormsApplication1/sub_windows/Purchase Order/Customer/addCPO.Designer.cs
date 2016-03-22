@@ -72,7 +72,7 @@
             // 
             this.dateIssuedCBox.Location = new System.Drawing.Point(6, 163);
             this.dateIssuedCBox.Name = "dateIssuedCBox";
-            this.dateIssuedCBox.Size = new System.Drawing.Size(186, 20);
+            this.dateIssuedCBox.Size = new System.Drawing.Size(262, 20);
             this.dateIssuedCBox.TabIndex = 11;
             // 
             // customerNameCBox
@@ -81,19 +81,19 @@
             this.customerNameCBox.FormattingEnabled = true;
             this.customerNameCBox.Location = new System.Drawing.Point(6, 105);
             this.customerNameCBox.Name = "customerNameCBox";
-            this.customerNameCBox.Size = new System.Drawing.Size(183, 21);
+            this.customerNameCBox.Size = new System.Drawing.Size(262, 21);
             this.customerNameCBox.TabIndex = 12;
             // 
             // dateExpectedCBox
             // 
             this.dateExpectedCBox.Location = new System.Drawing.Point(8, 229);
             this.dateExpectedCBox.Name = "dateExpectedCBox";
-            this.dateExpectedCBox.Size = new System.Drawing.Size(186, 20);
+            this.dateExpectedCBox.Size = new System.Drawing.Size(260, 20);
             this.dateExpectedCBox.TabIndex = 13;
             // 
             // addCPOBtn
             // 
-            this.addCPOBtn.Location = new System.Drawing.Point(88, 347);
+            this.addCPOBtn.Location = new System.Drawing.Point(159, 347);
             this.addCPOBtn.Name = "addCPOBtn";
             this.addCPOBtn.Size = new System.Drawing.Size(127, 23);
             this.addCPOBtn.TabIndex = 15;
@@ -113,7 +113,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(203, 329);
+            this.groupBox1.Size = new System.Drawing.Size(274, 329);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Customer Information";
@@ -132,14 +132,14 @@
             this.cPONumberTxtBox.Location = new System.Drawing.Point(8, 47);
             this.cPONumberTxtBox.MaxLength = 40;
             this.cPONumberTxtBox.Name = "cPONumberTxtBox";
-            this.cPONumberTxtBox.Size = new System.Drawing.Size(181, 20);
+            this.cPONumberTxtBox.Size = new System.Drawing.Size(260, 20);
             this.cPONumberTxtBox.TabIndex = 14;
             // 
             // addCPO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(227, 382);
+            this.ClientSize = new System.Drawing.Size(298, 382);
             this.Controls.Add(this.addCPOBtn);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -82,9 +82,9 @@
             // 
             // itemSupplierCBox
             // 
+            resources.ApplyResources(this.itemSupplierCBox, "itemSupplierCBox");
             this.itemSupplierCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemSupplierCBox.FormattingEnabled = true;
-            resources.ApplyResources(this.itemSupplierCBox, "itemSupplierCBox");
             this.itemSupplierCBox.Name = "itemSupplierCBox";
             // 
             // label4
@@ -94,9 +94,9 @@
             // 
             // itemDescCBox
             // 
+            resources.ApplyResources(this.itemDescCBox, "itemDescCBox");
             this.itemDescCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemDescCBox.FormattingEnabled = true;
-            resources.ApplyResources(this.itemDescCBox, "itemDescCBox");
             this.itemDescCBox.Name = "itemDescCBox";
             this.itemDescCBox.SelectedIndexChanged += new System.EventHandler(this.itemDescCBox_SelectedIndexChanged);
             // 
@@ -145,6 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.addCPOItemsBtn);
             this.Controls.Add(this.groupBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "addCPOItem";
             this.Load += new System.EventHandler(this.addCPOItem_Load);
             this.groupBox2.ResumeLayout(false);

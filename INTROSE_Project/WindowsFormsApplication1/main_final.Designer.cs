@@ -71,6 +71,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
+            this.sPOViewItemsBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -329,6 +330,7 @@
             // 
             // sPOTab
             // 
+            this.sPOTab.Controls.Add(this.sPOViewItemsBtn);
             this.sPOTab.Controls.Add(this.sPOGridView);
             this.sPOTab.Controls.Add(this.sPOUpdateBtn);
             this.sPOTab.Controls.Add(this.sPOAddBtn);
@@ -367,9 +369,9 @@
             this.sPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.sPOAddBtn.Location = new System.Drawing.Point(87, 378);
             this.sPOAddBtn.Name = "sPOAddBtn";
-            this.sPOAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.sPOAddBtn.Size = new System.Drawing.Size(117, 23);
             this.sPOAddBtn.TabIndex = 14;
-            this.sPOAddBtn.Text = "Add";
+            this.sPOAddBtn.Text = "Add Purchase Order";
             this.sPOAddBtn.UseVisualStyleBackColor = true;
             this.sPOAddBtn.Click += new System.EventHandler(this.sPOAddBtn_Click);
             // 
@@ -584,6 +586,15 @@
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
             // 
+            // sPOViewItemsBtn
+            // 
+            this.sPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
+            this.sPOViewItemsBtn.Name = "sPOViewItemsBtn";
+            this.sPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
+            this.sPOViewItemsBtn.TabIndex = 20;
+            this.sPOViewItemsBtn.Text = "View Items";
+            this.sPOViewItemsBtn.UseVisualStyleBackColor = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,6 +675,7 @@
         private System.Windows.Forms.TextBox slTxtBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button cPOViewItemsBtn;
+        private System.Windows.Forms.Button sPOViewItemsBtn;
 
     }
 }
