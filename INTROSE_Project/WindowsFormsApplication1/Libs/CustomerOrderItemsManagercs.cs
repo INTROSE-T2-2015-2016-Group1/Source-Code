@@ -86,9 +86,9 @@ namespace introse_project.Libs
                 connection.Close();
                 MessageBox.Show("Item Added");
             }
-            catch(Exception e)
+            catch
             {
-                MessageBox.Show(e.Message + "\nUnable to add item to purchase order");
+                MessageBox.Show("Unable to add item to purchase order");
             }
             finally
             {

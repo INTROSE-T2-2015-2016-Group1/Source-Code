@@ -122,7 +122,7 @@
     <value>6, 290</value>
   </data>
   <data name="totalPriceTxtBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+    <value>186, 20</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="totalPriceTxtBox.TabIndex" type="System.Int32, mscorlib">
@@ -205,7 +205,7 @@
     <value>6, 90</value>
   </data>
   <data name="itemSupplierCBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 21</value>
+    <value>186, 21</value>
   </data>
   <data name="itemSupplierCBox.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -256,7 +256,7 @@
     <value>6, 40</value>
   </data>
   <data name="itemDescCBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 21</value>
+    <value>186, 21</value>
   </data>
   <data name="itemDescCBox.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -277,7 +277,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 124</value>
+    <value>6, 124</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 13</value>
@@ -304,7 +304,7 @@
     <value>True</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 174</value>
+    <value>6, 174</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -328,10 +328,10 @@
     <value>7</value>
   </data>
   <data name="pricePerUnitTxtBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 240</value>
+    <value>6, 240</value>
   </data>
   <data name="pricePerUnitTxtBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+    <value>186, 20</value>
   </data>
   <data name="pricePerUnitTxtBox.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -376,10 +376,13 @@
     <value>9</value>
   </data>
   <data name="currencyTxtBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 190</value>
+    <value>6, 190</value>
+  </data>
+  <data name="currencyTxtBox.MaxLength" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="currencyTxtBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+    <value>186, 20</value>
   </data>
   <data name="currencyTxtBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -397,10 +400,13 @@
     <value>10</value>
   </data>
   <data name="itemQtyTxtBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 140</value>
+    <value>6, 140</value>
+  </data>
+  <data name="itemQtyTxtBox.MaxLength" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
   <data name="itemQtyTxtBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 20</value>
+    <value>186, 20</value>
   </data>
   <data name="itemQtyTxtBox.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>

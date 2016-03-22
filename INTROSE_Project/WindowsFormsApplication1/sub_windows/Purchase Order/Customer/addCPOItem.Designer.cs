@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addCPOItem));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.totalPriceTxtBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.itemSupplierCBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,8 +43,6 @@
             this.currencyTxtBox = new System.Windows.Forms.TextBox();
             this.itemQtyTxtBox = new System.Windows.Forms.TextBox();
             this.addCPOItemsBtn = new System.Windows.Forms.Button();
-            this.totalPriceTxtBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,17 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // totalPriceTxtBox
+            // 
+            resources.ApplyResources(this.totalPriceTxtBox, "totalPriceTxtBox");
+            this.totalPriceTxtBox.Name = "totalPriceTxtBox";
+            this.totalPriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalPriceTxtBox_KeyPress);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
@@ -71,6 +82,7 @@
             // 
             // itemSupplierCBox
             // 
+            this.itemSupplierCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemSupplierCBox.FormattingEnabled = true;
             resources.ApplyResources(this.itemSupplierCBox, "itemSupplierCBox");
             this.itemSupplierCBox.Name = "itemSupplierCBox";
@@ -82,6 +94,7 @@
             // 
             // itemDescCBox
             // 
+            this.itemDescCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemDescCBox.FormattingEnabled = true;
             resources.ApplyResources(this.itemDescCBox, "itemDescCBox");
             this.itemDescCBox.Name = "itemDescCBox";
@@ -101,6 +114,7 @@
             // 
             resources.ApplyResources(this.pricePerUnitTxtBox, "pricePerUnitTxtBox");
             this.pricePerUnitTxtBox.Name = "pricePerUnitTxtBox";
+            this.pricePerUnitTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pricePerUnitTxtBox_KeyPress);
             // 
             // label7
             // 
@@ -116,6 +130,7 @@
             // 
             resources.ApplyResources(this.itemQtyTxtBox, "itemQtyTxtBox");
             this.itemQtyTxtBox.Name = "itemQtyTxtBox";
+            this.itemQtyTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemQtyTxtBox_KeyPress);
             // 
             // addCPOItemsBtn
             // 
@@ -123,16 +138,6 @@
             this.addCPOItemsBtn.Name = "addCPOItemsBtn";
             this.addCPOItemsBtn.UseVisualStyleBackColor = true;
             this.addCPOItemsBtn.Click += new System.EventHandler(this.addCPOItemsBtn_Click);
-            // 
-            // totalPriceTxtBox
-            // 
-            resources.ApplyResources(this.totalPriceTxtBox, "totalPriceTxtBox");
-            this.totalPriceTxtBox.Name = "totalPriceTxtBox";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
             // 
             // addCPOItem
             // 

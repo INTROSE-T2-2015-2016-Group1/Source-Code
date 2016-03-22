@@ -60,6 +60,102 @@ namespace introse_project.Libs
 
         }
 
+        public void addData(string customerPONumber, string customerName, string dateIssued, string expectedDeliveryDate)
+        {
+            string query = "INSERT INTO customer_po (customerPONumber, customerName, dateIssued, expectedDeliveryDate, isFinished) " +
+                            "values (@customerPONumber, @customerName, @dateIssued, @expectedDeliveryDate, false)";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@customerPONumber", customerPONumber);
+                command.Parameters.AddWithValue("@customerName", customerName);
+                command.Parameters.AddWithValue("@dateIssued", dateIssued);
+                command.Parameters.AddWithValue("@expectedDeliveryDate", expectedDeliveryDate);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+                MessageBox.Show("Purchase Order Added");
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add customer purchase order");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM customer_po";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public bool pkExists(string cPONumber)
+        {
+            string query = "SELECT  COUNT(customerPONumber) FROM customer_po A WHERE A.customerPONumber = '"+ cPONumber +"'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }                    
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        
+        }
+
         public static CustomerPOManager instance
         {
             get { return theInstance; }

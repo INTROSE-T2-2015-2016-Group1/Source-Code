@@ -15,7 +15,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
     {
         private static viewCPOItems theInstance = new viewCPOItems();
 
-        String customerPONumber;    
+        private string customerPONumber;    
 
         private viewCPOItems()
         {
@@ -27,16 +27,24 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             CustomerOrderItemsManagercs.instance.viewAll(customerPONumber, cpoItemsGridView);
         }
 
-        public void setPONUmber(String customerPONumber)
+        public void setPONUmber(string customerPONumber)
         {
             this.customerPONumber = customerPONumber;
         }
 
         private void addCPOItemsBtn_Click(object sender, EventArgs e)
         {
-            addCPOItem.instance.setPONumber(this.customerPONumber);
-            addCPOItem.instance.ShowDialog();
-            CustomerOrderItemsManagercs.instance.viewAll(customerPONumber, cpoItemsGridView);
+            if(ItemManager.instance.getCount() > 0)
+            {
+                addCPOItem.instance.setAddType(false);
+                addCPOItem.instance.setPONumber(this.customerPONumber);
+                addCPOItem.instance.ShowDialog();
+                CustomerOrderItemsManagercs.instance.viewAll(customerPONumber, cpoItemsGridView);
+            }
+            else
+            {
+                MessageBox.Show("No items in item list to add to purchase order");
+            }        
         }
 
         public static viewCPOItems instance

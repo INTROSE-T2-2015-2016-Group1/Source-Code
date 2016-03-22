@@ -83,6 +83,36 @@ namespace introse_project.Libs
             }
         }
 
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM items";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
         public void fillComboBox(ComboBox itemComboBox)     //fills up the combo box with values within the database
         {
             itemComboBox.Items.Clear();

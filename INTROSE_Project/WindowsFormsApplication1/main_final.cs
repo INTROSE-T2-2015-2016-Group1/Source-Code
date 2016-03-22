@@ -14,6 +14,7 @@ using introse_project.sub_windows.Purchase_Order.Customer;
 using introse_project.sub_windows.Purchase_Order.Supplier;
 using introse_project.sub_windows.Delivery_Receipt;
 using introse_project.sub_windows.Sales_Invoice;
+using introse_project.sub_windows.Purchase_Order;
 
 namespace introse_project
 {
@@ -89,13 +90,29 @@ namespace introse_project
 
         private void cPOAddBtn_Click(object sender, EventArgs e)
         {
-            
+            if (CustomerManager.instance.getCount() > 0)
+            {
+                addCPO.instance.ShowDialog();
+                CustomerPOManager.instance.viewAll(cPOGridView);    
+            }
+            else
+            {
+                MessageBox.Show("No customers to add a purchase order to");
+            }
         }
 
         private void cPOViewItemsBtn_Click(object sender, EventArgs e)
         {
-            viewCPOItems.instance.setPONUmber(cPOGridView.Rows[cPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());           
-            viewCPOItems.instance.ShowDialog();
+            if (CustomerPOManager.instance.getCount() > 0)
+            {
+                viewCPOItems.instance.setPONUmber(cPOGridView.Rows[cPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewCPOItems.instance.ShowDialog();
+                CustomerPOManager.instance.viewAll(cPOGridView);
+            }
+            else
+            {
+                MessageBox.Show("No customer purchase order to view");
+            }           
         }
         #endregion
 

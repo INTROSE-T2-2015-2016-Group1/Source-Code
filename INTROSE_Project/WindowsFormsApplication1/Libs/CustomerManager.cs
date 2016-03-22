@@ -84,6 +84,67 @@ namespace introse_project.Libs
             }
         }
 
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM customers";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+        }
+
+        public void fillComboBox(ComboBox itemComboBox)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT * FROM customers";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("customerName"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read items database");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public static CustomerManager instance
         {
             get { return theInstance; }
