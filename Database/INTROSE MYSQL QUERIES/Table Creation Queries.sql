@@ -19,7 +19,7 @@ CREATE TABLE customer_po (
   PRIMARY KEY (customerPONumber),
   FOREIGN KEY (customerName) REFERENCES customers(customerName)
 );
-
+ 
 CREATE TABLE customer_order_items (
   customerOrderID int NOT NULL AUTO_INCREMENT,
   customerPONumber varchar(40) NOT NULL,
