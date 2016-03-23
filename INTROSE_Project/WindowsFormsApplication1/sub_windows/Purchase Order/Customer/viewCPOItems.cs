@@ -43,7 +43,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             }
             else
             {
-                MessageBox.Show("No items in item list to add to purchase order");
+                MessageBox.Show("No items in item list to add to purchase order", "ERROR");
             }        
         }
 

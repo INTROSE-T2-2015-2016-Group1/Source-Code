@@ -31,9 +31,9 @@
             this.spoItemsGridView = new System.Windows.Forms.DataGridView();
             this.sPOItemsUpdateBtn = new System.Windows.Forms.Button();
             this.addSPOItemsBtn = new System.Windows.Forms.Button();
-            this.cpoItemsGridView = new System.Windows.Forms.DataGridView();
+            this.cPOItemsGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.spoItemsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cpoItemsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPOItemsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // spoItemsGridView
@@ -67,18 +67,19 @@
             this.addSPOItemsBtn.TabIndex = 22;
             this.addSPOItemsBtn.Text = "Add Item";
             this.addSPOItemsBtn.UseVisualStyleBackColor = true;
+            this.addSPOItemsBtn.Click += new System.EventHandler(this.addSPOItemsBtn_Click);
             // 
-            // cpoItemsGridView
+            // cPOItemsGridView
             // 
-            this.cpoItemsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.cPOItemsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cpoItemsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cpoItemsGridView.Location = new System.Drawing.Point(12, 11);
-            this.cpoItemsGridView.Name = "cpoItemsGridView";
-            this.cpoItemsGridView.ReadOnly = true;
-            this.cpoItemsGridView.Size = new System.Drawing.Size(718, 301);
-            this.cpoItemsGridView.TabIndex = 21;
+            this.cPOItemsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cPOItemsGridView.Location = new System.Drawing.Point(12, 11);
+            this.cPOItemsGridView.Name = "cPOItemsGridView";
+            this.cPOItemsGridView.ReadOnly = true;
+            this.cPOItemsGridView.Size = new System.Drawing.Size(718, 301);
+            this.cPOItemsGridView.TabIndex = 21;
             // 
             // viewSPOItems
             // 
@@ -87,13 +88,14 @@
             this.ClientSize = new System.Drawing.Size(742, 352);
             this.Controls.Add(this.sPOItemsUpdateBtn);
             this.Controls.Add(this.addSPOItemsBtn);
-            this.Controls.Add(this.cpoItemsGridView);
+            this.Controls.Add(this.cPOItemsGridView);
             this.Controls.Add(this.spoItemsGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "viewSPOItems";
             this.Text = "View Items";
+            this.Load += new System.EventHandler(this.viewSPOItems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.spoItemsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cpoItemsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cPOItemsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,6 +105,6 @@
         private System.Windows.Forms.DataGridView spoItemsGridView;
         private System.Windows.Forms.Button sPOItemsUpdateBtn;
         private System.Windows.Forms.Button addSPOItemsBtn;
-        private System.Windows.Forms.DataGridView cpoItemsGridView;
+        private System.Windows.Forms.DataGridView cPOItemsGridView;
     }
 }

@@ -21,16 +21,13 @@ namespace introse_project.Libs
         {
 
             string query = "SELECT	 A.customerPONumber		    AS 'Customer PO Number'," +
-                                    "A.itemNumber			    AS 'Item Number'," +
-                                    "B.description			    AS 'Description'," +
+                                    "A.itemDescription			AS 'Item'," +
                                     "A.quantity			        AS 'Quantity'," +
                                     "A.currency              	AS 'Currency'," +
                                     "A.pricePerUnit             AS 'Price Per Unit'," +
                                     "A.totalPrice               AS 'Total Price'," +
                                     "A.isFinished               AS 'Order Status' " +
                             "FROM 	customer_order_items A " +
-                                "LEFT JOIN items B " +
-                                    "ON B.itemNumber = A.itemNumber " +
                             "WHERE  A.customerPONumber = '" + customerPONumber + "' " +
                             "ORDER BY A.customerOrderID ASC;";
 
@@ -58,14 +55,14 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to show table due to connection problems");
+                MessageBox.Show("Error: Unable to show table due to connection problems", "ERROR");
             }
         }
 
-        public void addData(string customerPONumber, int itemNumber, int quantity, string currency, double pricePerUnit, double totalPrice)
+        public void addData(string customerPONumber, string itemDescription, int quantity, string currency, double pricePerUnit, double totalPrice)
         {
-            string query = "INSERT INTO customer_order_items (customerPONumber, itemNumber, quantity, currency, pricePerUnit, totalPrice, isFinished) " +
-                           "values (@customerPONumber, @itemNumber, @quantity, @currency, @pricePerUnit, @totalPrice, false)";
+            string query = "INSERT INTO customer_order_items (customerPONumber, itemDescription, quantity, currency, pricePerUnit, totalPrice, isFinished) " +
+                           "values (@customerPONumber, @itemDescription, @quantity, @currency, @pricePerUnit, @totalPrice, false)";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -75,7 +72,7 @@ namespace introse_project.Libs
                 connection.Open();
 
                 command.Parameters.AddWithValue("@customerPONumber", customerPONumber);
-                command.Parameters.AddWithValue("@itemNumber", itemNumber);
+                command.Parameters.AddWithValue("@itemDescription", itemDescription);
                 command.Parameters.AddWithValue("@quantity", quantity);
                 command.Parameters.AddWithValue("@currency", currency);
                 command.Parameters.AddWithValue("@pricePerUnit", pricePerUnit);
@@ -84,11 +81,136 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
-                MessageBox.Show("Item Added");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to add item to purchase order", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void getPossibleSuppliers(ComboBox itemComboBox, string customerPONumber)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT DISTINCT(B.supplierName) FROM customer_order_items A, items B " +
+                           "WHERE A.itemDescription = B.description AND A.customerPONumber = '"+ customerPONumber +"' AND A.isFinished = false";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("supplierName"));
+
+
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to read suppliers database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM customer_order_items";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
             }
             catch
             {
-                MessageBox.Show("Unable to add item to purchase order");
+                MessageBox.Show("Unable to retrieve count data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public int getOrderCount(string customerPONumber)
+        {
+            string query = "SELECT  COUNT(*) FROM customer_order_items A WHERE A.customerPONumber = '"+ customerPONumber +"'";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve count data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public void getOrderItems(ComboBox itemComboBox, string customerPONumber, string supplierName)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT A.itemDescription FROM customer_order_items A, items B " +
+                           "WHERE A.customerPONumber = '"+ customerPONumber +"' AND B.supplierName = '"+ supplierName +"' ";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("itemDescription"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read items database", "ERROR");
             }
             finally
             {

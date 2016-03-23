@@ -23,15 +23,14 @@ CREATE TABLE customer_po (
 CREATE TABLE customer_order_items (
   customerOrderID int NOT NULL AUTO_INCREMENT,
   customerPONumber varchar(40) NOT NULL,
-  itemNumber int NOT NULL,
+  itemDescription varchar(40) NOT NULL,
   quantity int NOT NULL,
   currency varchar(5) NOT NULL,
   pricePerUnit decimal(12,2) NOT NULL,
   totalPrice decimal(12,2) NOT NULL,
   isFinished boolean NOT NULL,
   PRIMARY KEY (customerOrderID),
-  FOREIGN KEY (customerPONumber) REFERENCES customer_po(customerPONumber),
-  FOREIGN KEY (itemNumber) REFERENCES items(itemNumber)
+  FOREIGN KEY (customerPONumber) REFERENCES customer_po(customerPONumber)
 );
 
 CREATE TABLE suppliers (

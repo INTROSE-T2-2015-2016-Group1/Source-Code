@@ -38,12 +38,6 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             ItemManager.instance.fillComboBox(itemDescCBox);
             itemDescCBox.SelectedIndex = 0;
         }
-     
-        private void itemDescCBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ItemManager.instance.fillRelatedSuppliers(itemSupplierCBox, itemDescCBox.SelectedItem.ToString());
-            itemSupplierCBox.SelectedIndex = 0;
-        }
 
         #region Keypress Event Handlers
         private void itemQtyTxtBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,7 +85,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             if (CustomerPOManager.instance.pkExists(this.customerPONumber))
             {
                 CustomerOrderItemsManagercs.instance.addData(this.customerPONumber,
-                                                         ItemManager.instance.getItemNumber(itemDescCBox.SelectedItem.ToString(), itemSupplierCBox.SelectedItem.ToString()),
+                                                         itemDescCBox.SelectedItem.ToString(),
                                                          Convert.ToInt32(itemQtyTxtBox.Text),
                                                          currencyTxtBox.Text,
                                                          double.Parse(pricePerUnitTxtBox.Text),

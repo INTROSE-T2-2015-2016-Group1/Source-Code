@@ -49,6 +49,7 @@
             this.cPOAddBtn = new System.Windows.Forms.Button();
             this.cPOGridView = new System.Windows.Forms.DataGridView();
             this.sPOTab = new System.Windows.Forms.TabPage();
+            this.sPOViewItemsBtn = new System.Windows.Forms.Button();
             this.sPOGridView = new System.Windows.Forms.DataGridView();
             this.sPOUpdateBtn = new System.Windows.Forms.Button();
             this.sPOAddBtn = new System.Windows.Forms.Button();
@@ -71,7 +72,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
-            this.sPOViewItemsBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -341,6 +341,16 @@
             this.sPOTab.Text = "Supplier Purchase Order";
             this.sPOTab.UseVisualStyleBackColor = true;
             // 
+            // sPOViewItemsBtn
+            // 
+            this.sPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
+            this.sPOViewItemsBtn.Name = "sPOViewItemsBtn";
+            this.sPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
+            this.sPOViewItemsBtn.TabIndex = 20;
+            this.sPOViewItemsBtn.Text = "View Items";
+            this.sPOViewItemsBtn.UseVisualStyleBackColor = true;
+            this.sPOViewItemsBtn.Click += new System.EventHandler(this.sPOViewItemsBtn_Click);
+            // 
             // sPOGridView
             // 
             this.sPOGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -585,15 +595,6 @@
             this.searchGridView.ReadOnly = true;
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
-            // 
-            // sPOViewItemsBtn
-            // 
-            this.sPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
-            this.sPOViewItemsBtn.Name = "sPOViewItemsBtn";
-            this.sPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
-            this.sPOViewItemsBtn.TabIndex = 20;
-            this.sPOViewItemsBtn.Text = "View Items";
-            this.sPOViewItemsBtn.UseVisualStyleBackColor = true;
             // 
             // main
             // 

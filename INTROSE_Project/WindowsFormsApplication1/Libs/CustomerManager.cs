@@ -48,7 +48,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to show table due to connection problems");
+                MessageBox.Show("Error: Unable to show table due to connection problems", "ERROR");
             }
             finally
             {
@@ -72,11 +72,10 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
-                MessageBox.Show("Customer Added");
             }
             catch
             {
-                MessageBox.Show("Unable to add");
+                MessageBox.Show("Unable to add customer", "ERROR");
             }
             finally
             {
@@ -103,7 +102,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+                MessageBox.Show("Unable to retrieve count data", "ERROR");
             }
             finally
             {
@@ -137,12 +136,45 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Unable to read items database");
+                MessageBox.Show("Unable to read customer list database", "ERROR");
             }
             finally
             {
                 connection.Close();
             }
+        }
+
+        public bool pkExists(string customerName)
+        {
+            string query = "SELECT  COUNT(customerName) FROM customers A WHERE A.customerName = '" + customerName + "'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
         }
 
         public static CustomerManager instance

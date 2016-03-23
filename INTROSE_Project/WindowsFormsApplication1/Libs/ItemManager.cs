@@ -47,7 +47,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to show table due to connection problems");
+                MessageBox.Show("Error: Unable to show table due to connection problems", "ERROR");
             }
             finally
             {
@@ -71,16 +71,48 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
-                MessageBox.Show("Item Added");
             }
             catch
             {
-                MessageBox.Show("Unable to add");
+                MessageBox.Show("Unable to add item", "ERROR");
             }
             finally
             {
                 connection.Close();
             }
+        }
+
+        public bool pkExists(string supplierName, string description)
+        {
+            string query = "SELECT  COUNT(*) FROM customers A WHERE A.supplierName = '" + supplierName + "' AND A.description = '"+ description +"'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
         }
 
         public int getCount()
@@ -102,7 +134,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+                MessageBox.Show("Unable to get count data", "ERROR");
             }
             finally
             {
@@ -137,7 +169,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Unable to read items database");
+                MessageBox.Show("Unable to read items database", "ERROR");
             }
             finally
             {
@@ -169,7 +201,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Unable to read items database");
+                MessageBox.Show("Unable to read items database", "ERROR");
             }
             finally
             {
@@ -199,7 +231,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Data passed was invalid");
+                MessageBox.Show("Data passed was invalid", "ERROR");
             }
             finally
             {
