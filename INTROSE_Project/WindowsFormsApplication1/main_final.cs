@@ -42,8 +42,8 @@ namespace introse_project
                 case "Supplier List":           SupplierManager.instance.viewAll(slGridView);           break;
                 case "Customer Purchase Order": CustomerPOManager.instance.viewAll(cPOGridView);        break;
                 case "Supplier Purchase Order": SupplierPOManager.instance.viewAll(sPOGridView);        break;
-                case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
-                case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
+                //case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
+                //case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
             }
         }
         #endregion
@@ -55,30 +55,48 @@ namespace introse_project
         }
 
         private void imAddBtn_Click(object sender, EventArgs e)
-        {
+        {  
             if (SupplierManager.instance.getCount() > 0)
             {
                 addIM.instance.ShowDialog();
                 ItemManager.instance.viewAll(imGridView);
             }
             else
-                MessageBox.Show("No supplier's available for input");           
+            {
+                MessageBox.Show("No supplier's available for input", "ERROR"); 
+            }
+                          
         }
         #endregion
 
         #region Company List
         private void clAddBtn_Click(object sender, EventArgs e)
         {
-            CustomerManager.instance.addData(clTxtBox.Text);
-            CustomerManager.instance.viewAll(clGridView);
+            if (!CustomerManager.instance.pkExists(clTxtBox.Text))
+            {
+                CustomerManager.instance.addData(clTxtBox.Text);
+                CustomerManager.instance.viewAll(clGridView);
+            }
+            else
+            {
+                MessageBox.Show("Entered company already exists!", "ERROR");
+            }
+            
         }
         #endregion
 
         #region Supplier List
         private void slAddBtn_Click(object sender, EventArgs e)
         {
-            SupplierManager.instance.addData(slTxtBox.Text);
-            SupplierManager.instance.viewAll(slGridView);
+            if (!SupplierManager.instance.pkExists(clTxtBox.Text))
+            {
+                SupplierManager.instance.addData(slTxtBox.Text);
+                SupplierManager.instance.viewAll(slGridView);
+            }
+            else
+            {
+                MessageBox.Show("Entered company already exists!", "ERROR");
+            }
         }
         #endregion
 
@@ -97,7 +115,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No customers to add a purchase order to");
+                MessageBox.Show("No customers to add a purchase order to", "ERROR");
             }
         }
 
@@ -111,7 +129,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No customer purchase order to view");
+                MessageBox.Show("No customer purchase order to view", "ERROR");
             }           
         }
         #endregion
@@ -124,7 +142,29 @@ namespace introse_project
 
         private void sPOAddBtn_Click(object sender, EventArgs e)
         {
+            if (CustomerOrderItemsManagercs.instance.getCount() > 0)
+            {
+                addSPO.instance.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No ordered items from any Customer PO could be added", "ERROR");
+            }           
+        }
 
+        private void sPOViewItemsBtn_Click(object sender, EventArgs e)
+        {
+            if (SupplierPOManager.instance.getCount() > 0)
+            {
+                viewSPOItems.instance.setPONumber(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewSPOItems.instance.setSupplierName(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                viewSPOItems.instance.ShowDialog();
+                SupplierPOManager.instance.viewAll(sPOGridView);
+            }
+            else
+            {
+                MessageBox.Show("No supplier purchase order to view", "ERROR");
+            }
         }
         #endregion
 

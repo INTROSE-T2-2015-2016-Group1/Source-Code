@@ -33,8 +33,6 @@
             this.totalPriceTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.itemSupplierCBox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.itemDescCBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,8 +49,6 @@
             this.groupBox2.Controls.Add(this.totalPriceTxtBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.itemSupplierCBox);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.itemDescCBox);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
@@ -80,25 +76,12 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // itemSupplierCBox
-            // 
-            resources.ApplyResources(this.itemSupplierCBox, "itemSupplierCBox");
-            this.itemSupplierCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemSupplierCBox.FormattingEnabled = true;
-            this.itemSupplierCBox.Name = "itemSupplierCBox";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
             // itemDescCBox
             // 
             resources.ApplyResources(this.itemDescCBox, "itemDescCBox");
             this.itemDescCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.itemDescCBox.FormattingEnabled = true;
             this.itemDescCBox.Name = "itemDescCBox";
-            this.itemDescCBox.SelectedIndexChanged += new System.EventHandler(this.itemDescCBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -165,8 +148,6 @@
         private System.Windows.Forms.TextBox itemQtyTxtBox;
         private System.Windows.Forms.Button addCPOItemsBtn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox itemSupplierCBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox itemDescCBox;
         private System.Windows.Forms.TextBox totalPriceTxtBox;
         private System.Windows.Forms.Label label1;

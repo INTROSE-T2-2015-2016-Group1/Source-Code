@@ -51,7 +51,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to show table due to connection problems");
+                MessageBox.Show("Error: Unable to show table due to connection problems", "ERROR");
             }
             finally
             {
@@ -80,11 +80,10 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
-                MessageBox.Show("Purchase Order Added");
             }
             catch
             {
-                MessageBox.Show("Unable to add customer purchase order");
+                MessageBox.Show("Unable to add customer purchase order", "ERROR");
             }
             finally
             {
@@ -112,7 +111,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to retrieve data due to connection problems");
+                MessageBox.Show("Unable to retrieve count data", "ERROR");
             }
             finally
             {
@@ -145,7 +144,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Unable to retrieve data due to connection problems");
+                MessageBox.Show("Unable to retreieve data for validation", "ERROR");
             }
             finally
             {
@@ -154,6 +153,38 @@ namespace introse_project.Libs
 
             return false;
         
+        }
+
+        public void fillComboBox(ComboBox itemComboBox)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT customerPONumber FROM customer_po";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("customerPONumber"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read customer PO database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static CustomerPOManager instance

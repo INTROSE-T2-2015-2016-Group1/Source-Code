@@ -73,6 +73,7 @@
             // 
             // supplierComboBox
             // 
+            this.supplierComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.supplierComboBox.FormattingEnabled = true;
             this.supplierComboBox.Location = new System.Drawing.Point(94, 28);
             this.supplierComboBox.Name = "supplierComboBox";

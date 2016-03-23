@@ -32,8 +32,6 @@
             this.totalPriceTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.itemCustomerCBox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.itemDescCBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,8 +48,6 @@
             this.groupBox2.Controls.Add(this.totalPriceTxtBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.itemCustomerCBox);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.itemDescCBox);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
@@ -70,16 +66,17 @@
             // 
             this.totalPriceTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalPriceTxtBox.Location = new System.Drawing.Point(6, 290);
+            this.totalPriceTxtBox.Location = new System.Drawing.Point(6, 245);
             this.totalPriceTxtBox.Name = "totalPriceTxtBox";
             this.totalPriceTxtBox.Size = new System.Drawing.Size(186, 20);
             this.totalPriceTxtBox.TabIndex = 20;
+            this.totalPriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalPriceTxtBox_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(6, 274);
+            this.label1.Location = new System.Drawing.Point(6, 229);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 19;
@@ -94,27 +91,6 @@
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 17;
             this.label2.Text = "Item Description";
-            // 
-            // itemCustomerCBox
-            // 
-            this.itemCustomerCBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemCustomerCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemCustomerCBox.FormattingEnabled = true;
-            this.itemCustomerCBox.Location = new System.Drawing.Point(6, 90);
-            this.itemCustomerCBox.Name = "itemCustomerCBox";
-            this.itemCustomerCBox.Size = new System.Drawing.Size(186, 21);
-            this.itemCustomerCBox.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(6, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Customer";
             // 
             // itemDescCBox
             // 
@@ -131,7 +107,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(6, 124);
+            this.label5.Location = new System.Drawing.Point(6, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 4;
@@ -141,7 +117,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(6, 174);
+            this.label6.Location = new System.Drawing.Point(6, 129);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 5;
@@ -151,16 +127,17 @@
             // 
             this.pricePerUnitTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pricePerUnitTxtBox.Location = new System.Drawing.Point(6, 240);
+            this.pricePerUnitTxtBox.Location = new System.Drawing.Point(6, 195);
             this.pricePerUnitTxtBox.Name = "pricePerUnitTxtBox";
             this.pricePerUnitTxtBox.Size = new System.Drawing.Size(186, 20);
             this.pricePerUnitTxtBox.TabIndex = 10;
+            this.pricePerUnitTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pricePerUnitTxtBox_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(6, 224);
+            this.label7.Location = new System.Drawing.Point(6, 179);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 13);
             this.label7.TabIndex = 6;
@@ -170,7 +147,7 @@
             // 
             this.currencyTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.currencyTxtBox.Location = new System.Drawing.Point(6, 190);
+            this.currencyTxtBox.Location = new System.Drawing.Point(6, 145);
             this.currencyTxtBox.MaxLength = 5;
             this.currencyTxtBox.Name = "currencyTxtBox";
             this.currencyTxtBox.Size = new System.Drawing.Size(186, 20);
@@ -180,11 +157,12 @@
             // 
             this.itemQtyTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemQtyTxtBox.Location = new System.Drawing.Point(6, 140);
+            this.itemQtyTxtBox.Location = new System.Drawing.Point(6, 95);
             this.itemQtyTxtBox.MaxLength = 10;
             this.itemQtyTxtBox.Name = "itemQtyTxtBox";
             this.itemQtyTxtBox.Size = new System.Drawing.Size(186, 20);
             this.itemQtyTxtBox.TabIndex = 8;
+            this.itemQtyTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemQtyTxtBox_KeyPress);
             // 
             // addCPOItemsBtn
             // 
@@ -196,6 +174,7 @@
             this.addCPOItemsBtn.TabIndex = 21;
             this.addCPOItemsBtn.Text = "Add Item";
             this.addCPOItemsBtn.UseVisualStyleBackColor = true;
+            this.addCPOItemsBtn.Click += new System.EventHandler(this.addCPOItemsBtn_Click);
             // 
             // addSPOItems
             // 
@@ -207,6 +186,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "addSPOItems";
             this.Text = "Add Item";
+            this.Load += new System.EventHandler(this.addSPOItems_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -219,8 +199,6 @@
         private System.Windows.Forms.TextBox totalPriceTxtBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox itemCustomerCBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox itemDescCBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

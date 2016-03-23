@@ -20,25 +20,12 @@ namespace introse_project.Libs
         public void viewAll(DataGridView dataGridView)      //Displays all supplier purchase orders, its related customer purchase order and the PO's ordered items
         {
             string query = "SELECT	 A.supplierPONumber		    AS 'Supplier PO Number'," +
-		                            "D.customerPONumber		    AS 'Customer PO Number'," +
+                                    "A.customerPONumber		    AS 'Related Customer PO Number'," +
 		                            "A.supplierName			    AS 'Supplier Name'," +
 		                            "A.dateIssued			    AS 'Date Issued'," +
                                     "A.expectedDeliveryDate 	AS 'Expected Delivery Date'," +
-                                    "B.itemNumber 			    AS 'Item Number'," +
-                                    "C.description 			    AS 'Item Description'," +
-                                    "B.quantity 				AS 'Item Quantity'," +
-                                    "B.currency 				AS 'Currency'," +
-                                    "B.pricePerUnit			    AS 'Price Per Unit'," +
-                                    "B.totalPrice			    AS 'Total Price'," +
-                                    "B.isFinished			    AS 'Item Status'," +
                                     "A.isFinished               AS 'Supplier PO Status' " +
                             "FROM 	supplier_po A " +
-			                    "JOIN supplier_order_items B " +
-				                    "ON B.supplierPONumber = A.supplierPONumber " +
-			                    "JOIN items C " +
-				                    "ON C.itemNumber = B.itemNumber " +
-			                    "JOIN customer_po D " +
-				                    "ON D.customerPONumber = A.customerPONumber " +
                             "ORDER BY A.supplierPONumber DESC;";     
                                                                                                                                                               
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
@@ -65,13 +52,139 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Error: Unable to show table due to connection problems");
+                MessageBox.Show("Error: Unable to show table due to connection problems", "ERROR");
             }
             finally
             {
                 connection.Close();
             }
 
+
+        }
+
+        public string test(string customerPONumber)
+        {
+            string query = "SELECT COUNT(*) FROM customer_po A WHERE A.customerPONumber = '" + customerPONumber + "' ";
+
+            int value = 0;
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value.ToString();
+        }
+
+        public void addData(string supplierPONumber, string customerPONumber, string supplierName, string dateIssued, string expectedDeliveryDate)
+        {
+            string query = "INSERT INTO supplier_po (supplierPONumber, customerPONumber, supplierName, dateIssued, expectedDeliveryDate, isFinished) " +
+                            "values (@supplierPONumber, '"+customerPONumber+"', @supplierName, @dateIssued, @expectedDeliveryDate, false) ";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@supplierPONumber", supplierPONumber);
+                command.Parameters.AddWithValue("@supplierName", supplierName);
+                command.Parameters.AddWithValue("@dateIssued", dateIssued);
+                command.Parameters.AddWithValue("@expectedDeliveryDate", expectedDeliveryDate);
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add supplier purchase order", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM supplier_po";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public bool pkExists(string sPONumber)
+        {
+            string query = "SELECT  COUNT(supplierPONumber) FROM supplier_po A WHERE A.supplierPONumber = '" + sPONumber + "'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
 
         }
 
