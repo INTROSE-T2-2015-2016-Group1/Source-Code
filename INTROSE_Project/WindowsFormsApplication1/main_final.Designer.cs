@@ -72,6 +72,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
+            this.viewSI_ItemsBtn = new System.Windows.Forms.Button();
+            this.customerInspectionResultsBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -286,7 +288,7 @@
             // 
             // cPOViewItemsBtn
             // 
-            this.cPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
+            this.cPOViewItemsBtn.Location = new System.Drawing.Point(271, 378);
             this.cPOViewItemsBtn.Name = "cPOViewItemsBtn";
             this.cPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
             this.cPOViewItemsBtn.TabIndex = 19;
@@ -299,16 +301,16 @@
             this.cPOUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cPOUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.cPOUpdateBtn.Name = "cPOUpdateBtn";
-            this.cPOUpdateBtn.Size = new System.Drawing.Size(75, 23);
+            this.cPOUpdateBtn.Size = new System.Drawing.Size(136, 23);
             this.cPOUpdateBtn.TabIndex = 18;
-            this.cPOUpdateBtn.Text = "Update";
+            this.cPOUpdateBtn.Text = "Update Purchase Order";
             this.cPOUpdateBtn.UseVisualStyleBackColor = true;
             this.cPOUpdateBtn.Click += new System.EventHandler(this.cPOUpdateBtn_Click);
             // 
             // cPOAddBtn
             // 
             this.cPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cPOAddBtn.Location = new System.Drawing.Point(87, 378);
+            this.cPOAddBtn.Location = new System.Drawing.Point(148, 378);
             this.cPOAddBtn.Name = "cPOAddBtn";
             this.cPOAddBtn.Size = new System.Drawing.Size(117, 23);
             this.cPOAddBtn.TabIndex = 17;
@@ -343,7 +345,7 @@
             // 
             // sPOViewItemsBtn
             // 
-            this.sPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
+            this.sPOViewItemsBtn.Location = new System.Drawing.Point(271, 378);
             this.sPOViewItemsBtn.Name = "sPOViewItemsBtn";
             this.sPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
             this.sPOViewItemsBtn.TabIndex = 20;
@@ -368,16 +370,16 @@
             this.sPOUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.sPOUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.sPOUpdateBtn.Name = "sPOUpdateBtn";
-            this.sPOUpdateBtn.Size = new System.Drawing.Size(75, 23);
+            this.sPOUpdateBtn.Size = new System.Drawing.Size(136, 23);
             this.sPOUpdateBtn.TabIndex = 15;
-            this.sPOUpdateBtn.Text = "Update";
+            this.sPOUpdateBtn.Text = "Update Purchase Order";
             this.sPOUpdateBtn.UseVisualStyleBackColor = true;
             this.sPOUpdateBtn.Click += new System.EventHandler(this.sPOUpdateBtn_Click);
             // 
             // sPOAddBtn
             // 
             this.sPOAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sPOAddBtn.Location = new System.Drawing.Point(87, 378);
+            this.sPOAddBtn.Location = new System.Drawing.Point(148, 378);
             this.sPOAddBtn.Name = "sPOAddBtn";
             this.sPOAddBtn.Size = new System.Drawing.Size(117, 23);
             this.sPOAddBtn.TabIndex = 14;
@@ -387,6 +389,8 @@
             // 
             // siTab
             // 
+            this.siTab.Controls.Add(this.customerInspectionResultsBtn);
+            this.siTab.Controls.Add(this.viewSI_ItemsBtn);
             this.siTab.Controls.Add(this.siGridView);
             this.siTab.Controls.Add(this.siUpdateBtn);
             this.siTab.Controls.Add(this.siAddBtn);
@@ -415,20 +419,20 @@
             this.siUpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.siUpdateBtn.Location = new System.Drawing.Point(6, 378);
             this.siUpdateBtn.Name = "siUpdateBtn";
-            this.siUpdateBtn.Size = new System.Drawing.Size(75, 23);
+            this.siUpdateBtn.Size = new System.Drawing.Size(120, 23);
             this.siUpdateBtn.TabIndex = 18;
-            this.siUpdateBtn.Text = "Update";
+            this.siUpdateBtn.Text = "Update Sales Invoice";
             this.siUpdateBtn.UseVisualStyleBackColor = true;
             this.siUpdateBtn.Click += new System.EventHandler(this.siUpdateBtn_Click);
             // 
             // siAddBtn
             // 
             this.siAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.siAddBtn.Location = new System.Drawing.Point(87, 378);
+            this.siAddBtn.Location = new System.Drawing.Point(132, 378);
             this.siAddBtn.Name = "siAddBtn";
-            this.siAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.siAddBtn.Size = new System.Drawing.Size(112, 23);
             this.siAddBtn.TabIndex = 17;
-            this.siAddBtn.Text = "Add";
+            this.siAddBtn.Text = "Add Sales Invoice";
             this.siAddBtn.UseVisualStyleBackColor = true;
             this.siAddBtn.Click += new System.EventHandler(this.siAddBtn_Click);
             // 
@@ -462,20 +466,20 @@
             this.drUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.drUpdate.Location = new System.Drawing.Point(6, 378);
             this.drUpdate.Name = "drUpdate";
-            this.drUpdate.Size = new System.Drawing.Size(75, 23);
+            this.drUpdate.Size = new System.Drawing.Size(139, 23);
             this.drUpdate.TabIndex = 22;
-            this.drUpdate.Text = "Update";
+            this.drUpdate.Text = "Update Delivery Receipt";
             this.drUpdate.UseVisualStyleBackColor = true;
             this.drUpdate.Click += new System.EventHandler(this.drUpdate_Click);
             // 
             // drAddBtn
             // 
             this.drAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.drAddBtn.Location = new System.Drawing.Point(87, 378);
+            this.drAddBtn.Location = new System.Drawing.Point(151, 378);
             this.drAddBtn.Name = "drAddBtn";
-            this.drAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.drAddBtn.Size = new System.Drawing.Size(126, 23);
             this.drAddBtn.TabIndex = 21;
-            this.drAddBtn.Text = "Add";
+            this.drAddBtn.Text = "Add Delivery Receipt";
             this.drAddBtn.UseVisualStyleBackColor = true;
             this.drAddBtn.Click += new System.EventHandler(this.drAddBtn_Click);
             // 
@@ -596,6 +600,24 @@
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
             // 
+            // viewSI_ItemsBtn
+            // 
+            this.viewSI_ItemsBtn.Location = new System.Drawing.Point(250, 378);
+            this.viewSI_ItemsBtn.Name = "viewSI_ItemsBtn";
+            this.viewSI_ItemsBtn.Size = new System.Drawing.Size(124, 23);
+            this.viewSI_ItemsBtn.TabIndex = 21;
+            this.viewSI_ItemsBtn.Text = "View Delivered Items";
+            this.viewSI_ItemsBtn.UseVisualStyleBackColor = true;
+            // 
+            // customerInspectionResultsBtn
+            // 
+            this.customerInspectionResultsBtn.Location = new System.Drawing.Point(380, 378);
+            this.customerInspectionResultsBtn.Name = "customerInspectionResultsBtn";
+            this.customerInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
+            this.customerInspectionResultsBtn.TabIndex = 22;
+            this.customerInspectionResultsBtn.Text = "Customer Inspection Results";
+            this.customerInspectionResultsBtn.UseVisualStyleBackColor = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,6 +699,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button cPOViewItemsBtn;
         private System.Windows.Forms.Button sPOViewItemsBtn;
+        private System.Windows.Forms.Button viewSI_ItemsBtn;
+        private System.Windows.Forms.Button customerInspectionResultsBtn;
 
     }
 }
