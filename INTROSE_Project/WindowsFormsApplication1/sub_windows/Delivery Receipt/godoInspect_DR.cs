@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace introse_project.sub_windows.Sales_Invoice
+namespace introse_project.sub_windows.Delivery_Receipt
 {
-    public partial class viewSI_Items : Form
+    public partial class godoInspect_DR : Form
     {
-        public viewSI_Items()
+        public godoInspect_DR()
         {
             InitializeComponent();
         }
-
-        private void addSI_ItemsBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

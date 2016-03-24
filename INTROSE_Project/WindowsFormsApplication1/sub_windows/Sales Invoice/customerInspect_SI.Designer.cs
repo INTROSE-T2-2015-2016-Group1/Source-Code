@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.inspectionsDataGridView = new System.Windows.Forms.DataGridView();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.addSI_CIRBtn = new System.Windows.Forms.Button();
@@ -37,30 +37,30 @@
             this.label5 = new System.Windows.Forms.Label();
             this.itemSI_CBix_A = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.approvedQtyTxtBox_A = new System.Windows.Forms.TextBox();
             this.updateSI_CIRBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.approvedQtyTxtBox_U = new System.Windows.Forms.TextBox();
-            this.rejectedQtyTxtBox_U = new System.Windows.Forms.TextBox();
             this.itemSI_CBix_U = new System.Windows.Forms.ComboBox();
-            this.approvedQtyTxtBox_A = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.rejectedQtyTxtBox_U = new System.Windows.Forms.TextBox();
+            this.approvedQtyTxtBox_U = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // inspectionsDataGridView
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.inspectionsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 11);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(444, 358);
-            this.dataGridView1.TabIndex = 3;
+            this.inspectionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inspectionsDataGridView.Location = new System.Drawing.Point(12, 11);
+            this.inspectionsDataGridView.Name = "inspectionsDataGridView";
+            this.inspectionsDataGridView.Size = new System.Drawing.Size(444, 358);
+            this.inspectionsDataGridView.TabIndex = 3;
             // 
             // refreshBtn
             // 
@@ -152,6 +152,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Item Inspection";
             // 
+            // approvedQtyTxtBox_A
+            // 
+            this.approvedQtyTxtBox_A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.approvedQtyTxtBox_A.Location = new System.Drawing.Point(127, 48);
+            this.approvedQtyTxtBox_A.Name = "approvedQtyTxtBox_A";
+            this.approvedQtyTxtBox_A.Size = new System.Drawing.Size(122, 20);
+            this.approvedQtyTxtBox_A.TabIndex = 18;
+            // 
             // updateSI_CIRBtn
             // 
             this.updateSI_CIRBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -180,27 +189,33 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Item Inspection";
             // 
-            // label6
+            // itemSI_CBix_U
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.itemSI_CBix_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "No. Of Items Approved";
+            this.itemSI_CBix_U.FormattingEnabled = true;
+            this.itemSI_CBix_U.Location = new System.Drawing.Point(128, 21);
+            this.itemSI_CBix_U.Name = "itemSI_CBix_U";
+            this.itemSI_CBix_U.Size = new System.Drawing.Size(121, 21);
+            this.itemSI_CBix_U.TabIndex = 20;
             // 
-            // label4
+            // rejectedQtyTxtBox_U
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.rejectedQtyTxtBox_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "No. Of Items Rejected\r\n";
+            this.rejectedQtyTxtBox_U.Location = new System.Drawing.Point(127, 74);
+            this.rejectedQtyTxtBox_U.Name = "rejectedQtyTxtBox_U";
+            this.rejectedQtyTxtBox_U.Size = new System.Drawing.Size(122, 20);
+            this.rejectedQtyTxtBox_U.TabIndex = 18;
+            // 
+            // approvedQtyTxtBox_U
+            // 
+            this.approvedQtyTxtBox_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.approvedQtyTxtBox_U.Location = new System.Drawing.Point(127, 48);
+            this.approvedQtyTxtBox_U.Name = "approvedQtyTxtBox_U";
+            this.approvedQtyTxtBox_U.Size = new System.Drawing.Size(122, 20);
+            this.approvedQtyTxtBox_U.TabIndex = 17;
             // 
             // label3
             // 
@@ -213,42 +228,27 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Delivered Item";
             // 
-            // approvedQtyTxtBox_U
+            // label4
             // 
-            this.approvedQtyTxtBox_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.approvedQtyTxtBox_U.Location = new System.Drawing.Point(127, 48);
-            this.approvedQtyTxtBox_U.Name = "approvedQtyTxtBox_U";
-            this.approvedQtyTxtBox_U.Size = new System.Drawing.Size(122, 20);
-            this.approvedQtyTxtBox_U.TabIndex = 17;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(112, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "No. Of Items Rejected\r\n";
             // 
-            // rejectedQtyTxtBox_U
+            // label6
             // 
-            this.rejectedQtyTxtBox_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rejectedQtyTxtBox_U.Location = new System.Drawing.Point(127, 74);
-            this.rejectedQtyTxtBox_U.Name = "rejectedQtyTxtBox_U";
-            this.rejectedQtyTxtBox_U.Size = new System.Drawing.Size(122, 20);
-            this.rejectedQtyTxtBox_U.TabIndex = 18;
-            // 
-            // itemSI_CBix_U
-            // 
-            this.itemSI_CBix_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemSI_CBix_U.FormattingEnabled = true;
-            this.itemSI_CBix_U.Location = new System.Drawing.Point(128, 21);
-            this.itemSI_CBix_U.Name = "itemSI_CBix_U";
-            this.itemSI_CBix_U.Size = new System.Drawing.Size(121, 21);
-            this.itemSI_CBix_U.TabIndex = 20;
-            // 
-            // approvedQtyTxtBox_A
-            // 
-            this.approvedQtyTxtBox_A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.approvedQtyTxtBox_A.Location = new System.Drawing.Point(127, 48);
-            this.approvedQtyTxtBox_A.Name = "approvedQtyTxtBox_A";
-            this.approvedQtyTxtBox_A.Size = new System.Drawing.Size(122, 20);
-            this.approvedQtyTxtBox_A.TabIndex = 18;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "No. Of Items Approved";
             // 
             // customerInspect_SI
             // 
@@ -258,11 +258,11 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.refreshBtn);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.inspectionsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "customerInspect_SI";
             this.Text = "Inspection Results";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inspectionsDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -273,7 +273,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView inspectionsDataGridView;
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addSI_CIRBtn;

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.updateSI_ItemsBtn = new System.Windows.Forms.Button();
-            this.addSI_ItemsBtn = new System.Windows.Forms.Button();
             this.SI_ItemsGridView = new System.Windows.Forms.DataGridView();
+            this.addSI_ItemsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SI_ItemsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -39,20 +39,10 @@
             this.updateSI_ItemsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.updateSI_ItemsBtn.Location = new System.Drawing.Point(12, 319);
             this.updateSI_ItemsBtn.Name = "updateSI_ItemsBtn";
-            this.updateSI_ItemsBtn.Size = new System.Drawing.Size(75, 23);
+            this.updateSI_ItemsBtn.Size = new System.Drawing.Size(89, 23);
             this.updateSI_ItemsBtn.TabIndex = 22;
-            this.updateSI_ItemsBtn.Text = "Update";
+            this.updateSI_ItemsBtn.Text = "Update Item";
             this.updateSI_ItemsBtn.UseVisualStyleBackColor = true;
-            // 
-            // addSI_ItemsBtn
-            // 
-            this.addSI_ItemsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addSI_ItemsBtn.Location = new System.Drawing.Point(93, 319);
-            this.addSI_ItemsBtn.Name = "addSI_ItemsBtn";
-            this.addSI_ItemsBtn.Size = new System.Drawing.Size(75, 23);
-            this.addSI_ItemsBtn.TabIndex = 21;
-            this.addSI_ItemsBtn.Text = "Add Item";
-            this.addSI_ItemsBtn.UseVisualStyleBackColor = true;
             // 
             // SI_ItemsGridView
             // 
@@ -66,13 +56,23 @@
             this.SI_ItemsGridView.Size = new System.Drawing.Size(718, 301);
             this.SI_ItemsGridView.TabIndex = 20;
             // 
+            // addSI_ItemsBtn
+            // 
+            this.addSI_ItemsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addSI_ItemsBtn.Location = new System.Drawing.Point(107, 319);
+            this.addSI_ItemsBtn.Name = "addSI_ItemsBtn";
+            this.addSI_ItemsBtn.Size = new System.Drawing.Size(75, 23);
+            this.addSI_ItemsBtn.TabIndex = 23;
+            this.addSI_ItemsBtn.Text = "Add Item";
+            this.addSI_ItemsBtn.UseVisualStyleBackColor = true;
+            // 
             // viewSI_Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 352);
-            this.Controls.Add(this.updateSI_ItemsBtn);
             this.Controls.Add(this.addSI_ItemsBtn);
+            this.Controls.Add(this.updateSI_ItemsBtn);
             this.Controls.Add(this.SI_ItemsGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "viewSI_Items";
@@ -85,7 +85,7 @@
         #endregion
 
         private System.Windows.Forms.Button updateSI_ItemsBtn;
-        private System.Windows.Forms.Button addSI_ItemsBtn;
         private System.Windows.Forms.DataGridView SI_ItemsGridView;
+        private System.Windows.Forms.Button addSI_ItemsBtn;
     }
 }

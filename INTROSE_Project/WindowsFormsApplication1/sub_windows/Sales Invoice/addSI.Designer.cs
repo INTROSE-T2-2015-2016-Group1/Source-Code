@@ -36,10 +36,10 @@
             this.deliveryReceiptIDCBox = new System.Windows.Forms.ComboBox();
             this.addSIBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.invoiceTotalPriceTxtBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.currencyCBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.invoiceTotalPriceTxtBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateIssuedCBox.Location = new System.Drawing.Point(6, 163);
             this.dateIssuedCBox.Name = "dateIssuedCBox";
-            this.dateIssuedCBox.Size = new System.Drawing.Size(195, 20);
+            this.dateIssuedCBox.Size = new System.Drawing.Size(224, 20);
             this.dateIssuedCBox.TabIndex = 11;
             // 
             // label4
@@ -77,7 +77,7 @@
             this.customerPOIdCBox.FormattingEnabled = true;
             this.customerPOIdCBox.Location = new System.Drawing.Point(6, 103);
             this.customerPOIdCBox.Name = "customerPOIdCBox";
-            this.customerPOIdCBox.Size = new System.Drawing.Size(195, 21);
+            this.customerPOIdCBox.Size = new System.Drawing.Size(224, 21);
             this.customerPOIdCBox.TabIndex = 20;
             // 
             // label1
@@ -96,13 +96,13 @@
             this.deliveryReceiptIDCBox.FormattingEnabled = true;
             this.deliveryReceiptIDCBox.Location = new System.Drawing.Point(18, 58);
             this.deliveryReceiptIDCBox.Name = "deliveryReceiptIDCBox";
-            this.deliveryReceiptIDCBox.Size = new System.Drawing.Size(195, 21);
+            this.deliveryReceiptIDCBox.Size = new System.Drawing.Size(224, 21);
             this.deliveryReceiptIDCBox.TabIndex = 22;
             // 
             // addSIBtn
             // 
             this.addSIBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addSIBtn.Location = new System.Drawing.Point(99, 344);
+            this.addSIBtn.Location = new System.Drawing.Point(128, 344);
             this.addSIBtn.Name = "addSIBtn";
             this.addSIBtn.Size = new System.Drawing.Size(127, 20);
             this.addSIBtn.TabIndex = 23;
@@ -126,28 +126,20 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(232, 387);
+            this.groupBox1.Size = new System.Drawing.Size(261, 387);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Delivery Information";
             // 
-            // label2
+            // currencyCBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Date Received";
-            // 
-            // invoiceTotalPriceTxtBox
-            // 
-            this.invoiceTotalPriceTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.currencyCBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.invoiceTotalPriceTxtBox.Location = new System.Drawing.Point(7, 232);
-            this.invoiceTotalPriceTxtBox.Name = "invoiceTotalPriceTxtBox";
-            this.invoiceTotalPriceTxtBox.Size = new System.Drawing.Size(194, 20);
-            this.invoiceTotalPriceTxtBox.TabIndex = 24;
+            this.currencyCBox.FormattingEnabled = true;
+            this.currencyCBox.Location = new System.Drawing.Point(6, 293);
+            this.currencyCBox.Name = "currencyCBox";
+            this.currencyCBox.Size = new System.Drawing.Size(224, 21);
+            this.currencyCBox.TabIndex = 25;
             // 
             // label3
             // 
@@ -158,23 +150,32 @@
             this.label3.TabIndex = 25;
             this.label3.Text = "Currency";
             // 
-            // currencyCBox
+            // invoiceTotalPriceTxtBox
             // 
-            this.currencyCBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.invoiceTotalPriceTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.currencyCBox.FormattingEnabled = true;
-            this.currencyCBox.Location = new System.Drawing.Point(6, 293);
-            this.currencyCBox.Name = "currencyCBox";
-            this.currencyCBox.Size = new System.Drawing.Size(195, 21);
-            this.currencyCBox.TabIndex = 25;
+            this.invoiceTotalPriceTxtBox.Location = new System.Drawing.Point(7, 232);
+            this.invoiceTotalPriceTxtBox.Name = "invoiceTotalPriceTxtBox";
+            this.invoiceTotalPriceTxtBox.Size = new System.Drawing.Size(223, 20);
+            this.invoiceTotalPriceTxtBox.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 147);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Date Received";
             // 
             // addSI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 411);
+            this.ClientSize = new System.Drawing.Size(285, 411);
             this.Controls.Add(this.deliveryReceiptIDCBox);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "addSI";
             this.Text = "Add Sales Invoice";
             this.groupBox1.ResumeLayout(false);

@@ -74,6 +74,8 @@
             this.searchGridView = new System.Windows.Forms.DataGridView();
             this.viewSI_ItemsBtn = new System.Windows.Forms.Button();
             this.customerInspectionResultsBtn = new System.Windows.Forms.Button();
+            this.godoInspectionResultsBtn = new System.Windows.Forms.Button();
+            this.viewDRItemsBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -438,6 +440,8 @@
             // 
             // drTab
             // 
+            this.drTab.Controls.Add(this.viewDRItemsBtn);
+            this.drTab.Controls.Add(this.godoInspectionResultsBtn);
             this.drTab.Controls.Add(this.drGridView);
             this.drTab.Controls.Add(this.drUpdate);
             this.drTab.Controls.Add(this.drAddBtn);
@@ -618,6 +622,24 @@
             this.customerInspectionResultsBtn.Text = "Customer Inspection Results";
             this.customerInspectionResultsBtn.UseVisualStyleBackColor = true;
             // 
+            // godoInspectionResultsBtn
+            // 
+            this.godoInspectionResultsBtn.Location = new System.Drawing.Point(413, 378);
+            this.godoInspectionResultsBtn.Name = "godoInspectionResultsBtn";
+            this.godoInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
+            this.godoInspectionResultsBtn.TabIndex = 26;
+            this.godoInspectionResultsBtn.Text = "GODO Inspection Results";
+            this.godoInspectionResultsBtn.UseVisualStyleBackColor = true;
+            // 
+            // viewDRItemsBtn
+            // 
+            this.viewDRItemsBtn.Location = new System.Drawing.Point(283, 378);
+            this.viewDRItemsBtn.Name = "viewDRItemsBtn";
+            this.viewDRItemsBtn.Size = new System.Drawing.Size(124, 23);
+            this.viewDRItemsBtn.TabIndex = 27;
+            this.viewDRItemsBtn.Text = "View Delivered Items";
+            this.viewDRItemsBtn.UseVisualStyleBackColor = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,6 +723,8 @@
         private System.Windows.Forms.Button sPOViewItemsBtn;
         private System.Windows.Forms.Button viewSI_ItemsBtn;
         private System.Windows.Forms.Button customerInspectionResultsBtn;
+        private System.Windows.Forms.Button godoInspectionResultsBtn;
+        private System.Windows.Forms.Button viewDRItemsBtn;
 
     }
 }
