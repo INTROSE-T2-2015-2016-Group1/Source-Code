@@ -35,12 +35,12 @@
             this.rejectedQtyTxtBox_A = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.itemSI_CBix_A = new System.Windows.Forms.ComboBox();
+            this.itemSI_CBox_A = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.approvedQtyTxtBox_A = new System.Windows.Forms.TextBox();
             this.updateSI_CIRBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.itemSI_CBix_U = new System.Windows.Forms.ComboBox();
+            this.itemSI_CBox_U = new System.Windows.Forms.ComboBox();
             this.rejectedQtyTxtBox_U = new System.Windows.Forms.TextBox();
             this.approvedQtyTxtBox_U = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -125,21 +125,22 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Delivered Item";
             // 
-            // itemSI_CBix_A
+            // itemSI_CBox_A
             // 
-            this.itemSI_CBix_A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.itemSI_CBox_A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemSI_CBix_A.FormattingEnabled = true;
-            this.itemSI_CBix_A.Location = new System.Drawing.Point(128, 21);
-            this.itemSI_CBix_A.Name = "itemSI_CBix_A";
-            this.itemSI_CBix_A.Size = new System.Drawing.Size(121, 21);
-            this.itemSI_CBix_A.TabIndex = 16;
+            this.itemSI_CBox_A.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemSI_CBox_A.FormattingEnabled = true;
+            this.itemSI_CBox_A.Location = new System.Drawing.Point(128, 21);
+            this.itemSI_CBox_A.Name = "itemSI_CBox_A";
+            this.itemSI_CBox_A.Size = new System.Drawing.Size(121, 21);
+            this.itemSI_CBox_A.TabIndex = 16;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.approvedQtyTxtBox_A);
-            this.groupBox1.Controls.Add(this.itemSI_CBix_A);
+            this.groupBox1.Controls.Add(this.itemSI_CBox_A);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.rejectedQtyTxtBox_A);
@@ -175,7 +176,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.itemSI_CBix_U);
+            this.groupBox2.Controls.Add(this.itemSI_CBox_U);
             this.groupBox2.Controls.Add(this.rejectedQtyTxtBox_U);
             this.groupBox2.Controls.Add(this.approvedQtyTxtBox_U);
             this.groupBox2.Controls.Add(this.label3);
@@ -189,15 +190,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Item Inspection";
             // 
-            // itemSI_CBix_U
+            // itemSI_CBox_U
             // 
-            this.itemSI_CBix_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.itemSI_CBox_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemSI_CBix_U.FormattingEnabled = true;
-            this.itemSI_CBix_U.Location = new System.Drawing.Point(128, 21);
-            this.itemSI_CBix_U.Name = "itemSI_CBix_U";
-            this.itemSI_CBix_U.Size = new System.Drawing.Size(121, 21);
-            this.itemSI_CBix_U.TabIndex = 20;
+            this.itemSI_CBox_U.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemSI_CBox_U.FormattingEnabled = true;
+            this.itemSI_CBox_U.Location = new System.Drawing.Point(128, 21);
+            this.itemSI_CBox_U.Name = "itemSI_CBox_U";
+            this.itemSI_CBox_U.Size = new System.Drawing.Size(121, 21);
+            this.itemSI_CBox_U.TabIndex = 20;
             // 
             // rejectedQtyTxtBox_U
             // 
@@ -280,11 +282,11 @@
         private System.Windows.Forms.TextBox rejectedQtyTxtBox_A;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox itemSI_CBix_A;
+        private System.Windows.Forms.ComboBox itemSI_CBox_A;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button updateSI_CIRBtn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox itemSI_CBix_U;
+        private System.Windows.Forms.ComboBox itemSI_CBox_U;
         private System.Windows.Forms.TextBox rejectedQtyTxtBox_U;
         private System.Windows.Forms.TextBox approvedQtyTxtBox_U;
         private System.Windows.Forms.Label label3;

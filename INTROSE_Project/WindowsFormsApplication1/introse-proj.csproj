@@ -76,6 +76,12 @@
     <Compile Include="sub_windows\Delivery Receipt\addDRItems.Designer.cs">
       <DependentUpon>addDRItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\godoInspect_DR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\godoInspect_DR.Designer.cs">
+      <DependentUpon>godoInspect_DR.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Delivery Receipt\updateDR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,12 @@
     </Compile>
     <Compile Include="sub_windows\Delivery Receipt\updateDRItems.Designer.cs">
       <DependentUpon>updateDRItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\viewDRItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\viewDRItems.Designer.cs">
+      <DependentUpon>viewDRItems.cs</DependentUpon>
     </Compile>
     <Compile Include="sub_windows\Item Management\addIM.cs">
       <SubType>Form</SubType>
@@ -219,11 +231,17 @@
     <EmbeddedResource Include="sub_windows\Delivery Receipt\addDRItems.resx">
       <DependentUpon>addDRItems.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\godoInspect_DR.resx">
+      <DependentUpon>godoInspect_DR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Delivery Receipt\updateDR.resx">
       <DependentUpon>updateDR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Delivery Receipt\updateDRItems.resx">
       <DependentUpon>updateDRItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\viewDRItems.resx">
+      <DependentUpon>viewDRItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Item Management\addIM.resx">
       <DependentUpon>addIM.cs</DependentUpon>

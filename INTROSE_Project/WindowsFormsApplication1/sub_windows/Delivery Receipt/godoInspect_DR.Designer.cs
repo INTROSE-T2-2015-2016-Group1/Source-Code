@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.itemDR_CBix_U = new System.Windows.Forms.ComboBox();
+            this.itemDR_CBox_U = new System.Windows.Forms.ComboBox();
             this.rejectedQtyTxtBox_U = new System.Windows.Forms.TextBox();
             this.approvedQtyTxtBox_U = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.updateDR_CIRBtn = new System.Windows.Forms.Button();
+            this.updateDR_GIRBtn = new System.Windows.Forms.Button();
             this.approvedQtyTxtBox_A = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.itemDR_CBix_A = new System.Windows.Forms.ComboBox();
+            this.itemDR_CBox_A = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.rejectedQtyTxtBox_A = new System.Windows.Forms.TextBox();
-            this.addDR_CIRBtn = new System.Windows.Forms.Button();
+            this.addDR_GIRBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.inspectionsDataGridView = new System.Windows.Forms.DataGridView();
@@ -51,16 +51,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.inspectionsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // itemDR_CBix_U
+            // itemDR_CBox_U
             // 
-            this.itemDR_CBix_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.itemDR_CBox_U.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemDR_CBix_U.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemDR_CBix_U.FormattingEnabled = true;
-            this.itemDR_CBix_U.Location = new System.Drawing.Point(128, 21);
-            this.itemDR_CBix_U.Name = "itemDR_CBix_U";
-            this.itemDR_CBix_U.Size = new System.Drawing.Size(121, 21);
-            this.itemDR_CBix_U.TabIndex = 20;
+            this.itemDR_CBox_U.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemDR_CBox_U.FormattingEnabled = true;
+            this.itemDR_CBox_U.Location = new System.Drawing.Point(128, 21);
+            this.itemDR_CBox_U.Name = "itemDR_CBox_U";
+            this.itemDR_CBox_U.Size = new System.Drawing.Size(121, 21);
+            this.itemDR_CBox_U.TabIndex = 20;
             // 
             // rejectedQtyTxtBox_U
             // 
@@ -105,12 +105,12 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.itemDR_CBix_U);
+            this.groupBox2.Controls.Add(this.itemDR_CBox_U);
             this.groupBox2.Controls.Add(this.rejectedQtyTxtBox_U);
             this.groupBox2.Controls.Add(this.approvedQtyTxtBox_U);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.updateDR_CIRBtn);
+            this.groupBox2.Controls.Add(this.updateDR_GIRBtn);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(462, 150);
             this.groupBox2.Name = "groupBox2";
@@ -130,16 +130,16 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "No. Of Items Rejected\r\n";
             // 
-            // updateDR_CIRBtn
+            // updateDR_GIRBtn
             // 
-            this.updateDR_CIRBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.updateDR_GIRBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.updateDR_CIRBtn.Location = new System.Drawing.Point(9, 104);
-            this.updateDR_CIRBtn.Name = "updateDR_CIRBtn";
-            this.updateDR_CIRBtn.Size = new System.Drawing.Size(240, 23);
-            this.updateDR_CIRBtn.TabIndex = 11;
-            this.updateDR_CIRBtn.Text = "Update Results";
-            this.updateDR_CIRBtn.UseVisualStyleBackColor = true;
+            this.updateDR_GIRBtn.Location = new System.Drawing.Point(9, 104);
+            this.updateDR_GIRBtn.Name = "updateDR_GIRBtn";
+            this.updateDR_GIRBtn.Size = new System.Drawing.Size(240, 23);
+            this.updateDR_GIRBtn.TabIndex = 11;
+            this.updateDR_GIRBtn.Text = "Update Results";
+            this.updateDR_GIRBtn.UseVisualStyleBackColor = true;
             // 
             // approvedQtyTxtBox_A
             // 
@@ -154,11 +154,11 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.approvedQtyTxtBox_A);
-            this.groupBox1.Controls.Add(this.itemDR_CBix_A);
+            this.groupBox1.Controls.Add(this.itemDR_CBox_A);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.rejectedQtyTxtBox_A);
-            this.groupBox1.Controls.Add(this.addDR_CIRBtn);
+            this.groupBox1.Controls.Add(this.addDR_GIRBtn);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(462, 11);
             this.groupBox1.Name = "groupBox1";
@@ -167,16 +167,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Item Inspection";
             // 
-            // itemDR_CBix_A
+            // itemDR_CBox_A
             // 
-            this.itemDR_CBix_A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.itemDR_CBox_A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemDR_CBix_A.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.itemDR_CBix_A.FormattingEnabled = true;
-            this.itemDR_CBix_A.Location = new System.Drawing.Point(128, 21);
-            this.itemDR_CBix_A.Name = "itemDR_CBix_A";
-            this.itemDR_CBix_A.Size = new System.Drawing.Size(121, 21);
-            this.itemDR_CBix_A.TabIndex = 16;
+            this.itemDR_CBox_A.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemDR_CBox_A.FormattingEnabled = true;
+            this.itemDR_CBox_A.Location = new System.Drawing.Point(128, 21);
+            this.itemDR_CBox_A.Name = "itemDR_CBox_A";
+            this.itemDR_CBox_A.Size = new System.Drawing.Size(121, 21);
+            this.itemDR_CBox_A.TabIndex = 16;
             // 
             // label5
             // 
@@ -209,16 +209,16 @@
             this.rejectedQtyTxtBox_A.Size = new System.Drawing.Size(122, 20);
             this.rejectedQtyTxtBox_A.TabIndex = 13;
             // 
-            // addDR_CIRBtn
+            // addDR_GIRBtn
             // 
-            this.addDR_CIRBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.addDR_GIRBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.addDR_CIRBtn.Location = new System.Drawing.Point(9, 104);
-            this.addDR_CIRBtn.Name = "addDR_CIRBtn";
-            this.addDR_CIRBtn.Size = new System.Drawing.Size(240, 23);
-            this.addDR_CIRBtn.TabIndex = 11;
-            this.addDR_CIRBtn.Text = "Add Results";
-            this.addDR_CIRBtn.UseVisualStyleBackColor = true;
+            this.addDR_GIRBtn.Location = new System.Drawing.Point(9, 104);
+            this.addDR_GIRBtn.Name = "addDR_GIRBtn";
+            this.addDR_GIRBtn.Size = new System.Drawing.Size(240, 23);
+            this.addDR_GIRBtn.TabIndex = 11;
+            this.addDR_GIRBtn.Text = "Add Results";
+            this.addDR_GIRBtn.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -275,21 +275,21 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox itemDR_CBix_U;
+        private System.Windows.Forms.ComboBox itemDR_CBox_U;
         private System.Windows.Forms.TextBox rejectedQtyTxtBox_U;
         private System.Windows.Forms.TextBox approvedQtyTxtBox_U;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button updateDR_CIRBtn;
+        private System.Windows.Forms.Button updateDR_GIRBtn;
         private System.Windows.Forms.TextBox approvedQtyTxtBox_A;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox itemDR_CBix_A;
+        private System.Windows.Forms.ComboBox itemDR_CBox_A;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox rejectedQtyTxtBox_A;
-        private System.Windows.Forms.Button addDR_CIRBtn;
+        private System.Windows.Forms.Button addDR_GIRBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.DataGridView inspectionsDataGridView;
