@@ -23,6 +23,7 @@ CREATE TABLE customer_po (
 CREATE TABLE customer_order_items (
   customerOrderID int NOT NULL AUTO_INCREMENT,
   customerPONumber varchar(40) NOT NULL,
+  itemNumber int NOT NULL,
   itemDescription varchar(40) NOT NULL,
   quantity int NOT NULL,
   currency varchar(5) NOT NULL,

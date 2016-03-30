@@ -42,7 +42,7 @@ namespace introse_project.Libs
                             "ON G.itemNumber = E.itemNumber " +
                     "ORDER BY A.invoiceNumber DESC;";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

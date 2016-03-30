@@ -23,7 +23,7 @@ namespace introse_project.Libs
                                     "description    AS 'Description' " +
                                     "FROM items " +
                                     "ORDER BY itemNumber ASC;";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -59,7 +59,7 @@ namespace introse_project.Libs
         {
             string query = "INSERT INTO items (supplierName, description) values (@supplierName, @description)";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -87,7 +87,7 @@ namespace introse_project.Libs
         {
             string query = "SELECT  COUNT(*) FROM items";
             int value = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -119,7 +119,7 @@ namespace introse_project.Libs
 
             string query = "SELECT DISTINCT(description) FROM items";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             MySqlDataReader reader;
 
@@ -151,7 +151,7 @@ namespace introse_project.Libs
 
             string query = "SELECT * FROM items A WHERE A.description = '"+ description +"'";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             MySqlDataReader reader;
 
@@ -184,7 +184,7 @@ namespace introse_project.Libs
 
             int value = 0;
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

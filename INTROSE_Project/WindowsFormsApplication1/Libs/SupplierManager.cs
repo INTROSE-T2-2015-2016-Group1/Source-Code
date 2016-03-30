@@ -20,7 +20,7 @@ namespace introse_project.Libs
             string query =  "SELECT supplierName AS 'Supplier Name' " +
                             "FROM  suppliers " + 
                             "ORDER BY supplierName DESC;";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -57,7 +57,7 @@ namespace introse_project.Libs
         {
             string query = "INSERT INTO suppliers (supplierName) values (@supplierName)";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -84,7 +84,7 @@ namespace introse_project.Libs
         {
             string query = "SELECT  COUNT(*) FROM suppliers";
             int value = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -115,7 +115,7 @@ namespace introse_project.Libs
             
             string query = "SELECT * FROM suppliers";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             MySqlDataReader reader;
 

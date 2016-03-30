@@ -41,7 +41,7 @@ namespace introse_project.Libs
 				                    "ON D.customerPONumber = A.customerPONumber " +
                             "ORDER BY A.supplierPONumber DESC;";     
                                                                                                                                                               
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

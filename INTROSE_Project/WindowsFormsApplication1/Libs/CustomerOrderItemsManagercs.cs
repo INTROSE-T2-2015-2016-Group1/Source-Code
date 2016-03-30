@@ -34,7 +34,7 @@ namespace introse_project.Libs
                             "WHERE  A.customerPONumber = '" + customerPONumber + "' " +
                             "ORDER BY A.customerOrderID ASC;";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -67,7 +67,7 @@ namespace introse_project.Libs
             string query = "INSERT INTO customer_order_items (customerPONumber, itemNumber, quantity, currency, pricePerUnit, totalPrice, isFinished) " +
                            "values (@customerPONumber, @itemNumber, @quantity, @currency, @pricePerUnit, @totalPrice, false)";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

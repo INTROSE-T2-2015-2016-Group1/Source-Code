@@ -27,7 +27,7 @@ namespace introse_project.Libs
                             "FROM 	customer_po A " +
                             "ORDER BY A.customerPONumber DESC;";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -65,7 +65,7 @@ namespace introse_project.Libs
             string query = "INSERT INTO customer_po (customerPONumber, customerName, dateIssued, expectedDeliveryDate, isFinished) " +
                             "values (@customerPONumber, @customerName, @dateIssued, @expectedDeliveryDate, false)";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -97,7 +97,7 @@ namespace introse_project.Libs
         {
             string query = "SELECT  COUNT(*) FROM customer_po";
             int value = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -127,7 +127,7 @@ namespace introse_project.Libs
         {
             string query = "SELECT  COUNT(customerPONumber) FROM customer_po A WHERE A.customerPONumber = '"+ cPONumber +"'";
             int count = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

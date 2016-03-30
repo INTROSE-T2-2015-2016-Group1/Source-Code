@@ -24,7 +24,9 @@ namespace introse_project.Libs
             string query = "SELECT customerName AS 'Customer Name' " +
                             "FROM  customers " +
                             "ORDER BY customerName DESC;";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            //MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -61,7 +63,7 @@ namespace introse_project.Libs
         {
             string query = "INSERT INTO customers (customerName) values (@customerName)";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -88,7 +90,7 @@ namespace introse_project.Libs
         {
             string query = "SELECT  COUNT(*) FROM customers";
             int value = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
@@ -119,7 +121,7 @@ namespace introse_project.Libs
 
             string query = "SELECT * FROM customers";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             MySqlDataReader reader;
 
