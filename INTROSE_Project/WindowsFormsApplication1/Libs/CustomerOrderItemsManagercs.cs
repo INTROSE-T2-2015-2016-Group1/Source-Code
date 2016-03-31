@@ -190,7 +190,7 @@ namespace introse_project.Libs
             itemComboBox.Items.Clear();
 
             string query = "SELECT A.itemDescription FROM customer_order_items A, items B " +
-                           "WHERE A.customerPONumber = '"+ customerPONumber +"' AND B.supplierName = '"+ supplierName +"' ";
+                           "WHERE A.customerPONumber = '"+ customerPONumber +"' AND B.supplierName = '"+ supplierName +"' AND A.itemDescription = B.description";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);

@@ -70,6 +70,18 @@
     <Compile Include="sub_windows\Delivery Receipt\addDR.Designer.cs">
       <DependentUpon>addDR.cs</DependentUpon>
     </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\addDRItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\addDRItems.Designer.cs">
+      <DependentUpon>addDRItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\godoInspect_DR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\godoInspect_DR.Designer.cs">
+      <DependentUpon>godoInspect_DR.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Delivery Receipt\updateDR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +90,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sub_windows\Delivery Receipt\updateDRItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\updateDRItems.Designer.cs">
+      <DependentUpon>updateDRItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\viewDRItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Delivery Receipt\viewDRItems.Designer.cs">
+      <DependentUpon>viewDRItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Item Management\addIM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +180,30 @@
     <Compile Include="sub_windows\Sales Invoice\addSI.Designer.cs">
       <DependentUpon>addSI.cs</DependentUpon>
     </Compile>
+    <Compile Include="sub_windows\Sales Invoice\addSI_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\addSI_Items.Designer.cs">
+      <DependentUpon>addSI_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\customerInspect_SI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\customerInspect_SI.Designer.cs">
+      <DependentUpon>customerInspect_SI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\updateSI_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\updateSI_Items.Designer.cs">
+      <DependentUpon>updateSI_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\viewSI_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sub_windows\Sales Invoice\viewSI_Items.Designer.cs">
+      <DependentUpon>viewSI_Items.cs</DependentUpon>
+    </Compile>
     <Compile Include="sub_windows\Sales Invoice\updateSI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,8 +228,20 @@
     <EmbeddedResource Include="sub_windows\Delivery Receipt\addDR.resx">
       <DependentUpon>addDR.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\addDRItems.resx">
+      <DependentUpon>addDRItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\godoInspect_DR.resx">
+      <DependentUpon>godoInspect_DR.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Delivery Receipt\updateDR.resx">
       <DependentUpon>updateDR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\updateDRItems.resx">
+      <DependentUpon>updateDRItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Delivery Receipt\viewDRItems.resx">
+      <DependentUpon>viewDRItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Item Management\addIM.resx">
       <DependentUpon>addIM.cs</DependentUpon>
@@ -221,6 +281,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Sales Invoice\addSI.resx">
       <DependentUpon>addSI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Sales Invoice\addSI_Items.resx">
+      <DependentUpon>addSI_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Sales Invoice\customerInspect_SI.resx">
+      <DependentUpon>customerInspect_SI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Sales Invoice\updateSI_Items.resx">
+      <DependentUpon>updateSI_Items.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sub_windows\Sales Invoice\viewSI_Items.resx">
+      <DependentUpon>viewSI_Items.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sub_windows\Sales Invoice\updateSI.resx">
       <DependentUpon>updateSI.cs</DependentUpon>

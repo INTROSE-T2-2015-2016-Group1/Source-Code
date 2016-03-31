@@ -84,7 +84,7 @@ namespace introse_project.Libs
 
         public bool pkExists(string supplierName, string description)
         {
-            string query = "SELECT  COUNT(*) FROM customers A WHERE A.supplierName = '" + supplierName + "' AND A.description = '"+ description +"'";
+            string query = "SELECT  COUNT(*) FROM items A WHERE A.supplierName = '" + supplierName + "' AND A.description = '"+ description +"'";
             int count = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
