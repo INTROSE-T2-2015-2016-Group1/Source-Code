@@ -155,7 +155,7 @@ namespace introse_project
         #region Search
         private void searchBtn_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("nacks naman juts");
         }
 
         private void editBtn_Click(object sender, EventArgs e)
