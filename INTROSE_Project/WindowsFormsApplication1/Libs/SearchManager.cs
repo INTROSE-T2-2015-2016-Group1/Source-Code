@@ -14,11 +14,61 @@ namespace introse_project.Libs
     {
         private static SearchManager theInstance = new SearchManager();
 
-        private SearchManager() { }
+        private SearchManager() 
+        {
+        }
 
         public void searchForm(DataGridView dataGridView, String formType, String input)
         {
+            string query =  "";
+            formType = formType.ToLower();
 
+            if(formType == "customer_inspection_results")
+            {
+                query = "SELECT * FROM customer_inspection_results " +
+                        " WHERE invoiceItemID LIKE '" + input +
+                        "' OR approvedQuantity LIKE '" + input +
+                        "' OR rejectedQuantity LIKE '" + input + "'";
+            }
+
+            Console.WriteLine(query);
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                MySqlDataAdapter data = new MySqlDataAdapter();
+                data.SelectCommand = command;
+
+                connection.Open();
+
+                DataTable table = new DataTable();
+                data.Fill(table);
+
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = table;
+
+                dataGridView.DataSource = bindingSource;
+                data.Update(table);
+
+                connection.Close();
+
+            }
+            catch
+            {
+                MessageBox.Show("Error: Unable to show table due to connection problems");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        public static SearchManager instance
+        {
+            get { return theInstance; }
         }
     }
 }

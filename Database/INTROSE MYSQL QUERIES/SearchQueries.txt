@@ -1,22 +1,23 @@
+
 //customer_inspection_results
-"SELECT unit FROM customer_inspection_results 
-WHERE invoiceItemID LIKE '"+input+"' 
-OR approvedQuantity LIKE '"+input+"' 
-OR rejectedQuantity LIKE '"+input+"'"
+"SELECT * FROM customer_inspection_results "+
+" WHERE invoiceItemID LIKE '"+input+
+"' OR approvedQuantity LIKE '"+input+
+"' OR rejectedQuantity LIKE '"+input+"'";
 
 //purchaseordercontrol.customer_order_items
-"SELECT unit FROM customer_order_items 
+"SELECT * FROM customer_order_items 
 WHERE customerOrderID LIKE '"+input+"' 
 OR customerPONumber LIKE '"+input+"' 
 OR itemNumber LIKE '"+input+"' 
 OR quantity LIKE '"+input+"' 
 OR currency LIKE '"+input+"' 
-OR pricePerUnit LIKE '"+input+"' 
+OR pricePer* LIKE '"+input+"' 
 OR totalPrice LIKE '"+input+"' 
 OR isFinished LIKE '"+input+"'"
 
 //customer_po
-"SELECT unit FROM customer_po 
+"SELECT * FROM customer_po 
 WHERE customerPONumber LIKE '"+input+"' 
 OR customerName LIKE '"+input+"' 
 OR dateIssued LIKE '"+input+"' 
@@ -24,30 +25,30 @@ OR expectedDeliveryDate LIKE '"+input+"'
 OR isFinished LIKE '"+input+"'"
 
 //customers
-"SELECT unit FROM customers
+"SELECT * FROM customers
 WHERE customerName LIKE '"+input+"'"
 
 //delivered_items
-"SELECT unit FROM delivered_items
+"SELECT * FROM delivered_items
 WHERE deliveryItemID LIKE '"+input+"' 
 OR deliveryReceiptNumber LIKE '"+input+"' 
 OR supplierOrderID LIKE '"+input+"' 
 OR deliveredQuantity LIKE '"+input+"'"
 
 //delivery_receipts
-"SELECT unit FROM delivery_receipts
+"SELECT * FROM delivery_receipts
 WHERE deliveryReceiptNumber LIKE '"+input+"' 
 OR supplierPONumber LIKE '"+input+"' 
 OR daeReceived LIKE '"+input+"'"
 
 //godo_insppection_results
-"SELECT unit FROM godo_inspection_results
+"SELECT * FROM godo_inspection_results
 WHERE deliveryItemID LIKE '"+input+"' 
 OR approvedQuantity LIKE '"+input+"' 
 OR rejectedQuantity '"+input+"'"
 
 //invoice_items
-"SELECT unit FROM invoice_items
+"SELECT * FROM invoice_items
 WHERE invoiceItemID LIKE '"+input+"' 
 OR deliveryItemID LIKE '"+input+"' 
 OR invoiceNumber '"+input+"'' 
@@ -55,7 +56,7 @@ OR customerOrderID '"+input+"''
 OR deliverequantity '"+input+"'"
 
 //invoices
-"SELECT unit FROM invoices
+"SELECT * FROM invoices
 WHERE invoiceNumber LIKE '"+input+"' 
 OR deliveryReceiptNumber LIKE '"+input+"' 
 OR customerPONumber '"+input+"'' 
@@ -63,24 +64,24 @@ OR dateReceived '"+input+"''
 OR invoiceTotalPrice '"+input+"'"
 
 //items
-"SELECT unit FROM items
+"SELECT * FROM items
 WHERE itemNumber LIKE '"+input+"' 
 OR supplierName LIKE '"+input+"' 
 OR description '"+input+"'"
 
 //supplier_order_items
-"SELECT unit FROM supplier_order_items
+"SELECT * FROM supplier_order_items
 WHERE supplierOrderID LIKE '"+input+"' 
 OR supplierPONumber LIKE '"+input+"' 
 OR itemNumber '"+input+" 
 OR quantity '"+input+" 
 OR currency '"+input+" 
-OR pricePerunit '"+input+" 
+OR pricePer* '"+input+" 
 OR totalPrice '"+input+" 
 OR isFinished '"+input+"'"
 
 //supplier_po
-"SELECT unit FROM supplier_po
+"SELECT * FROM supplier_po
 WHERE supplierPONumber LIKE '"+input+"' 
 OR customerPONumber LIKE '"+input+"' 
 OR supplierName '"+input+" 
@@ -89,5 +90,5 @@ OR expectedDeliveryDate '"+input+"
 OR isFinished '"+input+"'"
 
 //suppliers
-"SELECT unit FROM suppliers
+"SELECT * FROM suppliers
 WHERE supplierName '"+input+"'"

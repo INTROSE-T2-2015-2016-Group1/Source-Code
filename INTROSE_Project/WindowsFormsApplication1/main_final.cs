@@ -155,7 +155,10 @@ namespace introse_project
         #region Search
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("nacks naman juts");
+            string capturedKeyword = keywordTxtBox.Text;
+            string capturedFormType = formTypeCBox.Text;
+            SearchManager.instance.searchForm(searchGridView, capturedFormType, capturedKeyword);
+            //MessageBox.Show(capturedFormType + " " + capturedKeyword);
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -163,6 +166,11 @@ namespace introse_project
 
         }
         #endregion     
+
+        private void searchGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
 
     }
 }

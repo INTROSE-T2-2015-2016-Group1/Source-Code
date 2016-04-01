@@ -49,6 +49,7 @@
             this.cPOAddBtn = new System.Windows.Forms.Button();
             this.cPOGridView = new System.Windows.Forms.DataGridView();
             this.sPOTab = new System.Windows.Forms.TabPage();
+            this.sPOViewItemsBtn = new System.Windows.Forms.Button();
             this.sPOGridView = new System.Windows.Forms.DataGridView();
             this.sPOUpdateBtn = new System.Windows.Forms.Button();
             this.sPOAddBtn = new System.Windows.Forms.Button();
@@ -71,7 +72,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
-            this.sPOViewItemsBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -341,6 +341,15 @@
             this.sPOTab.Text = "Supplier Purchase Order";
             this.sPOTab.UseVisualStyleBackColor = true;
             // 
+            // sPOViewItemsBtn
+            // 
+            this.sPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
+            this.sPOViewItemsBtn.Name = "sPOViewItemsBtn";
+            this.sPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
+            this.sPOViewItemsBtn.TabIndex = 20;
+            this.sPOViewItemsBtn.Text = "View Items";
+            this.sPOViewItemsBtn.UseVisualStyleBackColor = true;
+            // 
             // sPOGridView
             // 
             this.sPOGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -549,6 +558,8 @@
             // 
             this.formTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.formTypeCBox.FormattingEnabled = true;
+            this.formTypeCBox.Items.AddRange(new object[] {
+            "customer_inspection_results"});
             this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
@@ -585,15 +596,7 @@
             this.searchGridView.ReadOnly = true;
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
-            // 
-            // sPOViewItemsBtn
-            // 
-            this.sPOViewItemsBtn.Location = new System.Drawing.Point(210, 378);
-            this.sPOViewItemsBtn.Name = "sPOViewItemsBtn";
-            this.sPOViewItemsBtn.Size = new System.Drawing.Size(75, 23);
-            this.sPOViewItemsBtn.TabIndex = 20;
-            this.sPOViewItemsBtn.Text = "View Items";
-            this.sPOViewItemsBtn.UseVisualStyleBackColor = true;
+            this.searchGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchGridView_CellContentClick);
             // 
             // main
             // 
