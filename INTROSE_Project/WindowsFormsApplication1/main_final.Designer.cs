@@ -560,7 +560,14 @@
             this.formTypeCBox.FormattingEnabled = true;
             this.formTypeCBox.Items.AddRange(new object[] {
             "customer_inspection_results",
-            "customer_order_items"});
+            "customer_order_items",
+            "customer_po",
+            "customers",
+            "delivered_items",
+            "delivery_receipts",
+            "godo_inspection_results",
+            "invoice_items",
+            "invoices"});
             this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);

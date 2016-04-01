@@ -18,51 +18,51 @@
 "' OR isFinished LIKE '"+input+"'";
 
 //customer_po
-"SELECT * FROM customer_po 
-WHERE customerPONumber LIKE '"+input+"' 
-OR customerName LIKE '"+input+"' 
-OR dateIssued LIKE '"+input+"' 
-OR expectedDeliveryDate LIKE '"+input+"' 
-OR isFinished LIKE '"+input+"'"
+"SELECT * FROM customer_po " +
+"WHERE customerPONumber LIKE '"+input+
+"' OR customerName LIKE '"+input+
+"' OR dateIssued LIKE '"+input+
+"' OR expectedDeliveryDate LIKE '"+input+
+"' OR isFinished LIKE '"+input+"'";
 
 //customers
-"SELECT * FROM customers
-WHERE customerName LIKE '"+input+"'"
+"SELECT * FROM customers " +
+"WHERE customerName LIKE '"+input+"'";
 
 //delivered_items
-"SELECT * FROM delivered_items
-WHERE deliveryItemID LIKE '"+input+"' 
-OR deliveryReceiptNumber LIKE '"+input+"' 
-OR supplierOrderID LIKE '"+input+"' 
-OR deliveredQuantity LIKE '"+input+"'"
+"SELECT * FROM delivered_items "+
+"WHERE deliveryItemID LIKE '"+input+
+"' OR deliveryReceiptNumber LIKE '"+input+
+"' OR supplierOrderID LIKE '"+input+
+"' OR deliveredQuantity LIKE '"+input+"'";
 
 //delivery_receipts
-"SELECT * FROM delivery_receipts
-WHERE deliveryReceiptNumber LIKE '"+input+"' 
-OR supplierPONumber LIKE '"+input+"' 
-OR daeReceived LIKE '"+input+"'"
+"SELECT * FROM delivery_receipts "+
+"WHERE deliveryReceiptNumber LIKE '"+input+
+"' OR supplierPONumber LIKE '"+input+
+"' OR daeReceived LIKE '"+input+"'";
 
 //godo_insppection_results
-"SELECT * FROM godo_inspection_results
-WHERE deliveryItemID LIKE '"+input+"' 
-OR approvedQuantity LIKE '"+input+"' 
-OR rejectedQuantity '"+input+"'"
+"SELECT * FROM godo_inspection_results "+
+"WHERE deliveryItemID LIKE '"+input+
+"' OR approvedQuantity LIKE '"+input+
+"' OR rejectedQuantity LIKE '"+input+"'";
 
 //invoice_items
-"SELECT * FROM invoice_items
-WHERE invoiceItemID LIKE '"+input+"' 
-OR deliveryItemID LIKE '"+input+"' 
-OR invoiceNumber '"+input+"'' 
-OR customerOrderID '"+input+"'' 
-OR deliverequantity '"+input+"'"
+"SELECT * FROM invoice_items "+
+"WHERE invoiceItemID LIKE '"+input+
+"' OR deliveryItemID LIKE '"+input+
+"' OR invoiceNumber LIKE '"+input+
+"' OR customerOrderID LIKE '"+input+
+"' OR deliveredquantity LIKE '"+input+"'";
 
 //invoices
-"SELECT * FROM invoices
-WHERE invoiceNumber LIKE '"+input+"' 
-OR deliveryReceiptNumber LIKE '"+input+"' 
-OR customerPONumber '"+input+"'' 
-OR dateReceived '"+input+"'' 
-OR invoiceTotalPrice '"+input+"'"
+"SELECT * FROM invoices "+
+"WHERE invoiceNumber LIKE '"+input+
+"' OR deliveryReceiptNumber LIKE '"+input+
+"' OR customerPONumber LIKE '"+input+
+"' OR dateReceived LIKE '"+input+
+"' OR invoiceTotalPrice LIKE '"+input+"'";
 
 //items
 "SELECT * FROM items

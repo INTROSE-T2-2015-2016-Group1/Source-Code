@@ -23,12 +23,12 @@ namespace introse_project.Libs
             string query =  "";
             formType = formType.ToLower();
 
-            if(formType == "customer_inspection_results")
+            if (formType == "customer_inspection_results")
                 query = "SELECT * FROM customer_inspection_results " +
                         " WHERE invoiceItemID LIKE '" + input +
                         "' OR approvedQuantity LIKE '" + input +
                         "' OR rejectedQuantity LIKE '" + input + "'";
-            else if(formType == "customer_order_items")
+            else if (formType == "customer_order_items")
                 query = "SELECT * FROM customer_order_items " +
                         " WHERE customerOrderID LIKE '" + input +
                         "' OR customerPONumber LIKE '" + input +
@@ -39,6 +39,46 @@ namespace introse_project.Libs
                         "' OR pricePerUnit LIKE '" + input +
                         "' OR totalPrice LIKE '" + input +
                         "' OR isFinished LIKE '" + input + "'";
+            else if (formType == "customer_po")
+                query = "SELECT * FROM customer_po " +
+                        "WHERE customerPONumber LIKE '" + input +
+                        "' OR customerName LIKE '" + input +
+                        "' OR dateIssued LIKE '" + input +
+                        "' OR expectedDeliveryDate LIKE '" + input +
+                        "' OR isFinished LIKE '" + input + "'";
+            else if (formType == "customers")
+                query = "SELECT * FROM customers " +
+                        "WHERE customerName LIKE '" + input + "'";
+            else if (formType == "delivered_items")
+                query = "SELECT * FROM delivered_items " +
+                        "WHERE deliveryItemID LIKE '" + input +
+                        "' OR deliveryReceiptNumber LIKE '" + input +
+                        "' OR supplierOrderID LIKE '" + input +
+                        "' OR deliveredQuantity LIKE '" + input + "'";
+            else if (formType == "delivery_receipts")
+                query = "SELECT * FROM delivery_receipts " +
+                        "WHERE deliveryReceiptNumber LIKE '" + input +
+                        "' OR supplierPONumber LIKE '" + input +
+                        "' OR dateReceived LIKE '" + input + "'";
+            else if (formType == "godo_inspection_results")
+                query = "SELECT * FROM godo_inspection_results " +
+                        "WHERE deliveryItemID LIKE '" + input +
+                        "' OR approvedQuantity LIKE '" + input +
+                        "' OR rejectedQuantity LIKE '" + input + "'";
+            else if (formType == "invoice_items")
+                query = "SELECT * FROM invoice_items " +
+                        "WHERE invoiceItemID LIKE '" + input +
+                        "' OR deliveryItemID LIKE '" + input +
+                        "' OR invoiceNumber LIKE '" + input +
+                        "' OR customerOrderID LIKE '" + input +
+                        "' OR deliveredquantity LIKE '" + input + "'";
+            else if (formType == "invoices")
+                query = "SELECT * FROM invoices " +
+                        "WHERE invoiceNumber LIKE '" + input +
+                        "' OR deliveryReceiptNumber LIKE '" + input +
+                        "' OR customerPONumber LIKE '" + input +
+                        "' OR dateReceived LIKE '" + input +
+                        "' OR invoiceTotalPrice LIKE '" + input + "'";
 
             Console.WriteLine(query);
 
