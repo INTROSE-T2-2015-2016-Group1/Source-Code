@@ -24,12 +24,21 @@ namespace introse_project.Libs
             formType = formType.ToLower();
 
             if(formType == "customer_inspection_results")
-            {
                 query = "SELECT * FROM customer_inspection_results " +
                         " WHERE invoiceItemID LIKE '" + input +
                         "' OR approvedQuantity LIKE '" + input +
                         "' OR rejectedQuantity LIKE '" + input + "'";
-            }
+            else if(formType == "customer_order_items")
+                query = "SELECT * FROM customer_order_items " +
+                        " WHERE customerOrderID LIKE '" + input +
+                        "' OR customerPONumber LIKE '" + input +
+                        "' OR itemNumber LIKE '" + input +
+                        "' OR quantity LIKE '" + input +
+                        "' OR currency LIKE '" + input +
+                        "' OR itemDescription LIKE '" + input +
+                        "' OR pricePerUnit LIKE '" + input +
+                        "' OR totalPrice LIKE '" + input +
+                        "' OR isFinished LIKE '" + input + "'";
 
             Console.WriteLine(query);
 

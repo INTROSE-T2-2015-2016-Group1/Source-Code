@@ -1,20 +1,21 @@
 
 //customer_inspection_results
-"SELECT * FROM customer_inspection_results "+
-" WHERE invoiceItemID LIKE '"+input+
-"' OR approvedQuantity LIKE '"+input+
-"' OR rejectedQuantity LIKE '"+input+"'";
+"SELECT * FROM customer_inspection_results " +
+" WHERE invoiceItemID LIKE '" + input +
+"' OR approvedQuantity LIKE '" + input +
+"' OR rejectedQuantity LIKE '" + input + "'";
 
 //purchaseordercontrol.customer_order_items
-"SELECT * FROM customer_order_items 
-WHERE customerOrderID LIKE '"+input+"' 
-OR customerPONumber LIKE '"+input+"' 
-OR itemNumber LIKE '"+input+"' 
-OR quantity LIKE '"+input+"' 
-OR currency LIKE '"+input+"' 
-OR pricePer* LIKE '"+input+"' 
-OR totalPrice LIKE '"+input+"' 
-OR isFinished LIKE '"+input+"'"
+"SELECT * FROM customer_order_items " +
+" WHERE customerOrderID LIKE '"+input+
+"' OR customerPONumber LIKE '"+input+
+"' OR itemNumber LIKE '"+input+
+"' OR quantity LIKE '"+input+
+"' OR currency LIKE '"+input+
+"' OR itemDescription LIKE '" +input+
+"' OR pricePerUnit LIKE '"+input+
+"' OR totalPrice LIKE '"+input+
+"' OR isFinished LIKE '"+input+"'";
 
 //customer_po
 "SELECT * FROM customer_po 

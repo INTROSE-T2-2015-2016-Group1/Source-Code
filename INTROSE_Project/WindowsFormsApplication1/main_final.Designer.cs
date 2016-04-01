@@ -559,7 +559,8 @@
             this.formTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.formTypeCBox.FormattingEnabled = true;
             this.formTypeCBox.Items.AddRange(new object[] {
-            "customer_inspection_results"});
+            "customer_inspection_results",
+            "customer_order_items"});
             this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
