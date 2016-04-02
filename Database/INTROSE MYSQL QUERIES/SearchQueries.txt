@@ -92,4 +92,4 @@
 
 //suppliers
 "SELECT * FROM suppliers "+
-"WHERE supplierName '"+input+"'";
+"WHERE supplierName LIKE '"+input+"'";
