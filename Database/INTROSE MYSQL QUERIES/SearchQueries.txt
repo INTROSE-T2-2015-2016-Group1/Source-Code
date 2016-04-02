@@ -65,31 +65,31 @@
 "' OR invoiceTotalPrice LIKE '"+input+"'";
 
 //items
-"SELECT * FROM items
-WHERE itemNumber LIKE '"+input+"' 
-OR supplierName LIKE '"+input+"' 
-OR description '"+input+"'"
+"SELECT * FROM items "+
+"WHERE itemNumber LIKE '"+input+
+"' OR supplierName LIKE '"+input+
+"' OR description LIKE '"+input+"'";
 
 //supplier_order_items
-"SELECT * FROM supplier_order_items
-WHERE supplierOrderID LIKE '"+input+"' 
-OR supplierPONumber LIKE '"+input+"' 
-OR itemNumber '"+input+" 
-OR quantity '"+input+" 
-OR currency '"+input+" 
-OR pricePer* '"+input+" 
-OR totalPrice '"+input+" 
-OR isFinished '"+input+"'"
+"SELECT * FROM supplier_order_items "+
+"WHERE supplierOrderID LIKE '"+input+
+"' OR supplierPONumber LIKE '"+input+
+"' OR itemNumber LIKE '"+input+
+"' OR quantity LIKE '"+input+
+"' OR currency LIKE '"+input+
+"' OR pricePerUnit LIKE '"+input+
+"' OR totalPrice LIKE '"+input+
+"' OR isFinished LIKE '"+input+"'";
 
 //supplier_po
-"SELECT * FROM supplier_po
-WHERE supplierPONumber LIKE '"+input+"' 
-OR customerPONumber LIKE '"+input+"' 
-OR supplierName '"+input+" 
-OR dateIssued '"+input+" 
-OR expectedDeliveryDate '"+input+" 
-OR isFinished '"+input+"'"
+"SELECT * FROM supplier_po "+
+"WHERE supplierPONumber LIKE '"+input+
+"' OR customerPONumber LIKE '"+input+
+"' OR supplierName LIKE '"+input+
+"' OR dateIssued LIKE '"+input+
+"' OR expectedDeliveryDate LIKE '"+input+
+"' OR isFinished LIKE '"+input+"'";
 
 //suppliers
-"SELECT * FROM suppliers
-WHERE supplierName '"+input+"'"
+"SELECT * FROM suppliers "+
+"WHERE supplierName '"+input+"'";

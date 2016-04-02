@@ -79,6 +79,34 @@ namespace introse_project.Libs
                         "' OR customerPONumber LIKE '" + input +
                         "' OR dateReceived LIKE '" + input +
                         "' OR invoiceTotalPrice LIKE '" + input + "'";
+            else if (formType == "items")
+                query = "SELECT * FROM items " +
+                        "WHERE itemNumber LIKE '" + input +
+                        "' OR supplierName LIKE '" + input +
+                        "' OR description LIKE '" + input + "'";
+            else if (formType == "supplier_order_items")
+                query = "SELECT * FROM supplier_order_items " +
+                        "WHERE supplierOrderID LIKE '" + input +
+                        "' OR supplierPONumber LIKE '" + input +
+                        "' OR itemNumber LIKE '" + input +
+                        "' OR quantity LIKE '" + input +
+                        "' OR currency LIKE '" + input +
+                        "' OR pricePerUnit LIKE '" + input +
+                        "' OR totalPrice LIKE '" + input +
+                        "' OR isFinished LIKE '" + input + "'";
+            else if (formType == "supplier_po")
+                query = "SELECT * FROM supplier_po " +
+                        "WHERE supplierPONumber LIKE '" + input +
+                        "' OR customerPONumber LIKE '" + input +
+                        "' OR supplierName LIKE '" + input +
+                        "' OR dateIssued LIKE '" + input +
+                        "' OR expectedDeliveryDate LIKE '" + input +
+                        "' OR isFinished LIKE '" + input + "'";
+            else if (formType == "suppliers")
+                query = "SELECT * FROM suppliers " +
+                        "WHERE supplierName LIKE '" + input + "'";
+            else
+                MessageBox.Show("unknown form type\ndid not search");
 
             Console.WriteLine(query);
 

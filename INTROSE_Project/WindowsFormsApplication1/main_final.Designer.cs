@@ -567,7 +567,11 @@
             "delivery_receipts",
             "godo_inspection_results",
             "invoice_items",
-            "invoices"});
+            "invoices",
+            "items",
+            "supplier_order_items",
+            "supplier_po",
+            "suppliers"});
             this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
