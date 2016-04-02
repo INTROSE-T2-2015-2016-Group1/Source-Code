@@ -43,7 +43,7 @@ namespace introse_project
                 case "Customer Purchase Order": CustomerPOManager.instance.viewAll(cPOGridView);        break;
                 case "Supplier Purchase Order": SupplierPOManager.instance.viewAll(sPOGridView);        break;
                 //case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
-                //case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
+                case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
             }
         }
         #endregion
@@ -156,7 +156,7 @@ namespace introse_project
         {
             if (SupplierPOManager.instance.getCount() > 0)
             {
-                viewSPOItems.instance.setPONumber(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewSPOItems.instance.setPONumber(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString(), sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[1].Value.ToString());
                 viewSPOItems.instance.setSupplierName(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
                 viewSPOItems.instance.ShowDialog();
                 SupplierPOManager.instance.viewAll(sPOGridView);
@@ -189,6 +189,20 @@ namespace introse_project
         private void drAddBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void viewDRItemsBtn_Click(object sender, EventArgs e)
+        {
+            if (DeliveryReceiptsManager.instance.getCount() > 0)
+            {
+                viewDRItems.instance.setDeliveryReceiptNumber(drGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewDRItems.instance.ShowDialog();
+                DeliveryReceiptsManager.instance.viewAll(drGridView);
+            }
+            else
+            {
+                MessageBox.Show("No delivery receipt to view", "ERROR");
+            }
         }
         #endregion
 

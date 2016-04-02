@@ -15,7 +15,8 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
     {
         private static viewSPOItems theInstance = new viewSPOItems();
 
-        private string  supplierPONumber;
+        private string supplierPONumber;
+        private string customerPONumber;
         private string supplierName;
 
         private viewSPOItems()
@@ -28,9 +29,10 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             SupplierOrderItemsManager.instance.viewAll(this.supplierPONumber, cPOItemsGridView);
         }
 
-        public void setPONumber(string supplierPONumber)
+        public void setPONumber(string supplierPONumber, string customerPONumber)
         {
             this.supplierPONumber = supplierPONumber;
+            this.customerPONumber = customerPONumber;
         }
 
         public void setSupplierName(string supplierName)
@@ -41,10 +43,9 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
         private void addSPOItemsBtn_Click(object sender, EventArgs e)
         {
             addSPOItems.instance.setAddType(false);
-            addSPOItems.instance.setPONumber(this.supplierPONumber, "");
+            addSPOItems.instance.setPONumber(this.supplierPONumber, this.customerPONumber);
             addSPOItems.instance.setSupplierName(this.supplierName);
             addSPOItems.instance.ShowDialog();
-            this.Close();
             SupplierOrderItemsManager.instance.viewAll(this.supplierPONumber, cPOItemsGridView);
         }
 
