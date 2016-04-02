@@ -195,7 +195,8 @@ namespace introse_project
         {
             if (DeliveryReceiptsManager.instance.getCount() > 0)
             {
-                viewDRItems.instance.setDeliveryReceiptNumber(drGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewDRItems.instance.setDeliveryReceiptNumber(drGridView.Rows[drGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewDRItems.instance.setSupplierPONumber(drGridView.Rows[drGridView.CurrentCell.RowIndex].Cells[1].Value.ToString());
                 viewDRItems.instance.ShowDialog();
                 DeliveryReceiptsManager.instance.viewAll(drGridView);
             }

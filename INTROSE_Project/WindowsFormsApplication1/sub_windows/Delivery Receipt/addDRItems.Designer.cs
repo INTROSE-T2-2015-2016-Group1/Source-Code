@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.quantityReceivedTxtBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.supplierOrderedItemCBox = new System.Windows.Forms.ComboBox();
             this.addDRBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -38,6 +42,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.quantityReceivedTxtBox);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.supplierOrderedItemCBox);
             this.groupBox1.Controls.Add(this.addDRBtn);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -45,6 +53,42 @@
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item Information";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 87);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Quantity Received";
+            // 
+            // quantityReceivedTxtBox
+            // 
+            this.quantityReceivedTxtBox.Location = new System.Drawing.Point(9, 103);
+            this.quantityReceivedTxtBox.Name = "quantityReceivedTxtBox";
+            this.quantityReceivedTxtBox.Size = new System.Drawing.Size(263, 20);
+            this.quantityReceivedTxtBox.TabIndex = 30;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Item";
+            // 
+            // supplierOrderedItemCBox
+            // 
+            this.supplierOrderedItemCBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.supplierOrderedItemCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.supplierOrderedItemCBox.FormattingEnabled = true;
+            this.supplierOrderedItemCBox.Location = new System.Drawing.Point(9, 46);
+            this.supplierOrderedItemCBox.Name = "supplierOrderedItemCBox";
+            this.supplierOrderedItemCBox.Size = new System.Drawing.Size(263, 21);
+            this.supplierOrderedItemCBox.TabIndex = 28;
             // 
             // addDRBtn
             // 
@@ -55,6 +99,7 @@
             this.addDRBtn.TabIndex = 23;
             this.addDRBtn.Text = "Add Item";
             this.addDRBtn.UseVisualStyleBackColor = true;
+            this.addDRBtn.Click += new System.EventHandler(this.addDRBtn_Click);
             // 
             // addDRItems
             // 
@@ -65,7 +110,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "addDRItems";
             this.Text = "Add Items";
+            this.Load += new System.EventHandler(this.addDRItems_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -74,6 +121,10 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button addDRBtn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox supplierOrderedItemCBox;
+        private System.Windows.Forms.TextBox quantityReceivedTxtBox;
+        private System.Windows.Forms.Label label1;
 
     }
 }

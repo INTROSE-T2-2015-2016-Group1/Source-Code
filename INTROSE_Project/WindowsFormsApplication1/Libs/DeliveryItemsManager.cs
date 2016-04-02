@@ -59,6 +59,35 @@ namespace introse_project.Libs
             }
 
         }
+
+        public void addData(string deliveryReceiptNumber, int supplierOrderID, int deliveredQuantity)
+        {
+            string query = "INSERT INTO delivered_items (deliveryReceiptNumber, supplierOrderID, deliveredQuantity) values (@deliveryReceiptNumber, @supplierOrderID, @deliveredQuantity)";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@deliveryReceiptNumber", deliveryReceiptNumber);
+                command.Parameters.AddWithValue("@supplierOrderID", supplierOrderID);
+                command.Parameters.AddWithValue("@deliveredQuantity", deliveredQuantity);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add item", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public static DeliveryItemsManager instance
         {
             get { return theInstance; }

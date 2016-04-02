@@ -15,6 +15,7 @@ namespace introse_project.sub_windows.Delivery_Receipt
     {
         private static viewDRItems theInstance = new viewDRItems();
         private string deliveryReceiptNumber;
+        private string supplierPONumber;
         
         private viewDRItems()
         {
@@ -31,9 +32,22 @@ namespace introse_project.sub_windows.Delivery_Receipt
             this.deliveryReceiptNumber = deliveryReceiptNumber;
         }
 
+        public void setSupplierPONumber(string supplierPONumber)
+        {
+            this.supplierPONumber = supplierPONumber;
+        }
+
+        private void addDRItemsBtn_Click(object sender, EventArgs e)
+        {
+            addDRItems.instance.setDeliveryReceiptNumber(this.deliveryReceiptNumber);
+            addDRItems.instance.setSupplierPONumber(this.supplierPONumber);           
+            addDRItems.instance.ShowDialog();
+            DeliveryItemsManager.instance.viewAll(deliveryReceiptNumber, DR_ItemsGridView);
+        } 
+
         public static viewDRItems instance
         {
             get { return theInstance; }
-        }       
+        }     
     }
 }

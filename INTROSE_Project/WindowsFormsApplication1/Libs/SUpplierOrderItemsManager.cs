@@ -14,6 +14,8 @@ namespace introse_project.Libs
     {
         private static SupplierOrderItemsManager theInstance = new SupplierOrderItemsManager();
 
+        private SupplierOrderItemsManager() {}
+
         public void viewAll(String supplierPONumber, DataGridView dataGridView)  //Displays all ordered items for all the customer PO's
         {
 
@@ -52,7 +54,7 @@ namespace introse_project.Libs
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + "\nError: Unable to show table due to connection problems", "ERROR");
+                MessageBox.Show(ex.Message + "\nError: Unable to show table due to connection problems", "SOIM");
             }
         }
 
@@ -87,6 +89,99 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
+        }
+
+        public void getOrderItems(ComboBox itemComboBox, string supplierPONumber)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT B.description FROM supplier_order_items A, items B " +
+                           "WHERE A.supplierPONumber = '" + supplierPONumber + "' AND A.itemNumber = B.itemNumber";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("description"));
+
+
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to read items database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public int itemOrderedID(int itemNumber, string supplierPONumber)     //gets the itemID given an itemNumber and a supplierPONumber
+        {          
+            string query = "SELECT A.supplierOrderID FROM supplier_order_items A " +
+                           "WHERE A.supplierPONumber = '" + supplierPONumber + "' AND A.itemNumber = " + itemNumber.ToString() + " ";
+            int id = 0;
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                id = Convert.ToInt32(command.ExecuteScalar().ToString());
+                connection.Close();
+                return id;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to read ordered items database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return id;
+        }
+
+        public bool isItemExists(int itemNumber)
+        {
+            string query = "SELECT  COUNT(itemNumber) FROM supplier_order_items A WHERE A.itemNumber = " + itemNumber + "";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
         }
 
         public static SupplierOrderItemsManager instance

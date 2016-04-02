@@ -62,11 +62,11 @@ namespace introse_project.Libs
 
         }
 
-        public string test(string customerPONumber)
+        public string getSupplierName(string supplierPONumber)
         {
-            string query = "SELECT COUNT(*) FROM customer_po A WHERE A.customerPONumber = '" + customerPONumber + "' ";
+            string query = "SELECT supplierName FROM supplier_po A WHERE A.supplierPONumber = '" + supplierPONumber + "' ";
 
-            int value = 0;
+            string value = "";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -75,22 +75,22 @@ namespace introse_project.Libs
             {
                 connection.Open();
 
-                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+                value = command.ExecuteScalar().ToString();
 
                 connection.Close();
 
-                return value.ToString();
+                return value;
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "ERROR");
             }
             finally
             {
                 connection.Close();
             }
 
-            return value.ToString();
+            return value;
         }
 
         public void addData(string supplierPONumber, string customerPONumber, string supplierName, string dateIssued, string expectedDeliveryDate)

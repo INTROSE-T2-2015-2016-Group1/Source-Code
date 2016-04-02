@@ -169,7 +169,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Unable to read items database", "ERROR");
+                MessageBox.Show("Enable to read items database", "ERROR");
             }
             finally
             {
@@ -209,10 +209,11 @@ namespace introse_project.Libs
             }
         }
 
-        public int getItemNumber(String description, String supplierName)
+        public int getItemNumber(string description, string supplierName)
         {
             string query = "SELECT  itemNumber FROM items A " +
-                           "WHERE A.description = '"+ description +"' AND A.supplierName = '"+ supplierName +"' ";
+                           "WHERE A.description = '" + description + "' " +
+                           "AND A.supplierName = '" + supplierName + "' ";
 
             int value = 0;
 
@@ -229,9 +230,9 @@ namespace introse_project.Libs
 
                 return value;
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Data passed was invalid", "ERROR");
+                MessageBox.Show(ex.Message + "\nData passed was invalid", "ERROR");
             }
             finally
             {

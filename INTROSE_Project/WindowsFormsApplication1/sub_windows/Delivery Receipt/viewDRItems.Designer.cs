@@ -44,6 +44,7 @@
             this.addDRItemsBtn.TabIndex = 26;
             this.addDRItemsBtn.Text = "Add Item";
             this.addDRItemsBtn.UseVisualStyleBackColor = true;
+            this.addDRItemsBtn.Click += new System.EventHandler(this.addDRItemsBtn_Click);
             // 
             // updateDRItemsBtn
             // 

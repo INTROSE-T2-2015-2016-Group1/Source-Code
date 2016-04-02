@@ -90,14 +90,20 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
                 addSPO.instance.addNewSPO();
             }
 
-            if (SupplierPOManager.instance.pkExists(this.supplierPONumber))
+            int itemNumber = ItemManager.instance.getItemNumber(itemDescCBox.SelectedItem.ToString(), this.supplierName);
+
+            if (SupplierPOManager.instance.pkExists(this.supplierPONumber) && !SupplierOrderItemsManager.instance.isItemExists(itemNumber))
             {
                 SupplierOrderItemsManager.instance.addData(this.supplierPONumber,
-                                                           ItemManager.instance.getItemNumber(itemDescCBox.SelectedItem.ToString(), this.supplierName),
+                                                           itemNumber,
                                                            Convert.ToInt32(itemQtyTxtBox.Text),
                                                            currencyTxtBox.Text,
                                                            double.Parse(pricePerUnitTxtBox.Text),
                                                            double.Parse(totalPriceTxtBox.Text));
+            }
+            else
+            {
+                MessageBox.Show("The item/PO you're trying to add already exists!", "ERROR");
             }
             this.Close();
         }
