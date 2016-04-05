@@ -91,7 +91,7 @@ namespace introse_project.Libs
             }
         }
 
-        public void getOrderItems(ComboBox itemComboBox, string supplierPONumber)     //fills up the combo box with values within the database
+        public void getOrderItems(ComboBox itemComboBox, string supplierPONumber)
         {
             itemComboBox.Items.Clear();
 
@@ -151,9 +151,9 @@ namespace introse_project.Libs
             return id;
         }
 
-        public bool isItemExists(int itemNumber)
+        public bool isItemExists(int itemNumber, string supplierPONumber)
         {
-            string query = "SELECT  COUNT(itemNumber) FROM supplier_order_items A WHERE A.itemNumber = " + itemNumber + "";
+            string query = "SELECT  COUNT(itemNumber) FROM supplier_order_items A WHERE A.itemNumber = " + itemNumber + " AND A.supplierPONumber = '"+ supplierPONumber +"'";
             int count = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -181,6 +181,68 @@ namespace introse_project.Libs
             }
 
             return false;
+
+        }
+
+        public void fillComboBox(ComboBox supplierComboBox)   
+        {
+            supplierComboBox.Items.Clear();
+
+            string query = "SELECT supplierOrderID FROM supplier_order_items WHERE isFinished = false";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    supplierComboBox.Items.Add(reader.GetString("supplierPONumber"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read supplier database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public int getCount()
+        {
+            string query = "SELECT  COUNT(*) FROM supplier_order_items";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve count data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
 
         }
 

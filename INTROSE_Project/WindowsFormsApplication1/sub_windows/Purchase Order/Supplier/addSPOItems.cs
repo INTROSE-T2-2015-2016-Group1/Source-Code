@@ -92,7 +92,7 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
 
             int itemNumber = ItemManager.instance.getItemNumber(itemDescCBox.SelectedItem.ToString(), this.supplierName);
 
-            if (SupplierPOManager.instance.pkExists(this.supplierPONumber) && !SupplierOrderItemsManager.instance.isItemExists(itemNumber))
+            if (SupplierPOManager.instance.pkExists(this.supplierPONumber) && !SupplierOrderItemsManager.instance.isItemExists(itemNumber, this.supplierPONumber))
             {
                 SupplierOrderItemsManager.instance.addData(this.supplierPONumber,
                                                            itemNumber,

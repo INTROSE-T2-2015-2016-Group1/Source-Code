@@ -40,12 +40,12 @@ namespace introse_project.sub_windows.Purchase_Order
                 }
                 else
                 {
-                    MessageBox.Show("Customer purchase order number already exists");
+                    MessageBox.Show("Customer purchase order number already exists", "ERROR");
                 } 
             }
             else
             {
-                MessageBox.Show("No items in item list to add to purchase order");
+                MessageBox.Show("No items in item list to add to purchase order", "ERROR");
             }
         }
 

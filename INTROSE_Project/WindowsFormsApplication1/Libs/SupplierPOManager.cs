@@ -93,6 +93,38 @@ namespace introse_project.Libs
             return value;
         }
 
+        public void fillComboBox(ComboBox supplierComboBox)
+        {
+            supplierComboBox.Items.Clear();
+
+            string query = "SELECT supplierPONumber FROM supplier_po WHERE isFinished = false";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    supplierComboBox.Items.Add(reader.GetString("supplierPONumber"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read supplier database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public void addData(string supplierPONumber, string customerPONumber, string supplierName, string dateIssued, string expectedDeliveryDate)
         {
             string query = "INSERT INTO supplier_po (supplierPONumber, customerPONumber, supplierName, dateIssued, expectedDeliveryDate, isFinished) " +

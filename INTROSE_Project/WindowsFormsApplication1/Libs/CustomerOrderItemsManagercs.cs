@@ -218,6 +218,39 @@ namespace introse_project.Libs
             }
         }
 
+        public bool isItemExists(string itemDescription, string customerPONumber)
+        {
+            string query = "SELECT  COUNT(itemDescription) FROM customer_order_items A WHERE A.itemDescription = '"+ itemDescription +"' AND A.customerPONumber = '" + customerPONumber + "'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
+        }
+
         public static CustomerOrderItemsManagercs instance
         {
             get { return theInstance; }

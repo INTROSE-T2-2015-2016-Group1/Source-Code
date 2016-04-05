@@ -39,6 +39,7 @@ namespace introse_project.sub_windows.Delivery_Receipt
 
         private void addDRItemsBtn_Click(object sender, EventArgs e)
         {
+            addDRItems.instance.setAddType(false);
             addDRItems.instance.setDeliveryReceiptNumber(this.deliveryReceiptNumber);
             addDRItems.instance.setSupplierPONumber(this.supplierPONumber);           
             addDRItems.instance.ShowDialog();

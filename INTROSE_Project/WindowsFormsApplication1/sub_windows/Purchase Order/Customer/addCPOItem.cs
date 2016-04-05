@@ -82,7 +82,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
                 addCPO.instance.addNewCPO();
             }
 
-            if (CustomerPOManager.instance.pkExists(this.customerPONumber))
+            if (CustomerPOManager.instance.pkExists(this.customerPONumber) && !CustomerOrderItemsManagercs.instance.isItemExists(itemDescCBox.SelectedItem.ToString(),                                                                                                                                customerPONumber))
             {
                 CustomerOrderItemsManagercs.instance.addData(this.customerPONumber,
                                                          itemDescCBox.SelectedItem.ToString(),
@@ -90,7 +90,11 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
                                                          currencyTxtBox.Text,
                                                          double.Parse(pricePerUnitTxtBox.Text),
                                                          double.Parse(totalPriceTxtBox.Text));
-            }            
+            }
+            else
+            {
+                MessageBox.Show("The item/PO you're trying to add already exists!", "ERROR");
+            }
             this.Close();
         }
 

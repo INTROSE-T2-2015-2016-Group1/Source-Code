@@ -16,6 +16,7 @@ namespace introse_project.sub_windows.Delivery_Receipt
         private static addDRItems theInstance = new addDRItems();
         private string deliveryReceiptNumber;
         private string supplierPONumber;
+        private bool addType;
 
         private addDRItems()
         {
@@ -32,21 +33,31 @@ namespace introse_project.sub_windows.Delivery_Receipt
             this.supplierPONumber = supplierPONumber;
         }
 
+        public void setAddType(bool addType)
+        {
+            this.addType = addType;
+        }
+
         private void addDRItems_Load(object sender, EventArgs e)
         {
             SupplierOrderItemsManager.instance.getOrderItems(supplierOrderedItemCBox, supplierPONumber);
+            supplierOrderedItemCBox.SelectedIndex = 0;
         }
 
         private void addDRBtn_Click(object sender, EventArgs e)
         {
+            if (addType)
+            {
+                addDR.instance.addNewDR();
+            }
+            
             string supplierName = SupplierPOManager.instance.getSupplierName(this.supplierPONumber);
             int itemNumber = ItemManager.instance.getItemNumber(supplierOrderedItemCBox.SelectedItem.ToString(), supplierName);         
-            int orderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
+            int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
 
             DeliveryItemsManager.instance.addData(this.deliveryReceiptNumber,  
-                                                  orderID,
+                                                  supplierOrderID,
                                                   Convert.ToInt32(quantityReceivedTxtBox.Text));
-
             this.Close();
         }
 

@@ -57,6 +57,34 @@ namespace introse_project.Libs
 
         }
 
+        public void addData(string deliveryReceiptNumber, string supplierPONumber, string dateReceived)
+        {
+            string query = "INSERT INTO delivery_receipts (deliveryReceiptNumber, supplierPONumber, dateReceived) values (@deliveryReceiptNumber, @supplierPONumber, @dateReceived)";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@deliveryReceiptNumber", deliveryReceiptNumber);
+                command.Parameters.AddWithValue("@supplierPONumber", supplierPONumber);
+                command.Parameters.AddWithValue("@dateReceived", dateReceived);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add supplier", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public int getCount()
         {
             string query = "SELECT  COUNT(*) FROM delivery_receipts";
@@ -84,6 +112,39 @@ namespace introse_project.Libs
             }
 
             return value;
+        }
+
+        public bool pkExists(string deliveryReceiptNumber)
+        {
+            string query = "SELECT  COUNT(deliveryReceiptNumber) FROM delivery_receipts A WHERE A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retreieve data for validation", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
         }
 
         public static DeliveryReceiptsManager instance

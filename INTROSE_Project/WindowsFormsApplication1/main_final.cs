@@ -88,7 +88,7 @@ namespace introse_project
         #region Supplier List
         private void slAddBtn_Click(object sender, EventArgs e)
         {
-            if (!SupplierManager.instance.pkExists(clTxtBox.Text))
+            if (!SupplierManager.instance.pkExists(slTxtBox.Text))
             {
                 SupplierManager.instance.addData(slTxtBox.Text);
                 SupplierManager.instance.viewAll(slGridView);
@@ -145,10 +145,11 @@ namespace introse_project
             if (CustomerOrderItemsManagercs.instance.getCount() > 0)
             {
                 addSPO.instance.ShowDialog();
+                SupplierPOManager.instance.viewAll(sPOGridView);
             }
             else
             {
-                MessageBox.Show("No ordered items from any Customer PO could be added", "ERROR");
+                MessageBox.Show("No ordered items from any Customer PO to add a Delivery Receipt to", "ERROR");
             }           
         }
 
@@ -188,7 +189,15 @@ namespace introse_project
 
         private void drAddBtn_Click(object sender, EventArgs e)
         {
-
+            if (SupplierOrderItemsManager.instance.getCount() > 0)
+            {
+                addDR.instance.ShowDialog();
+                DeliveryReceiptsManager.instance.viewAll(drGridView);
+            }
+            else
+            {
+                MessageBox.Show("No ordered items from any Supplier PO to add a Delivery Receipt to", "ERROR");
+            }
         }
 
         private void viewDRItemsBtn_Click(object sender, EventArgs e)
