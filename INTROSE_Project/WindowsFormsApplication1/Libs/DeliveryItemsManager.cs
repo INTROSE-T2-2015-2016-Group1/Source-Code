@@ -18,7 +18,9 @@ namespace introse_project.Libs
 
         public void viewAll(String deliveryReceiptNumber , DataGridView dataGridView)      //Displays all delivery receipts, the DR's related supplier PO and the delivered items
         {
-            string query = "SELECT	 A.deliveryReceiptNumber    AS 'Delivery Receipt Number'," +
+            string query = "SELECT	 A.deliveryItemID           AS 'Delivery Item ID'," +
+                                    "A.supplierOrderID          AS 'Supplier Order ID'," +
+                                    "A.deliveryReceiptNumber    AS 'Delivery Receipt Number'," +
                                     "C.description              AS 'Delivered Item',"  +    
                                     "A.deliveredQuantity		AS 'Delivered Quantity' " +
                             "FROM 	delivered_items A, supplier_order_items B, items C " +
@@ -48,6 +50,8 @@ namespace introse_project.Libs
 
                 connection.Close();
 
+                dataGridView.Columns["Delivery Item ID"].Visible = false;
+                dataGridView.Columns["Supplier Order ID"].Visible = false;
             }
             catch
             {
@@ -86,6 +90,37 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
+        }
+
+        public int getTotalApprovedQuantity(int supplierOrderID)
+        {
+            string query = "SELECT  SUM(approvedQuantity) FROM godo_inspection_results A, delivered_items B " +
+                           "WHERE A.deliveryItemID = B.deliveryItemID AND B.supplierOrderID = " + supplierOrderID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
         }
 
         public static DeliveryItemsManager instance

@@ -44,11 +44,19 @@ namespace introse_project.sub_windows.Delivery_Receipt
             addDRItems.instance.setSupplierPONumber(this.supplierPONumber);           
             addDRItems.instance.ShowDialog();
             DeliveryItemsManager.instance.viewAll(deliveryReceiptNumber, DR_ItemsGridView);
-        } 
+        }
+
+        private void godoInspectionResultsBtn_Click(object sender, EventArgs e)
+        {
+            godoInspect_DR.instance.setDeliveryItemID(Convert.ToInt32(DR_ItemsGridView.Rows[DR_ItemsGridView.CurrentCell.RowIndex].Cells["Delivery Item ID"].Value.ToString()));
+            godoInspect_DR.instance.setSupplierOrderID(Convert.ToInt32(DR_ItemsGridView.Rows[DR_ItemsGridView.CurrentCell.RowIndex].Cells["Supplier Order ID"].Value.ToString()));
+            godoInspect_DR.instance.ShowDialog();
+        }    
 
         public static viewDRItems instance
         {
             get { return theInstance; }
-        }     
+        }
+       
     }
 }

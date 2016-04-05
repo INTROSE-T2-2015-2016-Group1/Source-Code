@@ -54,6 +54,7 @@
     <Compile Include="Libs\CustomerManager.cs" />
     <Compile Include="Libs\DeliveryItemsManager.cs" />
     <Compile Include="Libs\DeliveryReceiptsManager.cs" />
+    <Compile Include="Libs\GodoInspectionManager.cs" />
     <Compile Include="Libs\InvoicesManager.cs" />
     <Compile Include="Libs\ItemManager.cs" />
     <Compile Include="Libs\SupplierManager.cs" />

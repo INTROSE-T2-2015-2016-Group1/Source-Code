@@ -76,6 +76,7 @@
             this.godoInspectionResultsBtn.TabIndex = 27;
             this.godoInspectionResultsBtn.Text = "GODO Inspection Results";
             this.godoInspectionResultsBtn.UseVisualStyleBackColor = true;
+            this.godoInspectionResultsBtn.Click += new System.EventHandler(this.godoInspectionResultsBtn_Click);
             // 
             // viewDRItems
             // 

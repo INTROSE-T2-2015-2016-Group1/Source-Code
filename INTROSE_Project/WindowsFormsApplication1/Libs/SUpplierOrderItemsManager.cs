@@ -91,6 +91,66 @@ namespace introse_project.Libs
             }
         }
 
+        public void updateFinished(int supplierOrderID)
+        {
+            string query = "UPDATE supplier_order_items SET isFinished = CASE " +
+                           "WHEN quantity = " + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID).ToString() + " " +
+                                "THEN true " +
+                           "ELSE false " +
+                           "END "+
+                           "WHERE supplierOrderID = " + supplierOrderID.ToString() + "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to add inspection results", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /*
+        public bool getTotalApprovedQuantity(string supplierPONumber)
+        {
+            string query = "SELECT  SUM(approvedQuantity) FROM godo_inspection_results A, delivered_items B " +
+                           "WHERE A.deliveryItemID = B.deliveryItemID AND B.supplierOrderID = " + supplierOrderID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+        */
         public void getOrderItems(ComboBox itemComboBox, string supplierPONumber)
         {
             itemComboBox.Items.Clear();

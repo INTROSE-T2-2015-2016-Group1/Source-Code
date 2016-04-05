@@ -93,6 +93,35 @@ namespace introse_project.Libs
             return value;
         }
 
+        /*
+        public void updateFinished(string supplierPONumber)
+        {
+            string query = "UPDATE supplier_po SET isFinished = CASE " +
+                           "WHEN quantity = " + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID).ToString() + " " +
+                                "THEN true " +
+                           "ELSE false " +
+                           "END " +
+                           "WHERE supplierOrderID = " + supplierOrderID.ToString() + "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to add inspection results", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }*/
+
         public void fillComboBox(ComboBox supplierComboBox)
         {
             supplierComboBox.Items.Clear();
