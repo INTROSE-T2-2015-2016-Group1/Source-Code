@@ -42,7 +42,7 @@ namespace introse_project
                 case "Supplier List":           SupplierManager.instance.viewAll(slGridView);           break;
                 case "Customer Purchase Order": CustomerPOManager.instance.viewAll(cPOGridView);        break;
                 case "Supplier Purchase Order": SupplierPOManager.instance.viewAll(sPOGridView);        break;
-                //case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
+                case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
                 case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
             }
         }
@@ -177,7 +177,30 @@ namespace introse_project
 
         private void siAddBtn_Click(object sender, EventArgs e)
         {
+            if (DeliveryReceiptsManager.instance.getCount() > 0)
+            {
+                addSI.instance.ShowDialog();
+                InvoicesManager.instance.viewAll(siGridView);
+            }
+            else
+            {
+                MessageBox.Show("No delivered items to make a invoice to", "ERROR");
+            }
+        }
 
+        private void viewSI_ItemsBtn_Click(object sender, EventArgs e)
+        {
+            if (InvoicesManager.instance.getCount() > 0)
+            {
+                viewSI_Items.instance.setInvoiceNumber(siGridView.Rows[siGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                viewSI_Items.instance.setDeliveryReceiptNumber(siGridView.Rows[siGridView.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                viewSI_Items.instance.ShowDialog();
+                InvoicesManager.instance.viewAll(siGridView);
+            }
+            else
+            {
+                MessageBox.Show("No invoices to view", "ERROR");
+            }
         }
         #endregion
 
@@ -226,7 +249,7 @@ namespace introse_project
         {
 
         }
-        #endregion     
+        #endregion           
 
 
     }

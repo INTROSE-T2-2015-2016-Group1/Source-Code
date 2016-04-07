@@ -93,6 +93,39 @@ namespace introse_project.Libs
             return value;
         }
 
+        public string getCustomerPONumber(string supplierPONumber)
+        {
+            string query = "SELECT customerPONumber FROM supplier_po A WHERE A.supplierPONumber = '" + supplierPONumber + "' ";
+
+            string value = "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = command.ExecuteScalar().ToString();
+
+                connection.Close();
+
+                return value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+        }
+
+
+
         /*
         public void updateFinished(string supplierPONumber)
         {

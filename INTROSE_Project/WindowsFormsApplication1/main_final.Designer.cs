@@ -54,7 +54,6 @@
             this.sPOUpdateBtn = new System.Windows.Forms.Button();
             this.sPOAddBtn = new System.Windows.Forms.Button();
             this.siTab = new System.Windows.Forms.TabPage();
-            this.customerInspectionResultsBtn = new System.Windows.Forms.Button();
             this.viewSI_ItemsBtn = new System.Windows.Forms.Button();
             this.siGridView = new System.Windows.Forms.DataGridView();
             this.siUpdateBtn = new System.Windows.Forms.Button();
@@ -390,7 +389,6 @@
             // 
             // siTab
             // 
-            this.siTab.Controls.Add(this.customerInspectionResultsBtn);
             this.siTab.Controls.Add(this.viewSI_ItemsBtn);
             this.siTab.Controls.Add(this.siGridView);
             this.siTab.Controls.Add(this.siUpdateBtn);
@@ -403,15 +401,6 @@
             this.siTab.Text = "Sales Invoice";
             this.siTab.UseVisualStyleBackColor = true;
             // 
-            // customerInspectionResultsBtn
-            // 
-            this.customerInspectionResultsBtn.Location = new System.Drawing.Point(380, 378);
-            this.customerInspectionResultsBtn.Name = "customerInspectionResultsBtn";
-            this.customerInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
-            this.customerInspectionResultsBtn.TabIndex = 22;
-            this.customerInspectionResultsBtn.Text = "Customer Inspection Results";
-            this.customerInspectionResultsBtn.UseVisualStyleBackColor = true;
-            // 
             // viewSI_ItemsBtn
             // 
             this.viewSI_ItemsBtn.Location = new System.Drawing.Point(250, 378);
@@ -420,6 +409,7 @@
             this.viewSI_ItemsBtn.TabIndex = 21;
             this.viewSI_ItemsBtn.Text = "View Delivered Items";
             this.viewSI_ItemsBtn.UseVisualStyleBackColor = true;
+            this.viewSI_ItemsBtn.Click += new System.EventHandler(this.viewSI_ItemsBtn_Click);
             // 
             // siGridView
             // 
@@ -712,7 +702,6 @@
         private System.Windows.Forms.Button cPOViewItemsBtn;
         private System.Windows.Forms.Button sPOViewItemsBtn;
         private System.Windows.Forms.Button viewSI_ItemsBtn;
-        private System.Windows.Forms.Button customerInspectionResultsBtn;
         private System.Windows.Forms.Button viewDRItemsBtn;
 
     }

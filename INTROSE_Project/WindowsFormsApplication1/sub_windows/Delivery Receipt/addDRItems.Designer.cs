@@ -59,9 +59,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 87);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 31;
-            this.label1.Text = "Quantity Received";
+            this.label1.Text = "Delivered Quantity";
             // 
             // quantityReceivedTxtBox
             // 
@@ -69,15 +69,16 @@
             this.quantityReceivedTxtBox.Name = "quantityReceivedTxtBox";
             this.quantityReceivedTxtBox.Size = new System.Drawing.Size(263, 20);
             this.quantityReceivedTxtBox.TabIndex = 30;
+            this.quantityReceivedTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityReceivedTxtBox_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 29);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(75, 13);
             this.label8.TabIndex = 27;
-            this.label8.Text = "Item";
+            this.label8.Text = "Item Delivered";
             // 
             // supplierOrderedItemCBox
             // 

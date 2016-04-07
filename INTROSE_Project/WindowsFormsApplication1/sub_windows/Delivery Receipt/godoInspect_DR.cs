@@ -24,12 +24,8 @@ namespace introse_project.sub_windows.Delivery_Receipt
 
         private void godoInspect_DR_Load(object sender, EventArgs e)
         {
-            if (!GodoInspectionManager.instance.isExists(this.deliveryItemID))
-            {
-                GodoInspectionManager.instance.addData(this.deliveryItemID);
-            }
-            approvedQtyTxtBox_U.Text = GodoInspectionManager.instance.getApprovedQuantity(this.deliveryItemID).ToString();
-            rejectedQtyTxtBox_U.Text = GodoInspectionManager.instance.getRejectedQuantity(this.deliveryItemID).ToString();
+            approvedQtyTxtBox_U.Text = DeliveryItemsManager.instance.getApprovedQuantity(this.deliveryItemID).ToString();
+            rejectedQtyTxtBox_U.Text = DeliveryItemsManager.instance.getRejectedQuantity(this.deliveryItemID).ToString();
         }
 
         public void setDeliveryItemID(int deliveryItemID)
@@ -62,7 +58,7 @@ namespace introse_project.sub_windows.Delivery_Receipt
 
         private void updateDR_GIRBtn_Click(object sender, EventArgs e)
         {
-            GodoInspectionManager.instance.updateData(this.deliveryItemID, Convert.ToInt32(approvedQtyTxtBox_U.Text), Convert.ToInt32(rejectedQtyTxtBox_U.Text));
+            DeliveryItemsManager.instance.updateData(this.deliveryItemID, Convert.ToInt32(approvedQtyTxtBox_U.Text), Convert.ToInt32(rejectedQtyTxtBox_U.Text));
             SupplierOrderItemsManager.instance.updateFinished(this.supplierOrderID);
         }   
 

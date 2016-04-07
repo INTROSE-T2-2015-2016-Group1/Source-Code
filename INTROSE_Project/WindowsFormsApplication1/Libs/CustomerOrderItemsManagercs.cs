@@ -125,6 +125,94 @@ namespace introse_project.Libs
             }
         }
 
+        public int getOrderID(string customerPONumber, string itemDescription)
+        {
+            string query = "SELECT  customerOrderID FROM customer_order_items WHERE customerPONumber = '" + customerPONumber + "' AND itemDescription = '" + itemDescription + "' ";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve ID data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public double getItemPricePerUnit(int customerOrderID)
+        {
+            string query = "SELECT pricePerUnit FROM customer_order_items WHERE customerOrderID = " + customerOrderID + "";
+            double value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = double.Parse(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve ID data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public void updateFinished(int customerOrderID)
+        {
+            string query = "UPDATE customer_order_items SET isFinished = CASE " +
+                           "WHEN quantity = " + InvoicesItemsManager.instance.getTotalApprovedQuantity(customerOrderID).ToString() + " " +
+                                "THEN true " +
+                           "ELSE false " +
+                           "END " +
+                           "WHERE customerOrderID = " + customerOrderID.ToString() + "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to add inspection results", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public int getCount()
         {
             string query = "SELECT  COUNT(*) FROM customer_order_items";

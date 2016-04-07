@@ -1,3 +1,0 @@
-select customer_order_items.customerOrderNumber, customer_order_items.customerPONumber, customer_order_items.itemNumber, items.description, customer_order_items.quantityOrdered, customer_order_items.currency, customer_order_items.pricePerunit, customer_order_items.totalPrice, customer_order_items.isFinished
-from customer_order_items, customer_po, items
-where customer_order_items.customerPONumber = customer_po.customerPONumber AND customer_order_items.itemNumber = items.itemNumber;

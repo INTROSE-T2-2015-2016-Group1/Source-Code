@@ -1,3 +1,0 @@
-select supplier_order_items.supplierOrderNumber, supplier_order_items.supplierPONumber, supplier_order_items.itemNumber, items.description, supplier_order_items.quantityOrdered, supplier_order_items.currency, supplier_order_items.pricePerunit, supplier_order_items.totalPrice, supplier_order_items.isFinished
-from supplier_order_items, supplier_po, items
-where supplier_order_items.supplierPONumber = supplier_po.supplierPONumber AND supplier_order_items.itemNumber = items.itemNumber;

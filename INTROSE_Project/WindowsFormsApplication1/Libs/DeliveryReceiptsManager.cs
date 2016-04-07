@@ -57,6 +57,36 @@ namespace introse_project.Libs
 
         }
 
+        public string getSupplierPONumber(string deliveryReceiptNumber)
+        {
+            string query = "SELECT  supplierPONumber FROM delivery_receipts WHERE deliveryReceiptNumber = '" + deliveryReceiptNumber + "'";
+            string value = "";
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = command.ExecuteScalar().ToString();
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to supplier PO number from database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
         public void addData(string deliveryReceiptNumber, string supplierPONumber, string dateReceived)
         {
             string query = "INSERT INTO delivery_receipts (deliveryReceiptNumber, supplierPONumber, dateReceived) values (@deliveryReceiptNumber, @supplierPONumber, @dateReceived)";
@@ -145,6 +175,38 @@ namespace introse_project.Libs
 
             return false;
 
+        }
+
+        public void fillComboBox(ComboBox itemComboBox)     //fills up the combo box with values within the database
+        {
+            itemComboBox.Items.Clear();
+
+            string query = "SELECT deliveryReceiptNumber FROM delivery_receipts";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    itemComboBox.Items.Add(reader.GetString("deliveryReceiptNumber"));
+
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read customer list database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static DeliveryReceiptsManager instance

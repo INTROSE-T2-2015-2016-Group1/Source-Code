@@ -38,6 +38,14 @@ namespace introse_project.sub_windows.Delivery_Receipt
             this.addType = addType;
         }
 
+        private void quantityReceivedTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void addDRItems_Load(object sender, EventArgs e)
         {
             SupplierOrderItemsManager.instance.getOrderItems(supplierOrderedItemCBox, supplierPONumber);
@@ -50,14 +58,22 @@ namespace introse_project.sub_windows.Delivery_Receipt
             {
                 addDR.instance.addNewDR();
             }
-            
-            string supplierName = SupplierPOManager.instance.getSupplierName(this.supplierPONumber);
-            int itemNumber = ItemManager.instance.getItemNumber(supplierOrderedItemCBox.SelectedItem.ToString(), supplierName);         
-            int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
 
-            DeliveryItemsManager.instance.addData(this.deliveryReceiptNumber,  
-                                                  supplierOrderID,
-                                                  Convert.ToInt32(quantityReceivedTxtBox.Text));
+            string supplierName = SupplierPOManager.instance.getSupplierName(this.supplierPONumber);
+            int itemNumber = ItemManager.instance.getItemNumber(supplierOrderedItemCBox.SelectedItem.ToString(), supplierName);
+
+            if (!DeliveryItemsManager.instance.isItemExists(itemNumber, this.deliveryReceiptNumber))
+            {
+                int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
+                DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
+                                                      supplierOrderID,
+                                                      Convert.ToInt32(quantityReceivedTxtBox.Text));
+            }
+            else
+            {
+                MessageBox.Show("The item you're trying to add already exists!", "ERROR");
+            }
+                      
             this.Close();
         }
 

@@ -77,22 +77,18 @@ CREATE TABLE delivered_items (
   deliveryReceiptNumber varchar(40) NOT NULL,
   supplierOrderID int NOT NULL,
   deliveredQuantity int NOT NULL,
-  PRIMARY KEY (deliveryItemID),
-  FOREIGN KEY (deliveryReceiptNumber) REFERENCES delivery_receipts(deliveryReceiptNumber),
-  FOREIGN KEY (supplierOrderID) REFERENCES supplier_order_items(supplierOrderID)
-);
-
-CREATE TABLE godo_inspection_results (
-  deliveryItemID int NOT NULL,
+  itemNumber int NOT NULL,
   approvedQuantity int NOT NULL,
   rejectedQuantity int NOT NULL,
-  FOREIGN KEY (deliveryItemID) REFERENCES delivered_items(deliveryItemID)
+  PRIMARY KEY (deliveryItemID),
+  FOREIGN KEY (deliveryReceiptNumber) REFERENCES delivery_receipts(deliveryReceiptNumber),
+  FOREIGN KEY (supplierOrderID) REFERENCES supplier_order_items(supplierOrderID),
+  FOREIGN KEY (itemNumber) REFERENCES items(itemNumber)
 );
 
 CREATE TABLE invoices (
   invoiceNumber varchar(40) NOT NULL,
   deliveryReceiptNumber varchar(40) NOT NULL,
-  customerPONumber varchar(40) NOT NULL,
   dateReceived varchar(10) NOT NULL,
   invoiceTotalPrice decimal(12,2) NOT NULL,
   PRIMARY KEY (invoiceNumber),
@@ -106,15 +102,13 @@ CREATE TABLE invoice_items (
   invoiceNumber varchar(40) NOT NULL,
   customerOrderID int NOT NULL,
   deliveredQuantity int NOT NULL,
+  itemNumber int NOT NULL,
+  itemPrice int NOT NULL,
+  approvedQuantity int NOT NULL,
+  rejectedQuantity int NOT NULL,
   PRIMARY KEY (invoiceItemID),
   FOREIGN KEY (deliveryItemID) REFERENCES delivered_items(deliveryItemID),
   FOREIGN KEY (invoiceNumber) REFERENCES invoices(invoiceNumber),
-  FOREIGN KEY (customerOrderID) REFERENCES customer_order_items(customerOrderID)
-);
-
-CREATE TABLE customer_inspection_results (
-  invoiceItemID int NOT NULL,
-  approvedQuantity int NOT NULL,
-  rejectedQuantity int NOT NULL,
-  FOREIGN KEY (invoiceItemID) REFERENCES invoice_items(invoiceItemID)
+  FOREIGN KEY (customerOrderID) REFERENCES customer_order_items(customerOrderID),
+  FOREIGN KEY (itemNumber) REFERENCES items(itemNumber)
 );

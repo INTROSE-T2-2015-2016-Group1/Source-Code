@@ -21,12 +21,11 @@ namespace introse_project.Libs
             string query = "SELECT	 A.deliveryItemID           AS 'Delivery Item ID'," +
                                     "A.supplierOrderID          AS 'Supplier Order ID'," +
                                     "A.deliveryReceiptNumber    AS 'Delivery Receipt Number'," +
-                                    "C.description              AS 'Delivered Item',"  +    
+                                    "B.description              AS 'Delivered Item',"  +    
                                     "A.deliveredQuantity		AS 'Delivered Quantity' " +
-                            "FROM 	delivered_items A, supplier_order_items B, items C " +
+                            "FROM 	delivered_items A, items B " +
                             "WHERE 	A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "' " +
-                            "AND    A.supplierOrderID = B.supplierOrderID " +
-                            "AND    B.itemNumber = C.itemNumber " +
+                            "AND    A.itemNumber = B.itemNumber " +
                             "ORDER BY A.deliveryReceiptNumber DESC;";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
@@ -64,9 +63,9 @@ namespace introse_project.Libs
 
         }
 
-        public void addData(string deliveryReceiptNumber, int supplierOrderID, int deliveredQuantity)
+        public void addData(int itemNumber, string deliveryReceiptNumber, int supplierOrderID, int deliveredQuantity)
         {
-            string query = "INSERT INTO delivered_items (deliveryReceiptNumber, supplierOrderID, deliveredQuantity) values (@deliveryReceiptNumber, @supplierOrderID, @deliveredQuantity)";
+            string query = "INSERT INTO delivered_items (itemNumber, deliveryReceiptNumber, supplierOrderID, deliveredQuantity, approvedQuantity, rejectedQuantity) values (@itemNumber, @deliveryReceiptNumber, @supplierOrderID, @deliveredQuantity, @approvedQuantity, @rejectedQuantity)";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -75,16 +74,19 @@ namespace introse_project.Libs
             {
                 connection.Open();
 
+                command.Parameters.AddWithValue("@itemNumber", itemNumber);
                 command.Parameters.AddWithValue("@deliveryReceiptNumber", deliveryReceiptNumber);
                 command.Parameters.AddWithValue("@supplierOrderID", supplierOrderID);
                 command.Parameters.AddWithValue("@deliveredQuantity", deliveredQuantity);
+                command.Parameters.AddWithValue("@approvedQuantity", 0);
+                command.Parameters.AddWithValue("@rejectedQuantity", 0);
                 command.ExecuteNonQuery();
 
                 connection.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Unable to add item", "ERROR");
+                MessageBox.Show(ex.Message +"\nUnable to add item", "ERROR");
             }
             finally
             {
@@ -92,10 +94,10 @@ namespace introse_project.Libs
             }
         }
 
-        public int getTotalApprovedQuantity(int supplierOrderID)
+        #region Godo Inspection Result Functions
+        public int getApprovedQuantity(int deliveryItemID)
         {
-            string query = "SELECT  SUM(approvedQuantity) FROM godo_inspection_results A, delivered_items B " +
-                           "WHERE A.deliveryItemID = B.deliveryItemID AND B.supplierOrderID = " + supplierOrderID.ToString() + "";
+            string query = "SELECT approvedQuantity FROM delivered_items WHERE deliveryItemID = " + deliveryItemID.ToString() + "";
             int value = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -110,9 +112,225 @@ namespace introse_project.Libs
 
                 return value;
             }
-            catch(Exception ex)
+            catch
+            {
+                MessageBox.Show("Unable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public int getRejectedQuantity(int deliveryItemID)
+        {
+            string query = "SELECT rejectedQuantity FROM delivered_items WHERE deliveryItemID = " + deliveryItemID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+
+        public void updateData(int deliveryItemID, int approvedQuantity, int rejectedQuantity)
+        {
+            string query = "UPDATE delivered_items SET approvedQuantity = @approvedQuantity, rejectedQuantity = @rejectedQuantity WHERE deliveryItemID = " + deliveryItemID.ToString() + "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@approvedQuantity", approvedQuantity);
+                command.Parameters.AddWithValue("@rejectedQuantity", rejectedQuantity);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Inspection Resut updated!");
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add inspection results", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        public int getTotalApprovedQuantity(int supplierOrderID)
+        {
+            string query = "SELECT  SUM(approvedQuantity) FROM delivered_items A " +
+                           "WHERE A.supplierOrderID = " + supplierOrderID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\nUnable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+        #endregion
+
+        public bool isItemExists(int itemNumber, string deliveryReceiptNumber)
+        {
+            string query = "SELECT  COUNT(itemNumber) FROM delivered_items A WHERE A.itemNumber = " + itemNumber + " AND A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
+        }
+
+        public void fillComboBox(ComboBox deliveredItemsComboBox, string deliveryReceiptNumber)
+        {
+            deliveredItemsComboBox.Items.Clear();
+
+            string query = "SELECT B.description FROM delivered_items A, items B WHERE A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "' AND A.itemNumber = B.itemNumber";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    deliveredItemsComboBox.Items.Add(reader.GetString("description"));
+
+
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to read supplier database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public int itemOrderedID(int itemNumber, string deliveryReceiptNumber)     //gets the itemID given an itemNumber and a supplierPONumber
+        {
+            string query = "SELECT A.deliveryItemID FROM delivered_items A " +
+                           "WHERE A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "' AND A.itemNumber = " + itemNumber.ToString() + " ";
+            int id = 0;
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                id = Convert.ToInt32(command.ExecuteScalar().ToString());
+                connection.Close();
+                return id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to read ordered items database", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return id;
+        }
+
+        public int getOrderedItemID(string itemDescription, string deliveryReceiptNumber)
+        {
+            string query = "SELECT  B.itemNumber FROM delivered_items A, items B " +
+                           "WHERE A.itemNumber = B.itemNumber AND B.description = '" + itemDescription.ToString() + "' AND A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "'";
+            
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to get ID", "ERROR");
             }
             finally
             {

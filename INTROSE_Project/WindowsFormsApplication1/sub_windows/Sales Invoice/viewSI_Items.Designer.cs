@@ -31,6 +31,7 @@
             this.updateSI_ItemsBtn = new System.Windows.Forms.Button();
             this.SI_ItemsGridView = new System.Windows.Forms.DataGridView();
             this.addSI_ItemsBtn = new System.Windows.Forms.Button();
+            this.customerInspectionResultsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SI_ItemsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,18 +66,31 @@
             this.addSI_ItemsBtn.TabIndex = 23;
             this.addSI_ItemsBtn.Text = "Add Item";
             this.addSI_ItemsBtn.UseVisualStyleBackColor = true;
+            this.addSI_ItemsBtn.Click += new System.EventHandler(this.addSI_ItemsBtn_Click_1);
+            // 
+            // customerInspectionResultsBtn
+            // 
+            this.customerInspectionResultsBtn.Location = new System.Drawing.Point(188, 319);
+            this.customerInspectionResultsBtn.Name = "customerInspectionResultsBtn";
+            this.customerInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
+            this.customerInspectionResultsBtn.TabIndex = 24;
+            this.customerInspectionResultsBtn.Text = "Customer Inspection Results";
+            this.customerInspectionResultsBtn.UseVisualStyleBackColor = true;
+            this.customerInspectionResultsBtn.Click += new System.EventHandler(this.customerInspectionResultsBtn_Click);
             // 
             // viewSI_Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 352);
+            this.Controls.Add(this.customerInspectionResultsBtn);
             this.Controls.Add(this.addSI_ItemsBtn);
             this.Controls.Add(this.updateSI_ItemsBtn);
             this.Controls.Add(this.SI_ItemsGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "viewSI_Items";
             this.Text = "View Items";
+            this.Load += new System.EventHandler(this.viewSI_Items_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SI_ItemsGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -87,5 +101,6 @@
         private System.Windows.Forms.Button updateSI_ItemsBtn;
         private System.Windows.Forms.DataGridView SI_ItemsGridView;
         private System.Windows.Forms.Button addSI_ItemsBtn;
+        private System.Windows.Forms.Button customerInspectionResultsBtn;
     }
 }
