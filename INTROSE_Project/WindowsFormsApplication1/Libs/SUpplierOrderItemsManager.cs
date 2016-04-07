@@ -15,7 +15,7 @@ namespace introse_project.Libs
         public void viewAll(DataGridView dataGridView)       //Displays all ordered items for all the supplier PO's
         {
             string query = "select * from supplier_order_items";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["roiConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
             try
             {

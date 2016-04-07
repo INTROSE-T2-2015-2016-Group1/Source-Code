@@ -156,9 +156,109 @@ namespace introse_project
         private void searchBtn_Click(object sender, EventArgs e)
         {
             string capturedKeyword = keywordTxtBox.Text;
+            string capturedKeyType;
+            if (keywordTypeCBox.Text == "")
+                capturedKeyType = "All";
+            else
+                capturedKeyType = keywordTypeCBox.Text;
             string capturedFormType = formTypeCBox.Text;
-            SearchManager.instance.searchForm(searchGridView, capturedFormType, capturedKeyword);
+
+            SearchManager.instance.searchForm(searchGridView, capturedFormType, capturedKeyType, capturedKeyword);
             //MessageBox.Show(capturedFormType + " " + capturedKeyword);
+        }
+
+        //Roi Emmanuel Vivo: added this function to update keyword type ComboBox in Search Tab
+        private void formTypeCBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            keywordTypeCBox.Items.Clear();
+            string form = (string)formTypeCBox.SelectedItem;
+
+            keywordTypeCBox.Items.Add("All");
+
+            switch(form)
+            {
+                case "customer_inspection_results":
+                    keywordTypeCBox.Items.Add("invoiceItemID");
+                    keywordTypeCBox.Items.Add("approvedQuantity");
+                    keywordTypeCBox.Items.Add("rejectedQuantity");
+                    break;
+                case "customer_order_items":
+                    keywordTypeCBox.Items.Add("customerOrderID");
+                    keywordTypeCBox.Items.Add("customerPONumber");
+                    keywordTypeCBox.Items.Add("itemNumber");
+                    keywordTypeCBox.Items.Add("quantity");
+                    keywordTypeCBox.Items.Add("currency");
+                    keywordTypeCBox.Items.Add("pricePerUnit");
+                    keywordTypeCBox.Items.Add("totalPrice");
+                    keywordTypeCBox.Items.Add("isFinished");
+                    break;
+                case "customer_po":
+                    keywordTypeCBox.Items.Add("customerPONumber");
+                    keywordTypeCBox.Items.Add("customerName");
+                    keywordTypeCBox.Items.Add("dateIssued");
+                    keywordTypeCBox.Items.Add("expectedDeliveryDate");
+                    keywordTypeCBox.Items.Add("isFinished");
+                    break;
+                case "customers":
+                    keywordTypeCBox.Items.Add("customerName");
+                    break;
+                case "delivered_items":
+                    keywordTypeCBox.Items.Add("deliveryItemID");
+                    keywordTypeCBox.Items.Add("deliveryReceiptNumber");
+                    keywordTypeCBox.Items.Add("supplierOrderID");
+                    keywordTypeCBox.Items.Add("deliveredQuantity");
+                    break;
+                case "delivery_receipts":
+                    keywordTypeCBox.Items.Add("deliveryReceiptNumber");
+                    keywordTypeCBox.Items.Add("supplierPONumber");
+                    keywordTypeCBox.Items.Add("dateReceived");
+                    break;
+                case "godo_inspection_results":
+                    keywordTypeCBox.Items.Add("deliveryItemID");
+                    keywordTypeCBox.Items.Add("approvedQuantity");
+                    keywordTypeCBox.Items.Add("rejectedQuantity");
+                    break;
+                case "invoice_items":
+                    keywordTypeCBox.Items.Add("invoiceItemID");
+                    keywordTypeCBox.Items.Add("deliveryItemID");
+                    keywordTypeCBox.Items.Add("invoiceNumber");
+                    keywordTypeCBox.Items.Add("customerOrderID");
+                    keywordTypeCBox.Items.Add("deliveredQuantity");
+                    break;
+                case "invoices":
+                    keywordTypeCBox.Items.Add("invoiceNumber");
+                    keywordTypeCBox.Items.Add("deliveredReceiptNumber");
+                    keywordTypeCBox.Items.Add("customerPONumber");
+                    keywordTypeCBox.Items.Add("dateReceived");
+                    keywordTypeCBox.Items.Add("invoiceTotalPrice");
+                    break;
+                case "items":
+                    keywordTypeCBox.Items.Add("itemNumber");
+                    keywordTypeCBox.Items.Add("supplierName");
+                    keywordTypeCBox.Items.Add("description");
+                    break;
+                case "supplier_order_items":
+                    keywordTypeCBox.Items.Add("supplierOrderID");
+                    keywordTypeCBox.Items.Add("supplierPONumber");
+                    keywordTypeCBox.Items.Add("itemNumber");
+                    keywordTypeCBox.Items.Add("quantity");
+                    keywordTypeCBox.Items.Add("currency");
+                    keywordTypeCBox.Items.Add("pricePerUnit");
+                    keywordTypeCBox.Items.Add("totalPrice");
+                    keywordTypeCBox.Items.Add("isFinished");
+                    break;
+                case "supplier_po":
+                    keywordTypeCBox.Items.Add("supplierPONumber");
+                    keywordTypeCBox.Items.Add("customerPONumber");
+                    keywordTypeCBox.Items.Add("supplierName");
+                    keywordTypeCBox.Items.Add("dateIssued");
+                    keywordTypeCBox.Items.Add("expectedDeliveryDate");
+                    keywordTypeCBox.Items.Add("isFinished");
+                    break;
+                case "suppliers":
+                    keywordTypeCBox.Items.Add("supplierName");
+                    break;
+            }
         }
 
         private void editBtn_Click(object sender, EventArgs e)

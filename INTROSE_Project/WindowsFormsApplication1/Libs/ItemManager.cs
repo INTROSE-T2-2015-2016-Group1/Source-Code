@@ -23,7 +23,7 @@ namespace introse_project.Libs
                                     "description    AS 'Description' " +
                                     "FROM items " +
                                     "ORDER BY itemNumber ASC;";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["roiConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

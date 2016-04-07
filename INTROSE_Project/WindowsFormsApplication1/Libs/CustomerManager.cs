@@ -25,7 +25,7 @@ namespace introse_project.Libs
                             "FROM  customers " +
                             "ORDER BY customerName DESC;";
             //MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["roiConn"].ConnectionString);
 
             MySqlCommand command = new MySqlCommand(query, connection);
 

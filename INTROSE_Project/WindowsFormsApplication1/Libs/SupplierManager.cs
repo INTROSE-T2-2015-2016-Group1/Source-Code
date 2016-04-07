@@ -20,7 +20,7 @@ namespace introse_project.Libs
             string query =  "SELECT supplierName AS 'Supplier Name' " +
                             "FROM  suppliers " + 
                             "ORDER BY supplierName DESC;";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["roiConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try

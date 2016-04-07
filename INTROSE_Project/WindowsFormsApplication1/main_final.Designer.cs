@@ -576,6 +576,7 @@
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
             this.formTypeCBox.TabIndex = 2;
+            this.formTypeCBox.SelectedIndexChanged += new System.EventHandler(this.formTypeCBox_SelectedIndexChanged);
             // 
             // label2
             // 

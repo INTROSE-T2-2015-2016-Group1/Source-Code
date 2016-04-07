@@ -34,7 +34,7 @@ namespace introse_project.Libs
                             "WHERE  A.customerPONumber = '" + customerPONumber + "' " +
                             "ORDER BY A.customerOrderID ASC;";
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsconn"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["roiConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
