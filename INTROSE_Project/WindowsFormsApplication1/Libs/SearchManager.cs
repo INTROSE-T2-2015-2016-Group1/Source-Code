@@ -29,14 +29,14 @@ namespace introse_project.Libs
             {
                 query = "SELECT * FROM customer_inspection_results";
 
-                if (keyType == "invoiceitemid" || keyType == "all")
+                if (keyType == "invoiceitemid" || keyType == "all columns")
                     query = query + " WHERE invoiceItemID LIKE '%" + input + "%'";
-                if (keyType == "approvedquantity" || keyType == "all")
+                if (keyType == "approvedquantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " approvedQuantity LIKE '%" + input + "%'";
                 }
-                if (keyType == "rejectedquantity" || keyType == "all")
+                if (keyType == "rejectedquantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " rejectedQuantity LIKE '%" + input + "%'";
@@ -47,39 +47,39 @@ namespace introse_project.Libs
             {
                 query = "SELECT * FROM customer_order_items";
 
-                if (keyType == "customerorderID" || keyType == "all")
+                if (keyType == "customerorderID" || keyType == "all columns")
                     query = query + " WHERE customerOrderID LIKE '%" + input + "%'";
-                if (keyType == "customerponumber" || keyType == "all")
+                if (keyType == "customerponumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " customerPONumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "itemnumber" || keyType == "all")
+                if (keyType == "itemnumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " itemNumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "quantity" || keyType == "all")
+                if (keyType == "quantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " quantity LIKE '%" + input + "%'";
                 }
-                if (keyType == "currency" || keyType == "all")
+                if (keyType == "currency" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " currency LIKE '%" + input + "%'";
                 }
-                if (keyType == "priceperunit" || keyType == "all")
+                if (keyType == "priceperunit" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " pricePerUnit LIKE '%" + input + "%'";
                 }
-                if (keyType == "totalprice" || keyType == "all")
+                if (keyType == "totalprice" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " totalPrice LIKE '%" + input + "%'";
                 }
-                if (keyType == "isfinished" || keyType == "all")
+                if (keyType == "isfinished" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " isFinished LIKE '%" + input + "%'";
@@ -89,24 +89,24 @@ namespace introse_project.Libs
             else if (formType == "customer_po")
             {
                 query = "SELECT * FROM customer_po";
-                if (keyType == "customerponumber" || keyType == "all")
+                if (keyType == "customerponumber" || keyType == "all columns")
                     query = query + " WHERE customerPONumber LIKE '%" + input + "%'";
-                if (keyType == "customername" || keyType == "all")
+                if (keyType == "customername" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " customerName LIKE '%" + input + "%'";
                 }
-                if (keyType == "dateissued" || keyType == "all")
+                if (keyType == "dateissued" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " dateIssued LIKE '%" + input + "%'";
                 }
-                if (keyType == "expecteddeliverydate" || keyType == "all")
+                if (keyType == "expecteddeliverydate" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " expectedDeliveryDate LIKE '%" + input + "%'";
                 }
-                if (formType == "isfinished" || keyType == "all")
+                if (formType == "isfinished" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " isFinished LIKE '%" + input + "%'";
@@ -119,19 +119,19 @@ namespace introse_project.Libs
             else if (formType == "delivered_items")
             {
                 query = "SELECT * FROM delivered_items";
-                if (keyType == "deliveryitemid" || keyType == "all")
+                if (keyType == "deliveryitemid" || keyType == "all columns")
                     query = query + " WHERE deliveryItemID LIKE '%" + input + "%'";
-                if (keyType == "deliveryreceiptnumber" || keyType == "all")
+                if (keyType == "deliveryreceiptnumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " deliveryReceiptNumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "supplierorderid" || keyType == "all")
+                if (keyType == "supplierorderid" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " supplierOrderID LIKE '%" + input + "%'";
                 }
-                if (keyType == "deliveredquantity" || keyType == "all")
+                if (keyType == "deliveredquantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " deliveredQuantity LIKE '%" + input + "%'";
@@ -141,14 +141,14 @@ namespace introse_project.Libs
             else if (formType == "delivery_receipts")
             {
                 query = "SELECT * FROM delivery_receipts";
-                if (keyType == "deliveryreceiptnumber" || keyType == "all")
+                if (keyType == "deliveryreceiptnumber" || keyType == "all columns")
                     query = query + " WHERE deliveryReceiptNumber LIKE '%" + input + "%'";
-                if (keyType == "supplierponumber" || keyType == "all")
+                if (keyType == "supplierponumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " supplierPONumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "datereceived" || keyType == "all")
+                if (keyType == "datereceived" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " dateReceived LIKE '%" + input + "%'";
@@ -158,14 +158,14 @@ namespace introse_project.Libs
             else if (formType == "godo_inspection_results")
             {
                 query = "SELECT * FROM godo_inspection_results";
-                if (keyType == "deliveryitemid" || keyType == "all")
+                if (keyType == "deliveryitemid" || keyType == "all columns")
                     query = query + " WHERE deliveryItemID LIKE '%" + input + "%'";
-                if (keyType == "approvedquantity" || keyType == "all")
+                if (keyType == "approvedquantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " approvedQuantity LIKE '%" + input + "%'";
                 }
-                if (keyType == "rejectedquantity" || keyType == "all")
+                if (keyType == "rejectedquantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " rejectedQuantity LIKE '%" + input + "%'";
@@ -174,24 +174,24 @@ namespace introse_project.Libs
             else if (formType == "invoice_items")
             {
                 query = "SELECT * FROM invoice_items";
-                if (keyType == "invoiceitemid" || keyType == "all")
+                if (keyType == "invoiceitemid" || keyType == "all columns")
                     query = query + " WHERE invoiceItemID LIKE '%" + input + "%'";
-                if (keyType == "deliveryitemid" || keyType == "all")
+                if (keyType == "deliveryitemid" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " deliveryItemID LIKE '%" + input + "%'";
                 }
-                if (keyType == "invoicenumber" || keyType == "all")
+                if (keyType == "invoicenumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " invoiceNumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "customerorderid" || keyType == "all")
+                if (keyType == "customerorderid" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " customerOrderID LIKE '%" + input + "%'";
                 }
-                if (keyType == "deliveredquantity" || keyType == "all")
+                if (keyType == "deliveredquantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " deliveredquantity LIKE '%" + input + "%'";
@@ -201,24 +201,24 @@ namespace introse_project.Libs
             else if (formType == "invoices")
             {
                 query = "SELECT * FROM invoices";
-                if (keyType == "invoicenumber" || keyType == "all")
+                if (keyType == "invoicenumber" || keyType == "all columns")
                     query = query + " WHERE invoiceNumber LIKE '%" + input + "%'";
-                if (keyType == "deliveredreceiptnumber" || keyType == "all")
+                if (keyType == "deliveredreceiptnumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " deliveryReceiptNumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "customerponumber" || keyType == "all")
+                if (keyType == "customerponumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " customerPONumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "datereceived" || keyType == "all")
+                if (keyType == "datereceived" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " dateReceived LIKE '%" + input + "%'";
                 }
-                if (keyType == "invoicetotalprice" || keyType == "all")
+                if (keyType == "invoicetotalprice" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " invoiceTotalPrice LIKE '%" + input + "%'";
@@ -228,14 +228,14 @@ namespace introse_project.Libs
             else if (formType == "items")
             {
                 query = "SELECT * FROM items ";
-                if (keyType == "itemnumber" || keyType == "all")
+                if (keyType == "itemnumber" || keyType == "all columns")
                     query = query + " WHERE itemNumber LIKE '%" + input + "%'";
-                if (keyType == "suppliername" || keyType == "all")
+                if (keyType == "suppliername" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " supplierName LIKE '%" + input + "%'";
                 }
-                if (keyType == "description" || keyType == "all")
+                if (keyType == "description" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " description LIKE '%" + input + "%'";
@@ -245,39 +245,39 @@ namespace introse_project.Libs
             else if (formType == "supplier_order_items")
             {
                 query = "SELECT * FROM supplier_order_items ";
-                if (keyType == "supplierorderid" || keyType == "all")
+                if (keyType == "supplierorderid" || keyType == "all columns")
                     query = query + " WHERE supplierOrderID LIKE '%" + input + "%'";
-                if (keyType == "supplierponumber" || keyType == "all")
+                if (keyType == "supplierponumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " supplierPONumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "itemnumber" || keyType == "all")
+                if (keyType == "itemnumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " itemNumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "quantity" || keyType == "all")
+                if (keyType == "quantity" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " quantity LIKE '%" + input + "%'";
                 }
-                if (keyType == "currency" || keyType == "all")
+                if (keyType == "currency" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " currency LIKE '%" + input + "%'";
                 }
-                if (keyType == "priceperunit" || keyType == "all")
+                if (keyType == "priceperunit" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " pricePerUnit LIKE '%" + input + "%'";
                 }
-                if (keyType == "totalprice" || keyType == "all")
+                if (keyType == "totalprice" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " totalPrice LIKE '%" + input + "%'";
                 }
-                if (keyType == "isfinished" || keyType == "all")
+                if (keyType == "isfinished" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " isFinished LIKE '%" + input + "%'";
@@ -287,29 +287,29 @@ namespace introse_project.Libs
             else if (formType == "supplier_po")
             {
                 query = "SELECT * FROM supplier_po";
-                if (keyType == "supplierponumber" || keyType == "all")
+                if (keyType == "supplierponumber" || keyType == "all columns")
                     query = query + " WHERE supplierPONumber LIKE '%" + input + "%'";
-                if (keyType == "customerponumber" || keyType == "all")
+                if (keyType == "customerponumber" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " customerPONumber LIKE '%" + input + "%'";
                 }
-                if (keyType == "suppliername" || keyType == "all")
+                if (keyType == "suppliername" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " supplierName LIKE '%" + input + "%'";
                 }
-                if (keyType == "dateissued" || keyType == "all")
+                if (keyType == "dateissued" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " dateIssued LIKE '%" + input + "%'";
                 }
-                if (keyType == "expecteddeliverydate" || keyType == "all")
+                if (keyType == "expecteddeliverydate" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " expectedDeliveryDate LIKE '%" + input + "%'";
                 }
-                if (keyType == "isfinished" || keyType == "all")
+                if (keyType == "isfinished" || keyType == "all columns")
                 {
                     query = query + AllOr(keyType);
                     query = query + " isFinished LIKE '%" + input + "%'";
@@ -361,7 +361,7 @@ namespace introse_project.Libs
         {
             String output = "";
 
-            if (type == "all")
+            if (type == "all columns")
                 output = " OR";
             else
                 output = " WHERE";

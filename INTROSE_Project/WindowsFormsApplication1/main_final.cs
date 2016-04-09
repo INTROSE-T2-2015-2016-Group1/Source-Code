@@ -44,6 +44,8 @@ namespace introse_project
                 case "Supplier Purchase Order": SupplierPOManager.instance.viewAll(sPOGridView);        break;
                 case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
                 case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
+                case "Search":                  formTypeCBox.SelectedIndex = 0;
+                                                keywordTypeCBox.SelectedIndex = 0;                      break;
             }
         }
         #endregion
@@ -158,7 +160,7 @@ namespace introse_project
             string capturedKeyword = keywordTxtBox.Text;
             string capturedKeyType;
             if (keywordTypeCBox.Text == "")
-                capturedKeyType = "All";
+                capturedKeyType = "All Columns";
             else
                 capturedKeyType = keywordTypeCBox.Text;
             string capturedFormType = formTypeCBox.Text;
@@ -173,7 +175,7 @@ namespace introse_project
             keywordTypeCBox.Items.Clear();
             string form = (string)formTypeCBox.SelectedItem;
 
-            keywordTypeCBox.Items.Add("All");
+            keywordTypeCBox.Items.Add("All Columns");
 
             switch(form)
             {
@@ -259,6 +261,8 @@ namespace introse_project
                     keywordTypeCBox.Items.Add("supplierName");
                     break;
             }
+
+            keywordTypeCBox.SelectedIndex = 0;
         }
 
         private void editBtn_Click(object sender, EventArgs e)

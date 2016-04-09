@@ -548,6 +548,7 @@
             // keywordTypeCBox
             // 
             this.keywordTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.keywordTypeCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.keywordTypeCBox.FormattingEnabled = true;
             this.keywordTypeCBox.Location = new System.Drawing.Point(84, 49);
             this.keywordTypeCBox.Name = "keywordTypeCBox";
@@ -557,6 +558,7 @@
             // formTypeCBox
             // 
             this.formTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.formTypeCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.formTypeCBox.FormattingEnabled = true;
             this.formTypeCBox.Items.AddRange(new object[] {
             "customer_inspection_results",
