@@ -30,12 +30,12 @@
         {
             this.label8 = new System.Windows.Forms.Label();
             this.supplierPOIdCBox = new System.Windows.Forms.ComboBox();
-            this.dateIssuedCBox = new System.Windows.Forms.DateTimePicker();
+            this.dateReceivedCBox = new System.Windows.Forms.DateTimePicker();
             this.addDRBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.deliveryReceiptNumberTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.deliveryReceiptNumberTxtBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,14 +59,14 @@
             this.supplierPOIdCBox.Size = new System.Drawing.Size(263, 21);
             this.supplierPOIdCBox.TabIndex = 20;
             // 
-            // dateIssuedCBox
+            // dateReceivedCBox
             // 
-            this.dateIssuedCBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dateReceivedCBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateIssuedCBox.Location = new System.Drawing.Point(9, 176);
-            this.dateIssuedCBox.Name = "dateIssuedCBox";
-            this.dateIssuedCBox.Size = new System.Drawing.Size(263, 20);
-            this.dateIssuedCBox.TabIndex = 11;
+            this.dateReceivedCBox.Location = new System.Drawing.Point(9, 176);
+            this.dateReceivedCBox.Name = "dateReceivedCBox";
+            this.dateReceivedCBox.Size = new System.Drawing.Size(263, 20);
+            this.dateReceivedCBox.TabIndex = 11;
             // 
             // addDRBtn
             // 
@@ -89,7 +89,7 @@
             this.groupBox1.Controls.Add(this.addDRBtn);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.supplierPOIdCBox);
-            this.groupBox1.Controls.Add(this.dateIssuedCBox);
+            this.groupBox1.Controls.Add(this.dateReceivedCBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -97,22 +97,6 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Delivery Information";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Date Received";
-            // 
-            // deliveryReceiptNumberTxtBox
-            // 
-            this.deliveryReceiptNumberTxtBox.Location = new System.Drawing.Point(9, 55);
-            this.deliveryReceiptNumberTxtBox.Name = "deliveryReceiptNumberTxtBox";
-            this.deliveryReceiptNumberTxtBox.Size = new System.Drawing.Size(263, 20);
-            this.deliveryReceiptNumberTxtBox.TabIndex = 24;
             // 
             // label1
             // 
@@ -122,6 +106,22 @@
             this.label1.Size = new System.Drawing.Size(125, 13);
             this.label1.TabIndex = 25;
             this.label1.Text = "Delivery Receipt Number";
+            // 
+            // deliveryReceiptNumberTxtBox
+            // 
+            this.deliveryReceiptNumberTxtBox.Location = new System.Drawing.Point(9, 55);
+            this.deliveryReceiptNumberTxtBox.Name = "deliveryReceiptNumberTxtBox";
+            this.deliveryReceiptNumberTxtBox.Size = new System.Drawing.Size(263, 20);
+            this.deliveryReceiptNumberTxtBox.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Date Received";
             // 
             // addDR
             // 
@@ -143,7 +143,7 @@
 
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox supplierPOIdCBox;
-        private System.Windows.Forms.DateTimePicker dateIssuedCBox;
+        private System.Windows.Forms.DateTimePicker dateReceivedCBox;
         private System.Windows.Forms.Button addDRBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;

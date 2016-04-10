@@ -13,16 +13,21 @@ namespace introse_project.sub_windows.Delivery_Receipt
 {
     public partial class addDRItems : Form
     {
+        #region Variables
         private static addDRItems theInstance = new addDRItems();
+
         private string deliveryReceiptNumber;
         private string supplierPONumber;
         private bool addType;
+        int quantityReceived;
+        #endregion
 
         private addDRItems()
         {
             InitializeComponent();
         }
 
+        #region Setters
         public void setDeliveryReceiptNumber(string deliveryReceiptNumber)
         {
             this.deliveryReceiptNumber = deliveryReceiptNumber;
@@ -37,7 +42,9 @@ namespace introse_project.sub_windows.Delivery_Receipt
         {
             this.addType = addType;
         }
+        #endregion
 
+        #region Keypress Event Handlers
         private void quantityReceivedTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -45,37 +52,56 @@ namespace introse_project.sub_windows.Delivery_Receipt
                 e.Handled = true;
             }
         }
+        #endregion
 
+        #region Event Handlers
         private void addDRItems_Load(object sender, EventArgs e)
         {
             SupplierOrderItemsManager.instance.getOrderItems(supplierOrderedItemCBox, supplierPONumber);
-            supplierOrderedItemCBox.SelectedIndex = 0;
-        }
-
-        private void addDRBtn_Click(object sender, EventArgs e)
-        {
-            if (addType)
+            if (supplierOrderedItemCBox.Items.Count > 0)
             {
-                addDR.instance.addNewDR();
-            }
-
-            string supplierName = SupplierPOManager.instance.getSupplierName(this.supplierPONumber);
-            int itemNumber = ItemManager.instance.getItemNumber(supplierOrderedItemCBox.SelectedItem.ToString(), supplierName);
-
-            if (!DeliveryItemsManager.instance.isItemExists(itemNumber, this.deliveryReceiptNumber))
-            {
-                int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
-                DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
-                                                      supplierOrderID,
-                                                      Convert.ToInt32(quantityReceivedTxtBox.Text));
+                supplierOrderedItemCBox.SelectedIndex = 0;
             }
             else
             {
-                MessageBox.Show("The item you're trying to add already exists!", "ERROR");
+                this.Close();
+                MessageBox.Show("All ordered items for the selected PO is finished. Cannot add any more deliveries.", "ERROR");
             }
-                      
-            this.Close();
+            
         }
+        #endregion
+
+        #region Button Click Events
+        private void addDRBtn_Click(object sender, EventArgs e)
+        {
+            string supplierName = SupplierPOManager.instance.getSupplierName(this.supplierPONumber);
+            int itemNumber = ItemManager.instance.getItemNumber(supplierOrderedItemCBox.SelectedItem.ToString(), supplierName);
+
+            if (((!DeliveryReceiptsManager.instance.pkExists(this.deliveryReceiptNumber) && addType) || (DeliveryReceiptsManager.instance.pkExists(this.deliveryReceiptNumber) && !addType))
+                && int.TryParse(quantityReceivedTxtBox.Text, out quantityReceived))
+            {
+                if (addType)
+                {
+                    addDR.instance.addNewDR();
+                }
+
+                int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
+
+                DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
+                                                      supplierOrderID,
+                                                      quantityReceived);
+
+                quantityReceivedTxtBox.Text = "";
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("The delivered item you're trying to add is not valid or the delivery receipt already exists!", "ERROR");
+            }                  
+            
+        }
+        #endregion
 
         public static addDRItems instance
         {

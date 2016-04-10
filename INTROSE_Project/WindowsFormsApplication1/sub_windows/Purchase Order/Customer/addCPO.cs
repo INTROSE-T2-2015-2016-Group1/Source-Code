@@ -55,9 +55,12 @@ namespace introse_project.sub_windows.Purchase_Order
         }
         #endregion
 
-        public void addNewCPO()
+        public void addNewCPO() //adds a new CPO and resets all input values
         {
             CustomerPOManager.instance.addData(cPONumberTxtBox.Text, customerNameCBox.SelectedItem.ToString(), dateIssuedCBox.Value.Date.ToShortDateString(), dateExpectedCBox.Value.Date.ToShortDateString());
+            cPONumberTxtBox.Text = "";
+            dateIssuedCBox.Value = DateTime.Now;
+            dateExpectedCBox.Value = DateTime.Now;
         }
 
         public static addCPO instance

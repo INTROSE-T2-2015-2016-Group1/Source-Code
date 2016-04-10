@@ -149,11 +149,14 @@
   <data name="currencyCBox.Items1" xml:space="preserve">
     <value>PHP</value>
   </data>
+  <data name="currencyCBox.Items2" xml:space="preserve">
+    <value>JPY</value>
+  </data>
   <data name="currencyCBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 141</value>
+    <value>6, 141</value>
   </data>
   <data name="currencyCBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 21</value>
+    <value>186, 21</value>
   </data>
   <data name="currencyCBox.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>

@@ -13,24 +13,57 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
 {
     public partial class addSPOItems : Form
     {
+        #region Variables
         private static addSPOItems theInstance = new addSPOItems();
 
-        Boolean addType = false; //false means add item ONLY, true means add item with new PO
-        String supplierPONumber;
-        String supplierName;
-        String customerPONumber;
+        private Boolean addType = false; //false means add item ONLY, true means add item with new PO
+        private String supplierPONumber;
+        private String supplierName;
+        private String customerPONumber;
+
+        private int quantity;
+        private double pricePerUnit;
+        private double totalPrice;
+        #endregion
 
         private addSPOItems()
         {
             InitializeComponent();
         }
 
+        #region Event Handlers
         private void addSPOItems_Load(object sender, EventArgs e)
         {
             CustomerOrderItemsManagercs.instance.getOrderItems(itemDescCBox, this.customerPONumber, this.supplierName);
-            itemDescCBox.SelectedIndex = 0;          
+            if (itemDescCBox.Items.Count > 0)
+            {
+                itemDescCBox.SelectedIndex = 0;  
+            }
+            else
+            {
+                this.Close();
+                MessageBox.Show("Unable to add a new item to supplier PO: All orders from the related customer PO's are finished", "ERROR");               
+            }   
         }
 
+        private void itemQtyTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(itemQtyTxtBox.Text, out quantity) && double.TryParse(pricePerUnitTxtBox.Text, out pricePerUnit))
+            {
+                totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
+            }
+        }
+
+        private void pricePerUnitTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(itemQtyTxtBox.Text, out quantity) && double.TryParse(pricePerUnitTxtBox.Text, out pricePerUnit))
+            {
+                totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
+            }
+        }
+        #endregion
+
+        #region Setters
         public void setPONumber(String supplierPONumber,  String customerPONumber)
         {
             this.supplierPONumber = supplierPONumber;
@@ -46,6 +79,7 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
         {
             this.addType = addType;
         }
+        #endregion
 
         #region Key Press Event Handlers
         private void itemQtyTxtBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -83,35 +117,46 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
         }
         #endregion
 
+        #region Button Click Events
         private void addCPOItemsBtn_Click(object sender, EventArgs e)
         {
-            if (addType)
-            {
-                addSPO.instance.addNewSPO();
-            }
-
             int itemNumber = ItemManager.instance.getItemNumber(itemDescCBox.SelectedItem.ToString(), this.supplierName);
 
-            if (SupplierPOManager.instance.pkExists(this.supplierPONumber) && !SupplierOrderItemsManager.instance.isItemExists(itemNumber, this.supplierPONumber))
+            if (((!SupplierPOManager.instance.pkExists(this.supplierPONumber) && addType) || (SupplierPOManager.instance.pkExists(this.supplierPONumber) && !addType))
+                && !SupplierOrderItemsManager.instance.isItemExists(itemNumber, this.supplierPONumber) 
+                && double.TryParse(totalPriceLabel.Text, out totalPrice)) //checks if total price is valid
             {
+                if (addType)
+                {
+                    addSPO.instance.addNewSPO();
+                }
+
                 SupplierOrderItemsManager.instance.addData(this.supplierPONumber,
                                                            itemNumber,
                                                            Convert.ToInt32(itemQtyTxtBox.Text),
-                                                           currencyTxtBox.Text,
+                                                           currencyCBox.SelectedItem.ToString(),
                                                            double.Parse(pricePerUnitTxtBox.Text),
-                                                           double.Parse(totalPriceTxtBox.Text));
+                                                           totalPrice);
+
+                SupplierPOManager.instance.setPONotFinished(this.supplierPONumber);
+
+                pricePerUnitTxtBox.Text = "";
+                itemQtyTxtBox.Text = "";
+                totalPriceLabel.Text = "";
+
+                this.Close();
             }
             else
             {
-                MessageBox.Show("The item/PO you're trying to add already exists!", "ERROR");
+                MessageBox.Show("The item/PO you are trying to add already exists or the entered values are missing/incorrect", "ERROR");
             }
-            this.Close();
         }
+        #endregion
 
         public static addSPOItems instance
         {
             get { return theInstance; }
         }
-       
+     
     }
 }

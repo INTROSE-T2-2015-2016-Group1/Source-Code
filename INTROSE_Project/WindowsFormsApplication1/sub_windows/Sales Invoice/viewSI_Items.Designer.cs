@@ -47,6 +47,8 @@
             // 
             // SI_ItemsGridView
             // 
+            this.SI_ItemsGridView.AllowUserToAddRows = false;
+            this.SI_ItemsGridView.AllowUserToDeleteRows = false;
             this.SI_ItemsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));

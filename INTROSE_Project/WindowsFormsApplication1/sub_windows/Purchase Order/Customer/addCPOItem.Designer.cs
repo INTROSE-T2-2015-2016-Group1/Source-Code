@@ -71,7 +71,8 @@
             this.currencyCBox.FormattingEnabled = true;
             this.currencyCBox.Items.AddRange(new object[] {
             resources.GetString("currencyCBox.Items"),
-            resources.GetString("currencyCBox.Items1")});
+            resources.GetString("currencyCBox.Items1"),
+            resources.GetString("currencyCBox.Items2")});
             resources.ApplyResources(this.currencyCBox, "currencyCBox");
             this.currencyCBox.Name = "currencyCBox";
             // 

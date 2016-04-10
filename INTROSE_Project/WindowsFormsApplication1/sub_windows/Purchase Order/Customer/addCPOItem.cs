@@ -15,11 +15,13 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
     {
         #region Variables
         private static addCPOItem theInstance = new addCPOItem();
-        Boolean addType = false;    //false means add item ONLY, true means add item with new PO
-        String customerPONumber;
-        int quantity;
-        double pricePerUnit;
-        bool valid = false;         //checks if everything is valid for adding
+
+        private Boolean addType = false;    //false means add item ONLY, true means add item with new PO
+        private String customerPONumber;    //current  cPO being processed
+
+        private int quantity;
+        private double pricePerUnit;
+        private double totalPrice;
         #endregion
 
         private addCPOItem()
@@ -47,35 +49,25 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             currencyCBox.SelectedIndex = 0;
         }
 
-        private void itemQtyTxtBox_TextChanged(object sender, EventArgs e)
+        private void itemQtyTxtBox_TextChanged(object sender, EventArgs e) //sets the total price if both quantity and price per unit is valid
         {
             if (int.TryParse(itemQtyTxtBox.Text, out quantity)  && double.TryParse(pricePerUnitTxtBox.Text, out pricePerUnit) )
             {
                 totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
-                valid = true;
-            }
-            else
-            {
-                valid = false;
             }
         }
 
-        private void pricePerUnitTxtBox_TextChanged(object sender, EventArgs e)
+        private void pricePerUnitTxtBox_TextChanged(object sender, EventArgs e) //sets the total price if both quantity and price per unit is valid
         {
             if (int.TryParse(itemQtyTxtBox.Text, out quantity) && double.TryParse(pricePerUnitTxtBox.Text, out pricePerUnit))
             {
                 totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
-                valid = true;
-            }
-            else
-            {
-                valid = false;
             }
         }
         #endregion
 
         #region Keypress Event Handlers
-        private void itemQtyTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void itemQtyTxtBox_KeyPress(object sender, KeyPressEventArgs e) //checks if the value is a valid int value
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -83,20 +75,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             }
         }
 
-        private void pricePerUnitTxtBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1)) //checks if it's only one decimal place
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void totalPriceTxtBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void pricePerUnitTxtBox_KeyPress(object sender, KeyPressEventArgs e) //checks if the value is a valid double value
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -114,23 +93,24 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
         private void addCPOItemsBtn_Click(object sender, EventArgs e)
         {
 
-            if (!CustomerPOManager.instance.pkExists(this.customerPONumber)
+            if (((!CustomerPOManager.instance.pkExists(this.customerPONumber) && addType) || (CustomerPOManager.instance.pkExists(this.customerPONumber) && !addType))
                 && !CustomerOrderItemsManagercs.instance.isItemExists(itemDescCBox.SelectedItem.ToString(), customerPONumber)
-                && this.valid)
+                && double.TryParse(totalPriceLabel.Text, out totalPrice)) //checks if total price is valid
             {              
                 if (addType)
                 {
                     addCPO.instance.addNewCPO();
                 }
 
-            
                 CustomerOrderItemsManagercs.instance.addData(this.customerPONumber,
                                                          itemDescCBox.SelectedItem.ToString(),
                                                          Convert.ToInt32(itemQtyTxtBox.Text),
                                                          currencyCBox.SelectedItem.ToString(),
                                                          double.Parse(pricePerUnitTxtBox.Text),
-                                                         double.Parse(totalPriceLabel.Text));
-                
+                                                         totalPrice);
+
+                CustomerPOManager.instance.setPONotFinished(this.customerPONumber);
+
                 itemQtyTxtBox.Text = "";
                 pricePerUnitTxtBox.Text = "";
                 totalPriceLabel.Text = "";
@@ -139,7 +119,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             }
             else
             {
-                MessageBox.Show("The item you are trying to add already exists or the entered values are missing/incorrect", "ERROR");
+                MessageBox.Show("The item/PO you are trying to add already exists or the entered values are missing/incorrect", "ERROR");
             }
             
         }

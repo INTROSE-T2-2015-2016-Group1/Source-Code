@@ -151,6 +151,8 @@
             // 
             // imGridView
             // 
+            this.imGridView.AllowUserToAddRows = false;
+            this.imGridView.AllowUserToDeleteRows = false;
             this.imGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -206,6 +208,8 @@
             // 
             // clGridView
             // 
+            this.clGridView.AllowUserToAddRows = false;
+            this.clGridView.AllowUserToDeleteRows = false;
             this.clGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -262,6 +266,8 @@
             // 
             // slGridView
             // 
+            this.slGridView.AllowUserToAddRows = false;
+            this.slGridView.AllowUserToDeleteRows = false;
             this.slGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -320,6 +326,8 @@
             // 
             // cPOGridView
             // 
+            this.cPOGridView.AllowUserToAddRows = false;
+            this.cPOGridView.AllowUserToDeleteRows = false;
             this.cPOGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -355,6 +363,8 @@
             // 
             // sPOGridView
             // 
+            this.sPOGridView.AllowUserToAddRows = false;
+            this.sPOGridView.AllowUserToDeleteRows = false;
             this.sPOGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -413,6 +423,8 @@
             // 
             // siGridView
             // 
+            this.siGridView.AllowUserToAddRows = false;
+            this.siGridView.AllowUserToDeleteRows = false;
             this.siGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -471,6 +483,8 @@
             // 
             // drGridView
             // 
+            this.drGridView.AllowUserToAddRows = false;
+            this.drGridView.AllowUserToDeleteRows = false;
             this.drGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -610,6 +624,8 @@
             // 
             // searchGridView
             // 
+            this.searchGridView.AllowUserToAddRows = false;
+            this.searchGridView.AllowUserToDeleteRows = false;
             this.searchGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));

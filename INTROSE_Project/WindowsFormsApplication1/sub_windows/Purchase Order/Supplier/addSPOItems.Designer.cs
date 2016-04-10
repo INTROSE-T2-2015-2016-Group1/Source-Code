@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.totalPriceTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.itemDescCBox = new System.Windows.Forms.ComboBox();
@@ -37,15 +36,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pricePerUnitTxtBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.currencyTxtBox = new System.Windows.Forms.TextBox();
             this.itemQtyTxtBox = new System.Windows.Forms.TextBox();
             this.addCPOItemsBtn = new System.Windows.Forms.Button();
+            this.totalPriceLabel = new System.Windows.Forms.Label();
+            this.currencyCBox = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.totalPriceTxtBox);
+            this.groupBox2.Controls.Add(this.currencyCBox);
+            this.groupBox2.Controls.Add(this.totalPriceLabel);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.itemDescCBox);
@@ -53,7 +54,6 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.pricePerUnitTxtBox);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.currencyTxtBox);
             this.groupBox2.Controls.Add(this.itemQtyTxtBox);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -61,16 +61,6 @@
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Item Information";
-            // 
-            // totalPriceTxtBox
-            // 
-            this.totalPriceTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.totalPriceTxtBox.Location = new System.Drawing.Point(6, 245);
-            this.totalPriceTxtBox.Name = "totalPriceTxtBox";
-            this.totalPriceTxtBox.Size = new System.Drawing.Size(186, 20);
-            this.totalPriceTxtBox.TabIndex = 20;
-            this.totalPriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalPriceTxtBox_KeyPress);
             // 
             // label1
             // 
@@ -131,6 +121,7 @@
             this.pricePerUnitTxtBox.Name = "pricePerUnitTxtBox";
             this.pricePerUnitTxtBox.Size = new System.Drawing.Size(186, 20);
             this.pricePerUnitTxtBox.TabIndex = 10;
+            this.pricePerUnitTxtBox.TextChanged += new System.EventHandler(this.pricePerUnitTxtBox_TextChanged);
             this.pricePerUnitTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pricePerUnitTxtBox_KeyPress);
             // 
             // label7
@@ -143,16 +134,6 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Price Per Unit";
             // 
-            // currencyTxtBox
-            // 
-            this.currencyTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.currencyTxtBox.Location = new System.Drawing.Point(6, 145);
-            this.currencyTxtBox.MaxLength = 5;
-            this.currencyTxtBox.Name = "currencyTxtBox";
-            this.currencyTxtBox.Size = new System.Drawing.Size(186, 20);
-            this.currencyTxtBox.TabIndex = 9;
-            // 
             // itemQtyTxtBox
             // 
             this.itemQtyTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -162,6 +143,7 @@
             this.itemQtyTxtBox.Name = "itemQtyTxtBox";
             this.itemQtyTxtBox.Size = new System.Drawing.Size(186, 20);
             this.itemQtyTxtBox.TabIndex = 8;
+            this.itemQtyTxtBox.TextChanged += new System.EventHandler(this.itemQtyTxtBox_TextChanged);
             this.itemQtyTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemQtyTxtBox_KeyPress);
             // 
             // addCPOItemsBtn
@@ -175,6 +157,27 @@
             this.addCPOItemsBtn.Text = "Add Item";
             this.addCPOItemsBtn.UseVisualStyleBackColor = true;
             this.addCPOItemsBtn.Click += new System.EventHandler(this.addCPOItemsBtn_Click);
+            // 
+            // totalPriceLabel
+            // 
+            this.totalPriceLabel.AutoSize = true;
+            this.totalPriceLabel.Location = new System.Drawing.Point(3, 240);
+            this.totalPriceLabel.Name = "totalPriceLabel";
+            this.totalPriceLabel.Size = new System.Drawing.Size(0, 13);
+            this.totalPriceLabel.TabIndex = 20;
+            // 
+            // currencyCBox
+            // 
+            this.currencyCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.currencyCBox.FormattingEnabled = true;
+            this.currencyCBox.Items.AddRange(new object[] {
+            "USD",
+            "PHP",
+            "JPY"});
+            this.currencyCBox.Location = new System.Drawing.Point(6, 146);
+            this.currencyCBox.Name = "currencyCBox";
+            this.currencyCBox.Size = new System.Drawing.Size(186, 21);
+            this.currencyCBox.TabIndex = 21;
             // 
             // addSPOItems
             // 
@@ -196,7 +199,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox totalPriceTxtBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox itemDescCBox;
@@ -204,8 +206,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox pricePerUnitTxtBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox currencyTxtBox;
         private System.Windows.Forms.TextBox itemQtyTxtBox;
         private System.Windows.Forms.Button addCPOItemsBtn;
+        private System.Windows.Forms.Label totalPriceLabel;
+        private System.Windows.Forms.ComboBox currencyCBox;
     }
 }

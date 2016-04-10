@@ -14,13 +14,16 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
     public partial class addSPO : Form
     {
 
+        #region Variables
         private static addSPO theInstance = new addSPO();
+        #endregion
 
         private addSPO()
         {
             InitializeComponent();
         }
 
+        #region Event Handlers
         private void addSPO_Load(object sender, EventArgs e)
         {
             CustomerPOManager.instance.fillComboBox(customerPONumberCBox);
@@ -32,12 +35,14 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             CustomerOrderItemsManagercs.instance.getPossibleSuppliers(supplierNameCBox, customerPONumberCBox.Text);
             supplierNameCBox.SelectedIndex = 0;
         }
+        #endregion
 
+        #region Button Click Events
         private void addSPOBtn_Click(object sender, EventArgs e)
         {
-            if (CustomerOrderItemsManagercs.instance.getOrderCount(customerPONumberCBox.Text) > 0)
+            if (!SupplierPOManager.instance.pkExists(this.sPONumberTxtBox.Text) && !String.IsNullOrWhiteSpace(sPONumberTxtBox.Text))
             {
-                if (!SupplierPOManager.instance.pkExists(this.sPONumberTxtBox.Text))
+                if (dateIssuedCBox.Value <= dateExpectedCBox.Value)
                 {
                     addSPOItems.instance.setAddType(true);
                     addSPOItems.instance.setSupplierName(supplierNameCBox.Text);
@@ -47,18 +52,22 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
                 }
                 else
                 {
-                    MessageBox.Show("Supplier purchase order number already exists");
-                }
+                    MessageBox.Show("Date issued cannot be after the expected date", "ERROR");
+                } 
             }
             else
             {
-                MessageBox.Show("No items ordered for the selected purchase order");
+                MessageBox.Show("Supplier purchase order number already exists or entered the PO number is invalid/missing", "ERROR");
             }
         }
+        #endregion
 
         public void addNewSPO()
         {
             SupplierPOManager.instance.addData(sPONumberTxtBox.Text, customerPONumberCBox.GetItemText(customerPONumberCBox.SelectedItem).Replace(" ", string.Empty), supplierNameCBox.SelectedItem.ToString(), dateIssuedCBox.Value.Date.ToShortDateString(), dateExpectedCBox.Value.Date.ToShortDateString());
+            sPONumberTxtBox.Text = "";
+            dateExpectedCBox.Value = DateTime.Now;
+            dateIssuedCBox.Value = DateTime.Now;
         }
 
         public static addSPO instance

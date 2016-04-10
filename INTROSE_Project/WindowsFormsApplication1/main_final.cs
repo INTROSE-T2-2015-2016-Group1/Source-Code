@@ -63,17 +63,15 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No supplier's available for input", "ERROR"); 
-            }
-                          
+                MessageBox.Show("There are no supplier's in the supplier list in order create a new item", "ERROR"); 
+            }                      
         }
         #endregion
 
         #region Company List
         private void clAddBtn_Click(object sender, EventArgs e)
         {
-
-            if (!String.IsNullOrWhiteSpace(slTxtBox.Text))
+            if (!String.IsNullOrWhiteSpace(clTxtBox.Text))
             {
                 if (!CustomerManager.instance.pkExists(clTxtBox.Text))
                 {
@@ -82,14 +80,13 @@ namespace introse_project
                 }
                 else
                 {
-                    MessageBox.Show("Entered company already exists!", "ERROR");
+                    MessageBox.Show("Entered company already exists", "ERROR");
                 }
             }
             else
             {
                 MessageBox.Show("You have not entered a company to be added", "ERROR");
-            }
-            
+            }           
         }
         #endregion
 
@@ -105,14 +102,13 @@ namespace introse_project
                 }
                 else
                 {
-                    MessageBox.Show("Entered company already exists!", "ERROR");
+                    MessageBox.Show("Entered company already exists", "ERROR");
                 }
             }
             else
             {
                 MessageBox.Show("You have not entered a supplier to be added", "ERROR");
-            }
-                
+            }               
         }
         #endregion
 
@@ -133,12 +129,12 @@ namespace introse_project
                 }
                 else
                 {
-                    MessageBox.Show("No customers to add a purchase order to", "ERROR");
+                    MessageBox.Show("There are no customers in the customer list in order to add a new customer PO", "ERROR");
                 }
             }
             else
             {
-                MessageBox.Show("No items in item list to add to a purchase order", "ERROR");
+                MessageBox.Show("There are no items in the items list in order to add new customer purchase order", "ERROR");
             }
         }
 
@@ -172,7 +168,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No ordered items from any Customer PO to add a Delivery Receipt to", "ERROR");
+                MessageBox.Show("There are no ordered items from any customer PO in order to add a new supplier PO", "ERROR");
             }           
         }
 
@@ -187,7 +183,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No supplier purchase order to view", "ERROR");
+                MessageBox.Show("There are no supplier purchase order's to view", "ERROR");
             }
         }
         #endregion
