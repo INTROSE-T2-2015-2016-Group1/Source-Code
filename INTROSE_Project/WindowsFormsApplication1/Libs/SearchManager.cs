@@ -47,7 +47,7 @@ namespace introse_project.Libs
             {
                 query = "SELECT * FROM customer_order_items";
 
-                if (keyType == "customerorderID" || keyType == "all columns")
+                if (keyType == "customerorderid" || keyType == "all columns")
                     query = query + " WHERE customerOrderID LIKE '%" + input + "%'";
                 if (keyType == "customerponumber" || keyType == "all columns")
                 {
