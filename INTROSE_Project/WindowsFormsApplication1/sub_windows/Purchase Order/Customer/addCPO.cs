@@ -14,24 +14,29 @@ namespace introse_project.sub_windows.Purchase_Order
 {
     public partial class addCPO : Form
     {
+        #region Variables
         private static addCPO theInstance = new addCPO();
+        #endregion
 
         private addCPO()
         {
             InitializeComponent();
         }
 
+        #region Event Handlers
         private void addCPO_Load(object sender, EventArgs e)
         {
             CustomerManager.instance.fillComboBox(customerNameCBox);
             customerNameCBox.SelectedIndex = 0;
         }
+        #endregion
 
+        #region Button Click Events
         private void addCPOBtn_Click(object sender, EventArgs e)
         {
-            if (ItemManager.instance.getCount() > 0)
+            if (!CustomerPOManager.instance.pkExists(cPONumberTxtBox.Text) && !String.IsNullOrWhiteSpace(cPONumberTxtBox.Text))
             {
-                if (!CustomerPOManager.instance.pkExists(cPONumberTxtBox.Text))
+                if (dateIssuedCBox.Value <= dateExpectedCBox.Value)
                 {
                     addCPOItem.instance.setAddType(true);
                     addCPOItem.instance.setPONumber(cPONumberTxtBox.Text);
@@ -40,14 +45,15 @@ namespace introse_project.sub_windows.Purchase_Order
                 }
                 else
                 {
-                    MessageBox.Show("Customer purchase order number already exists", "ERROR");
-                } 
+                    MessageBox.Show("Date issued cannot be after the expected date", "ERROR");
+                }                  
             }
             else
             {
-                MessageBox.Show("No items in item list to add to purchase order", "ERROR");
-            }
+                MessageBox.Show("Customer purchase order number already exists or entered the PO number is invalid/missing", "ERROR");
+            }           
         }
+        #endregion
 
         public void addNewCPO()
         {

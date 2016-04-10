@@ -72,14 +72,22 @@ namespace introse_project
         #region Company List
         private void clAddBtn_Click(object sender, EventArgs e)
         {
-            if (!CustomerManager.instance.pkExists(clTxtBox.Text))
+
+            if (!String.IsNullOrWhiteSpace(slTxtBox.Text))
             {
-                CustomerManager.instance.addData(clTxtBox.Text);
-                CustomerManager.instance.viewAll(clGridView);
+                if (!CustomerManager.instance.pkExists(clTxtBox.Text))
+                {
+                    CustomerManager.instance.addData(clTxtBox.Text);
+                    CustomerManager.instance.viewAll(clGridView);
+                }
+                else
+                {
+                    MessageBox.Show("Entered company already exists!", "ERROR");
+                }
             }
             else
             {
-                MessageBox.Show("Entered company already exists!", "ERROR");
+                MessageBox.Show("You have not entered a company to be added", "ERROR");
             }
             
         }
@@ -88,15 +96,23 @@ namespace introse_project
         #region Supplier List
         private void slAddBtn_Click(object sender, EventArgs e)
         {
-            if (!SupplierManager.instance.pkExists(slTxtBox.Text))
+            if (!String.IsNullOrWhiteSpace(slTxtBox.Text))
             {
-                SupplierManager.instance.addData(slTxtBox.Text);
-                SupplierManager.instance.viewAll(slGridView);
+                if (!SupplierManager.instance.pkExists(slTxtBox.Text))
+                {
+                    SupplierManager.instance.addData(slTxtBox.Text);
+                    SupplierManager.instance.viewAll(slGridView);
+                }
+                else
+                {
+                    MessageBox.Show("Entered company already exists!", "ERROR");
+                }
             }
             else
             {
-                MessageBox.Show("Entered company already exists!", "ERROR");
+                MessageBox.Show("You have not entered a supplier to be added", "ERROR");
             }
+                
         }
         #endregion
 
@@ -108,14 +124,21 @@ namespace introse_project
 
         private void cPOAddBtn_Click(object sender, EventArgs e)
         {
-            if (CustomerManager.instance.getCount() > 0)
+            if (ItemManager.instance.getCount() > 0)
             {
-                addCPO.instance.ShowDialog();
-                CustomerPOManager.instance.viewAll(cPOGridView);    
+                if (CustomerManager.instance.getCount() > 0)
+                {
+                    addCPO.instance.ShowDialog();
+                    CustomerPOManager.instance.viewAll(cPOGridView);
+                }
+                else
+                {
+                    MessageBox.Show("No customers to add a purchase order to", "ERROR");
+                }
             }
             else
             {
-                MessageBox.Show("No customers to add a purchase order to", "ERROR");
+                MessageBox.Show("No items in item list to add to a purchase order", "ERROR");
             }
         }
 
@@ -250,7 +273,6 @@ namespace introse_project
 
         }
         #endregion           
-
 
     }
 }
