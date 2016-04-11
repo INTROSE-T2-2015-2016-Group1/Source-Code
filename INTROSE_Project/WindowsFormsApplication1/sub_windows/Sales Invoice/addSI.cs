@@ -42,7 +42,7 @@ namespace introse_project.sub_windows.Sales_Invoice
             {
                 if (!InvoicesManager.instance.pkExists(invoiceNumberTxtBox.Text) && !String.IsNullOrWhiteSpace(invoiceNumberTxtBox.Text))
                 {
-                    if (DateTime.ParseExact(DeliveryReceiptsManager.instance.getDateReceived(deliveryReceiptIDCBox.SelectedItem.ToString()), "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= dateIssuedCBox.Value)
+                    if (DateTime.ParseExact(DeliveryReceiptsManager.instance.getDateReceived(deliveryReceiptIDCBox.SelectedItem.ToString()), "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture).Date <= dateIssuedCBox.Value.Date)
                     {
                         addSI_Items.instance.setAddType(true);
                         addSI_Items.instance.setInvoiceNumber(invoiceNumberTxtBox.Text);
