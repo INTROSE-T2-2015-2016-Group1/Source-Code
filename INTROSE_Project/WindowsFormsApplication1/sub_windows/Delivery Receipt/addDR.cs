@@ -47,7 +47,7 @@ namespace introse_project.sub_windows.Delivery_Receipt
             {
                 if (!String.IsNullOrWhiteSpace(deliveryReceiptNumberTxtBox.Text) && !DeliveryReceiptsManager.instance.pkExists(deliveryReceiptNumberTxtBox.Text))
                 {
-                    if (DateTime.ParseExact(SupplierPOManager.instance.getDateIssued(supplierPOIdCBox.SelectedItem.ToString()), "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture) <= dateReceivedCBox.Value)
+                    if (DateTime.ParseExact(SupplierPOManager.instance.getDateIssued(supplierPOIdCBox.SelectedItem.ToString()), "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture).Date <= dateReceivedCBox.Value.Date)
                     {
                         addDRItems.instance.setAddType(true);
                         addDRItems.instance.setDeliveryReceiptNumber(deliveryReceiptNumberTxtBox.Text);

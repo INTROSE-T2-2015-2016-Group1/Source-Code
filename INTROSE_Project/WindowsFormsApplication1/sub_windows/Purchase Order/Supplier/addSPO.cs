@@ -52,7 +52,7 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
         {
             if (!SupplierPOManager.instance.pkExists(this.sPONumberTxtBox.Text) && !String.IsNullOrWhiteSpace(sPONumberTxtBox.Text))
             {
-                if (dateIssuedCBox.Value <= dateExpectedCBox.Value)
+                if (dateIssuedCBox.Value.Date <= dateExpectedCBox.Value.Date)
                 {
                     addSPOItems.instance.setAddType(true);
                     addSPOItems.instance.setSupplierName(supplierNameCBox.Text);

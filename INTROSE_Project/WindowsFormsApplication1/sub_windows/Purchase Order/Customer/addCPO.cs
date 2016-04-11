@@ -36,7 +36,7 @@ namespace introse_project.sub_windows.Purchase_Order
         {
             if (!CustomerPOManager.instance.pkExists(cPONumberTxtBox.Text) && !String.IsNullOrWhiteSpace(cPONumberTxtBox.Text))
             {
-                if (dateIssuedCBox.Value <= dateExpectedCBox.Value)
+                if (dateIssuedCBox.Value.Date <= dateExpectedCBox.Value.Date)
                 {
                     addCPOItem.instance.setAddType(true);
                     addCPOItem.instance.setPONumber(cPONumberTxtBox.Text);
