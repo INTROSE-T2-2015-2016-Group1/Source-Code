@@ -55,6 +55,10 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             {
                 totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
             }
+            else
+            {
+                totalPriceLabel.Text = "";
+            }
         }
 
         private void pricePerUnitTxtBox_TextChanged(object sender, EventArgs e) //sets the total price if both quantity and price per unit is valid
@@ -62,6 +66,10 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
             if (int.TryParse(itemQtyTxtBox.Text, out quantity) && double.TryParse(pricePerUnitTxtBox.Text, out pricePerUnit))
             {
                 totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
+            }
+            else
+            {
+                totalPriceLabel.Text = "";
             }
         }
         #endregion

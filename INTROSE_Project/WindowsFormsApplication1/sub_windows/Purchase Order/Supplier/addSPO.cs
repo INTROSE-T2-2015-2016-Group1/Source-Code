@@ -33,7 +33,17 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
         private void customerPOIdCBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             CustomerOrderItemsManagercs.instance.getPossibleSuppliers(supplierNameCBox, customerPONumberCBox.Text);
-            supplierNameCBox.SelectedIndex = 0;
+            if (supplierNameCBox.Items.Count > 0)
+            {
+                supplierNameCBox.SelectedIndex = 0;
+                addSPOBtn.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("No ordered items for the selected customer PO", "ERROR");
+                addSPOBtn.Enabled = false;
+            }
+            
         }
         #endregion
 
@@ -73,7 +83,7 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
         public static addSPO instance
         {
             get { return theInstance; }
-        }
+        }  
 
     }
 }

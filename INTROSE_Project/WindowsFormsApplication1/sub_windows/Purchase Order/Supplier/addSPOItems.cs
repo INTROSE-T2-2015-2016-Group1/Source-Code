@@ -37,13 +37,14 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             CustomerOrderItemsManagercs.instance.getOrderItems(itemDescCBox, this.customerPONumber, this.supplierName);
             if (itemDescCBox.Items.Count > 0)
             {
-                itemDescCBox.SelectedIndex = 0;  
+                itemDescCBox.SelectedIndex = 0;
+                currencyCBox.SelectedIndex = 0;
             }
             else
             {
                 this.Close();
                 MessageBox.Show("Unable to add a new item to supplier PO: All orders from the related customer PO's are finished", "ERROR");               
-            }   
+            }            
         }
 
         private void itemQtyTxtBox_TextChanged(object sender, EventArgs e)
@@ -52,6 +53,10 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             {
                 totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
             }
+            else
+            {
+                totalPriceLabel.Text = "";
+            }
         }
 
         private void pricePerUnitTxtBox_TextChanged(object sender, EventArgs e)
@@ -59,6 +64,10 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             if (int.TryParse(itemQtyTxtBox.Text, out quantity) && double.TryParse(pricePerUnitTxtBox.Text, out pricePerUnit))
             {
                 totalPriceLabel.Text = (quantity * pricePerUnit).ToString();
+            }
+            else
+            {
+                totalPriceLabel.Text = "";
             }
         }
         #endregion
