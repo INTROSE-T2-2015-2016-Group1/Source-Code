@@ -117,6 +117,39 @@ namespace introse_project.Libs
             return value;
         }
 
+        public bool pkExists(string invoicesNumber)
+        {
+            string query = "SELECT  COUNT(*) FROM invoices A WHERE A.invoiceNumber = '" + invoicesNumber + "'";
+            int count = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                count = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                if (count > 0)
+                {
+                    return true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retreieve data for validation", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+
+        }
+
         public static InvoicesManager instance
         {
             get { return theInstance; }

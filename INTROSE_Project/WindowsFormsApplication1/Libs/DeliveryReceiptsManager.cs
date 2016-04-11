@@ -209,6 +209,36 @@ namespace introse_project.Libs
             }
         }
 
+        public string getDateReceived(string deliveryReceiptNumber)
+        {
+            string query = "SELECT  dateReceived FROM delivery_receipts A WHERE A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "'",
+                   date = "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                date = command.ExecuteScalar().ToString();
+
+                connection.Close();
+
+                return date;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return date;
+        }
+
         public static DeliveryReceiptsManager instance
         {
             get { return theInstance; }

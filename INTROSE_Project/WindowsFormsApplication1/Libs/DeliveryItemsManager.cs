@@ -203,9 +203,10 @@ namespace introse_project.Libs
 
                 return value;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + "\nUnable to get count data", "ERROR");
+                MessageBox.Show(ex.Message);
+                value = 0;
             }
             finally
             {
@@ -338,7 +339,35 @@ namespace introse_project.Libs
             }
 
             return value;
+        }
 
+        public int getTotalDeliveredQuantity(int supplierOrderID)
+        {
+            string query = "SELECT SUM(quantity) FROM delivered_items WHERE supplierOrderID = " + supplierOrderID.ToString() + " ";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve count data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
         }
 
         public static DeliveryItemsManager instance

@@ -13,17 +13,21 @@ namespace introse_project.sub_windows.Sales_Invoice
 {
     public partial class addSI_Items : Form
     {
+        #region Variables
         private static addSI_Items theInstance = new addSI_Items();
+        
         private string invoiceNumber;
         private string deliveryReceiptNumber;
         private string customerPONumber;
         private bool addType = false;
+        #endregion
 
         private addSI_Items()
         {
             InitializeComponent();
         }
 
+        #region Setters
         public void setInvoiceNumber(string invoiceNumber)
         {
             this.invoiceNumber = invoiceNumber;
@@ -43,13 +47,17 @@ namespace introse_project.sub_windows.Sales_Invoice
         {
             this.customerPONumber = customerPONumber;
         }
+        #endregion
 
+        #region Event Handlers
         private void addSI_Items_Load(object sender, EventArgs e)
         {
             DeliveryItemsManager.instance.fillComboBox(deliveryItemCBox, this.deliveryReceiptNumber);
             deliveryItemCBox.SelectedIndex = 0;
         }
+        #endregion
 
+        #region Keypress Event Handlers
         private void deliveredQtyTxtBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -57,13 +65,12 @@ namespace introse_project.sub_windows.Sales_Invoice
                 e.Handled = true;
             }
         }
+        #endregion
 
+        #region Button Click Events
         private void addSI_ItemsBtn_Click(object sender, EventArgs e)
         {
-            if (addType)
-            {
-                addSI.instance.addNewSI();
-            }
+            
 
             string customerPONumber = SupplierPOManager.instance.getCustomerPONumber(DeliveryReceiptsManager.instance.getSupplierPONumber(this.deliveryReceiptNumber));
             int itemNumber = DeliveryItemsManager.instance.getOrderedItemID(deliveryItemCBox.SelectedItem.ToString(), this.deliveryReceiptNumber);
@@ -72,8 +79,13 @@ namespace introse_project.sub_windows.Sales_Invoice
             int deliveredQuantity = Convert.ToInt32(deliveredQtyTxtBox.Text);
             double itemPrice = CustomerOrderItemsManagercs.instance.getItemPricePerUnit(customerOrderID) * deliveredQuantity;
 
-            if (!InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber))
+            if ((!InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber) && addType) || (InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber) && !addType))
             {
+                if (addType)
+                {
+                    addSI.instance.addNewSI();
+                }
+
                 InvoicesItemsManager.instance.addData(this.invoiceNumber, deliveryItemID, customerOrderID, itemNumber, itemPrice, deliveredQuantity);
             }
             else
@@ -83,6 +95,7 @@ namespace introse_project.sub_windows.Sales_Invoice
                        
             this.Close();
         }
+        #endregion
 
         public static addSI_Items instance
         {

@@ -151,6 +151,7 @@ namespace introse_project.Libs
 
         }
         */
+
         public void getOrderItems(ComboBox itemComboBox, string supplierPONumber)
         {
             itemComboBox.Items.Clear();
@@ -304,6 +305,35 @@ namespace introse_project.Libs
 
             return value;
 
+        }
+
+        public int getQuantityOrdered(int supplierOrderID)
+        {
+            string query = "SELECT quantity FROM supplier_order_items WHERE supplierOrderID = "+ supplierOrderID.ToString() +" ";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve count data");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
         }
 
         public static SupplierOrderItemsManager instance

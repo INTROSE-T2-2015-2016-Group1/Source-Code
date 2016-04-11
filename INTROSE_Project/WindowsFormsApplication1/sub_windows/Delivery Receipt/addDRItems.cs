@@ -76,24 +76,30 @@ namespace introse_project.sub_windows.Delivery_Receipt
         {
             string supplierName = SupplierPOManager.instance.getSupplierName(this.supplierPONumber);
             int itemNumber = ItemManager.instance.getItemNumber(supplierOrderedItemCBox.SelectedItem.ToString(), supplierName);
+            int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
 
             if (((!DeliveryReceiptsManager.instance.pkExists(this.deliveryReceiptNumber) && addType) || (DeliveryReceiptsManager.instance.pkExists(this.deliveryReceiptNumber) && !addType))
                 && int.TryParse(quantityReceivedTxtBox.Text, out quantityReceived))
             {
-                if (addType)
+                if (SupplierOrderItemsManager.instance.getQuantityOrdered(supplierOrderID) >= quantityReceived + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID))
                 {
-                    addDR.instance.addNewDR();
+                    if (addType)
+                    {
+                        addDR.instance.addNewDR();
+                    }
+
+                    DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
+                                                          supplierOrderID,
+                                                          quantityReceived);
+
+                    quantityReceivedTxtBox.Text = "";
+
+                    this.Close();
                 }
-
-                int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
-
-                DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
-                                                      supplierOrderID,
-                                                      quantityReceived);
-
-                quantityReceivedTxtBox.Text = "";
-
-                this.Close();
+                else
+                {
+                    MessageBox.Show("The delivered item quantity cannot be larger than the ordered item quantity", "ERROR");
+                }                  
             }
             else
             {

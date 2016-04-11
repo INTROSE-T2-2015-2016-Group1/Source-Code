@@ -203,7 +203,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No delivered items to make a invoice to", "ERROR");
+                MessageBox.Show("There are no delivered items from any delivery receipts in order to add a new invoice", "ERROR");
             }
         }
 
@@ -218,7 +218,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No invoices to view", "ERROR");
+                MessageBox.Show("There are no invoices to view", "ERROR");
             }
         }
         #endregion
@@ -238,7 +238,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No ordered items from any Supplier PO to add a Delivery Receipt to", "ERROR");
+                MessageBox.Show("There are no ordered items from any supplier PO in order to add a new delivery receipt", "ERROR");
             }
         }
 
@@ -253,7 +253,7 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("No delivery receipt to view", "ERROR");
+                MessageBox.Show("There are no delivery receipt to view", "ERROR");
             }
         }
         #endregion
