@@ -31,14 +31,14 @@ namespace introse_project.sub_windows.Item_Management
 
         private void itemAddBtn_Click(object sender, EventArgs e)
         {
-            if (!ItemManager.instance.pkExists(supplierComboBox.SelectedItem.ToString(), descTxtBox.Text) && !String.IsNullOrWhiteSpace(descTxtBox.Text))
+            if (!ItemManager.instance.pkExists(supplierComboBox.SelectedItem.ToString(), descTxtBox.Text))
             {
                 ItemManager.instance.addData(supplierComboBox.SelectedItem.ToString(), descTxtBox.Text);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Item entered already exists or you the entered item description is invalid", "ERROR");
+                MessageBox.Show("Item entered already exists", "ERROR");
             }           
         }
 

@@ -30,8 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addCPOItem));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.totalPriceLabel = new System.Windows.Forms.Label();
-            this.currencyCBox = new System.Windows.Forms.ComboBox();
+            this.totalPriceTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.itemDescCBox = new System.Windows.Forms.ComboBox();
@@ -39,6 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pricePerUnitTxtBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.currencyTxtBox = new System.Windows.Forms.TextBox();
             this.itemQtyTxtBox = new System.Windows.Forms.TextBox();
             this.addCPOItemsBtn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
@@ -46,8 +46,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.totalPriceLabel);
-            this.groupBox2.Controls.Add(this.currencyCBox);
+            this.groupBox2.Controls.Add(this.totalPriceTxtBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.itemDescCBox);
@@ -55,26 +54,17 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.pricePerUnitTxtBox);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.currencyTxtBox);
             this.groupBox2.Controls.Add(this.itemQtyTxtBox);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
-            // totalPriceLabel
+            // totalPriceTxtBox
             // 
-            resources.ApplyResources(this.totalPriceLabel, "totalPriceLabel");
-            this.totalPriceLabel.Name = "totalPriceLabel";
-            // 
-            // currencyCBox
-            // 
-            this.currencyCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.currencyCBox.FormattingEnabled = true;
-            this.currencyCBox.Items.AddRange(new object[] {
-            resources.GetString("currencyCBox.Items"),
-            resources.GetString("currencyCBox.Items1"),
-            resources.GetString("currencyCBox.Items2")});
-            resources.ApplyResources(this.currencyCBox, "currencyCBox");
-            this.currencyCBox.Name = "currencyCBox";
+            resources.ApplyResources(this.totalPriceTxtBox, "totalPriceTxtBox");
+            this.totalPriceTxtBox.Name = "totalPriceTxtBox";
+            this.totalPriceTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.totalPriceTxtBox_KeyPress);
             // 
             // label1
             // 
@@ -107,7 +97,6 @@
             // 
             resources.ApplyResources(this.pricePerUnitTxtBox, "pricePerUnitTxtBox");
             this.pricePerUnitTxtBox.Name = "pricePerUnitTxtBox";
-            this.pricePerUnitTxtBox.TextChanged += new System.EventHandler(this.pricePerUnitTxtBox_TextChanged);
             this.pricePerUnitTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pricePerUnitTxtBox_KeyPress);
             // 
             // label7
@@ -115,11 +104,15 @@
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
             // 
+            // currencyTxtBox
+            // 
+            resources.ApplyResources(this.currencyTxtBox, "currencyTxtBox");
+            this.currencyTxtBox.Name = "currencyTxtBox";
+            // 
             // itemQtyTxtBox
             // 
             resources.ApplyResources(this.itemQtyTxtBox, "itemQtyTxtBox");
             this.itemQtyTxtBox.Name = "itemQtyTxtBox";
-            this.itemQtyTxtBox.TextChanged += new System.EventHandler(this.itemQtyTxtBox_TextChanged);
             this.itemQtyTxtBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.itemQtyTxtBox_KeyPress);
             // 
             // addCPOItemsBtn
@@ -151,12 +144,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox pricePerUnitTxtBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox currencyTxtBox;
         private System.Windows.Forms.TextBox itemQtyTxtBox;
         private System.Windows.Forms.Button addCPOItemsBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox itemDescCBox;
+        private System.Windows.Forms.TextBox totalPriceTxtBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox currencyCBox;
-        private System.Windows.Forms.Label totalPriceLabel;
     }
 }

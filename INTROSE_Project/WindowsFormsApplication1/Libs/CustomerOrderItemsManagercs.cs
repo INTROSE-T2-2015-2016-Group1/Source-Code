@@ -125,94 +125,6 @@ namespace introse_project.Libs
             }
         }
 
-        public int getOrderID(string customerPONumber, string itemDescription)
-        {
-            string query = "SELECT  customerOrderID FROM customer_order_items WHERE customerPONumber = '" + customerPONumber + "' AND itemDescription = '" + itemDescription + "' ";
-            int value = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                value = Convert.ToInt32(command.ExecuteScalar().ToString());
-
-                connection.Close();
-
-                return value;
-            }
-            catch
-            {
-                MessageBox.Show("Unable to retrieve ID data");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return value;
-
-        }
-
-        public double getItemPricePerUnit(int customerOrderID)
-        {
-            string query = "SELECT pricePerUnit FROM customer_order_items WHERE customerOrderID = " + customerOrderID + "";
-            double value = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                value = double.Parse(command.ExecuteScalar().ToString());
-
-                connection.Close();
-
-                return value;
-            }
-            catch
-            {
-                MessageBox.Show("Unable to retrieve ID data");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return value;
-
-        }
-
-        public void updateFinished(int customerOrderID)
-        {
-            string query = "UPDATE customer_order_items SET isFinished = CASE " +
-                           "WHEN quantity = " + InvoicesItemsManager.instance.getTotalApprovedQuantity(customerOrderID).ToString() + " " +
-                                "THEN true " +
-                           "ELSE false " +
-                           "END " +
-                           "WHERE customerOrderID = " + customerOrderID.ToString() + "";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\nUnable to add inspection results", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
         public int getCount()
         {
             string query = "SELECT  COUNT(*) FROM customer_order_items";
@@ -278,7 +190,7 @@ namespace introse_project.Libs
             itemComboBox.Items.Clear();
 
             string query = "SELECT A.itemDescription FROM customer_order_items A, items B " +
-                           "WHERE A.customerPONumber = '"+ customerPONumber +"' AND B.supplierName = '"+ supplierName +"' AND A.itemDescription = B.description AND A.isFinished = false";
+                           "WHERE A.customerPONumber = '"+ customerPONumber +"' AND B.supplierName = '"+ supplierName +"' AND A.itemDescription = B.description";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -304,39 +216,6 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
-        }
-
-        public bool isItemExists(string itemDescription, string customerPONumber)
-        {
-            string query = "SELECT  COUNT(itemDescription) FROM customer_order_items A WHERE A.itemDescription = '"+ itemDescription +"' AND A.customerPONumber = '" + customerPONumber + "'";
-            int count = 0;
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                count = Convert.ToInt32(command.ExecuteScalar().ToString());
-
-                connection.Close();
-
-                if (count > 0)
-                {
-                    return true;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return false;
-
         }
 
         public static CustomerOrderItemsManagercs instance

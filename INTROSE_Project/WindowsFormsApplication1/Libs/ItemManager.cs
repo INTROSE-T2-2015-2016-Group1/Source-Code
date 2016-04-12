@@ -115,36 +115,6 @@ namespace introse_project.Libs
 
         }
 
-        public string getDescription(int itemNumber)
-        {
-            string query = "SELECT  description FROM items WHERE itemNumber = " + itemNumber + "";
-            string value = "";
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                value = command.ExecuteScalar().ToString();
-
-                connection.Close();
-
-                return value;
-            }
-            catch
-            {
-                MessageBox.Show("Unable to description data", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return value;
-
-        }
-
         public int getCount()
         {
             string query = "SELECT  COUNT(*) FROM items";
@@ -199,7 +169,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Enable to read items database", "ERROR");
+                MessageBox.Show("Unable to read items database", "ERROR");
             }
             finally
             {
@@ -239,11 +209,10 @@ namespace introse_project.Libs
             }
         }
 
-        public int getItemNumber(string description, string supplierName)
+        public int getItemNumber(String description, String supplierName)
         {
             string query = "SELECT  itemNumber FROM items A " +
-                           "WHERE A.description = '" + description + "' " +
-                           "AND A.supplierName = '" + supplierName + "' ";
+                           "WHERE A.description = '"+ description +"' AND A.supplierName = '"+ supplierName +"' ";
 
             int value = 0;
 
@@ -260,9 +229,9 @@ namespace introse_project.Libs
 
                 return value;
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message + "\nData passed was invalid", "ERROR");
+                MessageBox.Show("Data passed was invalid", "ERROR");
             }
             finally
             {

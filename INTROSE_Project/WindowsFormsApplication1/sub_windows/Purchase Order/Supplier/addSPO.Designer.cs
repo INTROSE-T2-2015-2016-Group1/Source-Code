@@ -31,8 +31,6 @@
             this.addSPOBtn = new System.Windows.Forms.Button();
             this.dateExpectedCBox = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.supplierNameCBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.sPONumberTxtBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -40,6 +38,8 @@
             this.dateIssuedCBox = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.supplierNameCBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,24 +78,6 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Supplier Information";
-            // 
-            // supplierNameCBox
-            // 
-            this.supplierNameCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.supplierNameCBox.FormattingEnabled = true;
-            this.supplierNameCBox.Location = new System.Drawing.Point(6, 155);
-            this.supplierNameCBox.Name = "supplierNameCBox";
-            this.supplierNameCBox.Size = new System.Drawing.Size(260, 21);
-            this.supplierNameCBox.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Supplier Name";
             // 
             // label4
             // 
@@ -157,6 +139,24 @@
             this.label3.Size = new System.Drawing.Size(119, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Expected Delivery Date\r\n";
+            // 
+            // supplierNameCBox
+            // 
+            this.supplierNameCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.supplierNameCBox.FormattingEnabled = true;
+            this.supplierNameCBox.Location = new System.Drawing.Point(6, 155);
+            this.supplierNameCBox.Name = "supplierNameCBox";
+            this.supplierNameCBox.Size = new System.Drawing.Size(260, 21);
+            this.supplierNameCBox.TabIndex = 24;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(2, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Supplier Name";
             // 
             // addSPO
             // 
