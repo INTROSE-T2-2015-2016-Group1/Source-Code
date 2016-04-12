@@ -109,7 +109,7 @@ namespace introse_project.Libs
 
             Console.WriteLine(query);
 
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["jutsdb2"].ConnectionString);
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
             try
