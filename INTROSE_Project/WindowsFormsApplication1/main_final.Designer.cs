@@ -54,10 +54,14 @@
             this.sPOUpdateBtn = new System.Windows.Forms.Button();
             this.sPOAddBtn = new System.Windows.Forms.Button();
             this.siTab = new System.Windows.Forms.TabPage();
+            this.customerInspectionResultsBtn = new System.Windows.Forms.Button();
+            this.viewSI_ItemsBtn = new System.Windows.Forms.Button();
             this.siGridView = new System.Windows.Forms.DataGridView();
             this.siUpdateBtn = new System.Windows.Forms.Button();
             this.siAddBtn = new System.Windows.Forms.Button();
             this.drTab = new System.Windows.Forms.TabPage();
+            this.viewDRItemsBtn = new System.Windows.Forms.Button();
+            this.godoInspectionResultsBtn = new System.Windows.Forms.Button();
             this.drGridView = new System.Windows.Forms.DataGridView();
             this.drUpdate = new System.Windows.Forms.Button();
             this.drAddBtn = new System.Windows.Forms.Button();
@@ -72,10 +76,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.searchGridView = new System.Windows.Forms.DataGridView();
-            this.viewSI_ItemsBtn = new System.Windows.Forms.Button();
-            this.customerInspectionResultsBtn = new System.Windows.Forms.Button();
-            this.godoInspectionResultsBtn = new System.Windows.Forms.Button();
-            this.viewDRItemsBtn = new System.Windows.Forms.Button();
             this.mainTab.SuspendLayout();
             this.imTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imGridView)).BeginInit();
@@ -404,6 +404,24 @@
             this.siTab.Text = "Sales Invoice";
             this.siTab.UseVisualStyleBackColor = true;
             // 
+            // customerInspectionResultsBtn
+            // 
+            this.customerInspectionResultsBtn.Location = new System.Drawing.Point(380, 378);
+            this.customerInspectionResultsBtn.Name = "customerInspectionResultsBtn";
+            this.customerInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
+            this.customerInspectionResultsBtn.TabIndex = 22;
+            this.customerInspectionResultsBtn.Text = "Customer Inspection Results";
+            this.customerInspectionResultsBtn.UseVisualStyleBackColor = true;
+            // 
+            // viewSI_ItemsBtn
+            // 
+            this.viewSI_ItemsBtn.Location = new System.Drawing.Point(250, 378);
+            this.viewSI_ItemsBtn.Name = "viewSI_ItemsBtn";
+            this.viewSI_ItemsBtn.Size = new System.Drawing.Size(124, 23);
+            this.viewSI_ItemsBtn.TabIndex = 21;
+            this.viewSI_ItemsBtn.Text = "View Delivered Items";
+            this.viewSI_ItemsBtn.UseVisualStyleBackColor = true;
+            // 
             // siGridView
             // 
             this.siGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -452,6 +470,24 @@
             this.drTab.TabIndex = 8;
             this.drTab.Text = "Delivery Receipt";
             this.drTab.UseVisualStyleBackColor = true;
+            // 
+            // viewDRItemsBtn
+            // 
+            this.viewDRItemsBtn.Location = new System.Drawing.Point(283, 378);
+            this.viewDRItemsBtn.Name = "viewDRItemsBtn";
+            this.viewDRItemsBtn.Size = new System.Drawing.Size(124, 23);
+            this.viewDRItemsBtn.TabIndex = 27;
+            this.viewDRItemsBtn.Text = "View Delivered Items";
+            this.viewDRItemsBtn.UseVisualStyleBackColor = true;
+            // 
+            // godoInspectionResultsBtn
+            // 
+            this.godoInspectionResultsBtn.Location = new System.Drawing.Point(413, 378);
+            this.godoInspectionResultsBtn.Name = "godoInspectionResultsBtn";
+            this.godoInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
+            this.godoInspectionResultsBtn.TabIndex = 26;
+            this.godoInspectionResultsBtn.Text = "GODO Inspection Results";
+            this.godoInspectionResultsBtn.UseVisualStyleBackColor = true;
             // 
             // drGridView
             // 
@@ -567,6 +603,20 @@
             // 
             this.formTypeCBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.formTypeCBox.FormattingEnabled = true;
+            this.formTypeCBox.Items.AddRange(new object[] {
+            "items",
+            "customer",
+            "customer purchase order",
+            "customer order items",
+            "supplier",
+            "supplier purchase order",
+            "supplier order items",
+            "delivery receipts",
+            "delivery items",
+            "godo inspection results",
+            "invoices",
+            "invoice items",
+            "customer inspection results"});
             this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
@@ -603,42 +653,6 @@
             this.searchGridView.ReadOnly = true;
             this.searchGridView.Size = new System.Drawing.Size(609, 404);
             this.searchGridView.TabIndex = 0;
-            // 
-            // viewSI_ItemsBtn
-            // 
-            this.viewSI_ItemsBtn.Location = new System.Drawing.Point(250, 378);
-            this.viewSI_ItemsBtn.Name = "viewSI_ItemsBtn";
-            this.viewSI_ItemsBtn.Size = new System.Drawing.Size(124, 23);
-            this.viewSI_ItemsBtn.TabIndex = 21;
-            this.viewSI_ItemsBtn.Text = "View Delivered Items";
-            this.viewSI_ItemsBtn.UseVisualStyleBackColor = true;
-            // 
-            // customerInspectionResultsBtn
-            // 
-            this.customerInspectionResultsBtn.Location = new System.Drawing.Point(380, 378);
-            this.customerInspectionResultsBtn.Name = "customerInspectionResultsBtn";
-            this.customerInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
-            this.customerInspectionResultsBtn.TabIndex = 22;
-            this.customerInspectionResultsBtn.Text = "Customer Inspection Results";
-            this.customerInspectionResultsBtn.UseVisualStyleBackColor = true;
-            // 
-            // godoInspectionResultsBtn
-            // 
-            this.godoInspectionResultsBtn.Location = new System.Drawing.Point(413, 378);
-            this.godoInspectionResultsBtn.Name = "godoInspectionResultsBtn";
-            this.godoInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
-            this.godoInspectionResultsBtn.TabIndex = 26;
-            this.godoInspectionResultsBtn.Text = "GODO Inspection Results";
-            this.godoInspectionResultsBtn.UseVisualStyleBackColor = true;
-            // 
-            // viewDRItemsBtn
-            // 
-            this.viewDRItemsBtn.Location = new System.Drawing.Point(283, 378);
-            this.viewDRItemsBtn.Name = "viewDRItemsBtn";
-            this.viewDRItemsBtn.Size = new System.Drawing.Size(124, 23);
-            this.viewDRItemsBtn.TabIndex = 27;
-            this.viewDRItemsBtn.Text = "View Delivered Items";
-            this.viewDRItemsBtn.UseVisualStyleBackColor = true;
             // 
             // main
             // 
