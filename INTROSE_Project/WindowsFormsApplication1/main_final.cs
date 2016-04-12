@@ -195,9 +195,7 @@ namespace introse_project
         #region Search
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            string capturedKeyword = keywordTxtBox.Text;
-            string capturedFormType = formTypeCBox.Text;
-            SearchManager.instance.searchForm(searchGridView, capturedFormType, capturedKeyword);
+
         }
 
         private void editBtn_Click(object sender, EventArgs e)
