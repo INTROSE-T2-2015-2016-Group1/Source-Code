@@ -42,8 +42,8 @@ namespace introse_project
                 case "Supplier List":           SupplierManager.instance.viewAll(slGridView);           break;
                 case "Customer Purchase Order": CustomerPOManager.instance.viewAll(cPOGridView);        break;
                 case "Supplier Purchase Order": SupplierPOManager.instance.viewAll(sPOGridView);        break;
-                case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
-                case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
+                //case "Sales Invoice":           InvoicesManager.instance.viewAll(siGridView);           break;
+                //case "Delivery Receipt":        DeliveryReceiptsManager.instance.viewAll(drGridView);   break;
             }
         }
         #endregion
@@ -63,52 +63,40 @@ namespace introse_project
             }
             else
             {
-                MessageBox.Show("There are no supplier's in the supplier list in order create a new item", "ERROR"); 
-            }                      
+                MessageBox.Show("No supplier's available for input", "ERROR"); 
+            }
+                          
         }
         #endregion
 
         #region Company List
         private void clAddBtn_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(clTxtBox.Text))
+            if (!CustomerManager.instance.pkExists(clTxtBox.Text))
             {
-                if (!CustomerManager.instance.pkExists(clTxtBox.Text))
-                {
-                    CustomerManager.instance.addData(clTxtBox.Text);
-                    CustomerManager.instance.viewAll(clGridView);
-                }
-                else
-                {
-                    MessageBox.Show("Entered company already exists", "ERROR");
-                }
+                CustomerManager.instance.addData(clTxtBox.Text);
+                CustomerManager.instance.viewAll(clGridView);
             }
             else
             {
-                MessageBox.Show("You have not entered a company to be added", "ERROR");
-            }           
+                MessageBox.Show("Entered company already exists!", "ERROR");
+            }
+            
         }
         #endregion
 
         #region Supplier List
         private void slAddBtn_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(slTxtBox.Text))
+            if (!SupplierManager.instance.pkExists(clTxtBox.Text))
             {
-                if (!SupplierManager.instance.pkExists(slTxtBox.Text))
-                {
-                    SupplierManager.instance.addData(slTxtBox.Text);
-                    SupplierManager.instance.viewAll(slGridView);
-                }
-                else
-                {
-                    MessageBox.Show("Entered company already exists", "ERROR");
-                }
+                SupplierManager.instance.addData(slTxtBox.Text);
+                SupplierManager.instance.viewAll(slGridView);
             }
             else
             {
-                MessageBox.Show("You have not entered a supplier to be added", "ERROR");
-            }               
+                MessageBox.Show("Entered company already exists!", "ERROR");
+            }
         }
         #endregion
 
@@ -120,21 +108,14 @@ namespace introse_project
 
         private void cPOAddBtn_Click(object sender, EventArgs e)
         {
-            if (ItemManager.instance.getCount() > 0)
+            if (CustomerManager.instance.getCount() > 0)
             {
-                if (CustomerManager.instance.getCount() > 0)
-                {
-                    addCPO.instance.ShowDialog();
-                    CustomerPOManager.instance.viewAll(cPOGridView);
-                }
-                else
-                {
-                    MessageBox.Show("There are no customers in the customer list in order to add a new customer PO", "ERROR");
-                }
+                addCPO.instance.ShowDialog();
+                CustomerPOManager.instance.viewAll(cPOGridView);    
             }
             else
             {
-                MessageBox.Show("There are no items in the items list in order to add new customer purchase order", "ERROR");
+                MessageBox.Show("No customers to add a purchase order to", "ERROR");
             }
         }
 
@@ -164,11 +145,10 @@ namespace introse_project
             if (CustomerOrderItemsManagercs.instance.getCount() > 0)
             {
                 addSPO.instance.ShowDialog();
-                SupplierPOManager.instance.viewAll(sPOGridView);
             }
             else
             {
-                MessageBox.Show("There are no ordered items from any customer PO in order to add a new supplier PO", "ERROR");
+                MessageBox.Show("No ordered items from any Customer PO could be added", "ERROR");
             }           
         }
 
@@ -176,14 +156,14 @@ namespace introse_project
         {
             if (SupplierPOManager.instance.getCount() > 0)
             {
-                viewSPOItems.instance.setPONumber(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString(), sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                viewSPOItems.instance.setPONumber(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
                 viewSPOItems.instance.setSupplierName(sPOGridView.Rows[sPOGridView.CurrentCell.RowIndex].Cells[2].Value.ToString());
                 viewSPOItems.instance.ShowDialog();
                 SupplierPOManager.instance.viewAll(sPOGridView);
             }
             else
             {
-                MessageBox.Show("There are no supplier purchase order's to view", "ERROR");
+                MessageBox.Show("No supplier purchase order to view", "ERROR");
             }
         }
         #endregion
@@ -196,30 +176,7 @@ namespace introse_project
 
         private void siAddBtn_Click(object sender, EventArgs e)
         {
-            if (DeliveryReceiptsManager.instance.getCount() > 0)
-            {
-                addSI.instance.ShowDialog();
-                InvoicesManager.instance.viewAll(siGridView);
-            }
-            else
-            {
-                MessageBox.Show("There are no delivered items from any delivery receipts in order to add a new invoice", "ERROR");
-            }
-        }
 
-        private void viewSI_ItemsBtn_Click(object sender, EventArgs e)
-        {
-            if (InvoicesManager.instance.getCount() > 0)
-            {
-                viewSI_Items.instance.setInvoiceNumber(siGridView.Rows[siGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
-                viewSI_Items.instance.setDeliveryReceiptNumber(siGridView.Rows[siGridView.CurrentCell.RowIndex].Cells[1].Value.ToString());
-                viewSI_Items.instance.ShowDialog();
-                InvoicesManager.instance.viewAll(siGridView);
-            }
-            else
-            {
-                MessageBox.Show("There are no invoices to view", "ERROR");
-            }
         }
         #endregion
 
@@ -231,30 +188,7 @@ namespace introse_project
 
         private void drAddBtn_Click(object sender, EventArgs e)
         {
-            if (SupplierOrderItemsManager.instance.getCount() > 0)
-            {
-                addDR.instance.ShowDialog();
-                DeliveryReceiptsManager.instance.viewAll(drGridView);
-            }
-            else
-            {
-                MessageBox.Show("There are no ordered items from any supplier PO in order to add a new delivery receipt", "ERROR");
-            }
-        }
 
-        private void viewDRItemsBtn_Click(object sender, EventArgs e)
-        {
-            if (DeliveryReceiptsManager.instance.getCount() > 0)
-            {
-                viewDRItems.instance.setDeliveryReceiptNumber(drGridView.Rows[drGridView.CurrentCell.RowIndex].Cells[0].Value.ToString());
-                viewDRItems.instance.setSupplierPONumber(drGridView.Rows[drGridView.CurrentCell.RowIndex].Cells[1].Value.ToString());
-                viewDRItems.instance.ShowDialog();
-                DeliveryReceiptsManager.instance.viewAll(drGridView);
-            }
-            else
-            {
-                MessageBox.Show("There are no delivery receipt to view", "ERROR");
-            }
         }
         #endregion
 
@@ -268,7 +202,8 @@ namespace introse_project
         {
 
         }
-        #endregion           
+        #endregion     
+
 
     }
 }

@@ -58,13 +58,15 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
+
+
         }
 
-        public string getSupplierName(string supplierPONumber)
+        public string test(string customerPONumber)
         {
-            string query = "SELECT supplierName FROM supplier_po A WHERE A.supplierPONumber = '" + supplierPONumber + "' ";
+            string query = "SELECT COUNT(*) FROM customer_po A WHERE A.customerPONumber = '" + customerPONumber + "' ";
 
-            string value = "";
+            int value = 0;
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -73,114 +75,22 @@ namespace introse_project.Libs
             {
                 connection.Open();
 
-                value = command.ExecuteScalar().ToString();
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
 
                 connection.Close();
 
-                return value;
+                return value.ToString();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "ERROR");
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 connection.Close();
             }
 
-            return value;
-        }
-
-        public string getCustomerPONumber(string supplierPONumber)
-        {
-            string query = "SELECT customerPONumber FROM supplier_po A WHERE A.supplierPONumber = '" + supplierPONumber + "' ";
-
-            string value = "";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                value = command.ExecuteScalar().ToString();
-
-                connection.Close();
-
-                return value;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return value;
-        }
-
-        /*
-        public void updateFinished(string supplierPONumber)
-        {
-            string query = "UPDATE supplier_po SET isFinished = CASE " +
-                           "WHEN quantity = " + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID).ToString() + " " +
-                                "THEN true " +
-                           "ELSE false " +
-                           "END " +
-                           "WHERE supplierOrderID = " + supplierOrderID.ToString() + "";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + "\nUnable to add inspection results", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }*/
-
-        public void fillComboBox(ComboBox supplierComboBox)
-        {
-            supplierComboBox.Items.Clear();
-
-            string query = "SELECT supplierPONumber FROM supplier_po WHERE isFinished = false";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataReader reader;
-
-            try
-            {
-                connection.Open();
-
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                    supplierComboBox.Items.Add(reader.GetString("supplierPONumber"));
-
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Unable to read supplier database", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
+            return value.ToString();
         }
 
         public void addData(string supplierPONumber, string customerPONumber, string supplierName, string dateIssued, string expectedDeliveryDate)
@@ -212,6 +122,7 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
+
         }
 
         public int getCount()
@@ -241,6 +152,7 @@ namespace introse_project.Libs
             }
 
             return value;
+
         }
 
         public bool pkExists(string sPONumber)
@@ -273,62 +185,7 @@ namespace introse_project.Libs
             }
 
             return false;
-        }
 
-        public void setPONotFinished(string sPONumber)
-        {
-            string query = "UPDATE supplier_po SET isFinished = false WHERE supplierPONumber = '" + sPONumber + "'";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                command.ExecuteNonQuery();
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Unable to update data due to connection errors", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-        }
-
-        public string getDateIssued(string sPONumber)
-        {
-            string query = "SELECT  dateIssued FROM supplier_po A WHERE A.supplierPONumber = '" + sPONumber + "'", 
-                   date = "";
-            
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                date = command.ExecuteScalar().ToString();
-
-                connection.Close();
-
-                return date;
-            }
-            catch
-            {
-                MessageBox.Show("Unable to retrieve data due to connection problems", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return date;
         }
 
         public static SupplierPOManager instance

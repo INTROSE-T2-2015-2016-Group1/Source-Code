@@ -1,0 +1,3 @@
+select customer_inspection_results.*
+from customer_order_items, customer_inspection_results
+where customer_order_items.customerOrderNumber = customer_inspection_results.customerOrderNumber;

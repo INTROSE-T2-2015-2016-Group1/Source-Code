@@ -68,6 +68,7 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
 
                 connection.Close();
+                MessageBox.Show("Supplier Added");
             }
             catch
             {
@@ -81,7 +82,7 @@ namespace introse_project.Libs
 
         public bool pkExists(string supplierName)
         {
-            string query = "SELECT  COUNT(supplierName) FROM suppliers A WHERE A.supplierName = '" + supplierName + "'";
+            string query = "SELECT  COUNT(supplierName) FROM customers A WHERE A.supplierName = '" + supplierName + "'";
             int count = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
