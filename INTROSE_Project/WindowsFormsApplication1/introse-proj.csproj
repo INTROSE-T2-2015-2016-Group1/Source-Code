@@ -55,6 +55,7 @@
     <Compile Include="Libs\DeliveryReceiptsManager.cs" />
     <Compile Include="Libs\InvoicesManager.cs" />
     <Compile Include="Libs\ItemManager.cs" />
+    <Compile Include="Libs\SearchManager.cs" />
     <Compile Include="Libs\SupplierManager.cs" />
     <Compile Include="Libs\SupplierOrderItemsManager.cs" />
     <Compile Include="Libs\SupplierPOManager.cs" />
