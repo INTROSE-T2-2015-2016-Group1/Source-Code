@@ -8,21 +8,27 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Data;
 
+
 namespace introse_project.Libs
 {
-    class ItemManager
+    class InvoicesItemsManager
     {
-        private static ItemManager theInstance = new ItemManager();
+        private static InvoicesItemsManager theInstance = new InvoicesItemsManager();
 
-        private ItemManager() {}
+        private InvoicesItemsManager() { }
 
-        public void viewAll(DataGridView dataGridView)      //Displays all the items listed and their respective manufacturer (suppliers)
+        public void viewAll(String invoiceNumber, DataGridView dataGridView)      //Displays all delivery receipts, the DR's related supplier PO and the delivered items
         {
-            string query = "SELECT  itemNumber      AS 'Item Number'," +
-                                    "supplierName   AS 'Supplier Name'," +
-                                    "description    AS 'Description' " +
-                                    "FROM items " +
-                                    "ORDER BY itemNumber ASC;";
+            string query = "SELECT A.invoiceItemID AS 'Invoice Item ID'," +
+                                  "A.customerOrderID AS 'Customer Order ID'," +    
+                                  "A.invoiceNumber AS 'Invoice Number'," +                  
+                                  "B.description AS 'Item Description'," +
+                                  "A.deliveredQuantity AS 'Delivered Quantity'," +
+                                  "A.itemPrice AS 'Item Price' " +
+                           "FROM invoice_items A, items B " +
+                           "WHERE A.invoiceNumber = '" + invoiceNumber + "' " +
+                           "AND A.itemNumber = B.itemNumber ";
+
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -44,47 +50,23 @@ namespace introse_project.Libs
 
                 connection.Close();
 
+                dataGridView.Columns["Invoice Item ID"].Visible = false;
+                dataGridView.Columns["Customer Order ID"].Visible = false;
             }
             catch
             {
-                MessageBox.Show("Error: Unable to show table due to connection problems", "ERROR");
+                MessageBox.Show("Error: Unable to show table due to connection problems");
             }
             finally
             {
                 connection.Close();
             }
+
         }
 
-        public void addData(string supplierName, string description)
+        public bool isItemExists(int itemNumber, string invoiceNumber)
         {
-            string query = "INSERT INTO items (supplierName, description) values (@supplierName, @description)";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                command.Parameters.AddWithValue("@supplierName", supplierName);
-                command.Parameters.AddWithValue("@description", description);
-                command.ExecuteNonQuery();
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Unable to add item", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        public bool pkExists(string supplierName, string description)
-        {
-            string query = "SELECT  COUNT(*) FROM items A WHERE A.supplierName = '" + supplierName + "' AND A.description = '"+ description +"'";
+            string query = "SELECT  COUNT(itemNumber) FROM invoice_items A WHERE A.itemNumber = " + itemNumber + " AND A.invoiceNumber = '" + invoiceNumber + "'";
             int count = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -115,10 +97,10 @@ namespace introse_project.Libs
 
         }
 
-        public string getDescription(int itemNumber)
+        public void addData(string invoiceNumber, int deliveryItemID, int customerOrderID, int itemNumber, double itemPrice, int deliveredQuantity)
         {
-            string query = "SELECT  description FROM items WHERE itemNumber = " + itemNumber + "";
-            string value = "";
+            string query = "INSERT INTO invoice_items (invoiceNumber, deliveryItemID, customerOrderID, itemNumber, itemPrice, deliveredQuantity, approvedQuantity, rejectedQuantity) values (@invoiceNumber, @deliveryItemID, @customerOrderID, @itemNumber, @itemPrice, @deliveredQuantity, @approvedQuantity, @rejectedQuantity)";
+
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -126,28 +108,32 @@ namespace introse_project.Libs
             {
                 connection.Open();
 
-                value = command.ExecuteScalar().ToString();
+                command.Parameters.AddWithValue("@invoiceNumber", invoiceNumber);
+                command.Parameters.AddWithValue("@deliveryItemID", deliveryItemID);
+                command.Parameters.AddWithValue("@customerOrderID", customerOrderID);
+                command.Parameters.AddWithValue("@itemNumber", itemNumber);
+                command.Parameters.AddWithValue("@itemPrice", itemPrice);
+                command.Parameters.AddWithValue("@deliveredQuantity", deliveredQuantity);
+                command.Parameters.AddWithValue("@approvedQuantity", 0);
+                command.Parameters.AddWithValue("@rejectedQuantity", 0);
+                command.ExecuteNonQuery();
 
                 connection.Close();
-
-                return value;
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Unable to description data", "ERROR");
+                MessageBox.Show(ex.Message + "\nUnable to add item", "ERROR");
             }
             finally
             {
                 connection.Close();
             }
-
-            return value;
-
         }
 
-        public int getCount()
+        #region Customer Result Functions
+        public int getApprovedQuantity(int invoiceItemID)
         {
-            string query = "SELECT  COUNT(*) FROM items";
+            string query = "SELECT approvedQuantity FROM invoice_items WHERE invoiceItemID = " + invoiceItemID.ToString() + "";
             int value = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -175,78 +161,10 @@ namespace introse_project.Libs
 
         }
 
-        public void fillComboBox(ComboBox itemComboBox)     //fills up the combo box with values within the database
+        public int getRejectedQuantity(int invoiceItemID)
         {
-            itemComboBox.Items.Clear();
-
-            string query = "SELECT DISTINCT(description) FROM items";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataReader reader;
-
-            try
-            {
-                connection.Open();
-
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                    itemComboBox.Items.Add(reader.GetString("description"));
-
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Enable to read items database", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        public void fillRelatedSuppliers(ComboBox supplierComboBox, String description)     //fills up the combo box with the suppliers that match the description
-        {
-            supplierComboBox.Items.Clear();
-
-            string query = "SELECT * FROM items A WHERE A.description = '"+ description +"'";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataReader reader;
-
-            try
-            {
-                connection.Open();
-
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                    supplierComboBox.Items.Add(reader.GetString("supplierName"));
-
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Unable to read items database", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        public int getItemNumber(string description, string supplierName)
-        {
-            string query = "SELECT  itemNumber FROM items A " +
-                           "WHERE A.description = '" + description + "' " +
-                           "AND A.supplierName = '" + supplierName + "' ";
-
+            string query = "SELECT rejectedQuantity FROM invoice_items WHERE invoiceItemID = " + invoiceItemID.ToString() + "";
             int value = 0;
-
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -260,9 +178,9 @@ namespace introse_project.Libs
 
                 return value;
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message + "\nData passed was invalid", "ERROR");
+                MessageBox.Show("Unable to get count data", "ERROR");
             }
             finally
             {
@@ -270,14 +188,75 @@ namespace introse_project.Libs
             }
 
             return value;
+
         }
 
-        public static ItemManager instance
+        public void updateData(int invoiceItemID, int approvedQuantity, int rejectedQuantity)
+        {
+            string query = "UPDATE invoice_items SET approvedQuantity = @approvedQuantity, rejectedQuantity = @rejectedQuantity WHERE invoiceItemID = " + invoiceItemID.ToString() + "";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@approvedQuantity", approvedQuantity);
+                command.Parameters.AddWithValue("@rejectedQuantity", rejectedQuantity);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+                MessageBox.Show("Inspection Resut updated!");
+            }
+            catch
+            {
+                MessageBox.Show("Unable to add inspection results", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        public int getTotalApprovedQuantity(int invoiceItemID)
+        {
+            string query = "SELECT SUM(approvedQuantity) FROM invoice_items A " +
+                           "WHERE A.invoiceItemID = " + invoiceItemID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nUnable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+
+        }
+        #endregion
+
+        public static InvoicesItemsManager instance
         {
             get { return theInstance; }
         }
 
     }
-
 }
-

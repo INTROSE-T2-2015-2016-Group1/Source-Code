@@ -31,6 +31,7 @@
             this.addDRItemsBtn = new System.Windows.Forms.Button();
             this.updateDRItemsBtn = new System.Windows.Forms.Button();
             this.DR_ItemsGridView = new System.Windows.Forms.DataGridView();
+            this.godoInspectionResultsBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DR_ItemsGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.addDRItemsBtn.TabIndex = 26;
             this.addDRItemsBtn.Text = "Add Item";
             this.addDRItemsBtn.UseVisualStyleBackColor = true;
+            this.addDRItemsBtn.Click += new System.EventHandler(this.addDRItemsBtn_Click);
             // 
             // updateDRItemsBtn
             // 
@@ -56,6 +58,8 @@
             // 
             // DR_ItemsGridView
             // 
+            this.DR_ItemsGridView.AllowUserToAddRows = false;
+            this.DR_ItemsGridView.AllowUserToDeleteRows = false;
             this.DR_ItemsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -66,17 +70,29 @@
             this.DR_ItemsGridView.Size = new System.Drawing.Size(718, 301);
             this.DR_ItemsGridView.TabIndex = 24;
             // 
+            // godoInspectionResultsBtn
+            // 
+            this.godoInspectionResultsBtn.Location = new System.Drawing.Point(188, 317);
+            this.godoInspectionResultsBtn.Name = "godoInspectionResultsBtn";
+            this.godoInspectionResultsBtn.Size = new System.Drawing.Size(163, 23);
+            this.godoInspectionResultsBtn.TabIndex = 27;
+            this.godoInspectionResultsBtn.Text = "GODO Inspection Results";
+            this.godoInspectionResultsBtn.UseVisualStyleBackColor = true;
+            this.godoInspectionResultsBtn.Click += new System.EventHandler(this.godoInspectionResultsBtn_Click);
+            // 
             // viewDRItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(742, 352);
+            this.Controls.Add(this.godoInspectionResultsBtn);
             this.Controls.Add(this.addDRItemsBtn);
             this.Controls.Add(this.updateDRItemsBtn);
             this.Controls.Add(this.DR_ItemsGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "viewDRItems";
             this.Text = "View Items";
+            this.Load += new System.EventHandler(this.viewDRItems_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DR_ItemsGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -87,5 +103,6 @@
         private System.Windows.Forms.Button addDRItemsBtn;
         private System.Windows.Forms.Button updateDRItemsBtn;
         private System.Windows.Forms.DataGridView DR_ItemsGridView;
+        private System.Windows.Forms.Button godoInspectionResultsBtn;
     }
 }

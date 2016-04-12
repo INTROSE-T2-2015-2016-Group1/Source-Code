@@ -1,2 +1,0 @@
-03/23/2016
--Removed itemNumber {FK} in CustomerOrderItems table and changed it to itemDescription varchar(40)

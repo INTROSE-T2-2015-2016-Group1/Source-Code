@@ -13,25 +13,32 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
 {
     public partial class viewCPOItems : Form
     {
+        #region Variables
         private static viewCPOItems theInstance = new viewCPOItems();
 
-        private string customerPONumber;    
+        private string customerPONumber; //current CPO being viewed
+        #endregion
 
         private viewCPOItems()
         {
             InitializeComponent();         
         }
 
+        #region Event Handlers
         private void viewCPOItems_Load(object sender, EventArgs e)
         {
             CustomerOrderItemsManagercs.instance.viewAll(customerPONumber, cpoItemsGridView);
         }
+        #endregion
 
+        #region setters
         public void setPONUmber(string customerPONumber)
         {
             this.customerPONumber = customerPONumber;
         }
+        #endregion
 
+        #region Button Click Events
         private void addCPOItemsBtn_Click(object sender, EventArgs e)
         {
             if(ItemManager.instance.getCount() > 0)
@@ -46,6 +53,7 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
                 MessageBox.Show("No items in item list to add to purchase order", "ERROR");
             }        
         }
+        #endregion
 
         public static viewCPOItems instance
         {
