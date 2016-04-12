@@ -159,7 +159,7 @@ namespace introse_project.Libs
         {
             itemComboBox.Items.Clear();
 
-            string query = "SELECT customerPONumber FROM customer_po WHERE isFinished = false";
+            string query = "SELECT customerPONumber FROM customer_po";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -185,31 +185,6 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
-        }
-
-        public void setPONotFinished(string customerPONumber)
-        {
-            string query = "UPDATE customer_po SET isFinished = false WHERE customerPONumber = '" + customerPONumber + "'";
-
-            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
-            MySqlCommand command = new MySqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-
-                command.ExecuteNonQuery();
-
-                connection.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Unable to update data due to connection errors", "ERROR");
-            }
-            finally
-            {
-                connection.Close();
-            }        
         }
 
         public static CustomerPOManager instance

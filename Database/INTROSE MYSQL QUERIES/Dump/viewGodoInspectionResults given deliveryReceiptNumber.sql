@@ -1,0 +1,3 @@
+select godo_inspection_results.*
+from delivery_receipts,  godo_inspection_results
+where delivery_receipts.deliveryReceiptNumber = godo_inspection_results.deliveryReceiptNumber;
