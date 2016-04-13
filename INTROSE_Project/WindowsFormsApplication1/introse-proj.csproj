@@ -49,12 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Libs\CustomerInspectionManager.cs" />
     <Compile Include="Libs\CustomerOrderItemsManagercs.cs" />
     <Compile Include="Libs\CustomerPOManager.cs" />
     <Compile Include="Libs\CustomerManager.cs" />
+    <Compile Include="Libs\DeliveryItemsManager.cs" />
     <Compile Include="Libs\DeliveryReceiptsManager.cs" />
+    <Compile Include="Libs\InvoicesItemsManager.cs" />
     <Compile Include="Libs\InvoicesManager.cs" />
     <Compile Include="Libs\ItemManager.cs" />
+    <Compile Include="Libs\SearchManager.cs" />
     <Compile Include="Libs\SupplierManager.cs" />
     <Compile Include="Libs\SupplierOrderItemsManager.cs" />
     <Compile Include="Libs\SupplierPOManager.cs" />
@@ -210,8 +214,6 @@
     <Compile Include="sub_windows\Sales Invoice\updateSI.Designer.cs">
       <DependentUpon>updateSI.cs</DependentUpon>
     </Compile>
-    <Compile Include="updateSCPO.cs" />
-    <Compile Include="updateSPO.cs" />
     <EmbeddedResource Include="main_final.resx">
       <DependentUpon>main_final.cs</DependentUpon>
     </EmbeddedResource>
