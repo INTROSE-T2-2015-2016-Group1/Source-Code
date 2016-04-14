@@ -150,7 +150,7 @@ namespace introse_project.Libs
             }
             catch
             {
-                MessageBox.Show("Unable to get count data", "ERROR");
+                MessageBox.Show(invoiceItemID.ToString() + "Unable to get count data", "ERROR");
             }
             finally
             {
@@ -158,7 +158,6 @@ namespace introse_project.Libs
             }
 
             return value;
-
         }
 
         public int getRejectedQuantity(int invoiceItemID)
@@ -221,10 +220,10 @@ namespace introse_project.Libs
         }
 
 
-        public int getTotalApprovedQuantity(int invoiceItemID)
+        public int getTotalApprovedQuantity(int customerOrderID)
         {
             string query = "SELECT SUM(approvedQuantity) FROM invoice_items A " +
-                           "WHERE A.invoiceItemID = " + invoiceItemID.ToString() + "";
+                           "WHERE A.customerOrderID = " + customerOrderID.ToString() + "";
             int value = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);

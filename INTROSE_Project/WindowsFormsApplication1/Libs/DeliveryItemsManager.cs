@@ -190,6 +190,7 @@ namespace introse_project.Libs
             string query = "SELECT  SUM(approvedQuantity) FROM delivered_items A " +
                            "WHERE A.supplierOrderID = " + supplierOrderID.ToString() + "";
             int value = 0;
+            string textValue;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -197,16 +198,23 @@ namespace introse_project.Libs
             {
                 connection.Open();
 
-                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+                textValue = command.ExecuteScalar().ToString();
 
                 connection.Close();
 
-                return value;
+                if (int.TryParse(textValue, out value))
+                {
+                    return value;
+                }
+                else
+                {
+                    return 0;
+                }
+
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                value = 0;
             }
             finally
             {

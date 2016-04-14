@@ -27,8 +27,8 @@ namespace introse_project.sub_windows.Sales_Invoice
         #region Event Handlers
         private void customerInspect_SI_Load(object sender, EventArgs e)
         {
-            approvedQtyTxtBox_U.Text = InvoicesItemsManager.instance.getApprovedQuantity(this.customerOrderID).ToString();
-            rejectedQtyTxtBox_U.Text = InvoicesItemsManager.instance.getRejectedQuantity(this.customerOrderID).ToString();
+            approvedQtyTxtBox_U.Text = InvoicesItemsManager.instance.getApprovedQuantity(this.invoiceItemID).ToString();
+            rejectedQtyTxtBox_U.Text = InvoicesItemsManager.instance.getRejectedQuantity(this.invoiceItemID).ToString();
         }
         #endregion
 

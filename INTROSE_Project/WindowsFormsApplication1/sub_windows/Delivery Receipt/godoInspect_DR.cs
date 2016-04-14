@@ -17,7 +17,6 @@ namespace introse_project.sub_windows.Delivery_Receipt
         private static godoInspect_DR theInstance = new godoInspect_DR();
         private int deliveryItemID;
         private int supplierOrderID;
-        int approvedQuantity;
         #endregion
 
         private godoInspect_DR()

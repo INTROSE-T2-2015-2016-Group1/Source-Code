@@ -301,6 +301,32 @@ namespace introse_project.Libs
 
         }
 
+        public void setPOFinished(string sPONumber)
+        {
+            string query = "UPDATE supplier_po SET isFinished = true WHERE supplierPONumber = '" + sPONumber + "'";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Unable to update data due to connection errors", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
         public string getDateIssued(string sPONumber)
         {
             string query = "SELECT  dateIssued FROM supplier_po A WHERE A.supplierPONumber = '" + sPONumber + "'", 

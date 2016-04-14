@@ -94,7 +94,7 @@ namespace introse_project.Libs
         public void updateFinished(int supplierOrderID)
         {
             string query = "UPDATE supplier_order_items SET isFinished = CASE " +
-                           "WHEN quantity = " + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID).ToString() + " " +
+                           "WHEN quantity <= " + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID).ToString() + " " +
                                 "THEN true " +
                            "ELSE false " +
                            "END "+
@@ -109,9 +109,9 @@ namespace introse_project.Libs
                 command.ExecuteNonQuery();
                 connection.Close();
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message + "\nUnable to add inspection results", "ERROR");
+                MessageBox.Show("\nUnable to add inspection results", "ERROR");
             }
             finally
             {
@@ -334,6 +334,46 @@ namespace introse_project.Libs
             }
 
             return value;
+        }
+
+        public bool isOrdersDone(string supplierPONumber)
+        {
+            string query = "SELECT isFinished FROM supplier_order_items WHERE supplierPONumber = '" + supplierPONumber + "'";
+            bool isFinished = true;
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (!reader.GetBoolean("isFinished"))
+                    {
+                        isFinished = false;
+                    }
+                }
+
+                connection.Close();
+
+                return isFinished;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read supplier order items database", "ERROR");
+                isFinished = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFinished;
         }
 
         public static SupplierOrderItemsManager instance

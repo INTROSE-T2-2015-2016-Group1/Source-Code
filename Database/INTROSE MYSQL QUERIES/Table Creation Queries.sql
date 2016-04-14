@@ -92,8 +92,7 @@ CREATE TABLE invoices (
   dateReceived varchar(10) NOT NULL,
   invoiceTotalPrice decimal(12,2) NOT NULL,
   PRIMARY KEY (invoiceNumber),
-  FOREIGN KEY (deliveryReceiptNumber) REFERENCES delivery_receipts(deliveryReceiptNumber),
-  FOREIGN KEY (customerPONumber) REFERENCES customer_po(customerPONumber)
+  FOREIGN KEY (deliveryReceiptNumber) REFERENCES delivery_receipts(deliveryReceiptNumber)
 );
 
 CREATE TABLE invoice_items (

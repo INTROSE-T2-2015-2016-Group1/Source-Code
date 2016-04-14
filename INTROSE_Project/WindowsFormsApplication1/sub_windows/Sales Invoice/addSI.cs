@@ -48,6 +48,8 @@ namespace introse_project.sub_windows.Sales_Invoice
                         addSI_Items.instance.setInvoiceNumber(invoiceNumberTxtBox.Text);
                         addSI_Items.instance.setDeliveryReceiptNumber(deliveryReceiptIDCBox.SelectedItem.ToString());
                         addSI_Items.instance.ShowDialog();
+
+                        this.Close();
                     }
                     else
                     {

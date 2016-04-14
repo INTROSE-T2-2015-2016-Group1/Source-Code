@@ -188,7 +188,7 @@ namespace introse_project.Libs
         public void updateFinished(int customerOrderID)
         {
             string query = "UPDATE customer_order_items SET isFinished = CASE " +
-                           "WHEN quantity = " + InvoicesItemsManager.instance.getTotalApprovedQuantity(customerOrderID).ToString() + " " +
+                           "WHEN quantity <= " + InvoicesItemsManager.instance.getTotalApprovedQuantity(customerOrderID).ToString() + " " +
                                 "THEN true " +
                            "ELSE false " +
                            "END " +
@@ -336,7 +336,46 @@ namespace introse_project.Libs
             }
 
             return false;
+        }
 
+        public bool isOrdersDone(string customerPONumber)
+        {
+            string query = "SELECT isFinished FROM customer_order_items WHERE customerPONumber = '" + customerPONumber + "'";
+            bool isFinished = true;
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataReader reader;
+
+            try
+            {
+                connection.Open();
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (!reader.GetBoolean("isFinished"))
+                    {
+                        isFinished = false;
+                    }
+                }
+
+                connection.Close();
+
+                return isFinished;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to read customer order items database", "ERROR");
+                isFinished = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFinished;
         }
 
         public static CustomerOrderItemsManagercs instance
