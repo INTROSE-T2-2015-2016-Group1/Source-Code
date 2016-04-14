@@ -157,6 +157,7 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
 
                     this.Close();
                 }
+                else
                 {
                     MessageBox.Show("Total Price must be greater than 0", "ERROR");
                 }
