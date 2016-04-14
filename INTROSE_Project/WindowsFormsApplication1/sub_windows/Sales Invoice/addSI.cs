@@ -53,7 +53,7 @@ namespace introse_project.sub_windows.Sales_Invoice
                     }
                     else
                     {
-                        MessageBox.Show("Date received cannot be before date issued", "ERROR");
+                        MessageBox.Show("Date received cannot be before date received", "ERROR");
                     }
                 }
                 else
