@@ -25,300 +25,219 @@ namespace introse_project.Libs
             keyType = keyType.ToLower();
             input = input.ToLower();
 
-            if (formType == "customer_inspection_results")
+            if(formType == "items")
             {
-                query = "SELECT * FROM customer_inspection_results";
+                query = "SELECT * FROM items"+
+                        " WHERE itemNumber LIKE '"+input+
+                        "' OR supplierName LIKE '"+input+
+                        "' OR description LIKE '" + input + "'";
+                if(keyType == "item number")
+                    query = "SELECT * FROM items"+
+                            " WHERE itemNumber LIKE '"+input+"'";
+                else if(keyType == "supplier name")
+                    query = "SELECT * FROM items'"+
+                            " WHERE  supplierName LIKE '" + input + "'";
+            }
+            else if(formType == "customers")
+            {
+                query = "SELECT * FROM customers"+
+                        " WHERE customerName LIKE '" + input + "'";
+            }
+            else if(formType == "customer purchase order")
+            {
+                query = "SELECT * FROM customer_po"+
+                        " WHERE customerPONumber LIKE '"+input+
+                        "' OR customerName LIKE '"+input+
+                        "' OR dateIssued LIKE '"+input+
+                        "' OR expectedDeliveryDate LIKE '"+input+
+                        "' OR isFinished LIKE '" + input + "'";
+                if(keyType == "customper po number")
+                    query = "SELECT * FROM customer_po"+
+                            " WHERE customerPONumber LIKE '" + input + "'";
+                else if(keyType == "customer name")
+                    query = "SELECT * FROM customer_po"+
+                            " WHERE customerName LIKE '" + input + "'";
+                else if(keyType == "date issued")
+                    query = "SELECT * FROM customer_po"+
+                            " WHERE dateIssued LIKE '" + input + "'";
+                else if(keyType == "expected delivery date")
+                    query = "SELECT * FROM customer_po"+
+                            " WHERE expectedDeliveryDate LIKE '" + input + "'";
+            }
+            else if(formType == "customer order items")
+            {
+                query = "SELECT * FROM customer_order_items"+
+                        " WHERE customerOrderID LIKE '"+input+
+                        "' OR customerPONumber LIKE '"+input+
+                        "' OR itemDescription LIKE '"+input+
+                        "' OR quantity LIKE '"+input+
+                        "' OR currency LIKE '"+input+
+                        "' OR pricePerUnit LIKE '"+input+
+                        "' OR totalPrice LIKE '"+input+
+                        "' OR isFinished LIKE '" + input + "'";
+                if(keyType == "customer order id")
+                    query = "SELECT * FROM customer_order_items"+
+                            " WHERE customerOrderID LIKE '" + input + "'";
+                else if(keyType == "customer po number")
+                    query = "SELECT * FROM customer_order_items"+
+                            " WHERE customerPONumber LIKE '" + input + "'";
+                else if(keyType == "price per unit")
+                    query = "SELECT * FROM customer_order_items"+
+                            " WHERE pricePerUnit LIKE '" + input + "'";
+            }
+            else if(formType == "suppliers")
+            {
+                query = "SELECT * FROM suppliers"+
+                        " WHERE supplierName LIKE '" + input + "'";
 
-                if (keyType == "invoiceitemid" || keyType == "all columns")
-                    query = query + " WHERE invoiceItemID LIKE '%" + input + "%'";
-                if (keyType == "approvedquantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " approvedQuantity LIKE '%" + input + "%'";
-                }
-                if (keyType == "rejectedquantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " rejectedQuantity LIKE '%" + input + "%'";
-                }
-                query = query + ";";
             }
-            else if (formType == "customer_order_items")
+            else if(formType == "supplier purchase order")
             {
-                query = "SELECT * FROM customer_order_items";
-
-                if (keyType == "customerorderid" || keyType == "all columns")
-                    query = query + " WHERE customerOrderID LIKE '%" + input + "%'";
-                if (keyType == "customerponumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " customerPONumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "itemnumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " itemNumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "quantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " quantity LIKE '%" + input + "%'";
-                }
-                if (keyType == "currency" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " currency LIKE '%" + input + "%'";
-                }
-                if (keyType == "priceperunit" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " pricePerUnit LIKE '%" + input + "%'";
-                }
-                if (keyType == "totalprice" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " totalPrice LIKE '%" + input + "%'";
-                }
-                if (keyType == "isfinished" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " isFinished LIKE '%" + input + "%'";
-                }
-                query = query + ";";
+                query = "SELECT * FROM supplier_po"+
+                        " WHERE supplierPONumber LIKE '" + input +
+                        "' OR customerPONumber LIKE '"+input+
+                        "' OR supplierName LIKE '"+input+
+                        "' OR dateIssued LIKE '"+input+
+                        "' OR expectedDeliveryDate LIKE '"+input+
+                        "' OR isFinished LIKE '" + input + "'";
+                if(keyType == "supplier po number")
+                    query = "SELECT * FROM supplier_po"+
+                        " WHERE supplierPONumber LIKE '" + input + "'";
+                else if(keyType == "customer po number")query = "SELECT * FROM supplier_po"+
+                        " WHERE customerPONumber LIKE '" + input + "'";
+                else if(keyType == "supplier name")
+                    query = "SELECT * FROM supplier_po"+
+                        " WHERE supplierName LIKE '" + input + "'";
+                else if(keyType == "date issued")
+                    query = "SELECT * FROM supplier_po"+
+                        " WHERE dateIssued LIKE '" + input + "'";
+                else if(keyType == "expected delivery date")
+                    query = "SELECT * FROM supplier_po"+
+                        " WHERE expectedDeliveryDate LIKE '" + input + "'";
             }
-            else if (formType == "customer_po")
+            else if(formType == "supplier order items")
             {
-                query = "SELECT * FROM customer_po";
-                if (keyType == "customerponumber" || keyType == "all columns")
-                    query = query + " WHERE customerPONumber LIKE '%" + input + "%'";
-                if (keyType == "customername" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " customerName LIKE '%" + input + "%'";
-                }
-                if (keyType == "dateissued" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " dateIssued LIKE '%" + input + "%'";
-                }
-                if (keyType == "expecteddeliverydate" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " expectedDeliveryDate LIKE '%" + input + "%'";
-                }
-                if (formType == "isfinished" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " isFinished LIKE '%" + input + "%'";
-                }
-                query = query + ";";
+                query = "SELECT * FROM supplier_order_items"+
+                        " WHERE supplierOrderID LIKE '" + input +
+                        "' OR supplierPONumber LIKE '"+input+
+                        "' OR itemNumber LIKE '"+input+
+                        "' OR quantity LIKE '"+input+
+                        "' OR currency LIKE '"+input+
+                        "' OR pricePerunit LIKE '"+input+
+                        "' OR totalPrice LIKE '"+input+
+                        "' OR isFinished LIKE '" + input + "'";
+                if(keyType == "supplier order id")
+                    query = "SELECT * FROM supplier_order_items"+
+                        " WHERE supplierOrderID LIKE '" + input + "'";
+                else if(keyType == "supplier po number")
+                    query = "SELECT * FROM supplier_order_items"+
+                        " WHERE supplierPONumber LIKE '" + input + "'";
+                else if(keyType == "item number")
+                    query = "SELECT * FROM supplier_order_items"+
+                        " WHERE itemNumber LIKE '" + input + "'";
+                else if(keyType == "quantity")
+                    query = "SELECT * FROM supplier_order_items"+
+                        " WHERE quantity LIKE '" + input + "'";
+                else if(keyType == "price per unit")
+                    query = "SELECT * FROM supplier_order_items"+
+                        " WHERE pricePerunit LIKE '" + input + "'";
+                else if(keyType == "total price")
+                    query = "SELECT * FROM supplier_order_items"+
+                        " WHERE totalPrice LIKE '" + input + "'";
             }
-            else if (formType == "customers")
-                query = "SELECT * FROM customers" +
-                        " WHERE customerName LIKE '%" + input + "%'";
-            else if (formType == "delivered_items")
+            else if(formType == "delivery receipts")
             {
-                query = "SELECT * FROM delivered_items";
-                if (keyType == "deliveryitemid" || keyType == "all columns")
-                    query = query + " WHERE deliveryItemID LIKE '%" + input + "%'";
-                if (keyType == "deliveryreceiptnumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " deliveryReceiptNumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "supplierorderid" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " supplierOrderID LIKE '%" + input + "%'";
-                }
-                if (keyType == "deliveredquantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " deliveredQuantity LIKE '%" + input + "%'";
-                }
-                query = query + ";";
-            }   
-            else if (formType == "delivery_receipts")
-            {
-                query = "SELECT * FROM delivery_receipts";
-                if (keyType == "deliveryreceiptnumber" || keyType == "all columns")
-                    query = query + " WHERE deliveryReceiptNumber LIKE '%" + input + "%'";
-                if (keyType == "supplierponumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " supplierPONumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "datereceived" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " dateReceived LIKE '%" + input + "%'";
-                }
-                query = query + ";";
+                query = "SELECT * FROM delivery_receipts"+
+                        " WHERE deliveryReceiptNumber LIKE '" + input +
+                        "' OR supplierPONumber LIKE '"+input+
+                        "' OR dateReceived LIKE '" + input + "'";
+                if(keyType == "delivery receipt number")
+                    query = "SELECT * FROM delivery_receipts"+
+                        " WHERE deliveryReceiptNumber LIKE '" + input + "'";
+                else if(keyType == "supplier po number")
+                    query = "SELECT * FROM delivery_receipts"+
+                        " WHERE supplierPONumber LIKE '" + input + "'";
+                else if(keyType == "date recieved")
+                    query = "SELECT * FROM delivery_receipts"+
+                        " WHERE dateReceived LIKE '" + input + "'";
             }
-            else if (formType == "godo_inspection_results")
+            else if(formType == "delivery items")
             {
-                query = "SELECT * FROM godo_inspection_results";
-                if (keyType == "deliveryitemid" || keyType == "all columns")
-                    query = query + " WHERE deliveryItemID LIKE '%" + input + "%'";
-                if (keyType == "approvedquantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " approvedQuantity LIKE '%" + input + "%'";
-                }
-                if (keyType == "rejectedquantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " rejectedQuantity LIKE '%" + input + "%'";
-                }
+                query = "SELECT * FROM delivered_items"+
+                        " WHERE deliveryItemID LIKE '" + input +
+                        "' OR deliveryReceiptNumber LIKE '"+input+
+                        "' OR supplierOrderID LIKE '"+input+
+                        "' OR deliveredQuantity LIKE '"+input+
+                        "' OR itemNumber LIKE '"+input+
+                        "' OR approvedQuantity LIKE '"+input+
+                        "' OR rejectedQuantity LIKE '" + input + "'";
+                if(keyType == "delivery item id")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE deliveryItemID LIKE '" + input + "'";
+                else if(keyType == "delivery receipt number")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE deliveryReceiptNumber LIKE '" + input + "'";
+                else if(keyType == "supplier order id")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE supplierOrderID LIKE '" + input + "'";
+                else if(keyType == "delivered quantity")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE deliveredQuantity LIKE '" + input + "'";
+                else if(keyType == "item number")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE itemNumber LIKE '" + input + "'";
+                else if(keyType == "approved quantity")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE approvedQuantity LIKE '" + input + "'";
+                else if(keyType == "rejected quantity")
+                    query = "SELECT * FROM delivered_items"+
+                        " WHERE rejectedQuantity LIKE '" + input + "'";
             }
-            else if (formType == "invoice_items")
+            else if(formType == "invoices")
             {
-                query = "SELECT * FROM invoice_items";
-                if (keyType == "invoiceitemid" || keyType == "all columns")
-                    query = query + " WHERE invoiceItemID LIKE '%" + input + "%'";
-                if (keyType == "deliveryitemid" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " deliveryItemID LIKE '%" + input + "%'";
-                }
-                if (keyType == "invoicenumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " invoiceNumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "customerorderid" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " customerOrderID LIKE '%" + input + "%'";
-                }
-                if (keyType == "deliveredquantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " deliveredquantity LIKE '%" + input + "%'";
-                }
-                query = query + ";";
+                query = "SELECT * FROM invoices"+
+                        " WHERE invoiceNumber LIKE '" + input +
+                        "' OR deliveryReceiptNumber LIKE '"+input+
+                        "' OR dateReceived LIKE '"+input+
+                        "' OR invoiceTotalPrice LIKE '" + input + "'";
+                if(keyType == "invoice number")
+                    query = "SELECT * FROM invoices"+
+                        " WHERE invoiceNumber LIKE '" + input + "'";
+                else if(keyType == "delivery receipt number")
+                    query = "SELECT * FROM invoices"+
+                        " WHERE OR deliveryReceiptNumber LIKE '" + input + "'";
+                else if(keyType == "date recieved")
+                    query = "SELECT * FROM invoices"+
+                        " WHERE dateReceived LIKE '" + input + "'";
+                else if(keyType == "total price")
+                    query = "SELECT * FROM invoices"+
+                        " WHERE invoiceTotalPrice LIKE '" + input + "'";
             }
-            else if (formType == "invoices")
+            else if(formType == "invoice items")
             {
-                query = "SELECT * FROM invoices";
-                if (keyType == "invoicenumber" || keyType == "all columns")
-                    query = query + " WHERE invoiceNumber LIKE '%" + input + "%'";
-                if (keyType == "deliveredreceiptnumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " deliveryReceiptNumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "customerponumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " customerPONumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "datereceived" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " dateReceived LIKE '%" + input + "%'";
-                }
-                if (keyType == "invoicetotalprice" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " invoiceTotalPrice LIKE '%" + input + "%'";
-                }
-                query = query + ";";
+                query = "SELECT * FROM invoice_items"+
+                        " WHERE invoiceItemID LIKE '" + input +
+                        "' OR deliveryItemID LIKE '"+input+
+                        "' OR invoiceNumber LIKE '"+input+
+                        "' OR customerOrderID LIKE '"+input+
+                        "' OR deliveredQuantity LIKE '"+input+
+                        "' OR itemNumber LIKE '"+input+
+                        "' OR itemPrice LIKE '"+input+
+                        "' OR approvedQuantity  LIKE '"+input+
+                        "' OR rejectedQuantity LIKE '" + input + "'";
+                if (keyType == "invoice item id")
+                    query = "SELECT * FROM invoice_items" +
+                        " WHERE invoiceItemID LIKE '" + input + "'";
+                else if (keyType == "delivery item id")
+                    query = "SELECT * FROM invoice_items" +
+                        " WHERE deliveryItemID LIKE '" + input + "'";
+                else if (keyType == "invoice number")
+                    query = "SELECT * FROM invoice_items" +
+                        " WHERE invoiceNumber LIKE '" + input + "'";
+                else if (keyType == "customer order id")
+                    query = "SELECT * FROM invoice_items" +
+                        " WHERE customerOrderID LIKE '" + input + "'";
             }
-            else if (formType == "items")
-            {
-                query = "SELECT * FROM items ";
-                if (keyType == "itemnumber" || keyType == "all columns")
-                    query = query + " WHERE itemNumber LIKE '%" + input + "%'";
-                if (keyType == "suppliername" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " supplierName LIKE '%" + input + "%'";
-                }
-                if (keyType == "description" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " description LIKE '%" + input + "%'";
-                }
-                query = query + ";";
-            }
-            else if (formType == "supplier_order_items")
-            {
-                query = "SELECT * FROM supplier_order_items ";
-                if (keyType == "supplierorderid" || keyType == "all columns")
-                    query = query + " WHERE supplierOrderID LIKE '%" + input + "%'";
-                if (keyType == "supplierponumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " supplierPONumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "itemnumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " itemNumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "quantity" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " quantity LIKE '%" + input + "%'";
-                }
-                if (keyType == "currency" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " currency LIKE '%" + input + "%'";
-                }
-                if (keyType == "priceperunit" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " pricePerUnit LIKE '%" + input + "%'";
-                }
-                if (keyType == "totalprice" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " totalPrice LIKE '%" + input + "%'";
-                }
-                if (keyType == "isfinished" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " isFinished LIKE '%" + input + "%'";
-                }
-                query = query + ";";
-            }
-            else if (formType == "supplier_po")
-            {
-                query = "SELECT * FROM supplier_po";
-                if (keyType == "supplierponumber" || keyType == "all columns")
-                    query = query + " WHERE supplierPONumber LIKE '%" + input + "%'";
-                if (keyType == "customerponumber" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " customerPONumber LIKE '%" + input + "%'";
-                }
-                if (keyType == "suppliername" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " supplierName LIKE '%" + input + "%'";
-                }
-                if (keyType == "dateissued" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " dateIssued LIKE '%" + input + "%'";
-                }
-                if (keyType == "expecteddeliverydate" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " expectedDeliveryDate LIKE '%" + input + "%'";
-                }
-                if (keyType == "isfinished" || keyType == "all columns")
-                {
-                    query = query + AllOr(keyType);
-                    query = query + " isFinished LIKE '%" + input + "%'";
-                }
-                query = query + ";";
-            }
-            else if (formType == "suppliers")
-                query = "SELECT * FROM suppliers " +
-                        "WHERE supplierName LIKE '%" + input + "%'";
             else
                 MessageBox.Show("unknown form type\ndid not search");
 
@@ -362,7 +281,7 @@ namespace introse_project.Libs
             String output = "";
 
             if (type == "all columns")
-                output = " OR";
+                output = "' OR";
             else
                 output = " WHERE";
             return output;

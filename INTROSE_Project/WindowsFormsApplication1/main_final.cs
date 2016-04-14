@@ -284,87 +284,78 @@ namespace introse_project
 
             switch (form)
             {
-                case "customer_inspection_results":
-                    keywordTypeCBox.Items.Add("invoiceItemID");
-                    keywordTypeCBox.Items.Add("approvedQuantity");
-                    keywordTypeCBox.Items.Add("rejectedQuantity");
-                    break;
-                case "customer_order_items":
-                    keywordTypeCBox.Items.Add("customerOrderID");
-                    keywordTypeCBox.Items.Add("customerPONumber");
-                    keywordTypeCBox.Items.Add("itemNumber");
-                    keywordTypeCBox.Items.Add("quantity");
-                    keywordTypeCBox.Items.Add("currency");
-                    keywordTypeCBox.Items.Add("pricePerUnit");
-                    keywordTypeCBox.Items.Add("totalPrice");
-                    keywordTypeCBox.Items.Add("isFinished");
-                    break;
-                case "customer_po":
-                    keywordTypeCBox.Items.Add("customerPONumber");
-                    keywordTypeCBox.Items.Add("customerName");
-                    keywordTypeCBox.Items.Add("dateIssued");
-                    keywordTypeCBox.Items.Add("expectedDeliveryDate");
-                    keywordTypeCBox.Items.Add("isFinished");
-                    break;
-                case "customers":
-                    keywordTypeCBox.Items.Add("customerName");
-                    break;
-                case "delivered_items":
-                    keywordTypeCBox.Items.Add("deliveryItemID");
-                    keywordTypeCBox.Items.Add("deliveryReceiptNumber");
-                    keywordTypeCBox.Items.Add("supplierOrderID");
-                    keywordTypeCBox.Items.Add("deliveredQuantity");
-                    break;
-                case "delivery_receipts":
-                    keywordTypeCBox.Items.Add("deliveryReceiptNumber");
-                    keywordTypeCBox.Items.Add("supplierPONumber");
-                    keywordTypeCBox.Items.Add("dateReceived");
-                    break;
-                case "godo_inspection_results":
-                    keywordTypeCBox.Items.Add("deliveryItemID");
-                    keywordTypeCBox.Items.Add("approvedQuantity");
-                    keywordTypeCBox.Items.Add("rejectedQuantity");
-                    break;
-                case "invoice_items":
-                    keywordTypeCBox.Items.Add("invoiceItemID");
-                    keywordTypeCBox.Items.Add("deliveryItemID");
-                    keywordTypeCBox.Items.Add("invoiceNumber");
-                    keywordTypeCBox.Items.Add("customerOrderID");
-                    keywordTypeCBox.Items.Add("deliveredQuantity");
-                    break;
-                case "invoices":
-                    keywordTypeCBox.Items.Add("invoiceNumber");
-                    keywordTypeCBox.Items.Add("deliveredReceiptNumber");
-                    keywordTypeCBox.Items.Add("customerPONumber");
-                    keywordTypeCBox.Items.Add("dateReceived");
-                    keywordTypeCBox.Items.Add("invoiceTotalPrice");
-                    break;
                 case "items":
-                    keywordTypeCBox.Items.Add("itemNumber");
-                    keywordTypeCBox.Items.Add("supplierName");
-                    keywordTypeCBox.Items.Add("description");
-                    break;
-                case "supplier_order_items":
-                    keywordTypeCBox.Items.Add("supplierOrderID");
-                    keywordTypeCBox.Items.Add("supplierPONumber");
-                    keywordTypeCBox.Items.Add("itemNumber");
-                    keywordTypeCBox.Items.Add("quantity");
-                    keywordTypeCBox.Items.Add("currency");
-                    keywordTypeCBox.Items.Add("pricePerUnit");
-                    keywordTypeCBox.Items.Add("totalPrice");
-                    keywordTypeCBox.Items.Add("isFinished");
-                    break;
-                case "supplier_po":
-                    keywordTypeCBox.Items.Add("supplierPONumber");
-                    keywordTypeCBox.Items.Add("customerPONumber");
-                    keywordTypeCBox.Items.Add("supplierName");
-                    keywordTypeCBox.Items.Add("dateIssued");
-                    keywordTypeCBox.Items.Add("expectedDeliveryDate");
-                    keywordTypeCBox.Items.Add("isFinished");
-                    break;
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("item number");
+                keywordTypeCBox.Items.Add("supplier name");
+                keywordTypeCBox.Items.Add("description");
+                break;
+                case "customers":
+                keywordTypeCBox.Items.Add("default");
+                break;
+                case "customer purchase order":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("customper po number");
+                keywordTypeCBox.Items.Add("customer name");
+                keywordTypeCBox.Items.Add("date issued");
+                keywordTypeCBox.Items.Add("expected delivery date");
+                break;
+                case "customer order items":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("customer order id");
+                keywordTypeCBox.Items.Add("customer po number");
+                keywordTypeCBox.Items.Add("price per unit");
+                break;
                 case "suppliers":
-                    keywordTypeCBox.Items.Add("supplierName");
-                    break;
+                keywordTypeCBox.Items.Add("default");
+                break;
+                case "supplier purchase order":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("supplier po number");
+                keywordTypeCBox.Items.Add("customer po number");
+                keywordTypeCBox.Items.Add("supplier name");
+                keywordTypeCBox.Items.Add("date issued");
+                keywordTypeCBox.Items.Add("expected delivery date");
+                break;
+                case "supplier order items":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("supplier order id");
+                keywordTypeCBox.Items.Add("supplier po number");
+                keywordTypeCBox.Items.Add("item number");
+                keywordTypeCBox.Items.Add("quantity");
+                keywordTypeCBox.Items.Add("price per unit");
+                keywordTypeCBox.Items.Add("total price");
+                break;
+                case "delivered receipts":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("delivery receipt number");
+                keywordTypeCBox.Items.Add("supplier po number");
+                keywordTypeCBox.Items.Add("date recieved");
+                break;
+                case "delivery items":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("delivery item id");
+                keywordTypeCBox.Items.Add("delivery receipt number");
+                keywordTypeCBox.Items.Add("supplier order id");
+                keywordTypeCBox.Items.Add("delivered quantity");
+                keywordTypeCBox.Items.Add("item number");
+                keywordTypeCBox.Items.Add("approved quantity");
+                keywordTypeCBox.Items.Add("rejected quantity");
+                break;
+                case "invoices":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("invoice number");
+                keywordTypeCBox.Items.Add("delivery receipt number");
+                keywordTypeCBox.Items.Add("date recieved");
+                keywordTypeCBox.Items.Add("total price");
+                break;
+                case "invoice items":
+                keywordTypeCBox.Items.Add("default");
+                keywordTypeCBox.Items.Add("invoice item id");
+                keywordTypeCBox.Items.Add("delivery item id");
+                keywordTypeCBox.Items.Add("invoice number");
+                keywordTypeCBox.Items.Add("customer order id");
+                break;
             }
 
             keywordTypeCBox.SelectedIndex = 0;

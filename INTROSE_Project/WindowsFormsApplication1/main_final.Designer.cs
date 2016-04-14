@@ -600,19 +600,17 @@
             this.formTypeCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.formTypeCBox.FormattingEnabled = true;
             this.formTypeCBox.Items.AddRange(new object[] {
-            "customer_inspection_results",
-            "customer_order_items",
-            "customer_po",
-            "customers",
-            "delivered_items",
-            "delivery_receipts",
-            "godo_inspection_results",
-            "invoice_items",
-            "invoices",
             "items",
-            "supplier_order_items",
-            "supplier_po",
-            "suppliers"});
+            "customers",
+            "customer purchase order",
+            "customer order items",
+            "suppliers",
+            "supplier purchase order",
+            "supplier order items",
+            "delivery receipts",
+            "delivery items",
+            "invoices",
+            "invoice items"});
             this.formTypeCBox.Location = new System.Drawing.Point(84, 22);
             this.formTypeCBox.Name = "formTypeCBox";
             this.formTypeCBox.Size = new System.Drawing.Size(163, 21);
