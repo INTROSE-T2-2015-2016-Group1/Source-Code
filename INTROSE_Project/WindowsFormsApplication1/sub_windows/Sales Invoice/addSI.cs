@@ -26,7 +26,15 @@ namespace introse_project.sub_windows.Sales_Invoice
         private void addSI_Load(object sender, EventArgs e)
         {
             DeliveryReceiptsManager.instance.fillComboBox(deliveryReceiptIDCBox);
-            deliveryReceiptIDCBox.SelectedIndex = 0;
+            if (deliveryReceiptIDCBox.Items.Count > 0)
+            {
+                deliveryReceiptIDCBox.SelectedIndex = 0;
+            }
+            else
+            {
+                this.Close();
+                MessageBox.Show("All current delivery receipt's approved quantity are already invoiced");
+            }
         }
 
         private void deliveryReceiptIDCBox_SelectedIndexChanged(object sender, EventArgs e)

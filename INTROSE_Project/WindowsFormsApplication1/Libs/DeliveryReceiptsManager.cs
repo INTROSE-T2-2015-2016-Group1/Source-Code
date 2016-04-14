@@ -181,7 +181,8 @@ namespace introse_project.Libs
         {
             itemComboBox.Items.Clear();
 
-            string query = "SELECT deliveryReceiptNumber FROM delivery_receipts";
+            string query = "SELECT A.deliveryReceiptNumber FROM delivered_items A, invoice_items B " +
+                           "WHERE A.deliveryItemID = B.deliveryItemID AND A.approvedQuantity > B.deliveredQuantity";
 
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);

@@ -102,7 +102,7 @@ CREATE TABLE invoice_items (
   customerOrderID int NOT NULL,
   deliveredQuantity int NOT NULL,
   itemNumber int NOT NULL,
-  itemPrice int NOT NULL,
+  itemPrice decimal(12,2) NOT NULL,
   approvedQuantity int NOT NULL,
   rejectedQuantity int NOT NULL,
   PRIMARY KEY (invoiceItemID),
