@@ -26,7 +26,7 @@ namespace introse_project.Libs
                                     "A.expectedDeliveryDate 	AS 'Expected Delivery Date'," +
                                     "A.isFinished               AS 'Supplier PO Status' " +
                             "FROM 	supplier_po A " +
-                            "ORDER BY A.supplierPONumber DESC;";     
+                            "ORDER BY A.dateIssued DESC;";     
                                                                                                                                                               
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);

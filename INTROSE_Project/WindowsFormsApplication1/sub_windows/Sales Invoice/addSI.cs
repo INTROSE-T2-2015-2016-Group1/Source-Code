@@ -71,6 +71,7 @@ namespace introse_project.sub_windows.Sales_Invoice
         public void addNewSI()
         {
             InvoicesManager.instance.addData(invoiceNumberTxtBox.Text, deliveryReceiptIDCBox.SelectedItem.ToString(), dateIssuedCBox.Value.Date.ToShortDateString(), 0);
+
         }
 
         public static addSI instance

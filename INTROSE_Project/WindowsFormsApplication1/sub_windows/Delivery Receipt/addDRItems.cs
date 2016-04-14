@@ -79,31 +79,39 @@ namespace introse_project.sub_windows.Delivery_Receipt
             int supplierOrderID = SupplierOrderItemsManager.instance.itemOrderedID(itemNumber, this.supplierPONumber);
 
             if (((!DeliveryReceiptsManager.instance.pkExists(this.deliveryReceiptNumber) && addType) || (DeliveryReceiptsManager.instance.pkExists(this.deliveryReceiptNumber) && !addType))
+                && !DeliveryItemsManager.instance.isItemExists(itemNumber, this.deliveryReceiptNumber)
                 && int.TryParse(quantityReceivedTxtBox.Text, out quantityReceived))
             {
-                if (SupplierOrderItemsManager.instance.getQuantityOrdered(supplierOrderID) >= quantityReceived + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID))
+                if(quantityReceived > 0)
                 {
-                    if (addType)
+                    if (SupplierOrderItemsManager.instance.getQuantityOrdered(supplierOrderID) >= quantityReceived + DeliveryItemsManager.instance.getTotalApprovedQuantity(supplierOrderID))
                     {
-                        addDR.instance.addNewDR();
+                        if (addType)
+                        {
+                            addDR.instance.addNewDR();
+                        }
+
+                        DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
+                                                              supplierOrderID,
+                                                              quantityReceived);
+
+                        quantityReceivedTxtBox.Text = "";
+
+                        this.Close();
                     }
-
-                    DeliveryItemsManager.instance.addData(itemNumber, this.deliveryReceiptNumber,
-                                                          supplierOrderID,
-                                                          quantityReceived);
-
-                    quantityReceivedTxtBox.Text = "";
-
-                    this.Close();
+                    else
+                    {
+                        MessageBox.Show("The delivered item quantity cannot be larger than the ordered item quantity", "ERROR");
+                    } 
                 }
                 else
                 {
-                    MessageBox.Show("The delivered item quantity cannot be larger than the ordered item quantity", "ERROR");
-                }                  
+                    MessageBox.Show("The quantity received must be greater than 0", "ERROR");
+                }                                    
             }
             else
             {
-                MessageBox.Show("The delivered item you're trying to add is not valid or the delivery receipt already exists!", "ERROR");
+                MessageBox.Show("The item/delivery receipt you're trying to add is not valid or already exists!", "ERROR");
             }                  
             
         }

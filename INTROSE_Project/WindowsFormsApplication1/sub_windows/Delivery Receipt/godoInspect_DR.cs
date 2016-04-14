@@ -15,8 +15,11 @@ namespace introse_project.sub_windows.Delivery_Receipt
     {
         #region Variables
         private static godoInspect_DR theInstance = new godoInspect_DR();
+        private string deliveryReceiptNumber;
         private int deliveryItemID;
         private int supplierOrderID;
+        private int approvedQuantity;
+        private int rejectedQuantity;
         #endregion
 
         private godoInspect_DR()
@@ -42,6 +45,11 @@ namespace introse_project.sub_windows.Delivery_Receipt
         {
             this.supplierOrderID = supplierOrderID;
         }
+
+        public void setDeliveryReciptNumber(string deliveryReceiptNumber)
+        {
+            this.deliveryReceiptNumber = deliveryReceiptNumber;
+        }
         #endregion
 
         #region Key Press Event Handlers
@@ -65,8 +73,22 @@ namespace introse_project.sub_windows.Delivery_Receipt
         #region Button Click Events
         private void updateDR_GIRBtn_Click(object sender, EventArgs e)
         {
-            DeliveryItemsManager.instance.updateData(this.deliveryItemID, Convert.ToInt32(approvedQtyTxtBox_U.Text), Convert.ToInt32(rejectedQtyTxtBox_U.Text));
-            SupplierOrderItemsManager.instance.updateFinished(this.supplierOrderID);        
+            if (int.TryParse(approvedQtyTxtBox_U.Text, out approvedQuantity) && int.TryParse(rejectedQtyTxtBox_U.Text, out rejectedQuantity))
+            {
+                if (approvedQuantity + rejectedQuantity <= DeliveryItemsManager.instance.getDeliveredQuantity(this.deliveryItemID))
+                {
+                    DeliveryItemsManager.instance.updateData(this.deliveryItemID, approvedQuantity, rejectedQuantity);
+                    SupplierOrderItemsManager.instance.updateFinished(this.supplierOrderID);  
+                }
+                else
+                {
+                    MessageBox.Show("Total inspected quantity cannot be greater than the delievered quantity", "ERROR");
+                }              
+            }
+            else
+            {
+                MessageBox.Show("The approved and rejected quantity should be greater than or equal to 0", "ERROR");
+            }         
         }
         #endregion
 

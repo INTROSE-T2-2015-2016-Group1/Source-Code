@@ -50,6 +50,7 @@ namespace introse_project.sub_windows.Delivery_Receipt
         {
             godoInspect_DR.instance.setDeliveryItemID(Convert.ToInt32(DR_ItemsGridView.Rows[DR_ItemsGridView.CurrentCell.RowIndex].Cells["Delivery Item ID"].Value.ToString()));
             godoInspect_DR.instance.setSupplierOrderID(Convert.ToInt32(DR_ItemsGridView.Rows[DR_ItemsGridView.CurrentCell.RowIndex].Cells["Supplier Order ID"].Value.ToString()));
+            godoInspect_DR.instance.setDeliveryReciptNumber(this.deliveryReceiptNumber);
             godoInspect_DR.instance.ShowDialog();
             if (SupplierOrderItemsManager.instance.isOrdersDone(this.supplierPONumber))
             {

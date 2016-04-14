@@ -102,28 +102,36 @@ namespace introse_project.sub_windows.Purchase_Order.Customer
         {
 
             if (((!CustomerPOManager.instance.pkExists(this.customerPONumber) && addType) || (CustomerPOManager.instance.pkExists(this.customerPONumber) && !addType))
-                && !CustomerOrderItemsManagercs.instance.isItemExists(itemDescCBox.SelectedItem.ToString(), customerPONumber)
-                && double.TryParse(totalPriceLabel.Text, out totalPrice)) //checks if total price is valid
-            {              
-                if (addType)
+                && !CustomerOrderItemsManagercs.instance.isItemExists(itemDescCBox.SelectedItem.ToString(), this.customerPONumber)
+                && double.TryParse(totalPriceLabel.Text, out totalPrice))   //checks if total price is valid
+            {
+
+                if (totalPrice > 0)    
                 {
-                    addCPO.instance.addNewCPO();
+                    if (addType)
+                    {
+                        addCPO.instance.addNewCPO();
+                    }
+
+                    CustomerOrderItemsManagercs.instance.addData(this.customerPONumber,
+                                                             itemDescCBox.SelectedItem.ToString(),
+                                                             Convert.ToInt32(itemQtyTxtBox.Text),
+                                                             currencyCBox.SelectedItem.ToString(),
+                                                             double.Parse(pricePerUnitTxtBox.Text),
+                                                             totalPrice);
+
+                    CustomerPOManager.instance.setPONotFinished(this.customerPONumber);
+
+                    itemQtyTxtBox.Text = "";
+                    pricePerUnitTxtBox.Text = "";
+                    totalPriceLabel.Text = "";
+
+                    this.Close();
                 }
-
-                CustomerOrderItemsManagercs.instance.addData(this.customerPONumber,
-                                                         itemDescCBox.SelectedItem.ToString(),
-                                                         Convert.ToInt32(itemQtyTxtBox.Text),
-                                                         currencyCBox.SelectedItem.ToString(),
-                                                         double.Parse(pricePerUnitTxtBox.Text),
-                                                         totalPrice);
-
-                CustomerPOManager.instance.setPONotFinished(this.customerPONumber);
-
-                itemQtyTxtBox.Text = "";
-                pricePerUnitTxtBox.Text = "";
-                totalPriceLabel.Text = "";
-
-                this.Close();
+                else
+                {
+                    MessageBox.Show("Total price must be greater than 0", "ERROR");
+                }
             }
             else
             {

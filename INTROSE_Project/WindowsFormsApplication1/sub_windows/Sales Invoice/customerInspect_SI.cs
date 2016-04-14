@@ -17,6 +17,8 @@ namespace introse_project.sub_windows.Sales_Invoice
         private static customerInspect_SI theInstance = new customerInspect_SI();
         private int customerOrderID;
         private int invoiceItemID;
+        private int approvedQuantity;
+        private int rejectedQuantity;
         #endregion
 
         private customerInspect_SI()
@@ -65,8 +67,22 @@ namespace introse_project.sub_windows.Sales_Invoice
         #region Button Click Events
         private void updateSI_CIRBtn_Click(object sender, EventArgs e)
         {
-            InvoicesItemsManager.instance.updateData(this.invoiceItemID,Convert.ToInt32(approvedQtyTxtBox_U.Text), Convert.ToInt32(rejectedQtyTxtBox_U.Text));
-            CustomerOrderItemsManagercs.instance.updateFinished(this.customerOrderID);
+            if (int.TryParse(approvedQtyTxtBox_U.Text, out approvedQuantity) && int.TryParse(rejectedQtyTxtBox_U.Text, out rejectedQuantity))
+            {
+                if (approvedQuantity + rejectedQuantity <= InvoicesItemsManager.instance.getDeliveredQuantity(this.invoiceItemID))
+                {
+                    InvoicesItemsManager.instance.updateData(this.invoiceItemID, approvedQuantity, rejectedQuantity);
+                    CustomerOrderItemsManagercs.instance.updateFinished(this.customerOrderID);
+                }
+                else
+                {
+                    MessageBox.Show("Total inspected quantity cannot be greater than the delievered quantity", "ERROR");
+                }
+            }
+            else
+            {
+                MessageBox.Show("The approved and rejected quantity should be greater than or equal to 0", "ERROR");
+            }
         }
         #endregion
        

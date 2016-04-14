@@ -132,28 +132,35 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             int itemNumber = ItemManager.instance.getItemNumber(itemDescCBox.SelectedItem.ToString(), this.supplierName);
 
             if (((!SupplierPOManager.instance.pkExists(this.supplierPONumber) && addType) || (SupplierPOManager.instance.pkExists(this.supplierPONumber) && !addType))
-                && !SupplierOrderItemsManager.instance.isItemExists(itemNumber, this.supplierPONumber) 
-                && double.TryParse(totalPriceLabel.Text, out totalPrice)) //checks if total price is valid
+                && !SupplierOrderItemsManager.instance.isItemExists(itemNumber, this.supplierPONumber)
+                && double.TryParse(totalPriceLabel.Text, out totalPrice))   //checks if total price is valid
             {
-                if (addType)
+                if (totalPrice > 0)
                 {
-                    addSPO.instance.addNewSPO();
+                    if (addType)
+                    {
+                        addSPO.instance.addNewSPO();
+                    }
+
+                    SupplierOrderItemsManager.instance.addData(this.supplierPONumber,
+                                                               itemNumber,
+                                                               Convert.ToInt32(itemQtyTxtBox.Text),
+                                                               currencyCBox.SelectedItem.ToString(),
+                                                               double.Parse(pricePerUnitTxtBox.Text),
+                                                               totalPrice);
+
+                    SupplierPOManager.instance.setPONotFinished(this.supplierPONumber);
+
+                    pricePerUnitTxtBox.Text = "";
+                    itemQtyTxtBox.Text = "";
+                    totalPriceLabel.Text = "";
+
+                    this.Close();
                 }
-
-                SupplierOrderItemsManager.instance.addData(this.supplierPONumber,
-                                                           itemNumber,
-                                                           Convert.ToInt32(itemQtyTxtBox.Text),
-                                                           currencyCBox.SelectedItem.ToString(),
-                                                           double.Parse(pricePerUnitTxtBox.Text),
-                                                           totalPrice);
-
-                SupplierPOManager.instance.setPONotFinished(this.supplierPONumber);
-
-                pricePerUnitTxtBox.Text = "";
-                itemQtyTxtBox.Text = "";
-                totalPriceLabel.Text = "";
-
-                this.Close();
+                {
+                    MessageBox.Show("Total Price must be greater than 0", "ERROR");
+                }
+                    
             }
             else
             {

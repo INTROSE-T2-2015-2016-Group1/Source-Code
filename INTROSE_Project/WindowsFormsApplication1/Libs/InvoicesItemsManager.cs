@@ -66,7 +66,7 @@ namespace introse_project.Libs
 
         public bool isItemExists(int itemNumber, string invoiceNumber)
         {
-            string query = "SELECT  COUNT(itemNumber) FROM invoice_items A WHERE A.itemNumber = " + itemNumber + " AND A.invoiceNumber = '" + invoiceNumber + "'";
+            string query = "SELECT  COUNT(*) FROM invoice_items A WHERE A.itemNumber = " + itemNumber.ToString() + " AND A.invoiceNumber = '" + invoiceNumber + "'";
             int count = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -219,7 +219,6 @@ namespace introse_project.Libs
             }
         }
 
-
         public int getTotalApprovedQuantity(int customerOrderID)
         {
             string query = "SELECT SUM(approvedQuantity) FROM invoice_items A " +
@@ -248,9 +247,67 @@ namespace introse_project.Libs
             }
 
             return value;
-
         }
         #endregion
+
+        public int getTotalPrice(string invoiceNumber)
+        {
+            string query = "SELECT SUM(itemPrice) FROM invoice_items A " +
+                           "WHERE A.invoiceNumber = '" + invoiceNumber + "'";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+        }
+
+        public int getDeliveredQuantity(int invoiceItemID)
+        {
+            string query = "SELECT deliveredQuantity FROM invoice_items WHERE invoiceItemID = " + invoiceItemID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+        }
 
         public static InvoicesItemsManager instance
         {

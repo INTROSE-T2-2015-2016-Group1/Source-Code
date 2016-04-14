@@ -120,9 +120,7 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
-
             return value;
-
         }
 
         public int getRejectedQuantity(int deliveryItemID)
@@ -152,7 +150,64 @@ namespace introse_project.Libs
             }
 
             return value;
+        }
 
+        public int getDeliveredQuantity(int deliveryItemID)
+        {
+            string query = "SELECT deliveredQuantity FROM delivered_items WHERE deliveryItemID = " + deliveryItemID.ToString() + "";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
+        }
+
+        public int getTotalApprovedQuantity(int deliveryItemID, string deliveryReceiptNumber)
+        {
+            string query = "SELECT SUM(B.approvedQuantity) FROM delivery_receipts A, delivered_items B " +
+                           "WHERE B.deliveryItemID = " + deliveryItemID.ToString() + " AND A.deliveryReceiptNumber = B.deliveryReceiptNumber AND A.deliveryReceipyNumber = '"+ deliveryReceiptNumber +"'";
+            int value = 0;
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = Convert.ToInt32(command.ExecuteScalar().ToString());
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to get count data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return value;
         }
 
         public void updateData(int deliveryItemID, int approvedQuantity, int rejectedQuantity)
@@ -228,7 +283,7 @@ namespace introse_project.Libs
 
         public bool isItemExists(int itemNumber, string deliveryReceiptNumber)
         {
-            string query = "SELECT  COUNT(itemNumber) FROM delivered_items A WHERE A.itemNumber = " + itemNumber + " AND A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "'";
+            string query = "SELECT  COUNT(itemNumber) FROM delivered_items A WHERE A.itemNumber = " + itemNumber.ToString() + " AND A.deliveryReceiptNumber = '" + deliveryReceiptNumber + "'";
             int count = 0;
             MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
             MySqlCommand command = new MySqlCommand(query, connection);

@@ -70,30 +70,45 @@ namespace introse_project.sub_windows.Sales_Invoice
         #region Button Click Events
         private void addSI_ItemsBtn_Click(object sender, EventArgs e)
         {
-            
+            int deliveredQuantity;
 
-            string customerPONumber = SupplierPOManager.instance.getCustomerPONumber(DeliveryReceiptsManager.instance.getSupplierPONumber(this.deliveryReceiptNumber));
-            int itemNumber = DeliveryItemsManager.instance.getOrderedItemID(deliveryItemCBox.SelectedItem.ToString(), this.deliveryReceiptNumber);
-            int customerOrderID = CustomerOrderItemsManagercs.instance.getOrderID(customerPONumber, deliveryItemCBox.SelectedItem.ToString());
-            int deliveryItemID = DeliveryItemsManager.instance.itemOrderedID(itemNumber, deliveryReceiptNumber);
-            int deliveredQuantity = Convert.ToInt32(deliveredQtyTxtBox.Text);
-            double itemPrice = CustomerOrderItemsManagercs.instance.getItemPricePerUnit(customerOrderID) * deliveredQuantity;
-
-            if ((!InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber) && addType) || (InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber) && !addType))
+            if (int.TryParse(deliveredQtyTxtBox.Text, out deliveredQuantity))
             {
-                if (addType)
-                {
-                    addSI.instance.addNewSI();
-                }
+                string customerPONumber = SupplierPOManager.instance.getCustomerPONumber(DeliveryReceiptsManager.instance.getSupplierPONumber(this.deliveryReceiptNumber));
+                int itemNumber = DeliveryItemsManager.instance.getOrderedItemID(deliveryItemCBox.SelectedItem.ToString(), this.deliveryReceiptNumber);
+                int customerOrderID = CustomerOrderItemsManagercs.instance.getOrderID(customerPONumber, deliveryItemCBox.SelectedItem.ToString());
+                int deliveryItemID = DeliveryItemsManager.instance.itemOrderedID(itemNumber, deliveryReceiptNumber);
+                double itemPrice = CustomerOrderItemsManagercs.instance.getItemPricePerUnit(customerOrderID) * deliveredQuantity;
 
-                InvoicesItemsManager.instance.addData(this.invoiceNumber, deliveryItemID, customerOrderID, itemNumber, itemPrice, deliveredQuantity);
+                if ((!InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber) && addType) || (InvoicesItemsManager.instance.isItemExists(itemNumber, invoiceNumber) && !addType)
+                    && !InvoicesItemsManager.instance.isItemExists(itemNumber, this.invoiceNumber))
+                {
+                    if (deliveredQuantity <= DeliveryItemsManager.instance.getApprovedQuantity(deliveryItemID))
+                    {
+                        if (addType)
+                        {
+                            addSI.instance.addNewSI();
+                        }
+
+                        InvoicesItemsManager.instance.addData(this.invoiceNumber, deliveryItemID, customerOrderID, itemNumber, itemPrice, deliveredQuantity);
+                        InvoicesManager.instance.updatePrice(this.invoiceNumber, InvoicesItemsManager.instance.getTotalPrice(this.invoiceNumber));
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Quantity received must be greater than 0 and not greater than the delivered quantity for its related delivery receipt", "ERROR");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The item/invoice you're trying to add is invalid or already exists!", "ERROR");
+                }
             }
             else
             {
-                MessageBox.Show("The item you're trying to add already exists!", "ERROR");
-            }
-                       
-            this.Close();
+                MessageBox.Show("Delivered quantity must be greater than 0", "ERROR");
+            }        
         }
         #endregion
 

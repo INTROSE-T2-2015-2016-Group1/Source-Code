@@ -119,7 +119,6 @@ namespace introse_project.Libs
             }
 
             return value;
-
         }
 
         public bool pkExists(string cPONumber)
@@ -235,7 +234,35 @@ namespace introse_project.Libs
             {
                 connection.Close();
             }
+        }
 
+        public string getDateIssued(string customerPONumber)
+        {
+            string query = "SELECT dateIssued FROM customer_po WHERE customerPONumber = '" + customerPONumber + "'";
+            string value = "";
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                value = command.ExecuteScalar().ToString();
+
+                connection.Close();
+
+                return value;
+            }
+            catch
+            {
+                MessageBox.Show("Unable to retrieve date data", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return value;
         }
 
         public static CustomerPOManager instance

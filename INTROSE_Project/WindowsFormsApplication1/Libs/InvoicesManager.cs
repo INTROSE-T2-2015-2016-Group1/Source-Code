@@ -147,7 +147,32 @@ namespace introse_project.Libs
             }
 
             return false;
+        }
 
+        public void updatePrice(string invoiceNumber, int invoiceTotalPrice)
+        {
+            string query = "UPDATE invoices SET invoiceTotalPrice = @invoiceTotalPrice WHERE invoiceNumber = '" + invoiceNumber + "'";
+
+            MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["poConn"].ConnectionString);
+            MySqlCommand command = new MySqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                command.Parameters.AddWithValue("@invoiceTotalPrice", invoiceTotalPrice);
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message + "\nUnable to add inspection results", "ERROR");
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         public static InvoicesManager instance

@@ -54,11 +54,19 @@ namespace introse_project.sub_windows.Purchase_Order.Supplier
             {
                 if (dateIssuedCBox.Value.Date <= dateExpectedCBox.Value.Date)
                 {
-                    addSPOItems.instance.setAddType(true);
-                    addSPOItems.instance.setSupplierName(supplierNameCBox.Text);
-                    addSPOItems.instance.setPONumber(sPONumberTxtBox.Text, customerPONumberCBox.SelectedItem.ToString());
-                    addSPOItems.instance.ShowDialog();
-                    this.Close();
+                    if (dateIssuedCBox.Value.Date >= DateTime.ParseExact(CustomerPOManager.instance.getDateIssued(customerPONumberCBox.SelectedItem.ToString()), "M/d/yyyy", System.Globalization.CultureInfo.InvariantCulture).Date)
+                    {
+                       
+                        addSPOItems.instance.setAddType(true);
+                        addSPOItems.instance.setSupplierName(supplierNameCBox.Text);
+                        addSPOItems.instance.setPONumber(sPONumberTxtBox.Text, customerPONumberCBox.SelectedItem.ToString());
+                        addSPOItems.instance.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Date issued cannot be before the date issued of the related customer PO", "ERROR");
+                    }                   
                 }
                 else
                 {
